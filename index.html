@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Aravind — Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="portfolio.css"/>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+
+<!-- ── SENTINELOS CASE STUDY MODAL ── -->
+<div class="cs-overlay" id="cs-overlay" onclick="closeCaseStudy()"></div>
+<div class="cs-panel" id="cs-panel">
+  <div class="cs-topbar">
+    <span class="cs-topbar-label">Case Study — SentinelOS</span>
+    <button class="cs-close" onclick="closeCaseStudy()">✕ Close</button>
+  </div>
+  <div class="cs-hero">
+    <div class="cs-eyebrow">Self-initiated · Enterprise UX · 2026</div>
+    <h2 class="cs-title">SentinelOS</h2>
+    <p class="cs-subtitle">Designing an AI-Assisted Surveillance Intelligence Platform for High-Security Facilities — aerospace research campuses, semiconductor labs, data centres, and defence environments.</p>
+    <div class="cs-meta-row">
+      <div class="cs-meta-item"><span class="cs-meta-key">Role</span><span class="cs-meta-val">Product Designer (Solo)</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-key">Timeline</span><span class="cs-meta-val">5 Weeks</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-key">Type</span><span class="cs-meta-val">Concept / Self-initiated</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-key">Deliverable</span><span class="cs-meta-val">High-fidelity product concept</span></div>
+    </div>
+    <div class="cs-tags">
+      <span class="cs-tag">Enterprise UX</span>
+      <span class="cs-tag">AI-Assisted Workflows</span>
+      <span class="cs-tag">Dashboard Design</span>
+      <span class="cs-tag">Systems Thinking</span>
+      <span class="cs-tag">Information Architecture</span>
+      <span class="cs-tag">Design System</span>
+      <span class="cs-tag">UX Research</span>
+    </div>
+  </div>
+  <div class="cs-body">
+    <div class="cs-section" style="border-top:none;padding-top:36px;">
+      <div class="cs-dash-preview">
+        <div class="cs-dash-bar">
+          <div class="cs-dash-bar-dot r"></div><div class="cs-dash-bar-dot y"></div><div class="cs-dash-bar-dot g"></div>
+          <span class="cs-dash-title">SentinelOS — Live Monitoring · Facility A</span>
+        </div>
+        <div class="cs-dash-content">
+          <div class="cs-dash-row">
+            <div class="cs-dash-feed"><span class="cs-feed-alert">Zone A — Clear</span></div>
+            <div class="cs-dash-feed" style="border-color:rgba(177,39,4,0.4);"><span class="cs-feed-alert red">⚠ Restricted Zone B</span></div>
+            <div class="cs-dash-feed"><span class="cs-feed-alert">Entrance — Clear</span></div>
+            <div class="cs-dash-sidebar">
+              <div class="cs-alert-item active"><div class="cs-alert-dot"></div><div class="cs-alert-line w80 lime"></div><div class="cs-alert-line w60"></div></div>
+              <div class="cs-alert-item"><div class="cs-alert-dot"></div><div class="cs-alert-line w80"></div><div class="cs-alert-line w60"></div></div>
+              <div class="cs-alert-item"><div class="cs-alert-dot"></div><div class="cs-alert-line w80"></div><div class="cs-alert-line w60"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">The Problem</div>
+      <h3 class="cs-section-title">Sustained human attention is unreliable at scale.</h3>
+      <p class="cs-body-text">Traditional surveillance systems are largely <strong>passive</strong>. Operators continuously scan dozens of feeds, incidents are manually traced, and alerts are reactive. The result: monitoring fatigue, missed incidents, and slow response times — not from lack of infrastructure, but from <strong>cognitive overload.</strong></p>
+      <div class="cs-callout">"How might we help surveillance teams in high-security environments improve situational awareness and reduce monitoring fatigue — without replacing human operators?"</div>
+      <p class="cs-body-text">Most existing systems respond by adding more screens, more operators, more alerts. That creates noise, not intelligence. SentinelOS took a different direction entirely.</p>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">Research Insights</div>
+      <h3 class="cs-section-title">Four findings that shaped the product.</h3>
+      <div class="cs-card-grid">
+        <div class="cs-card"><div class="cs-card-num">01</div><div class="cs-card-title">Fatigue is the real failure mode</div><div class="cs-card-desc">Operators monitoring multiple feeds continuously experience reduced attention, slower detection, and alert desensitization — not equipment failure.</div></div>
+        <div class="cs-card"><div class="cs-card-num">02</div><div class="cs-card-title">Systems prioritize recording, not intelligence</div><div class="cs-card-desc">Most platforms are designed for storing footage and reviewing incidents after the fact. Almost none actively help operators prioritize attention in real time.</div></div>
+        <div class="cs-card"><div class="cs-card-num">03</div><div class="cs-card-title">Alert volume destroys trust</div><div class="cs-card-desc">When every alert appears critical, operators learn to ignore them. Signal-to-noise ratio becomes the core UX problem — not information availability.</div></div>
+        <div class="cs-card"><div class="cs-card-num">04</div><div class="cs-card-title">AI works best as an assistant</div><div class="cs-card-desc">Operators in high-security environments trust systems more when they remain in control of final decisions. Human-in-the-loop is not a limitation — it's a design requirement.</div></div>
+      </div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">The Strategic Shift</div>
+      <h3 class="cs-section-title">Not automation. Augmentation.</h3>
+      <p class="cs-body-text">Most AI surveillance conversations default to automation. But high-security environments rarely trust fully autonomous systems — <strong>human verification remains critical.</strong></p>
+      <div class="cs-callout">Instead of designing "an AI that replaces surveillance personnel" — I designed "an assistive intelligence layer that helps operators make faster and more informed decisions."</div>
+      <p class="cs-body-text">This distinction became foundational to every product decision — from alert hierarchy to AI transparency to the visual language itself. Early explorations were dark, aggressive, alert-heavy. They increased cognitive stress. The final direction shifted toward <strong>calmer enterprise visuals, controlled visual urgency, and focused attention prioritization.</strong></p>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">Design Principles</div>
+      <h3 class="cs-section-title">Four principles, every decision.</h3>
+      <table class="cs-table">
+        <thead><tr><th>Principle</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>Assistive Intelligence</td><td>Support humans, never replace them</td></tr>
+          <tr><td>Attention Prioritization</td><td>Surface only operationally important events</td></tr>
+          <tr><td>Operational Clarity</td><td>Reduce monitoring complexity, not just visual density</td></tr>
+          <tr><td>Transparent AI</td><td>Expose confidence levels and reasoning to improve trust</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">Information Architecture</div>
+      <h3 class="cs-section-title">Five modules, separated by intent.</h3>
+      <p class="cs-body-text">The architecture intentionally separated live monitoring, investigation workflows, and analytics — to prevent dashboard overload and let each operator mode maintain focus.</p>
+      <table class="cs-table">
+        <thead><tr><th>Module</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>Live Monitoring</td><td>Real-time surveillance overview with AI priority surfacing</td></tr>
+          <tr><td>Incident Intelligence</td><td>AI-assisted anomaly tracking and cross-camera investigation</td></tr>
+          <tr><td>Restricted Access</td><td>Zone-level access visibility and unauthorized movement detection</td></tr>
+          <tr><td>Operational Analytics</td><td>Occupancy trends, movement density, restricted-zone heatmaps</td></tr>
+          <tr><td>Security Administration</td><td>Permissions management and escalation workflows</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">Key Features</div>
+      <h3 class="cs-section-title">What the system actually does.</h3>
+      <div class="cs-feature"><span class="cs-feature-num">01</span><div><div class="cs-feature-title">AI-Assisted Event Prioritization</div><div class="cs-feature-desc">Instead of forcing operators to monitor every feed equally, the system identifies unusual movement patterns, unauthorized zone access, prolonged restricted-area presence, and suspicious activity clusters — helping operators focus where it matters most, not everywhere at once.</div></div></div>
+      <div class="cs-feature"><span class="cs-feature-num">02</span><div><div class="cs-feature-title">Smart Incident Timeline</div><div class="cs-feature-desc">AI-generated movement timelines, cross-camera subject tracking, and chronological incident summaries replace the historically manual process of tracing events across multiple feeds — significantly reducing investigation effort.</div></div></div>
+      <div class="cs-feature"><span class="cs-feature-num">03</span><div><div class="cs-feature-title">Multi-Level Restricted Access Monitoring</div><div class="cs-feature-desc">High-security facilities contain restricted labs, server rooms, and authorization-based movement areas. The platform monitors access attempts, unauthorized movement, and unusual zone transitions with clear contextual signals.</div></div></div>
+      <div class="cs-feature"><span class="cs-feature-num">04</span><div><div class="cs-feature-title">Transparent AI Reasoning</div><div class="cs-feature-desc">Confidence indicators, alert reasoning, and detection sources are intentionally exposed. Example: "Unusual activity detected due to prolonged stationary presence in Restricted Zone B." This improved operator trust and verification confidence significantly.</div></div></div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">Outcomes</div>
+      <h3 class="cs-section-title">What this project proved.</h3>
+      <div class="cs-outcomes">
+        <div class="cs-outcome"><div class="cs-outcome-val">5</div><div class="cs-outcome-label">Core modules designed end-to-end</div></div>
+        <div class="cs-outcome"><div class="cs-outcome-val">4</div><div class="cs-outcome-label">Design principles held across every screen</div></div>
+        <div class="cs-outcome"><div class="cs-outcome-val">1</div><div class="cs-outcome-label">Modular enterprise design system created</div></div>
+      </div>
+      <p class="cs-body-text">The final outcome was a complete high-fidelity enterprise product concept — demonstrating AI-assisted surveillance workflows, operational intelligence systems, alert prioritization, and human-in-the-loop AI at scale.</p>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">Key Learnings</div>
+      <h3 class="cs-section-title">What this reinforced.</h3>
+      <div class="cs-callout" style="font-style:normal;"><strong style="color:var(--lime);">AI works best when it augments human capability rather than replacing it.</strong><br><br>Enterprise systems should optimize attention, not just information density. Trust in AI increases significantly when uncertainty and reasoning are made visible. Good surveillance UX is less about monitoring everything — and more about helping users identify what actually matters.</div>
+      <p class="cs-body-text" style="margin-top:20px;">This project allowed me to explore enterprise-scale systems thinking, operational UX, high-density dashboard design, and the ethical implications of AI in surveillance — all within a single, self-directed brief.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── KEKA SYNC TOOL CASE STUDY MODAL ── -->
+<div class="cs-overlay" id="keka-overlay" onclick="closeKekaCaseStudy()"></div>
+<div class="cs-panel" id="keka-panel">
+  <div class="cs-topbar">
+    <span class="cs-topbar-label">Case Study — Keka Sync Tool</span>
+    <button class="cs-close" onclick="closeKekaCaseStudy()">✕ Close</button>
+  </div>
+  <div class="cs-hero">
+    <div class="cs-eyebrow">Keka · Enterprise Product · 2026</div>
+    <h2 class="cs-title">Keka Sync Tool</h2>
+    <p class="cs-subtitle">Designing an Enterprise Workforce Attendance Synchronization Platform — a Windows-based infrastructure layer between biometric hardware and attendance management systems across distributed office environments.</p>
+    <div class="cs-meta-row">
+      <div class="cs-meta-item"><span class="cs-meta-key">Role</span><span class="cs-meta-val">Product Designer</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-key">Timeline</span><span class="cs-meta-val">1 Week</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-key">Platform</span><span class="cs-meta-val">Windows (Desktop App)</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-key">Constraint</span><span class="cs-meta-val">Existing Keka component system</span></div>
+    </div>
+    <div class="cs-tags">
+      <span class="cs-tag">Enterprise UX</span>
+      <span class="cs-tag">Operational Dashboard</span>
+      <span class="cs-tag">Device Management</span>
+      <span class="cs-tag">Sync Monitoring</span>
+      <span class="cs-tag">Information Architecture</span>
+      <span class="cs-tag">Windows App</span>
+      <span class="cs-tag">Workflow Design</span>
+    </div>
+  </div>
+  <div class="cs-body">
+    <div class="cs-section" style="border-top:none;padding-top:36px;">
+      <div class="cs-dash-preview">
+        <div class="cs-dash-bar">
+          <div class="cs-dash-bar-dot r"></div><div class="cs-dash-bar-dot y"></div><div class="cs-dash-bar-dot g"></div>
+          <span class="cs-dash-title">Keka Sync Tool — Device Management · All Locations</span>
+        </div>
+        <div class="cs-dash-content">
+          <div style="display:flex;gap:12px;">
+            <div style="flex:1;display:flex;flex-direction:column;gap:7px;">
+              <div style="background:rgba(232,255,107,0.06);border:1px solid rgba(232,255,107,0.2);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px;">
+                <div style="width:7px;height:7px;border-radius:50%;background:#28C840;flex-shrink:0;"></div>
+                <div style="flex:1;"><div style="height:6px;background:rgba(255,255,255,0.15);border-radius:2px;width:70%;margin-bottom:4px;"></div><div style="height:4px;background:rgba(232,255,107,0.2);border-radius:2px;width:40%;"></div></div>
+                <div style="height:5px;background:rgba(232,255,107,0.15);border-radius:999px;width:32px;"></div>
+              </div>
+              <div style="background:var(--stone-900);border:1px solid var(--stone-800);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px;">
+                <div style="width:7px;height:7px;border-radius:50%;background:#28C840;flex-shrink:0;"></div>
+                <div style="flex:1;"><div style="height:6px;background:rgba(255,255,255,0.08);border-radius:2px;width:60%;margin-bottom:4px;"></div><div style="height:4px;background:rgba(255,255,255,0.05);border-radius:2px;width:35%;"></div></div>
+                <div style="height:5px;background:rgba(255,255,255,0.06);border-radius:999px;width:32px;"></div>
+              </div>
+              <div style="background:var(--stone-900);border:1px solid rgba(177,39,4,0.35);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px;">
+                <div style="width:7px;height:7px;border-radius:50%;background:#FF5F57;flex-shrink:0;"></div>
+                <div style="flex:1;"><div style="height:6px;background:rgba(255,255,255,0.08);border-radius:2px;width:55%;margin-bottom:4px;"></div><div style="height:4px;background:rgba(218,91,58,0.2);border-radius:2px;width:45%;"></div></div>
+                <div style="height:5px;background:rgba(218,91,58,0.15);border-radius:999px;width:32px;"></div>
+              </div>
+            </div>
+            <div style="flex:1;background:var(--stone-900);border:1px solid var(--stone-800);border-radius:8px;padding:14px;">
+              <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:2px;width:50%;margin-bottom:10px;"></div>
+              <div style="height:4px;background:var(--stone-800);border-radius:999px;overflow:hidden;margin-bottom:8px;"><div style="height:100%;width:68%;background:linear-gradient(90deg,rgba(232,255,107,0.4),rgba(232,255,107,0.7));border-radius:999px;"></div></div>
+              <div style="display:flex;gap:6px;">
+                <div style="flex:1;height:28px;background:rgba(40,200,64,0.08);border:1px solid rgba(40,200,64,0.15);border-radius:5px;"></div>
+                <div style="flex:1;height:28px;background:rgba(218,91,58,0.06);border:1px solid rgba(218,91,58,0.12);border-radius:5px;"></div>
+                <div style="flex:1;height:28px;background:rgba(255,255,255,0.03);border:1px solid var(--stone-800);border-radius:5px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">The Context</div>
+      <h3 class="cs-section-title">When scale breaks attendance infrastructure.</h3>
+      <p class="cs-body-text">Large organizations operating across multiple offices, campuses, and floors rely on biometric devices to capture attendance. But at scale — thousands of employees, multiple locations, peak traffic — the challenge shifts from <strong>capturing attendance to maintaining reliable synchronization.</strong></p>
+      <p class="cs-body-text">Logs arrive with delays. Records become inconsistent. Devices go offline. Admins struggle to identify failures quickly. The Keka Sync Tool was designed as the infrastructure layer between biometric hardware and the attendance management ecosystem.</p>
+      <div class="cs-callout">"How might we help enterprise admins manage and synchronize biometric attendance systems reliably across multiple locations and high-traffic environments — while reducing operational complexity?"</div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">Core Realization</div>
+      <h3 class="cs-section-title">Not a hardware problem. An operational workflow problem.</h3>
+      <p class="cs-body-text">One of the most important early discoveries: organizations had wildly different attendance setups based on office layout, employee volume, and hardware constraints.</p>
+      <div class="cs-card-grid">
+        <div class="cs-card"><div class="cs-card-num">Setup A</div><div class="cs-card-title">Single Device</div><div class="cs-card-desc">One biometric device handles both clock-in and clock-out using punch sequence and timing logic. Simpler but creates congestion at scale.</div></div>
+        <div class="cs-card"><div class="cs-card-num">Setup B</div><div class="cs-card-title">Dual Device</div><div class="cs-card-desc">Dedicated devices for clock-in and clock-out. Reduces congestion but introduces mapping complexity, synchronization dependency, and device-role management challenges.</div></div>
+      </div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">Research Insights</div>
+      <h3 class="cs-section-title">Three findings that shaped the UX direction.</h3>
+      <div class="cs-feature"><span class="cs-feature-num">01</span><div><div class="cs-feature-title">Admins needed visibility, not more control</div><div class="cs-feature-desc">Existing tools exposed raw logs and server-level information. But admins primarily wanted simple answers: Which device is offline? Is syncing working? Which location has delayed records? This shifted focus from technical density to operational clarity.</div></div></div>
+      <div class="cs-feature"><span class="cs-feature-num">02</span><div><div class="cs-feature-title">High traffic created synchronization anxiety</div><div class="cs-feature-desc">During peak hours, thousands of records could arrive within minutes. Admins couldn't distinguish a processing queue from an actual failure. Communicating sync health vs. sync failure became a critical UX problem.</div></div></div>
+      <div class="cs-feature"><span class="cs-feature-num">03</span><div><div class="cs-feature-title">Device mapping was more complex than expected</div><div class="cs-feature-desc">Different organizations had different office structures, device setups, and attendance workflows. Admins needed flexibility to map devices to locations and assign clock-in/out behavior — without requiring deep technical expertise.</div></div></div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">User Context</div>
+      <h3 class="cs-section-title">Designing for operational and technical users.</h3>
+      <p class="cs-body-text">Unlike consumer products, the Keka Sync Tool was designed specifically for <strong>internal operational teams</strong> responsible for configuring biometric devices, monitoring synchronization health, troubleshooting connectivity issues, and managing attendance infrastructure across multiple client locations.</p>
+      <div class="cs-callout">The challenge was not: "How do we simplify everything?" — It was: "How do we preserve operational depth while improving clarity, speed, and efficiency?"</div>
+      <p class="cs-body-text">Working closely with the internal sync operations team, I learned how real-world attendance infrastructure behaves beyond UI requirements. <strong>Technical users don't want oversimplified systems — they want systems that help them operate faster with better visibility and fewer interruptions.</strong></p>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">Core Experience Areas</div>
+      <h3 class="cs-section-title">Four areas, one coherent system.</h3>
+      <table class="cs-table">
+        <thead><tr><th>Area</th><th>What it solved</th></tr></thead>
+        <tbody>
+          <tr><td>Centralized Device Management</td><td>Register devices, map to offices, configure clock-in/out behavior — single and dual device models supported</td></tr>
+          <tr><td>Synchronization Monitoring</td><td>Structured status indicators, readable alerts, operational summaries — not raw technical logs</td></tr>
+          <tr><td>Log Ordering & Record Integrity</td><td>Maintained proper attendance sequence during high traffic, simultaneous punches, and network instability</td></tr>
+          <tr><td>Location & Office Mapping</td><td>Office-level device distribution, infrastructure health by location, scalable hierarchy management</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">Critical UX Decision</div>
+      <h3 class="cs-section-title">Reducing panic during delays.</h3>
+      <p class="cs-body-text">Early concepts surfaced aggressive warnings and constant alerts during peak sync traffic — making temporary queue buildup look like system failure.</p>
+      <div class="cs-card-grid">
+        <div class="cs-card" style="border-color:rgba(218,91,58,0.2);background:rgba(177,39,4,0.04);"><div class="cs-card-num" style="color:#DA5B3A;">Before</div><div class="cs-card-title">Alert-heavy, error-first</div><div class="cs-card-desc">Every queue delay triggered visible warnings. Admins couldn't distinguish temporary sync latency from actual infrastructure failure. Panic was routine.</div></div>
+        <div class="cs-card" style="border-color:rgba(232,255,107,0.2);background:rgba(232,255,107,0.03);"><div class="cs-card-num">After</div><div class="cs-card-title">Progressive, contextual clarity</div><div class="cs-card-desc">Differentiated temporary delay vs. actual failure. Queue progress shown visually. System recovery status communicated clearly. Unnecessary escalation eliminated.</div></div>
+      </div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">Constraints & Execution</div>
+      <h3 class="cs-section-title">One week. Existing components. Smarter decisions.</h3>
+      <p class="cs-body-text">The project was designed and delivered within <strong>one week</strong>, using Keka's existing design components — maintaining consistency with the broader Keka ecosystem and accelerating implementation speed.</p>
+      <div class="cs-callout">Good enterprise design is not always about introducing new UI patterns — sometimes it is about making smarter decisions within operational and technical constraints.</div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">Outcomes</div>
+      <h3 class="cs-section-title">What the project delivered.</h3>
+      <div class="cs-outcomes">
+        <div class="cs-outcome"><div class="cs-outcome-val">4</div><div class="cs-outcome-label">Core experience areas designed</div></div>
+        <div class="cs-outcome"><div class="cs-outcome-val">1wk</div><div class="cs-outcome-label">Full delivery timeline</div></div>
+        <div class="cs-outcome"><div class="cs-outcome-val">2×</div><div class="cs-outcome-label">Device setups supported</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-dot"></div>
+    Aravind
+  </a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Hire me <span>→</span></a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-bg-number">07</div>
+  <div class="hero-eyebrow reveal">Product Designer · Visakhapatnam</div>
+  <h1 class="hero-headline reveal reveal-delay-1">
+    Design that<br><span class="lime">hits</span> different<span class="italic">.</span>
+  </h1>
+  <div class="hero-bottom">
+    <p class="hero-desc reveal reveal-delay-2">
+      I craft <strong>interfaces that reduce friction</strong> and build trust — for SaaS products, design systems, and everything in between. Currently open for freelance work.
+    </p>
+    <div class="hero-actions reveal reveal-delay-3">
+      <a href="#work" class="btn-primary">See the work →</a>
+      <a href="#contact" class="btn-ghost">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">UI Design <span class="sep">✦</span></span>
+    <span class="marquee-item">UX Research <span class="sep">✦</span></span>
+    <span class="marquee-item">Design Systems <span class="sep">✦</span></span>
+    <span class="marquee-item">Figma <span class="sep">✦</span></span>
+    <span class="marquee-item">Prototyping <span class="sep">✦</span></span>
+    <span class="marquee-item">Web Design <span class="sep">✦</span></span>
+    <span class="marquee-item">Component Libraries <span class="sep">✦</span></span>
+    <span class="marquee-item">User Flows <span class="sep">✦</span></span>
+    <span class="marquee-item">UI Design <span class="sep">✦</span></span>
+    <span class="marquee-item">UX Research <span class="sep">✦</span></span>
+    <span class="marquee-item">Design Systems <span class="sep">✦</span></span>
+    <span class="marquee-item">Figma <span class="sep">✦</span></span>
+    <span class="marquee-item">Prototyping <span class="sep">✦</span></span>
+    <span class="marquee-item">Web Design <span class="sep">✦</span></span>
+    <span class="marquee-item">Component Libraries <span class="sep">✦</span></span>
+    <span class="marquee-item">User Flows <span class="sep">✦</span></span>
+  </div>
+</div>
+
+<!-- ── STATS ── -->
+<div class="stats-strip reveal">
+  <div class="stat-item"><div class="stat-number">24+</div><div class="stat-label">Projects shipped</div></div>
+  <div class="stat-item"><div class="stat-number">5</div><div class="stat-label">Years designing</div></div>
+  <div class="stat-item"><div class="stat-number">12</div><div class="stat-label">Happy clients</div></div>
+  <div class="stat-item"><div class="stat-number">3</div><div class="stat-label">Design systems built</div></div>
+</div>
+
+<!-- ── WORK ── -->
+<section id="work">
+  <div class="work-header">
+    <div class="work-header-text">
+      <div class="section-label reveal">Selected work</div>
+      <h2 class="section-title reveal reveal-delay-1">The portfolio.</h2>
+    </div>
+    <div class="work-filter reveal">
+      <button class="filter-chip active">All</button>
+      <button class="filter-chip">UI Design</button>
+      <button class="filter-chip">Systems</button>
+      <button class="filter-chip">UX</button>
+    </div>
+  </div>
+
+  <div class="work-grid">
+
+    <!-- Card 1 — SentinelOS (Large) -->
+    <div class="project-card card-lg reveal" id="card-sentinel" onclick="openCaseStudy()" style="cursor:none;">
+      <div class="project-img">
+        <div class="project-img-bg bg-a">
+          <div class="mock-ui">
+            <div class="mock-bar">
+              <div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div>
+              <span style="font-family:var(--font-mono);font-size:9px;color:var(--stone-600);margin-left:8px;letter-spacing:0.06em;">SentinelOS v2.1</span>
+            </div>
+            <div class="mock-content">
+              <div style="display:flex;gap:8px;flex:1">
+                <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+                  <div style="display:flex;gap:6px;flex:1">
+                    <div style="flex:1;background:var(--stone-900);border-radius:6px;border:1px solid var(--stone-800);position:relative;overflow:hidden;min-height:40px;">
+                      <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:12px 12px;"></div>
+                      <div style="position:absolute;bottom:4px;left:4px;background:rgba(232,255,107,0.15);border:1px solid rgba(232,255,107,0.4);border-radius:3px;padding:2px 6px;font-family:var(--font-mono);font-size:8px;color:var(--lime);">ZONE A</div>
+                    </div>
+                    <div style="flex:1;background:var(--stone-900);border-radius:6px;border:1px solid rgba(177,39,4,0.4);position:relative;overflow:hidden;min-height:40px;">
+                      <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:12px 12px;"></div>
+                      <div style="position:absolute;bottom:4px;left:4px;background:rgba(177,39,4,0.2);border:1px solid rgba(218,91,58,0.5);border-radius:3px;padding:2px 6px;font-family:var(--font-mono);font-size:8px;color:#DA5B3A;">ALERT</div>
+                    </div>
+                  </div>
+                  <div class="mock-row highlight" style="margin:0"></div>
+                  <div class="mock-row short" style="margin:0"></div>
+                </div>
+                <div style="width:60px;display:flex;flex-direction:column;gap:5px;">
+                  <div style="background:rgba(232,255,107,0.08);border:1px solid rgba(232,255,107,0.25);border-radius:5px;padding:5px;">
+                    <div style="width:5px;height:5px;border-radius:50%;background:var(--lime);margin-bottom:4px;"></div>
+                    <div style="height:5px;background:rgba(255,255,255,0.08);border-radius:2px;margin-bottom:3px;"></div>
+                    <div style="height:5px;background:rgba(255,255,255,0.05);border-radius:2px;width:70%;"></div>
+                  </div>
+                  <div style="background:var(--stone-900);border:1px solid var(--stone-800);border-radius:5px;padding:5px;">
+                    <div style="width:5px;height:5px;border-radius:50%;background:var(--stone-600);margin-bottom:4px;"></div>
+                    <div style="height:5px;background:rgba(255,255,255,0.06);border-radius:2px;margin-bottom:3px;"></div>
+                    <div style="height:5px;background:rgba(255,255,255,0.04);border-radius:2px;width:60%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-text">SO</div>
+        </div>
+        <div class="project-img-overlay"></div>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="project-tag">Enterprise UX</span>
+          <span class="project-tag">AI-Assisted</span>
+          <span class="project-tag">Dashboard</span>
+          <span class="project-tag">Self-initiated</span>
+        </div>
+        <div class="project-title">SentinelOS — Surveillance Intelligence Platform</div>
+        <div class="project-desc">AI-assisted surveillance intelligence for high-security facilities. Reduces monitoring fatigue, surfaces priority events, keeps humans in the loop.</div>
+        <div class="project-footer">
+          <span class="project-year">2026 · 5 weeks</span>
+          <span class="project-arrow" style="display:flex;align-items:center;gap:6px;font-size:13px;font-family:var(--font-display);font-weight:600;color:var(--lime);">Read case study ↗</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 — Design System (Small) -->
+    <div class="project-card card-sm reveal reveal-delay-1">
+      <div class="project-img">
+        <div class="project-img-bg" style="background:linear-gradient(135deg,#12101a 0%,#1a1628 100%);">
+          <div class="mock-ui">
+            <div class="mock-bar">
+              <div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div>
+              <span style="font-family:var(--font-mono);font-size:9px;color:var(--stone-600);margin-left:8px;letter-spacing:0.06em;">Aravind DS — Tokens</span>
+            </div>
+            <div class="mock-content" style="gap:6px;">
+              <div style="display:flex;gap:3px;height:12px;">
+                <div style="flex:1;border-radius:2px;background:#1C1917;"></div>
+                <div style="flex:1;border-radius:2px;background:#44403C;"></div>
+                <div style="flex:1;border-radius:2px;background:#78716C;"></div>
+                <div style="flex:1;border-radius:2px;background:#A8A29E;"></div>
+                <div style="flex:1;border-radius:2px;background:#E8FF6B;"></div>
+                <div style="flex:1;border-radius:2px;background:#0891B2;"></div>
+                <div style="flex:1;border-radius:2px;background:#067D62;"></div>
+                <div style="flex:1;border-radius:2px;background:#B12704;"></div>
+              </div>
+              <div style="display:flex;gap:6px;align-items:center;">
+                <div style="height:5px;background:rgba(232,255,107,0.4);border-radius:2px;width:70px;flex-shrink:0;"></div>
+                <div style="height:5px;background:rgba(255,255,255,0.06);border-radius:2px;flex:1;"></div>
+              </div>
+              <div style="display:flex;gap:6px;align-items:center;">
+                <div style="height:5px;background:rgba(8,145,178,0.4);border-radius:2px;width:55px;flex-shrink:0;"></div>
+                <div style="height:5px;background:rgba(255,255,255,0.06);border-radius:2px;flex:1;"></div>
+              </div>
+              <div style="display:flex;gap:6px;margin-top:4px;">
+                <div style="background:#E8FF6B;border-radius:999px;padding:4px 10px;"><div style="height:4px;background:rgba(0,0,0,0.3);border-radius:2px;width:28px;"></div></div>
+                <div style="border:1px solid rgba(255,255,255,0.1);border-radius:999px;padding:4px 10px;"><div style="height:4px;background:rgba(255,255,255,0.1);border-radius:2px;width:24px;"></div></div>
+                <div style="background:rgba(232,255,107,0.1);border:1px solid rgba(232,255,107,0.25);border-radius:999px;padding:4px 10px;"><div style="height:4px;background:rgba(232,255,107,0.3);border-radius:2px;width:20px;"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-text">DS</div>
+        </div>
+        <div class="project-img-overlay"></div>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="project-tag">Design System</span>
+          <span class="project-tag">Tokens</span>
+          <span class="project-tag">Figma</span>
+          <span class="project-tag">React</span>
+        </div>
+        <div class="project-title">Personal Design System — Dual Theme</div>
+        <div class="project-desc">Stone + Cyan + Electric Lime. Two themes, one token architecture. W3C DTCG format, Figma variables ready.</div>
+        <div class="project-footer">
+          <span class="project-year">2026</span>
+          <span class="project-arrow">↗</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 — Keka Sync Tool (Full width) -->
+    <div class="project-card card-full reveal reveal-delay-1" onclick="openKekaCaseStudy()" style="cursor:none;margin-top:2px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;min-height:220px;">
+        <div class="project-img" style="aspect-ratio:unset;min-height:220px;">
+          <div class="project-img-bg" style="background:linear-gradient(135deg,#0e1a14 0%,#162110 100%);height:100%;">
+            <div class="mock-ui" style="inset:16px 16px 0;">
+              <div class="mock-bar">
+                <div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div>
+                <span style="font-family:var(--font-mono);font-size:9px;color:var(--stone-600);margin-left:8px;letter-spacing:0.06em;">Keka Sync Tool — Device Monitor</span>
+              </div>
+              <div class="mock-content" style="flex-direction:row;gap:10px;">
+                <div style="width:100px;display:flex;flex-direction:column;gap:5px;flex-shrink:0;">
+                  <div style="background:rgba(232,255,107,0.07);border:1px solid rgba(232,255,107,0.2);border-radius:5px;padding:7px 8px;">
+                    <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px;"><div style="width:5px;height:5px;border-radius:50%;background:#28C840;flex-shrink:0;"></div><div style="height:5px;background:rgba(255,255,255,0.15);border-radius:2px;flex:1;"></div></div>
+                    <div style="height:4px;background:rgba(255,255,255,0.06);border-radius:2px;width:80%;"></div>
+                  </div>
+                  <div style="background:var(--stone-900);border:1px solid var(--stone-800);border-radius:5px;padding:7px 8px;">
+                    <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px;"><div style="width:5px;height:5px;border-radius:50%;background:#28C840;flex-shrink:0;"></div><div style="height:5px;background:rgba(255,255,255,0.08);border-radius:2px;flex:1;"></div></div>
+                    <div style="height:4px;background:rgba(255,255,255,0.05);border-radius:2px;width:65%;"></div>
+                  </div>
+                  <div style="background:var(--stone-900);border:1px solid rgba(177,39,4,0.35);border-radius:5px;padding:7px 8px;">
+                    <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px;"><div style="width:5px;height:5px;border-radius:50%;background:#FF5F57;flex-shrink:0;"></div><div style="height:5px;background:rgba(255,255,255,0.08);border-radius:2px;flex:1;"></div></div>
+                    <div style="height:4px;background:rgba(255,255,255,0.05);border-radius:2px;width:50%;"></div>
+                  </div>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;gap:8px;">
+                  <div style="background:var(--stone-900);border:1px solid var(--stone-800);border-radius:6px;padding:10px;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                      <div style="height:6px;background:rgba(255,255,255,0.1);border-radius:2px;width:60%;"></div>
+                      <div style="height:5px;background:rgba(232,255,107,0.3);border-radius:2px;width:20%;"></div>
+                    </div>
+                    <div style="height:4px;background:var(--stone-800);border-radius:999px;overflow:hidden;">
+                      <div style="height:100%;width:72%;background:linear-gradient(90deg,rgba(232,255,107,0.5),rgba(232,255,107,0.8));border-radius:999px;"></div>
+                    </div>
+                  </div>
+                  <div style="display:flex;gap:6px;flex:1;">
+                    <div style="flex:1;background:var(--stone-900);border:1px solid var(--stone-800);border-radius:6px;padding:8px;"><div style="height:5px;background:rgba(40,200,64,0.2);border-radius:2px;width:50%;margin-bottom:5px;"></div><div style="height:14px;background:rgba(255,255,255,0.06);border-radius:3px;"></div></div>
+                    <div style="flex:1;background:var(--stone-900);border:1px solid rgba(177,39,4,0.2);border-radius:6px;padding:8px;"><div style="height:5px;background:rgba(218,91,58,0.25);border-radius:2px;width:60%;margin-bottom:5px;"></div><div style="height:14px;background:rgba(255,255,255,0.04);border-radius:3px;"></div></div>
+                    <div style="flex:1;background:var(--stone-900);border:1px solid var(--stone-800);border-radius:6px;padding:8px;"><div style="height:5px;background:rgba(255,255,255,0.06);border-radius:2px;width:45%;margin-bottom:5px;"></div><div style="height:14px;background:rgba(255,255,255,0.04);border-radius:3px;"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bg-text" style="font-size:90px;">KS</div>
+          </div>
+          <div class="project-img-overlay"></div>
+        </div>
+        <div class="project-body" style="display:flex;flex-direction:column;justify-content:flex-end;padding:32px 36px;">
+          <div class="project-tags">
+            <span class="project-tag">Enterprise UX</span>
+            <span class="project-tag">Windows App</span>
+            <span class="project-tag">Ops Dashboard</span>
+            <span class="project-tag">Keka</span>
+          </div>
+          <div class="project-title" style="font-size:24px;">Keka Sync Tool — Attendance Synchronization Platform</div>
+          <div class="project-desc">Windows-based enterprise tool for managing biometric devices and synchronizing attendance logs across distributed office environments. Designed for operational clarity over technical density.</div>
+          <div class="project-footer">
+            <span class="project-year">2026 · 1 week</span>
+            <span class="project-arrow" style="display:flex;align-items:center;gap:6px;font-size:13px;font-family:var(--font-display);font-weight:600;color:var(--lime);">Read case study ↗</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about" style="background:var(--surface-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="about-grid">
+    <div class="about-left">
+      <div class="section-label reveal">About</div>
+      <h2 class="section-title reveal reveal-delay-1">Designer who<br>speaks <span style="color:var(--lime)">both</span> sides.</h2>
+      <p class="about-body reveal reveal-delay-2">Based in Visakhapatnam, I work at the edge of <strong>design and code</strong> — fluent enough in both to move fast and ship things that actually work.</p>
+      <p class="about-body reveal reveal-delay-2">I've built design systems from scratch, run user research, and delivered polished UI for clients across India and internationally. I care about <strong>craft, clarity, and the details that most people skip.</strong></p>
+      <div class="skills-list reveal reveal-delay-3">
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Design Systems</span>
+        <span class="skill-tag">Tailwind CSS</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Framer</span>
+        <span class="skill-tag">Webflow</span>
+        <span class="skill-tag">UX Research</span>
+        <span class="skill-tag">Prototyping</span>
+        <span class="skill-tag">Motion Design</span>
+        <span class="skill-tag">HTML / CSS</span>
+        <span class="skill-tag">MCP / AI Tooling</span>
+      </div>
+    </div>
+    <div class="about-right" id="process">
+      <div class="section-label reveal" style="margin-bottom:24px;">Process</div>
+      <div class="process-step reveal reveal-delay-1">
+        <span class="step-num">01</span>
+        <div><div class="step-title">Understand first</div><div class="step-desc">Every project starts with research — user interviews, heuristic audits, or competitive benchmarking. I don't open Figma until I know the problem.</div></div>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <span class="step-num">02</span>
+        <div><div class="step-title">Structure the logic</div><div class="step-desc">Information architecture, user flows, content hierarchy. The invisible work that makes the visible work feel obvious.</div></div>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <span class="step-num">03</span>
+        <div><div class="step-title">Design with intent</div><div class="step-desc">High-fidelity UI built on a proper token foundation. Every decision is defensible — nothing is decorative without reason.</div></div>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <span class="step-num">04</span>
+        <div><div class="step-title">Ship and iterate</div><div class="step-desc">I write handoff-ready specs and can prototype in code. I stay engaged through implementation — not just until delivery.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section>
+  <div class="section-label reveal">What clients say</div>
+  <h2 class="section-title reveal reveal-delay-1">Real feedback,<br>real work.</h2>
+  <div class="testimonials-track">
+    <div class="testimonial-card reveal reveal-delay-1">
+      <p class="testimonial-quote">Aravind has a rare ability to translate complex product requirements into UI that just feels right. Delivered a full design system in 3 weeks — better than I'd hoped.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">RK</div>
+        <div class="author-info"><div class="author-name">Rahul K.</div><div class="author-role">CEO · Strata Platforms</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <p class="testimonial-quote">Sharp eye, fast turnaround, great communication. He understood our users better than most full-time designers we've worked with. Will hire again.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">MP</div>
+        <div class="author-info"><div class="author-name">Maya P.</div><div class="author-role">Head of Product · Fintech startup</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-3">
+      <p class="testimonial-quote">Not just a designer — someone who thinks in systems. The token architecture he built made our developer handoff almost friction-free.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">SJ</div>
+        <div class="author-info"><div class="author-name">Siddharth J.</div><div class="author-role">CTO · SaaS platform</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="section-label reveal">Contact</div>
+    <h2 class="contact-title reveal reveal-delay-1">Got a project?<br>Let's <span class="lime">make it.</span></h2>
+    <p class="contact-desc reveal reveal-delay-2">Open for freelance UI/UX design, design systems, and web design work. Currently available for new projects.</p>
+    <div class="contact-actions reveal reveal-delay-3">
+      <a href="mailto:hello@aravind.design" class="btn-primary">Send a message →</a>
+      <a href="#" class="btn-ghost">Download CV</a>
+    </div>
+    <div class="contact-links reveal reveal-delay-4">
+      <a href="#" class="contact-link">LinkedIn</a>
+      <a href="#" class="contact-link">Dribbble</a>
+      <a href="#" class="contact-link">Twitter/X</a>
+      <a href="#" class="contact-link">Behance</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-brand"><div class="dot"></div>Aravind</div>
+  <div class="footer-meta">© 2026 · Built with the Funky theme · v1.0</div>
+  <div class="footer-links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+const cursor = document.getElementById('cursor');
+let mx = 0, my = 0, cx = 0, cy = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+function animCursor() {
+  cx += (mx - cx) * 0.18; cy += (my - cy) * 0.18;
+  cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px';
+  requestAnimationFrame(animCursor);
+}
+animCursor();
+document.querySelectorAll('a, button, .project-card, .testimonial-card, .stat-item, .skill-tag, .filter-chip').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('expanded'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('expanded'));
+});
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+reveals.forEach(el => io.observe(el));
+document.querySelectorAll('.filter-chip').forEach(chip => {
+  chip.addEventListener('click', function() {
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+const navEl = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  navEl.style.borderBottomColor = window.scrollY > 20 ? 'rgba(68,64,60,0.6)' : 'transparent';
+}, { passive: true });
+setTimeout(() => {
+  document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('visible'));
+}, 100);
+function openCaseStudy() {
+  document.getElementById('cs-overlay').classList.add('open');
+  document.getElementById('cs-panel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCaseStudy() {
+  document.getElementById('cs-overlay').classList.remove('open');
+  document.getElementById('cs-panel').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function openKekaCaseStudy() {
+  document.getElementById('keka-overlay').classList.add('open');
+  document.getElementById('keka-panel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeKekaCaseStudy() {
+  document.getElementById('keka-overlay').classList.remove('open');
+  document.getElementById('keka-panel').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeCaseStudy(); closeKekaCaseStudy(); }
+});
+</script>
+
+</body>
+</html>
