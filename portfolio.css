@@ -25,7 +25,7 @@
   --surface-raised: var(--stone-700);
 
   --text-hi: #F5F5F4;
-  --text-mid: var(--stone-400);
+  --text-mid: var(--stone-300);
   --text-lo: var(--stone-500);
 
   --border: var(--stone-700);
@@ -3222,6 +3222,7 @@ nav {
     height: 280px;
   }
 }
+
 /* ================================================================
    INTERVIEWBUDDY DS — Portal map + audit grid
    ================================================================ */
@@ -3241,8 +3242,8 @@ nav {
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--lime);
-  background: rgba(232,255,107,0.08);
-  border: 1px solid rgba(232,255,107,0.3);
+  background: rgba(232, 255, 107, 0.08);
+  border: 1px solid rgba(232, 255, 107, 0.3);
   border-radius: 10px;
   padding: 10px 24px;
   position: relative;
@@ -3306,7 +3307,7 @@ nav {
 }
 
 .ib-portal-node:hover {
-  border-color: rgba(232,255,107,0.3);
+  border-color: rgba(232, 255, 107, 0.3);
   color: var(--lime);
   transform: translateY(-3px);
 }
@@ -3340,7 +3341,7 @@ nav {
 }
 
 .ib-audit-item:hover {
-  border-color: rgba(232,255,107,0.2);
+  border-color: rgba(232, 255, 107, 0.2);
   transform: translateY(-2px);
 }
 
@@ -3366,15 +3367,34 @@ nav {
 /* Serious theme overrides */
 [data-theme=serious] .ib-portal-center {
   color: #0891B2;
-  background: rgba(8,145,178,0.06);
-  border-color: rgba(8,145,178,0.25);
+  background: rgba(8, 145, 178, 0.06);
+  border-color: rgba(8, 145, 178, 0.25);
 }
-[data-theme=serious] .ib-portal-node:hover { border-color: rgba(8,145,178,0.3); color: #0891B2; }
-[data-theme=serious] .ib-audit-val { color: #0891B2; }
-[data-theme=serious] .ib-audit-item:hover { border-color: rgba(8,145,178,0.2); }
+
+[data-theme=serious] .ib-portal-node:hover {
+  border-color: rgba(8, 145, 178, 0.3);
+  color: #0891B2;
+}
+
+[data-theme=serious] .ib-audit-val {
+  color: #0891B2;
+}
+
+[data-theme=serious] .ib-audit-item:hover {
+  border-color: rgba(8, 145, 178, 0.2);
+}
 
 @media (max-width: 768px) {
-  .ib-audit-grid { grid-template-columns: repeat(2, 1fr); }
-  .ib-portal-arms { gap: 8px; }
-  .ib-portal-node { padding: 8px 12px; font-size: 11px; }
+  .ib-audit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ib-portal-arms {
+    gap: 8px;
+  }
+
+  .ib-portal-node {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
 }
