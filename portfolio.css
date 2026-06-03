@@ -3460,7 +3460,7 @@ nav {
 
 .lanyard-string {
   width: 2px;
-  height: 220px;
+  height: 400px;
   background: linear-gradient(to bottom, rgba(168, 162, 158, 0.9) 0%, rgba(120, 113, 108, 0.7) 100%);
   border-radius: 1px;
   position: relative;
