@@ -3398,6 +3398,7 @@ nav {
     font-size: 11px;
   }
 }
+
 /* ================================================================
    ID CARD — Hero section hanging card
    ================================================================ */
@@ -3422,20 +3423,45 @@ nav {
 }
 
 @keyframes idCardDrop {
-  0%   { transform: translateY(-480px) rotate(-3deg); opacity: 0; }
-  50%  { opacity: 1; }
-  60%  { transform: translateY(28px) rotate(2deg); }
-  72%  { transform: translateY(-14px) rotate(-1.2deg); }
-  83%  { transform: translateY(8px) rotate(0.6deg); }
-  91%  { transform: translateY(-4px) rotate(-0.2deg); }
-  96%  { transform: translateY(2px) rotate(0.1deg); }
-  100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+  0% {
+    transform: translateY(-480px) rotate(-3deg);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  60% {
+    transform: translateY(28px) rotate(2deg);
+  }
+
+  72% {
+    transform: translateY(-14px) rotate(-1.2deg);
+  }
+
+  83% {
+    transform: translateY(8px) rotate(0.6deg);
+  }
+
+  91% {
+    transform: translateY(-4px) rotate(-0.2deg);
+  }
+
+  96% {
+    transform: translateY(2px) rotate(0.1deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
 }
 
 .lanyard-string {
   width: 2px;
-  height: 140px;
-  background: linear-gradient(to bottom, rgba(168,162,158,0.9) 0%, rgba(120,113,108,0.7) 100%);
+  height: 220px;
+  background: linear-gradient(to bottom, rgba(168, 162, 158, 0.9) 0%, rgba(120, 113, 108, 0.7) 100%);
   border-radius: 1px;
   position: relative;
   flex-shrink: 0;
@@ -3458,17 +3484,27 @@ nav {
   width: 240px;
   background: var(--stone-900);
   border-radius: 16px;
-  border: 1px solid rgba(232,255,107,0.12);
+  border: 1px solid rgba(232, 255, 107, 0.12);
   overflow: hidden;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.04);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.04);
   animation: idCardSway 4s ease-in-out 1.5s infinite;
   flex-shrink: 0;
 }
 
 @keyframes idCardSway {
-  0%, 100% { transform: rotate(0deg); }
-  25%       { transform: rotate(0.7deg); }
-  75%       { transform: rotate(-0.7deg); }
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(0.7deg);
+  }
+
+  75% {
+    transform: rotate(-0.7deg);
+  }
 }
 
 .id-card-top {
@@ -3491,7 +3527,7 @@ nav {
 .id-card-top-badge {
   font-family: var(--font-mono);
   font-size: 9px;
-  color: rgba(28,25,23,0.55);
+  color: rgba(28, 25, 23, 0.55);
   letter-spacing: 0.08em;
 }
 
@@ -3503,8 +3539,8 @@ nav {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(232,255,107,0.1);
-  border: 1.5px solid rgba(232,255,107,0.25);
+  background: rgba(232, 255, 107, 0.1);
+  border: 1.5px solid rgba(232, 255, 107, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3534,7 +3570,7 @@ nav {
 
 .id-divider {
   height: 1px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   margin-bottom: 12px;
 }
 
@@ -3571,7 +3607,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid rgba(255,255,255,0.04);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .id-barcode {
@@ -3584,7 +3620,7 @@ nav {
 .id-barcode span {
   display: block;
   width: 2px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 1px;
 }
 
@@ -3609,32 +3645,85 @@ nav {
 }
 
 @keyframes idDotBlink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.25; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.25;
+  }
 }
 
 /* Serious theme */
 [data-theme=serious] .id-card {
   background: #fff;
-  border-color: rgba(8,145,178,0.15);
-  box-shadow: 0 24px 64px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.04);
+  border-color: rgba(8, 145, 178, 0.15);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.04);
 }
-[data-theme=serious] .id-card-top { background: #0891B2; }
-[data-theme=serious] .id-card-top-label { color: #fff; }
-[data-theme=serious] .id-card-top-badge { color: rgba(255,255,255,0.6); }
-[data-theme=serious] .id-avatar { background: rgba(8,145,178,0.08); border-color: rgba(8,145,178,0.2); color: #0891B2; }
-[data-theme=serious] .id-name { color: #1C1917; }
-[data-theme=serious] .id-role { color: #A8A29E; }
-[data-theme=serious] .id-divider { background: rgba(0,0,0,0.06); }
-[data-theme=serious] .id-detail-key { color: #A8A29E; }
-[data-theme=serious] .id-detail-val { color: #57534E; }
-[data-theme=serious] .id-card-footer { border-top-color: rgba(0,0,0,0.05); }
-[data-theme=serious] .id-barcode span { background: rgba(0,0,0,0.1); }
-[data-theme=serious] .id-available { color: #0891B2; }
-[data-theme=serious] .id-dot { background: #0891B2; }
-[data-theme=serious] .lanyard-string { background: linear-gradient(to bottom, rgba(100,100,100,0.7) 0%, rgba(150,150,150,0.5) 100%); }
+
+[data-theme=serious] .id-card-top {
+  background: #0891B2;
+}
+
+[data-theme=serious] .id-card-top-label {
+  color: #fff;
+}
+
+[data-theme=serious] .id-card-top-badge {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme=serious] .id-avatar {
+  background: rgba(8, 145, 178, 0.08);
+  border-color: rgba(8, 145, 178, 0.2);
+  color: #0891B2;
+}
+
+[data-theme=serious] .id-name {
+  color: #1C1917;
+}
+
+[data-theme=serious] .id-role {
+  color: #A8A29E;
+}
+
+[data-theme=serious] .id-divider {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme=serious] .id-detail-key {
+  color: #A8A29E;
+}
+
+[data-theme=serious] .id-detail-val {
+  color: #57534E;
+}
+
+[data-theme=serious] .id-card-footer {
+  border-top-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme=serious] .id-barcode span {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme=serious] .id-available {
+  color: #0891B2;
+}
+
+[data-theme=serious] .id-dot {
+  background: #0891B2;
+}
+
+[data-theme=serious] .lanyard-string {
+  background: linear-gradient(to bottom, rgba(100, 100, 100, 0.7) 0%, rgba(150, 150, 150, 0.5) 100%);
+}
 
 /* Hide on mobile — not enough room */
 @media (max-width: 1024px) {
-  .id-card-wrap { display: none; }
+  .id-card-wrap {
+    display: none;
+  }
 }
