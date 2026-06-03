@@ -1951,6 +1951,17 @@
       document.getElementById('ib-panel').classList.remove('open');
       document.body.style.overflow = '';
     }
+
+function openIBAICaseStudy() {
+  document.getElementById('ibai-overlay').classList.add('open');
+  document.getElementById('ibai-panel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeIBAICaseStudy() {
+  document.getElementById('ibai-overlay').classList.remove('open');
+  document.getElementById('ibai-panel').classList.remove('open');
+  document.body.style.overflow = '';
+}
   </script>
 
 </body>
