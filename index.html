@@ -847,7 +847,158 @@
     </div>
   </div>
 
-  <!-- ── NAV ── -->
+  <!-- ── IB AI MOBILE APP CASE STUDY ── -->
+<div class="cs-overlay" id="ibai-overlay" onclick="closeIBAICaseStudy()"></div>
+<div class="cs-panel" id="ibai-panel">
+  <div class="cs-topbar">
+    <span class="cs-topbar-label">Case Study — InterviewBuddy AI Mobile App</span>
+    <button class="cs-close" onclick="closeIBAICaseStudy()">✕ Close</button>
+  </div>
+  <div class="cs-hero">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+      <div class="cs-eyebrow" style="margin-bottom:0;">InterviewBuddy · AI Product · 2024–Present</div>
+      <span style="background:rgba(232,255,107,0.15);border:1px solid rgba(232,255,107,0.4);color:var(--lime);font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:999px;">MVP</span>
+    </div>
+    <h2 class="cs-title">InterviewBuddy AI</h2>
+    <p class="cs-subtitle">Designing a Conversational Commerce Experience for Career Growth — not a chatbot, but an AI-powered conversion engine that helps users discover the right career service and take action.</p>
+    <div class="cs-meta-row">
+      <div class="cs-meta-item"><span class="cs-meta-key">Role</span><span class="cs-meta-val">Lead Product Designer</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-key">Platform</span><span class="cs-meta-val">Mobile App (iOS + Android)</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-key">Type</span><span class="cs-meta-val">0→1 Product · MVP</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-key">Status</span><span class="cs-meta-val">Live</span></div>
+    </div>
+    <div class="cs-tags">
+      <span class="cs-tag">Conversational AI</span><span class="cs-tag">Mobile UX</span>
+      <span class="cs-tag">0→1 Product</span><span class="cs-tag">RAG Architecture</span>
+      <span class="cs-tag">Conversion Design</span><span class="cs-tag">AI Flows</span>
+    </div>
+  </div>
+  <div class="cs-body">
+
+    <div class="cs-section" style="border-top:none;padding-top:36px;">
+      <div class="cs-section-label">The Real Problem</div>
+      <h3 class="cs-section-title">Users think in problems, not products.</h3>
+      <p class="cs-body-text">InterviewBuddy offers AI Mock Interviews, Expert Mock Interviews, Resume Reviews, Skill Assessments, and Portfolio Reviews. But users arriving at the platform often couldn't answer one simple question: <strong>what should I do next?</strong></p>
+      <div class="cs-callout">"I have an interview next week." · "Can someone check my resume?" · "I don't know if I'm ready." — Users think in problems. Traditional navigation assumes they know what they want.</div>
+      <p class="cs-body-text">The result: decision paralysis, lower conversion, and users leaving without taking action — not because the services weren't right for them, but because they couldn't find the path.</p>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">The Design Goal</div>
+      <h3 class="cs-section-title">An AI that converts, not just converses.</h3>
+      <div class="cs-card-grid">
+        <div class="cs-card">
+          <div class="cs-card-num">Goal 01</div>
+          <div class="cs-card-title">Understand user goals</div>
+          <div class="cs-card-desc">Translate vague career anxieties into specific, actionable service recommendations through natural dialogue.</div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-num">Goal 02</div>
+          <div class="cs-card-title">Reduce decision fatigue</div>
+          <div class="cs-card-desc">Replace catalog browsing with a guided experience that surfaces exactly what the user needs — nothing more.</div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-num">Goal 03</div>
+          <div class="cs-card-title">Drive conversion</div>
+          <div class="cs-card-desc">Every conversation state is designed with a business outcome in mind. The AI is a career coach and a conversion engine simultaneously.</div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-num">Goal 04</div>
+          <div class="cs-card-title">Build a retention habit</div>
+          <div class="cs-card-desc">Make the app worth keeping — not just for purchasing, but as a daily career preparation companion.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">Decision Box 01</div>
+      <h3 class="cs-section-title">Why conversational AI instead of traditional navigation?</h3>
+      <p class="cs-body-text">Traditional navigation assumes users know what they're looking for. Our users don't — they arrive with problems, not product names. A conversational AI approach translates user problems into relevant InterviewBuddy services by understanding intent, asking follow-up questions, assessing readiness, and recommending the right service.</p>
+      <div class="cs-callout"><strong style="color:var(--lime);">Outcome:</strong> Reduced cognitive load and simplified product discovery. Users no longer need to understand our product taxonomy — they just describe their situation.</div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">Decision Box 02</div>
+      <h3 class="cs-section-title">Why guided conversations, not open chat?</h3>
+      <p class="cs-body-text">Open-ended chat creates uncertainty. Users don't know what to ask, ask incomplete questions, and get lost in long conversations with inconsistent outcomes.</p>
+      <p class="cs-body-text">We designed a <strong>guided conversational framework</strong> — the AI asks one question at a time while presenting relevant options and always allowing custom responses.</p>
+      <div class="cs-callout"><strong style="color:var(--lime);">Design Principle:</strong> Freedom where it matters, structure where it helps. The experience feels conversational without becoming an unstructured chatbot.</div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">Decision Box 03</div>
+      <h3 class="cs-section-title">Why remove chat history?</h3>
+      <p class="cs-body-text">Users weren't coming for ongoing conversations. They were coming to accomplish a task — prepare for interviews, assess skills, book services. Persistent chat history introduces cognitive overload, irrelevant context, and longer recovery times.</p>
+      <p class="cs-body-text">We designed the experience around <strong>current intent</strong> rather than persistent threads, while still leveraging previously collected profile information.</p>
+      <div class="cs-callout"><strong style="color:var(--lime);">Design Principle:</strong> Users care about progress, not conversation logs. Faster task completion, reduced interface complexity.</div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">Decision Box 04</div>
+      <h3 class="cs-section-title">Why add instant AI interviews inside the app?</h3>
+      <p class="cs-body-text">The original MVP focused on discovery, qualification, recommendation, and purchase. But a user is unlikely to install an app whose sole purpose is helping them decide what to purchase.</p>
+      <p class="cs-body-text">We introduced <strong>Instant AI Interviews</strong> directly inside the app — giving users immediate value, creating a high-frequency utility, and building retention.</p>
+      <div class="cs-callout"><strong style="color:var(--lime);">Strategic shift:</strong> The app evolved from a sales channel to a career preparation companion. Higher downloads, session frequency, retention, and upsell opportunities.</div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">AI Architecture</div>
+      <h3 class="cs-section-title">Designed as a state machine, not random prompts.</h3>
+      <p class="cs-body-text">The conversation was designed with deliberate states — each one with a defined purpose, transition condition, and business outcome. This is what separates a product-grade AI experience from a demo.</p>
+      <div class="cs-card-grid">
+        <div class="cs-card">
+          <div class="cs-card-num">State 01</div>
+          <div class="cs-card-title">Idle / Discovery</div>
+          <div class="cs-card-desc">Entry point. AI surfaces a warm prompt based on user profile or time of day. Goal: initiate intent capture without pressure.</div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-num">State 02</div>
+          <div class="cs-card-title">Intent Capture</div>
+          <div class="cs-card-desc">One-question-at-a-time qualification. AI identifies the user's core goal — interview prep, skill gap, resume review, or general readiness.</div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-num">State 03</div>
+          <div class="cs-card-title">Context Qualification</div>
+          <div class="cs-card-desc">Gathers timeline, role, experience level. Each answer refines the recommendation. RAG-based prompt orchestration ensures personalization.</div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-num">State 04</div>
+          <div class="cs-card-title">Value Framing</div>
+          <div class="cs-card-desc">AI presents the recommended service with a clear value proposition tied to the user's specific situation — not a generic product description.</div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-num">State 05</div>
+          <div class="cs-card-title">Payment Prompt</div>
+          <div class="cs-card-desc">Seamless handoff to purchase. Friction minimized. Context from the conversation carries into the booking flow.</div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-num">Support</div>
+          <div class="cs-card-title">Upsell / Recovery</div>
+          <div class="cs-card-desc">Supporting states for upsell opportunities, payment recovery, and re-engagement — each designed to feel helpful, not pushy.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">Outcomes</div>
+      <h3 class="cs-section-title">What this unlocked for the business.</h3>
+      <div class="cs-outcomes" style="grid-template-columns:repeat(3,1fr);">
+        <div class="cs-outcome"><div class="cs-outcome-val">0→1</div><div class="cs-outcome-label">Full product designed from scratch</div></div>
+        <div class="cs-outcome"><div class="cs-outcome-val">5</div><div class="cs-outcome-label">Conversation states designed as a system</div></div>
+        <div class="cs-outcome"><div class="cs-outcome-val">↑</div><div class="cs-outcome-label">Engagement, retention & upsell opportunities</div></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">Reflection</div>
+      <h3 class="cs-section-title">Beyond screen design.</h3>
+      <div class="cs-callout" style="font-style:normal;"><strong style="color:var(--lime);">This project challenged me to think beyond screen design and design an AI-driven decision-making system.</strong><br><br>Rather than creating another chatbot, I designed a conversational commerce experience that balances user goals, business objectives, and AI capabilities. The result was a scalable framework capable of guiding users from uncertainty to action — while creating meaningful opportunities for engagement, retention, and revenue growth.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── NAV ── -->
   <nav>
     <a href="#" class="nav-logo">
       <div class="nav-logo-dot"></div>
@@ -1225,7 +1376,73 @@
           </div>
         </div>
 
+  
+      <!-- Card 5 — IB AI Mobile App -->
+      <div class="project-card card-sm reveal reveal-delay-3" onclick="openIBAICaseStudy()" style="position:relative;">
+        <div class="project-mvp-badge">MVP</div>
+        <div class="project-img">
+          <div class="project-img-bg" style="background:linear-gradient(135deg,#0a0e1a 0%,#0d1530 100%);">
+            <div class="mock-ui">
+              <div class="mock-bar">
+                <div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div>
+                <span style="font-family:var(--font-mono);font-size:9px;color:var(--stone-600);margin-left:8px;letter-spacing:0.06em;">InterviewBuddy AI · Mobile</span>
+              </div>
+              <div class="mock-content" style="align-items:center;gap:10px;">
+                <!-- Mobile frame mockup -->
+                <div style="width:80px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:8px;flex-shrink:0;">
+                  <div style="width:24px;height:3px;background:rgba(255,255,255,0.15);border-radius:999px;margin:0 auto 8px;"></div>
+                  <div style="background:rgba(99,102,241,0.15);border-radius:8px;padding:7px;margin-bottom:6px;">
+                    <div style="height:4px;background:rgba(99,102,241,0.5);border-radius:2px;width:70%;margin-bottom:3px;"></div>
+                    <div style="height:3px;background:rgba(255,255,255,0.08);border-radius:2px;width:90%;"></div>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:7px;margin-bottom:6px;">
+                    <div style="height:3px;background:rgba(255,255,255,0.1);border-radius:2px;width:80%;margin-bottom:3px;"></div>
+                    <div style="height:3px;background:rgba(255,255,255,0.06);border-radius:2px;width:60%;"></div>
+                  </div>
+                  <div style="background:rgba(99,102,241,0.8);border-radius:6px;padding:5px;text-align:center;">
+                    <div style="height:3px;background:rgba(255,255,255,0.7);border-radius:2px;width:50%;margin:0 auto;"></div>
+                  </div>
+                </div>
+                <!-- Chat bubbles -->
+                <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+                  <div style="background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.2);border-radius:10px 10px 10px 2px;padding:7px 9px;align-self:flex-start;max-width:90%;">
+                    <div style="height:4px;background:rgba(99,102,241,0.5);border-radius:2px;width:120px;margin-bottom:3px;"></div>
+                    <div style="height:3px;background:rgba(255,255,255,0.08);border-radius:2px;width:90px;"></div>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.06);border-radius:10px 10px 2px 10px;padding:7px 9px;align-self:flex-end;max-width:80%;">
+                    <div style="height:4px;background:rgba(255,255,255,0.15);border-radius:2px;width:80px;"></div>
+                  </div>
+                  <div style="background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.2);border-radius:10px 10px 10px 2px;padding:7px 9px;align-self:flex-start;max-width:85%;">
+                    <div style="height:4px;background:rgba(99,102,241,0.5);border-radius:2px;width:100px;margin-bottom:3px;"></div>
+                    <div style="display:flex;gap:4px;margin-top:5px;">
+                      <div style="padding:3px 8px;background:rgba(99,102,241,0.3);border-radius:999px;height:14px;width:52px;"></div>
+                      <div style="padding:3px 8px;background:rgba(255,255,255,0.06);border-radius:999px;height:14px;width:44px;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bg-text">AI</div>
+          </div>
+          <div class="project-img-overlay"></div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">AI · Mobile</span>
+            <span class="project-tag">Conv. Commerce</span>
+            <span class="project-tag">0→1</span>
+            <span class="project-tag">InterviewBuddy</span>
+          </div>
+          <div class="project-title">InterviewBuddy AI — Mobile App</div>
+          <div class="project-desc">A conversational AI career coach that understands user goals, reduces decision fatigue, and drives service discovery through natural dialogue.</div>
+          <div class="project-footer">
+            <span class="project-year">2024 – Present</span>
+            <span class="project-arrow" style="display:flex;align-items:center;gap:6px;font-size:13px;font-family:var(--font-display);font-weight:600;color:var(--lime);">Read case study ↗</span>
+          </div>
+        </div>
       </div>
+
+    </div>
   </section>
 
   <!-- ── ABOUT ── -->
@@ -1684,7 +1901,7 @@
       document.body.style.overflow = '';
     }
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') { closeCaseStudy(); closeKekaCaseStudy(); closeIBCaseStudy(); }
+      if (e.key === 'Escape') { closeCaseStudy(); closeKekaCaseStudy(); closeIBCaseStudy(); closeIBAICaseStudy(); }
     });
 
     // ── THEME TOGGLE ──
