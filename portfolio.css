@@ -505,8 +505,8 @@ section {
 
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 2px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 /* Project cards — asymmetric layout */
@@ -535,30 +535,18 @@ section {
   color: var(--lime);
 }
 
-.card-lg {
-  grid-column: span 7;
-}
+.card-lg { grid-column: span 1; }
 
-.card-sm {
-  grid-column: span 5;
-}
+.card-sm { grid-column: span 1; }
 
-.card-full {
-  grid-column: span 12;
-}
+.card-full { grid-column: span 1; }
 
-.card-half {
-  grid-column: span 6;
-}
+.card-half { grid-column: span 1; }
 
 /* Staggered second row */
-.row-2 .card-lg {
-  grid-column: span 5;
-}
+.row-2 .card-lg { grid-column: span 1; }
 
-.row-2 .card-sm {
-  grid-column: span 7;
-}
+.row-2 .card-sm { grid-column: span 1; }
 
 .project-img {
   width: 100%;
