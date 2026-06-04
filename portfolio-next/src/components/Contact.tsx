@@ -30,7 +30,8 @@ export default function Contact() {
           WebkitTextStroke: isFunky ? '1px rgba(232,255,107,0.05)' : '1px rgba(8,145,178,0.04)',
         }}>LET&apos;S TALK</div>
 
-        <div style={{ position:'relative', maxWidth:640 }}>
+        <div style={{ width:'100%', maxWidth:1440, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(12,1fr)', columnGap:24 }}>
+        <div style={{ position:'relative', gridColumn:'1 / 8' }}>
           <div style={{ display:'flex', alignItems:'center', gap:12, marginBottom:16, fontFamily:'var(--font-mono)', fontSize:10, textTransform:'uppercase', letterSpacing:'0.15em', color:accent }}>
             <span style={{ display:'block', width:24, height:1, background:accent, opacity:0.5 }} />
             Contact
@@ -78,6 +79,7 @@ export default function Contact() {
               </a>
             ))}
           </div>
+        </div>
         </div>
       </div>
 

@@ -111,3 +111,23 @@ body, nav, section, div, span, h1, h2, h3, p, a, button {
     border-color     0.45s cubic-bezier(0.4,0,0.2,1),
     color            0.35s cubic-bezier(0.4,0,0.2,1);
 }
+/* Shared grid container used across all sections */
+.grid-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+}
+
+/* Full-bleed sections still use the container internally */
+.section-full {
+  width: 100%;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }

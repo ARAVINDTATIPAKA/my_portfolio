@@ -28,9 +28,10 @@ export default function Work({ onOpenCase }: WorkProps) {
   const tagBorder = isFunky ? '#44403C' : '#E7E5E4'
 
   return (
-    <section id="work" style={{ padding:'96px 48px' }}>
-      {/* Header */}
-      <div style={{ display:'flex', alignItems:'flex-end', justifyContent:'space-between', marginBottom:48 }}>
+    <section id="work" style={{ padding:'96px 0' }}>
+      <div style={{ width:'100%', maxWidth:1440, margin:'0 auto', padding:'0 48px', display:'grid', gridTemplateColumns:'repeat(12,1fr)', columnGap:24 }}>
+      {/* Header — full 12 cols */}
+      <div style={{ gridColumn:'1 / 13', display:'flex', alignItems:'flex-end', justifyContent:'space-between', marginBottom:48 }}>
         <div>
           <div style={{ display:'flex', alignItems:'center', gap:12, marginBottom:12, fontFamily:'var(--font-mono)', fontSize:10, textTransform:'uppercase', letterSpacing:'0.15em', color:accent }}>
             <span style={{ display:'block', width:24, height:1, background:accent, opacity:0.5 }} />
@@ -55,8 +56,8 @@ export default function Work({ onOpenCase }: WorkProps) {
         </div>
       </div>
 
-      {/* Grid */}
-      <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20 }}>
+      {/* Grid — full 12 cols, internally 3 equal cols */}
+      <div style={{ gridColumn:'1 / 13', display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20 }}>
         {PROJECTS.map(p => (
           <div key={p.id} onClick={() => onOpenCase(p.caseKey)} style={{
             background:cardBg, borderRadius:20, border:`1px solid ${cardBorder}`,
@@ -109,6 +110,7 @@ export default function Work({ onOpenCase }: WorkProps) {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </section>
   )
