@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Grotesk:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #1C1917;
+  color: #F5F5F4;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+
+/* Theme transitions */
+*, *::before, *::after {
+  transition:
+    background-color 0.45s cubic-bezier(0.4,0,0.2,1),
+    border-color 0.45s cubic-bezier(0.4,0,0.2,1),
+    color 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Serious theme overrides */
+[data-theme="serious"] body,
+[data-theme="serious"] {
+  background: #FAFAF9;
+  color: #1C1917;
+}
+
+/* Timeline drag */
+.tl-scroll:active { cursor: grabbing; }
