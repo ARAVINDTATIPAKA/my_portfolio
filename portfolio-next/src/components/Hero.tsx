@@ -6,71 +6,111 @@ import IDCard from './IDCard'
 export default function Hero() {
   const { theme } = useTheme()
   const isFunky = theme === 'funky'
+  const accent = isFunky ? '#E8FF6B' : '#0891B2'
+  const accentDark = isFunky ? '#D4F000' : '#0E7490'
+  const textHi = isFunky ? '#F5F5F4' : '#1C1917'
+  const textMid = isFunky ? '#78716C' : '#57534E'
+  const btnGhostBorder = isFunky ? '#44403C' : '#D6D3D1'
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-end pb-20 px-12 overflow-hidden">
-
+    <section style={{
+      position:'relative', minHeight:'100vh',
+      display:'flex', flexDirection:'column', justifyContent:'flex-end',
+      padding:'0 48px 80px', overflow:'hidden',
+    }}>
       <IDCard />
 
       {/* Glow blob */}
-      <div className={`absolute top-[15%] left-[55%] w-[600px] h-[600px] pointer-events-none
-        rounded-full animate-drift
-        ${isFunky
-          ? 'bg-[radial-gradient(circle,rgba(232,255,107,0.05)_0%,transparent_65%)]'
-          : 'bg-[radial-gradient(circle,rgba(8,145,178,0.06)_0%,transparent_65%)]'
-        }`} />
+      <div style={{
+        position:'absolute', top:'15%', left:'55%',
+        width:600, height:600, borderRadius:'50%', pointerEvents:'none',
+        background: isFunky
+          ? 'radial-gradient(circle,rgba(232,255,107,0.05) 0%,transparent 65%)'
+          : 'radial-gradient(circle,rgba(8,145,178,0.06) 0%,transparent 65%)',
+        animation:'drift 8s ease-in-out infinite',
+      }} />
 
       {/* Ghost bg number */}
-      <div className={`absolute top-1/2 right-[-20px] -translate-y-1/2 select-none pointer-events-none
-        font-display font-bold leading-none
-        ${isFunky ? 'text-lime-DEFAULT/[0.07]' : 'text-cyan-600/[0.08]'}`}
-        style={{ fontSize: 'clamp(200px,28vw,420px)', WebkitTextStroke: '1px currentColor', color: 'transparent' }}>
-        07
-      </div>
+      <div style={{
+        position:'absolute', top:'50%', right:-20,
+        transform:'translateY(-50%)',
+        fontFamily:'var(--font-display)', fontWeight:700,
+        fontSize:'clamp(200px,28vw,420px)', lineHeight:1,
+        letterSpacing:'-0.06em', pointerEvents:'none', userSelect:'none',
+        color:'transparent',
+        WebkitTextStroke: `1px ${isFunky ? 'rgba(232,255,107,0.07)' : 'rgba(8,145,178,0.08)'}`,
+      }}>07</div>
 
       {/* Eyebrow */}
-      <div className={`flex items-center gap-3 mb-6 font-mono text-[11px] uppercase tracking-[0.14em]
-        ${isFunky ? 'text-lime-DEFAULT' : 'text-cyan-600'}`}>
-        <span className={`block w-8 h-px opacity-60 ${isFunky ? 'bg-lime-DEFAULT' : 'bg-cyan-600'}`} />
+      <div style={{
+        display:'flex', alignItems:'center', gap:12, marginBottom:24,
+        fontFamily:'var(--font-mono)', fontSize:11,
+        letterSpacing:'0.14em', textTransform:'uppercase', color: accent,
+      }}>
+        <span style={{ display:'block', width:32, height:1, background:accent, opacity:0.6 }} />
         Product Designer · Visakhapatnam
       </div>
 
       {/* Headline */}
-      <h1 className={`font-display font-bold leading-[0.95] tracking-[-0.04em] mb-10 max-w-[900px]
-        ${isFunky ? 'text-stone-50' : 'text-stone-900'}`}
-        style={{ fontSize: 'clamp(52px,8vw,120px)' }}>
+      <h1 style={{
+        fontFamily:'var(--font-display)', fontWeight:700,
+        fontSize:'clamp(52px,8vw,120px)', lineHeight:0.95,
+        letterSpacing:'-0.04em', color: textHi,
+        maxWidth:900, marginBottom:40,
+      }}>
         Design that<br />
-        <span className={isFunky ? 'text-lime-DEFAULT' : 'text-cyan-600'}>hits</span>{' '}
-        different<span className={`font-light italic ${isFunky ? 'text-stone-500' : 'text-cyan-600'}`}>.</span>
+        <span style={{ color: accent }}>hits</span>{' '}
+        different<span style={{ fontWeight:300, fontStyle:'italic', color: isFunky ? '#57534E' : accent }}>.</span>
       </h1>
 
       {/* Bottom row */}
-      <div className="flex items-end justify-between gap-10">
-        <p className={`max-w-[380px] font-body text-[15px] leading-[1.7]
-          ${isFunky ? 'text-stone-400' : 'text-stone-600'}`}>
-          I craft <strong className={isFunky ? 'text-stone-50 font-medium' : 'text-stone-900 font-medium'}>
-            interfaces that reduce friction
-          </strong> and build trust — for SaaS products, design systems, and everything in between.
+      <div style={{ display:'flex', alignItems:'flex-end', justifyContent:'space-between', gap:40, flexWrap:'wrap' }}>
+        <p style={{
+          maxWidth:380, fontFamily:'var(--font-body)', fontSize:15, lineHeight:1.7, color: textMid,
+        }}>
+          I craft <strong style={{ color:textHi, fontWeight:500 }}>interfaces that reduce friction</strong> and
+          build trust — for SaaS products, design systems, and everything in between.
           Currently open for freelance work.
         </p>
 
-        <div className="flex flex-col items-end gap-4">
-          <a href="#work"
-            className={`flex items-center gap-2 px-7 py-3.5 rounded-pill font-display font-bold
-              text-[14px] tracking-tight no-underline transition-all duration-200
-              ${isFunky
-                ? 'bg-lime-DEFAULT text-stone-900 hover:bg-lime-dark hover:scale-[1.06] hover:-translate-y-0.5'
-                : 'bg-cyan-600 text-white hover:bg-cyan-700 hover:scale-[1.06] hover:-translate-y-0.5'
-              }`}>
+        <div style={{ display:'flex', flexDirection:'column', alignItems:'flex-end', gap:16 }}>
+          <a href="#work" style={{
+            display:'flex', alignItems:'center', gap:8,
+            padding:'14px 28px', borderRadius:999,
+            fontFamily:'var(--font-display)', fontWeight:700, fontSize:14,
+            letterSpacing:'-0.01em', textDecoration:'none',
+            background: accent, color: isFunky ? '#1C1917' : '#fff',
+            transition:'all 0.2s',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = accentDark
+            e.currentTarget.style.transform = 'scale(1.06) translateY(-2px)'
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = accent
+            e.currentTarget.style.transform = ''
+          }}>
             See the work →
           </a>
-          <a href="#contact"
-            className={`flex items-center gap-2 px-7 py-3.5 rounded-pill font-display font-medium
-              text-[14px] tracking-tight no-underline border transition-all duration-200
-              ${isFunky
-                ? 'text-stone-400 border-stone-700 hover:border-stone-500 hover:text-stone-50 hover:scale-[1.04]'
-                : 'text-stone-600 border-stone-300 hover:border-stone-400 hover:text-stone-900 hover:scale-[1.04]'
-              }`}>
+          <a href="#contact" style={{
+            display:'flex', alignItems:'center', gap:8,
+            padding:'14px 28px', borderRadius:999,
+            fontFamily:'var(--font-display)', fontWeight:500, fontSize:14,
+            letterSpacing:'-0.01em', textDecoration:'none',
+            background:'transparent', color: textMid,
+            border: `1px solid ${btnGhostBorder}`,
+            transition:'all 0.2s',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.color = textHi
+            e.currentTarget.style.borderColor = isFunky ? '#78716C' : '#A8A29E'
+            e.currentTarget.style.transform = 'scale(1.04)'
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.color = textMid
+            e.currentTarget.style.borderColor = btnGhostBorder
+            e.currentTarget.style.transform = ''
+          }}>
             Get in touch
           </a>
         </div>

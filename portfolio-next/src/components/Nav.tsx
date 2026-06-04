@@ -5,6 +5,7 @@ import { useTheme } from '@/lib/ThemeContext'
 
 export default function Nav() {
   const { theme, setTheme } = useTheme()
+  const isFunky = theme === 'funky'
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -13,72 +14,84 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const isFunky = theme === 'funky'
-
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-12 h-16
-      backdrop-blur-[16px] transition-all duration-300
-      ${isFunky
-        ? 'bg-stone-900/85 ' + (scrolled ? 'border-b border-stone-700/60' : 'border-b border-transparent')
-        : 'bg-stone-50/92 ' + (scrolled ? 'border-b border-stone-200' : 'border-b border-transparent')
-      }`}
-    >
+    <nav style={{
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      padding: '0 48px', height: 64,
+      backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)',
+      background: isFunky ? 'rgba(28,25,23,0.88)' : 'rgba(250,250,249,0.92)',
+      borderBottom: `1px solid ${scrolled
+        ? isFunky ? 'rgba(68,64,60,0.6)' : '#E7E5E4'
+        : 'transparent'}`,
+    }}>
       {/* Logo */}
-      <a href="#" className="flex items-center gap-2 no-underline">
-        <span className="w-2 h-2 rounded-full bg-lime-DEFAULT animate-pulse-dot" />
-        <span className={`font-display font-bold text-[15px] tracking-tight
-          ${isFunky ? 'text-stone-50' : 'text-stone-900'}`}>
-          Aravind
-        </span>
+      <a href="#" style={{ display:'flex', alignItems:'center', gap:8, textDecoration:'none' }}>
+        <span style={{
+          width:8, height:8, borderRadius:'50%',
+          background: isFunky ? '#E8FF6B' : '#0891B2',
+          animation: 'pulseDot 2.5s ease-in-out infinite',
+        }} />
+        <span style={{
+          fontFamily: 'var(--font-display)', fontWeight:700, fontSize:15,
+          letterSpacing:'-0.03em',
+          color: isFunky ? '#F5F5F4' : '#1C1917',
+        }}>Aravind</span>
       </a>
 
-      {/* Nav links */}
-      <ul className="hidden md:flex items-center gap-8 list-none">
-        {['Work', 'About', 'Process', 'Contact'].map(link => (
-          <li key={link}>
-            <a href={`#${link.toLowerCase()}`}
-              className={`font-body text-[13px] no-underline transition-colors duration-150
-                ${isFunky ? 'text-stone-400 hover:text-stone-50' : 'text-stone-600 hover:text-stone-900'}`}>
-              {link}
+      {/* Links */}
+      <ul style={{ display:'flex', alignItems:'center', gap:32, listStyle:'none', margin:0, padding:0 }}
+        className="hidden-mobile">
+        {['Work','About','Process','Contact'].map(l => (
+          <li key={l}>
+            <a href={`#${l.toLowerCase()}`} style={{
+              fontFamily:'var(--font-body)', fontSize:13, textDecoration:'none',
+              color: isFunky ? '#78716C' : '#57534E',
+              transition:'color 0.15s',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.color = isFunky ? '#F5F5F4' : '#1C1917')}
+            onMouseLeave={e => (e.currentTarget.style.color = isFunky ? '#78716C' : '#57534E')}>
+              {l}
             </a>
           </li>
         ))}
       </ul>
 
-      {/* Right: toggle + CTA */}
-      <div className="flex items-center gap-3">
-        {/* Theme toggle */}
-        <div className={`hidden md:flex items-center rounded-pill p-1 border transition-colors
-          ${isFunky ? 'bg-white/7 border-stone-700' : 'bg-black/4 border-stone-200'}`}>
-          {(['funky', 'serious'] as const).map(t => (
-            <button
-              key={t}
-              onClick={() => setTheme(t)}
-              className={`px-3.5 py-1.5 rounded-pill border-none font-mono text-[10px] font-medium
-                uppercase tracking-widest transition-all duration-300 cursor-pointer
-                ${theme === t
-                  ? isFunky
-                    ? 'bg-lime-DEFAULT text-stone-900'
-                    : 'bg-cyan-600 text-white'
-                  : isFunky ? 'bg-transparent text-stone-500' : 'bg-transparent text-stone-400'
-                }`}
-            >
-              {t}
-            </button>
+      {/* Right */}
+      <div style={{ display:'flex', alignItems:'center', gap:12 }}>
+        {/* Toggle */}
+        <div style={{
+          display:'flex', alignItems:'center',
+          background: isFunky ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.04)',
+          border: `1px solid ${isFunky ? '#44403C' : '#E7E5E4'}`,
+          borderRadius:999, padding:4,
+        }} className="hidden-mobile">
+          {(['funky','serious'] as const).map(t => (
+            <button key={t} onClick={() => setTheme(t)} style={{
+              padding:'5px 14px', borderRadius:999, border:'none',
+              fontFamily:'var(--font-mono)', fontSize:10, fontWeight:500,
+              letterSpacing:'0.08em', textTransform:'uppercase', cursor:'pointer',
+              transition:'all 0.2s',
+              background: theme === t
+                ? isFunky ? '#E8FF6B' : '#0891B2'
+                : 'transparent',
+              color: theme === t
+                ? isFunky ? '#1C1917' : '#fff'
+                : isFunky ? '#78716C' : '#A8A29E',
+            }}>{t}</button>
           ))}
         </div>
 
         {/* CTA */}
-        <a href="#contact"
-          className={`flex items-center gap-1.5 px-5 py-2.5 rounded-pill font-display font-bold
-            text-[13px] tracking-tight no-underline transition-all duration-200
-            ${isFunky
-              ? 'bg-lime-DEFAULT text-stone-900 hover:bg-lime-dark hover:scale-105'
-              : 'bg-cyan-600 text-white hover:bg-cyan-700 hover:scale-105'
-            }`}
-        >
-          Hire me <span>→</span>
-        </a>
+        <a href="#contact" style={{
+          display:'flex', alignItems:'center', gap:6,
+          padding:'9px 20px', borderRadius:999,
+          fontFamily:'var(--font-display)', fontWeight:700, fontSize:13,
+          letterSpacing:'-0.01em', textDecoration:'none',
+          background: isFunky ? '#E8FF6B' : '#0891B2',
+          color: isFunky ? '#1C1917' : '#fff',
+          transition:'all 0.2s',
+        }}>Hire me →</a>
       </div>
     </nav>
   )

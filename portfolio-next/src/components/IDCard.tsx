@@ -5,102 +5,101 @@ import { useTheme } from '@/lib/ThemeContext'
 export default function IDCard() {
   const { theme } = useTheme()
   const isFunky = theme === 'funky'
+  const accent = isFunky ? '#E8FF6B' : '#0891B2'
+  const cardBg = isFunky ? '#1C1917' : '#FFFFFF'
+  const textHi = isFunky ? '#F5F5F4' : '#1C1917'
+  const textMid = isFunky ? '#78716C' : '#A8A29E'
+  const textLo = isFunky ? '#57534E' : '#A8A29E'
+  const divider = isFunky ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.06)'
+  const border = isFunky ? 'rgba(232,255,107,0.12)' : 'rgba(8,145,178,0.15)'
+  const shadow = isFunky
+    ? '0 24px 64px rgba(0,0,0,0.4),0 0 0 1px rgba(255,255,255,0.04)'
+    : '0 24px 64px rgba(0,0,0,0.1),0 0 0 1px rgba(0,0,0,0.04)'
 
   return (
-    <div className="absolute top-0 right-[520px] z-10 flex justify-center pointer-events-none
-      hidden xl:flex">
-      <div className="flex flex-col items-center animate-drop-bounce pointer-events-auto"
-        style={{ transformOrigin: 'top center' }}>
-
-        {/* Lanyard string */}
-        <div className="relative w-0.5 flex-shrink-0"
-          style={{ height: '400px',
-            background: 'linear-gradient(to bottom, rgba(168,162,158,0.9), rgba(120,113,108,0.7))' }}>
-          <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full
-            bg-stone-600 border-2 border-stone-500" />
+    <div style={{
+      position:'absolute', top:0, right:520, zIndex:10,
+      display:'flex', justifyContent:'center', pointerEvents:'none',
+    }}>
+      <div style={{
+        display:'flex', flexDirection:'column', alignItems:'center',
+        transformOrigin:'top center',
+        animation:'dropBounce 1.5s cubic-bezier(0.22,1,0.36,1) forwards',
+        pointerEvents:'all',
+      }}>
+        {/* Lanyard */}
+        <div style={{
+          width:2, height:400, flexShrink:0, borderRadius:1,
+          background:'linear-gradient(to bottom,rgba(168,162,158,0.9),rgba(120,113,108,0.7))',
+          position:'relative',
+        }}>
+          <div style={{
+            position:'absolute', top:-7, left:'50%', transform:'translateX(-50%)',
+            width:12, height:12, borderRadius:'50%',
+            background:'#57534E', border:'2px solid #78716C',
+          }} />
         </div>
 
         {/* Card */}
-        <div className={`w-[240px] rounded-2xl overflow-hidden flex-shrink-0 animate-id-sway
-          ${isFunky
-            ? 'bg-stone-900 border border-lime-DEFAULT/12 shadow-[0_24px_64px_rgba(0,0,0,0.4)]'
-            : 'bg-white border border-cyan-600/15 shadow-[0_24px_64px_rgba(0,0,0,0.1)]'
-          }`}>
-
+        <div style={{
+          width:240, background:cardBg, borderRadius:16,
+          border:`1px solid ${border}`, overflow:'hidden',
+          boxShadow:shadow, flexShrink:0,
+          animation:'idSway 4s ease-in-out 1.5s infinite',
+        }}>
           {/* Top bar */}
-          <div className={`flex items-center justify-between px-4 py-3
-            ${isFunky ? 'bg-lime-DEFAULT' : 'bg-cyan-600'}`}>
-            <span className={`font-display font-bold text-[10px] uppercase tracking-[0.1em]
-              ${isFunky ? 'text-stone-900' : 'text-white'}`}>
-              Product Designer
-            </span>
-            <span className={`font-mono text-[9px] tracking-wider
-              ${isFunky ? 'text-stone-900/55' : 'text-white/60'}`}>
-              #2021–NOW
-            </span>
+          <div style={{
+            display:'flex', alignItems:'center', justifyContent:'space-between',
+            padding:'12px 16px 10px', background:accent,
+          }}>
+            <span style={{
+              fontFamily:'var(--font-display)', fontWeight:700, fontSize:10,
+              textTransform:'uppercase', letterSpacing:'0.1em',
+              color: isFunky ? '#1C1917' : '#fff',
+            }}>Product Designer</span>
+            <span style={{
+              fontFamily:'var(--font-mono)', fontSize:9,
+              color: isFunky ? 'rgba(28,25,23,0.55)' : 'rgba(255,255,255,0.6)',
+            }}>#2021–NOW</span>
           </div>
 
           {/* Body */}
-          <div className="px-4 py-4">
-            {/* Avatar */}
-            <div className={`w-12 h-12 rounded-full flex items-center justify-center
-              font-display font-bold text-base mb-3
-              ${isFunky
-                ? 'bg-lime-DEFAULT/10 border border-lime-DEFAULT/25 text-lime-DEFAULT'
-                : 'bg-cyan-600/8 border border-cyan-600/20 text-cyan-600'
-              }`}>
-              AT
-            </div>
-            <div className={`font-display font-bold text-[15px] tracking-tight mb-0.5
-              ${isFunky ? 'text-stone-50' : 'text-stone-900'}`}>
-              Aravind Tatipaka
-            </div>
-            <div className="font-body text-[10px] text-stone-500 mb-3.5">
-              Product &amp; UI/UX Designer · 5+ yrs
-            </div>
-
-            <div className={`h-px mb-3 ${isFunky ? 'bg-white/5' : 'bg-black/6'}`} />
-
-            {/* Details */}
-            <div className="flex flex-col gap-1.5">
-              {[
-                ['Based',   'Visakhapatnam, India'],
-                ['Current', 'InterviewBuddy™'],
-                ['Prev',    'Keka HR'],
-                ['Focus',   'SaaS · AI · Design Systems'],
-              ].map(([key, val]) => (
-                <div key={key} className="flex items-center gap-2">
-                  <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-stone-600 w-[52px] flex-shrink-0">
-                    {key}
-                  </span>
-                  <span className={`font-body text-[11px] ${isFunky ? 'text-stone-400' : 'text-stone-600'}`}>
-                    {val}
-                  </span>
-                </div>
-              ))}
-            </div>
+          <div style={{ padding:'16px 16px 14px' }}>
+            <div style={{
+              width:48, height:48, borderRadius:'50%', marginBottom:12,
+              display:'flex', alignItems:'center', justifyContent:'center',
+              fontFamily:'var(--font-display)', fontWeight:700, fontSize:16,
+              color:accent,
+              background: isFunky ? 'rgba(232,255,107,0.1)' : 'rgba(8,145,178,0.08)',
+              border: `1.5px solid ${isFunky ? 'rgba(232,255,107,0.25)' : 'rgba(8,145,178,0.2)'}`,
+            }}>AT</div>
+            <div style={{ fontFamily:'var(--font-display)', fontWeight:700, fontSize:15, letterSpacing:'-0.03em', color:textHi, marginBottom:2 }}>Aravind Tatipaka</div>
+            <div style={{ fontFamily:'var(--font-body)', fontSize:10, color:'#78716C', marginBottom:14 }}>Product &amp; UI/UX Designer · 5+ yrs</div>
+            <div style={{ height:1, background:divider, marginBottom:12 }} />
+            {[['Based','Visakhapatnam, India'],['Current','InterviewBuddy™'],['Prev','Keka HR'],['Focus','SaaS · AI · Design Systems']].map(([k,v]) => (
+              <div key={k} style={{ display:'flex', alignItems:'center', gap:8, marginBottom:6 }}>
+                <span style={{ fontFamily:'var(--font-mono)', fontSize:9, textTransform:'uppercase', letterSpacing:'0.1em', color:textLo, width:52, flexShrink:0 }}>{k}</span>
+                <span style={{ fontFamily:'var(--font-body)', fontSize:11, color:textMid }}>{v}</span>
+              </div>
+            ))}
           </div>
 
           {/* Footer */}
-          <div className={`flex items-center justify-between px-4 pb-3.5
-            ${isFunky ? 'border-t border-white/4' : 'border-t border-black/5'}`}>
-            {/* Barcode */}
-            <div className="flex gap-0.5 items-end h-5">
-              {[22,14,20,10,18,22,12,16,20,8,22,18,14,20,22].map((h, i) => (
-                <span key={i} className={`block w-0.5 rounded-sm
-                  ${isFunky ? 'bg-white/10' : 'bg-black/10'}`}
-                  style={{ height: h }} />
+          <div style={{
+            display:'flex', alignItems:'center', justifyContent:'space-between',
+            padding:'10px 16px 14px',
+            borderTop:`1px solid ${divider}`,
+          }}>
+            <div style={{ display:'flex', gap:2, alignItems:'flex-end', height:20 }}>
+              {[22,14,20,10,18,22,12,16,20,8,22,18,14,20,22].map((h,i) => (
+                <span key={i} style={{ display:'block', width:2, borderRadius:1, height:h, background: isFunky ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)' }} />
               ))}
             </div>
-            {/* Available */}
-            <div className={`flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-widest
-              ${isFunky ? 'text-lime-DEFAULT' : 'text-cyan-600'}`}>
-              <span className={`w-1.5 h-1.5 rounded-full animate-dot-blink
-                ${isFunky ? 'bg-lime-DEFAULT' : 'bg-cyan-600'}`} />
+            <div style={{ display:'flex', alignItems:'center', gap:5, fontFamily:'var(--font-mono)', fontSize:9, textTransform:'uppercase', letterSpacing:'0.08em', color:accent }}>
+              <span style={{ width:5, height:5, borderRadius:'50%', background:accent, animation:'dotBlink 2s ease-in-out infinite' }} />
               Available
             </div>
           </div>
-
         </div>
       </div>
     </div>

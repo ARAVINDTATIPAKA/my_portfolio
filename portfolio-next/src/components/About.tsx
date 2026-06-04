@@ -1,101 +1,96 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
 import { useTheme } from '@/lib/ThemeContext'
 
 const SKILLS = ['Figma','Design Systems','Framer','UX Research','Prototyping','HTML / CSS']
-
 const PROCESS = [
-  { num: '01', title: 'Understand first', desc: 'Every project starts with research — user interviews, heuristic audits, or competitive benchmarking. I don\'t open Figma until I know the problem.' },
-  { num: '02', title: 'Structure the logic', desc: 'Information architecture, user flows, content hierarchy. The invisible work that makes the visible work feel obvious.' },
-  { num: '03', title: 'Design with intent', desc: 'High-fidelity UI built on a proper token foundation. Every decision is defensible — nothing is decorative without reason.' },
-  { num: '04', title: 'Ship and iterate', desc: 'I write handoff-ready specs and can prototype in code. I stay engaged through implementation — not just until delivery.' },
+  { num:'01', title:'Understand first', desc:'Every project starts with research — user interviews, heuristic audits, or competitive benchmarking. I don\'t open Figma until I know the problem.' },
+  { num:'02', title:'Structure the logic', desc:'Information architecture, user flows, content hierarchy. The invisible work that makes the visible work feel obvious.' },
+  { num:'03', title:'Design with intent', desc:'High-fidelity UI built on a proper token foundation. Every decision is defensible — nothing is decorative without reason.' },
+  { num:'04', title:'Ship and iterate', desc:'I write handoff-ready specs and can prototype in code. I stay engaged through implementation — not just until delivery.' },
 ]
 
 export default function About() {
   const { theme } = useTheme()
   const isFunky = theme === 'funky'
-  const accent = isFunky ? 'text-lime-DEFAULT' : 'text-cyan-600'
-  const accentBg = isFunky ? 'bg-lime-DEFAULT/[0.08] border-lime-DEFAULT/20 text-lime-DEFAULT' : 'bg-cyan-600/[0.06] border-cyan-600/15 text-cyan-600'
+  const accent = isFunky ? '#E8FF6B' : '#0891B2'
+  const textHi = isFunky ? '#F5F5F4' : '#1C1917'
+  const textMid = isFunky ? '#78716C' : '#57534E'
+  const textLo = isFunky ? '#57534E' : '#A8A29E'
+  const sectionBg = isFunky ? '#292524' : '#F5F5F4'
+  const border = isFunky ? '#44403C' : '#E7E5E4'
+  const hoverBg = isFunky ? 'rgba(232,255,107,0.04)' : 'rgba(8,145,178,0.03)'
 
   return (
-    <section id="about" className={`py-24 px-12 border-y
-      ${isFunky ? 'bg-stone-800 border-stone-700' : 'bg-stone-100 border-stone-200'}`}>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-
+    <section id="about" style={{ padding:'96px 48px', background:sectionBg, borderTop:`1px solid ${border}`, borderBottom:`1px solid ${border}` }}>
+      <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'start' }}>
         {/* Left */}
         <div>
-          <div className={`flex items-center gap-3 mb-4 font-mono text-[10px] uppercase tracking-[0.15em] ${accent}`}>
-            <span className={`block w-6 h-px opacity-50 ${isFunky ? 'bg-lime-DEFAULT' : 'bg-cyan-600'}`} />
+          <div style={{ display:'flex', alignItems:'center', gap:12, marginBottom:16, fontFamily:'var(--font-mono)', fontSize:10, textTransform:'uppercase', letterSpacing:'0.15em', color:accent }}>
+            <span style={{ display:'block', width:24, height:1, background:accent, opacity:0.5 }} />
             About
           </div>
-          <h2 className={`font-display font-bold leading-[1.05] tracking-[-0.04em] mb-4
-            ${isFunky ? 'text-stone-50' : 'text-stone-900'}`}
-            style={{ fontSize: 'clamp(36px,4vw,56px)' }}>
-            Designer who<br />
-            speaks <span className={accent}>both</span> sides.
+          <h2 style={{ fontFamily:'var(--font-display)', fontWeight:700, lineHeight:1.05, letterSpacing:'-0.04em', fontSize:'clamp(36px,4vw,56px)', color:textHi, marginBottom:16 }}>
+            Designer who<br />speaks <span style={{ color:accent }}>both</span> sides.
           </h2>
-          <p className={`font-body text-[16px] leading-[1.8] mb-5
-            ${isFunky ? 'text-stone-400' : 'text-stone-600'}`}>
+          <p style={{ fontFamily:'var(--font-body)', fontSize:16, lineHeight:1.8, color:textMid, marginBottom:20 }}>
             Based in Visakhapatnam, I work at the edge of{' '}
-            <strong className={isFunky ? 'text-stone-50 font-medium' : 'text-stone-900 font-medium'}>
-              design and code
-            </strong>{' '}
+            <strong style={{ color:textHi, fontWeight:500 }}>design and code</strong>{' '}
             — fluent enough in both to move fast and ship things that actually work.
           </p>
-          <p className={`font-body text-[16px] leading-[1.8] mb-8
-            ${isFunky ? 'text-stone-400' : 'text-stone-600'}`}>
-            I've built design systems from scratch, run user research, and delivered polished UI for
-            clients across India and internationally. I care about{' '}
-            <strong className={isFunky ? 'text-stone-50 font-medium' : 'text-stone-900 font-medium'}>
-              craft, clarity, and the details that most people skip.
-            </strong>
+          <p style={{ fontFamily:'var(--font-body)', fontSize:16, lineHeight:1.8, color:textMid, marginBottom:32 }}>
+            I've built design systems from scratch, run user research, and delivered polished UI for clients
+            across India and internationally. I care about{' '}
+            <strong style={{ color:textHi, fontWeight:500 }}>craft, clarity, and the details that most people skip.</strong>
           </p>
-
-          {/* Skills */}
-          <div className="flex flex-wrap gap-2">
+          <div style={{ display:'flex', flexWrap:'wrap', gap:8 }}>
             {SKILLS.map(s => (
-              <span key={s}
-                className={`px-4 py-2 rounded-pill border font-display text-[12px] font-medium
-                  tracking-tight cursor-default transition-all duration-200
-                  ${isFunky
-                    ? 'border-stone-700 text-stone-400 hover:border-lime-DEFAULT hover:text-lime-DEFAULT hover:bg-lime-DEFAULT/8 hover:scale-[1.06]'
-                    : 'border-stone-300 text-stone-500 hover:border-cyan-600 hover:text-cyan-600 hover:bg-cyan-600/6 hover:scale-[1.06]'
-                  }`}>
-                {s}
-              </span>
+              <span key={s} style={{
+                padding:'8px 16px', borderRadius:999,
+                border:`1px solid ${border}`,
+                fontFamily:'var(--font-display)', fontSize:12, fontWeight:500,
+                color:textMid, cursor:'default',
+                transition:'all 0.2s cubic-bezier(0.34,1.56,0.64,1)',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = accent
+                e.currentTarget.style.color = accent
+                e.currentTarget.style.background = isFunky ? 'rgba(232,255,107,0.08)' : 'rgba(8,145,178,0.06)'
+                e.currentTarget.style.transform = 'scale(1.06)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = border
+                e.currentTarget.style.color = textMid
+                e.currentTarget.style.background = ''
+                e.currentTarget.style.transform = ''
+              }}>{s}</span>
             ))}
           </div>
         </div>
 
         {/* Right — Process */}
         <div id="process">
-          <div className={`flex items-center gap-3 mb-6 font-mono text-[10px] uppercase tracking-[0.15em] ${accent}`}>
-            <span className={`block w-6 h-px opacity-50 ${isFunky ? 'bg-lime-DEFAULT' : 'bg-cyan-600'}`} />
+          <div style={{ display:'flex', alignItems:'center', gap:12, marginBottom:24, fontFamily:'var(--font-mono)', fontSize:10, textTransform:'uppercase', letterSpacing:'0.15em', color:accent }}>
+            <span style={{ display:'block', width:24, height:1, background:accent, opacity:0.5 }} />
             Process
           </div>
-          <div className="flex flex-col">
-            {PROCESS.map((step, i) => (
-              <div key={i}
-                className={`group grid grid-cols-[48px_1fr] gap-5 py-7 border-b
-                  transition-all duration-150 rounded
-                  ${i === 0 ? `border-t ${isFunky ? 'border-stone-700' : 'border-stone-200'}` : ''}
-                  ${isFunky ? 'border-stone-700 hover:bg-lime-DEFAULT/[0.04]' : 'border-stone-200 hover:bg-cyan-600/[0.03]'}
-                  hover:px-4 hover:-mx-4`}>
-                <span className={`font-mono text-[11px] pt-0.5 ${accent}`}>{step.num}</span>
-                <div>
-                  <div className={`font-display font-bold text-[16px] tracking-[-0.02em] mb-1.5
-                    ${isFunky ? 'text-stone-50' : 'text-stone-900'}`}>
-                    {step.title}
-                  </div>
-                  <div className={`font-body text-[13px] leading-[1.65]
-                    ${isFunky ? 'text-stone-400' : 'text-stone-600'}`}>
-                    {step.desc}
-                  </div>
-                </div>
+          {PROCESS.map((step, i) => (
+            <div key={i} style={{
+              display:'grid', gridTemplateColumns:'48px 1fr', gap:20,
+              padding:'28px 0',
+              borderTop: i === 0 ? `1px solid ${border}` : 'none',
+              borderBottom:`1px solid ${border}`,
+              transition:'all 0.15s', borderRadius:4,
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = hoverBg; e.currentTarget.style.padding = '28px 16px'; e.currentTarget.style.margin = '0 -16px' }}
+            onMouseLeave={e => { e.currentTarget.style.background = ''; e.currentTarget.style.padding = '28px 0'; e.currentTarget.style.margin = '0' }}>
+              <span style={{ fontFamily:'var(--font-mono)', fontSize:11, color:accent, paddingTop:2 }}>{step.num}</span>
+              <div>
+                <div style={{ fontFamily:'var(--font-display)', fontWeight:700, fontSize:16, letterSpacing:'-0.02em', color:textHi, marginBottom:6 }}>{step.title}</div>
+                <div style={{ fontFamily:'var(--font-body)', fontSize:13, lineHeight:1.65, color:textMid }}>{step.desc}</div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
