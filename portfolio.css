@@ -1183,7 +1183,7 @@ footer {
   top: 0;
   right: 0;
   bottom: 0;
-  width: min(40vw, 100vw);
+  width: min(680px, 100vw);
   background: var(--stone-900);
   border-left: 1px solid var(--border);
   z-index: 501;
@@ -3770,4 +3770,20 @@ nav {
 
 [data-theme=serious] .cs-phone-frame img {
   box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+/* Decision Sections side-by-side layout */
+@media (min-width: 769px) {
+  .cs-decision-section {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+  .cs-decision-col {
+    flex: 1;
+  }
+  .cs-decision-section .cs-phone-row {
+    margin: 0;
+    flex-shrink: 0;
+  }
 }
