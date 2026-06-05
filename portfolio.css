@@ -535,18 +535,30 @@ section {
   color: var(--lime);
 }
 
-.card-lg { grid-column: span 1; }
+.card-lg {
+  grid-column: span 1;
+}
 
-.card-sm { grid-column: span 1; }
+.card-sm {
+  grid-column: span 1;
+}
 
-.card-full { grid-column: span 1; }
+.card-full {
+  grid-column: span 1;
+}
 
-.card-half { grid-column: span 1; }
+.card-half {
+  grid-column: span 1;
+}
 
 /* Staggered second row */
-.row-2 .card-lg { grid-column: span 1; }
+.row-2 .card-lg {
+  grid-column: span 1;
+}
 
-.row-2 .card-sm { grid-column: span 1; }
+.row-2 .card-sm {
+  grid-column: span 1;
+}
 
 .project-img {
   width: 100%;
@@ -3715,6 +3727,7 @@ nav {
     display: none;
   }
 }
+
 /* ── MVP badge on project card ── */
 .project-mvp-badge {
   position: absolute;
@@ -3755,7 +3768,7 @@ nav {
   width: 100%;
   border-radius: 28px;
   border: 1px solid var(--border);
-  box-shadow: 0 20px 48px rgba(0,0,0,0.4);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
   display: block;
 }
 
@@ -3769,7 +3782,7 @@ nav {
 }
 
 [data-theme=serious] .cs-phone-frame img {
-  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
 /* Decision Sections side-by-side layout */
@@ -3779,9 +3792,11 @@ nav {
     gap: 32px;
     align-items: center;
   }
+
   .cs-decision-col {
     flex: 1;
   }
+
   .cs-decision-section .cs-phone-row {
     margin: 0;
     flex-shrink: 0;
