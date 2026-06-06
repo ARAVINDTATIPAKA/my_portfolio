@@ -28,8 +28,8 @@ export default function Work({ onOpenCase }: WorkProps) {
   const tagBorder = isFunky ? '#44403C' : '#E7E5E4'
 
   return (
-    <section id="work" style={{ padding:'96px 0' }}>
-      <div style={{ width:'100%', maxWidth:1440, margin:'0 auto', padding:'0 48px', display:'grid', gridTemplateColumns:'repeat(12,1fr)', columnGap:24 }}>
+    <section id="work" className="work-section" style={{ padding:'96px 0' }}>
+      <div className="work-inner" style={{ width:'100%', maxWidth:1440, margin:'0 auto', padding:'0 48px', display:'grid', gridTemplateColumns:'repeat(12,1fr)', columnGap:24 }}>
       {/* Header — full 12 cols */}
       <div style={{ gridColumn:'1 / 13', display:'flex', alignItems:'flex-end', justifyContent:'space-between', marginBottom:48 }}>
         <div>
@@ -56,8 +56,8 @@ export default function Work({ onOpenCase }: WorkProps) {
         </div>
       </div>
 
-      {/* Grid — full 12 cols, internally 3 equal cols */}
-      <div style={{ gridColumn:'1 / 13', display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20 }}>
+      {/* Grid */}
+      <div className="work-grid" style={{ gridColumn:'1 / 13', display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20 }}>
         {PROJECTS.map(p => (
           <div key={p.id} onClick={() => onOpenCase(p.caseKey)} style={{
             background:cardBg, borderRadius:20, border:`1px solid ${cardBorder}`,

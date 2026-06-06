@@ -48,7 +48,7 @@ export function Stats() {
   const isFunky = theme === 'funky'
 
   return (
-    <div style={{
+    <div className="stats-grid" style={{
       display:'grid', gridTemplateColumns:'repeat(4,1fr)',
       borderTop: `1px solid ${isFunky ? '#44403C' : '#E7E5E4'}`,
       borderBottom: `1px solid ${isFunky ? '#44403C' : '#E7E5E4'}`,
