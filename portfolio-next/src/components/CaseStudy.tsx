@@ -253,13 +253,15 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
       <Section divider={divider}>
         <SectionLabel text="The Context" accent={accent} />
         <SectionHeading text="When scale breaks attendance infrastructure." textHi={textHi} />
-        <BodyText textMid={textMid}>Large organizations operating across multiple offices rely on biometric devices to capture attendance. But at scale, the challenge shifts from capturing attendance to maintaining reliable synchronization. Logs arrive with delays. Records become inconsistent. Devices go offline.</BodyText>
-        <Callout text='"How might we help enterprise admins manage and synchronize biometric attendance systems reliably across multiple locations — while reducing operational complexity?"' accent={accent} isFunky={isFunky} />
+        <BodyText textMid={textMid}>Large organizations operating across multiple offices, campuses, and floors rely on biometric devices to capture attendance. But at scale — thousands of employees, multiple locations, peak traffic — the challenge shifts from capturing attendance to maintaining reliable synchronization.</BodyText>
+        <BodyText textMid={textMid}>Logs arrive with delays. Records become inconsistent. Devices go offline. Admins struggle to identify failures quickly. The Keka Sync Tool was designed as the infrastructure layer between biometric hardware and the attendance management ecosystem.</BodyText>
+        <Callout text='"How might we help enterprise admins manage and synchronize biometric attendance systems reliably across multiple locations and high-traffic environments — while reducing operational complexity?"' accent={accent} isFunky={isFunky} />
       </Section>
 
       <Section divider={divider}>
         <SectionLabel text="Core Realization" accent={accent} />
         <SectionHeading text="Not a hardware problem. An operational workflow problem." textHi={textHi} />
+        <BodyText textMid={textMid}>One of the most important early discoveries: organizations had wildly different attendance setups based on office layout, employee volume, and hardware constraints.</BodyText>
         <CardGrid>
           <Card num="Setup A" title="Single Device" desc="One biometric device handles both clock-in and clock-out using punch sequence and timing logic. Simpler but creates congestion at scale." isFunky={isFunky} accent={accent} />
           <Card num="Setup B" title="Dual Device" desc="Dedicated devices for clock-in and clock-out. Reduces congestion but introduces mapping complexity, synchronization dependency, and device-role management challenges." isFunky={isFunky} accent={accent} />
@@ -269,14 +271,34 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
       <Section divider={divider}>
         <SectionLabel text="Research Insights" accent={accent} />
         <SectionHeading text="Three findings that shaped the UX direction." textHi={textHi} />
-        <Feature num="01" title="Admins needed visibility, not more control" desc="Existing tools exposed raw logs and server-level information. But admins primarily wanted simple answers: Which device is offline? Is syncing working? Which location has delayed records?" isFunky={isFunky} />
+        <Feature num="01" title="Admins needed visibility, not more control" desc="Existing tools exposed raw logs and server-level information. But admins primarily wanted simple answers: Which device is offline? Is syncing working? Which location has delayed records? This shifted focus from technical density to operational clarity." isFunky={isFunky} />
         <Feature num="02" title="High traffic created synchronization anxiety" desc="During peak hours, thousands of records could arrive within minutes. Admins couldn't distinguish a processing queue from an actual failure. Communicating sync health vs. sync failure became a critical UX problem." isFunky={isFunky} />
-        <Feature num="03" title="Device mapping was more complex than expected" desc="Different organizations had different office structures, device setups, and attendance workflows. Admins needed flexibility to map devices to locations and assign clock-in/out behavior." isFunky={isFunky} />
+        <Feature num="03" title="Device mapping was more complex than expected" desc="Different organizations had different office structures, device setups, and attendance workflows. Admins needed flexibility to map devices to locations and assign clock-in/out behavior — without requiring deep technical expertise." isFunky={isFunky} />
+      </Section>
+
+      <Section divider={divider}>
+        <SectionLabel text="User Context" accent={accent} />
+        <SectionHeading text="Designing for operational and technical users." textHi={textHi} />
+        <BodyText textMid={textMid}>Unlike consumer products, the Keka Sync Tool was designed specifically for internal operational teams responsible for configuring biometric devices, monitoring synchronization health, troubleshooting connectivity issues, and managing attendance infrastructure across multiple client locations.</BodyText>
+        <Callout text='"The challenge was not: \"How do we simplify everything?\" — It was: \"How do we preserve operational depth while improving clarity, speed, and efficiency?\""' accent={accent} isFunky={isFunky} />
+        <BodyText textMid={textMid}>Working closely with the internal sync operations team, I learned how real-world attendance infrastructure behaves beyond UI requirements. Technical users don't want oversimplified systems — they want systems that help them operate faster with better visibility and fewer interruptions.</BodyText>
+      </Section>
+
+      <Section divider={divider}>
+        <SectionLabel text="Core Experience Areas" accent={accent} />
+        <SectionHeading text="Four areas, one coherent system." textHi={textHi} />
+        <DataTable headers={['Area', 'What it solved']} rows={[
+          ['Centralized Device Management', 'Register devices, map to offices, configure clock-in/out behavior — single and dual device models supported'],
+          ['Synchronization Monitoring', 'Structured status indicators, readable alerts, operational summaries — not raw technical logs'],
+          ['Log Ordering & Record Integrity', 'Maintained proper attendance sequence during high traffic, simultaneous punches, and network instability'],
+          ['Location & Office Mapping', 'Office-level device distribution, infrastructure health by location, scalable hierarchy management']
+        ]} isFunky={isFunky} />
       </Section>
 
       <Section divider={divider}>
         <SectionLabel text="Critical UX Decision" accent={accent} />
         <SectionHeading text="Reducing panic during delays." textHi={textHi} />
+        <BodyText textMid={textMid}>Early concepts surfaced aggressive warnings and constant alerts during peak sync traffic — making temporary queue buildup look like system failure.</BodyText>
         <CardGrid>
           <Card num="Before" title="Alert-heavy, error-first" desc="Every queue delay triggered visible warnings. Admins couldn't distinguish temporary sync latency from actual infrastructure failure. Panic was routine." isFunky={isFunky} accent={'#DA5B3A'} />
           <Card num="After" title="Progressive, contextual clarity" desc="Differentiated temporary delay vs. actual failure. Queue progress shown visually. System recovery status communicated clearly. Unnecessary escalation eliminated." isFunky={isFunky} accent={accent} />
@@ -286,6 +308,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
       <Section divider={divider}>
         <SectionLabel text="Constraints & Execution" accent={accent} />
         <SectionHeading text="One week. Existing components. Smarter decisions." textHi={textHi} />
+        <BodyText textMid={textMid}>The project was designed and delivered within one week, using Keka's existing design components — maintaining consistency with the broader Keka ecosystem and accelerating implementation speed.</BodyText>
         <Callout text="Good enterprise design is not always about introducing new UI patterns — sometimes it is about making smarter decisions within operational and technical constraints." accent={accent} isFunky={isFunky} />
       </Section>
 
