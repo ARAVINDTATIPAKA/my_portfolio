@@ -131,3 +131,106 @@ body, nav, section, div, span, h1, h2, h3, p, a, button {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+
+/* ================================================================
+   RESPONSIVE — Mobile first
+   ================================================================ */
+
+/* ── Tablet ≤1024px ── */
+@media (max-width: 1024px) {
+  /* Nav */
+  nav { padding: 0 24px !important; }
+  nav ul { display: none !important; }
+  nav > div > div:first-child { display: none !important; } /* hide toggle */
+
+  /* Hero */
+  section:first-of-type { padding: 0 24px 64px !important; }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: repeat(2,1fr) !important; }
+
+  /* Work grid */
+  .work-grid { grid-template-columns: repeat(2,1fr) !important; }
+
+  /* About */
+  .about-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+
+  /* ID card */
+  .id-card-wrap { display: none !important; }
+
+  /* Modal padding */
+  .modal-content { padding: 0 24px 64px !important; }
+  .modal-topbar  { padding: 0 24px !important; }
+
+  /* Decision side-by-side → stack */
+  .decision-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ── Mobile ≤768px ── */
+@media (max-width: 768px) {
+  /* Nav */
+  nav { padding: 0 20px !important; height: 56px !important; }
+  nav a[href="#contact"] { padding: 8px 16px !important; font-size: 12px !important; }
+
+  /* Hero */
+  section:first-of-type { padding: 0 20px 56px !important; }
+
+  /* Section padding */
+  section { padding: 64px 20px !important; }
+
+  /* Work: single col */
+  .work-section { padding: 64px 0 !important; }
+  .work-inner   { padding: 0 20px !important; }
+  .work-grid    { grid-template-columns: 1fr !important; gap: 14px !important; }
+
+  /* Card images — shorter on mobile */
+  .project-img  { aspect-ratio: 4/3 !important; }
+
+  /* About */
+  .about-section { padding: 64px 20px !important; }
+
+  /* Contact */
+  .contact-section { padding: 64px 20px !important; }
+  .contact-buttons { flex-direction: column !important; }
+  .contact-buttons a { text-align: center !important; justify-content: center !important; }
+
+  /* Footer */
+  footer { padding: 24px 20px !important; flex-direction: column !important; gap: 12px !important; }
+  footer > div:last-child { display: none !important; }
+
+  /* Modal */
+  .modal-content { padding: 0 20px 60px !important; }
+  .modal-topbar  { padding: 0 20px !important; }
+
+  /* Modal inner — cards stack */
+  .cs-card-grid  { grid-template-columns: 1fr !important; }
+  .cs-audit-grid { grid-template-columns: repeat(2,1fr) !important; }
+  .cs-outcome-grid { grid-template-columns: 1fr !important; }
+
+  /* Tables scroll horizontally */
+  .cs-table-wrap { overflow-x: auto !important; }
+  table { min-width: 500px !important; }
+
+  /* Decision side-by-side → stack */
+  .decision-grid { grid-template-columns: 1fr !important; }
+  .decision-img  { order: -1 !important; }
+
+  /* Figma embed */
+  iframe { height: 320px !important; }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: repeat(2,1fr) !important; }
+}
+
+/* ── Small ≤480px ── */
+@media (max-width: 480px) {
+  nav { padding: 0 16px !important; }
+  section { padding: 48px 16px !important; }
+  .work-inner { padding: 0 16px !important; }
+  .modal-content { padding: 0 16px 56px !important; }
+  .modal-topbar  { padding: 0 16px !important; }
+  .cs-hero-title { font-size: 28px !important; }
+  .cs-meta-row   { flex-wrap: wrap !important; gap: 16px !important; }
+  .cs-outcome-grid { grid-template-columns: 1fr !important; }
+  iframe { height: 260px !important; }
+}

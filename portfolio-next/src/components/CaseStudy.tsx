@@ -47,7 +47,7 @@ function Callout({ text, accent, isFunky }: { text: string; accent: string; isFu
 
 function CardGrid({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:12, margin:'20px 0' }}>
+    <div className="cs-card-grid" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:12, margin:'20px 0' }}>
       {children}
     </div>
   )
@@ -88,7 +88,7 @@ function Feature({ num, title, desc, isFunky }: { num:string; title:string; desc
 
 function OutcomeGrid({ items, isFunky, accent }: { items:{val:string;label:string}[]; isFunky:boolean; accent:string }) {
   return (
-    <div style={{ display:'grid', gridTemplateColumns:`repeat(${items.length},1fr)`, gap:12, margin:'20px 0' }}>
+    <div className="cs-outcome-grid" style={{ display:'grid', gridTemplateColumns:`repeat(${items.length},1fr)`, gap:12, margin:'20px 0' }}>
       {items.map((o,i) => (
         <div key={i} style={{
           background: isFunky ? '#292524' : '#F5F5F4',
@@ -108,7 +108,7 @@ function OutcomeGrid({ items, isFunky, accent }: { items:{val:string;label:strin
 
 function DataTable({ headers, rows, isFunky }: { headers:string[]; rows:string[][]; isFunky:boolean }) {
   return (
-    <table style={{ width:'100%', borderCollapse:'collapse', margin:'20px 0', fontSize:13 }}>
+    <div className="cs-table-wrap"><table style={{ width:'100%', borderCollapse:'collapse', margin:'20px 0', fontSize:13 }}>
       <thead>
         <tr>{headers.map(h => (
           <th key={h} style={{ textAlign:'left', padding:'10px 14px', fontFamily:'var(--font-mono)', fontSize:9, letterSpacing:'0.1em', textTransform:'uppercase' as const, color: isFunky ? '#57534E' : '#A8A29E', borderBottom: `1px solid ${isFunky ? '#44403C' : '#E7E5E4'}` }}>{h}</th>
@@ -119,7 +119,7 @@ function DataTable({ headers, rows, isFunky }: { headers:string[]; rows:string[]
           <td key={j} style={{ padding:'12px 14px', borderBottom: `1px solid ${isFunky ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.04)'}`, fontFamily: j===0 ? 'var(--font-display)' : 'var(--font-body)', fontWeight: j===0 ? 600 : 400, fontSize:13, color: j===0 ? (isFunky ? '#F5F5F4' : '#1C1917') : (isFunky ? '#78716C' : '#57534E'), lineHeight:1.5 }}>{cell}</td>
         ))}</tr>
       ))}</tbody>
-    </table>
+    </table></div>
   )
 }
 
@@ -370,13 +370,13 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey:string|null; o
 
       <Section divider={divider}>
         <SectionLabel text="Decision 01" accent={accent} />
-        <div style={{ display:'grid', gridTemplateColumns:'1fr 240px', gap:32, alignItems:'center' }}>
+        <div className="decision-grid" style={{ display:'grid', gridTemplateColumns:'1fr 240px', gap:32, alignItems:'center' }}>
         <div>
         <SectionHeading text="Why conversational AI instead of traditional navigation?" textHi={textHi} />
         <BodyText textMid={textMid}>Traditional navigation assumes users know what they're looking for. Our users don't — they arrive with problems, not product names. A conversational AI approach translates user problems into relevant services by understanding intent, asking follow-up questions, and recommending the right service.</BodyText>
         <Callout text="Outcome: Reduced cognitive load and simplified product discovery. Users no longer need to understand our product taxonomy — they just describe their situation." accent={accent} isFunky={isFunky} />
         </div>
-        <div style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', minWidth:200 }}>
+        <div className="decision-img" style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', minWidth:200 }}>
           <PhoneFrame src="/ib-ai-screen-1.webp" alt="Home screen — Discovery" caption="Home · Discovery" isFunky={isFunky} />
         </div>
         </div>
@@ -384,13 +384,13 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey:string|null; o
 
       <Section divider={divider}>
         <SectionLabel text="Decision 02" accent={accent} />
-        <div style={{ display:'grid', gridTemplateColumns:'1fr 240px', gap:32, alignItems:'center' }}>
+        <div className="decision-grid" style={{ display:'grid', gridTemplateColumns:'1fr 240px', gap:32, alignItems:'center' }}>
         <div>
         <SectionHeading text="We didn't go with a regular chat." textHi={textHi} />
         <BodyText textMid={textMid}>Open-ended chat creates uncertainty. Users don't know what to ask, ask incomplete questions, and get lost in long conversations. We designed a guided conversational framework — the AI asks one question at a time while presenting relevant options and always allowing custom responses.</BodyText>
         <Callout text="Design Principle: Freedom where it matters, structure where it helps. The experience feels conversational without becoming an unstructured chatbot." accent={accent} isFunky={isFunky} />
         </div>
-        <div style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', minWidth:200 }}>
+        <div className="decision-img" style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', minWidth:200 }}>
           <PhoneFrame src="/ib-ai-screen-2.webp" alt="Intent capture" caption="Intent capture" isFunky={isFunky} />
         </div>
         </div>
@@ -398,13 +398,13 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey:string|null; o
 
       <Section divider={divider}>
         <SectionLabel text="Decision 03" accent={accent} />
-        <div style={{ display:'grid', gridTemplateColumns:'1fr 240px', gap:32, alignItems:'center' }}>
+        <div className="decision-grid" style={{ display:'grid', gridTemplateColumns:'1fr 240px', gap:32, alignItems:'center' }}>
         <div>
         <SectionHeading text="One question at a time — no chat history." textHi={textHi} />
         <BodyText textMid={textMid}>Users weren't coming for ongoing conversations. They came to accomplish a task. Persistent chat history introduces cognitive overload, irrelevant context, and longer recovery times. We designed the experience around current intent rather than persistent threads.</BodyText>
         <Callout text="Design Principle: Users care about progress, not conversation logs. Faster task completion, reduced interface complexity." accent={accent} isFunky={isFunky} />
         </div>
-        <div style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', minWidth:200 }}>
+        <div className="decision-img" style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', minWidth:200 }}>
           <PhoneFrame src="/ib-ai-screen-3.webp" alt="Context qualification" caption="Context qualification" isFunky={isFunky} />
         </div>
         </div>
@@ -412,13 +412,13 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey:string|null; o
 
       <Section divider={divider}>
         <SectionLabel text="Decision 04" accent={accent} />
-        <div style={{ display:'grid', gridTemplateColumns:'1fr 240px', gap:32, alignItems:'center' }}>
+        <div className="decision-grid" style={{ display:'grid', gridTemplateColumns:'1fr 240px', gap:32, alignItems:'center' }}>
         <div>
         <SectionHeading text="Why add instant AI interviews inside the app?" textHi={textHi} />
         <BodyText textMid={textMid}>A user is unlikely to install an app whose sole purpose is helping them decide what to purchase. We introduced Instant AI Interviews directly inside the app — giving users immediate value and creating a high-frequency utility.</BodyText>
         <Callout text="Strategic shift: The app evolved from a sales channel to a career preparation companion. Higher downloads, session frequency, retention, and upsell opportunities." accent={accent} isFunky={isFunky} />
         </div>
-        <div style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', minWidth:200 }}>
+        <div className="decision-img" style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', minWidth:200 }}>
           <PhoneFrame src="/ib-ai-screen-4.webp" alt="AI Interview in session" caption="AI Interview · In session" isFunky={isFunky} />
         </div>
         </div>
@@ -441,56 +441,67 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey:string|null; o
       background: isFunky ? 'rgba(12,10,9,0.8)' : 'rgba(200,196,193,0.65)',
       backdropFilter:'blur(10px)', WebkitBackdropFilter:'blur(10px)',
       opacity: caseKey ? 1 : 0, pointerEvents: caseKey ? 'all' : 'none',
-      transition:'opacity 0.3s ease',
+      transition:'opacity 0.4s ease',
     }} />
 
-    {/* Modal */}
+    {/* Bottom-sheet modal */}
     <div style={{
-      position:'fixed', inset:0, zIndex:501,
-      display:'flex', alignItems:'center', justifyContent:'center',
-      padding:'24px', pointerEvents: caseKey ? 'all' : 'none',
+      position:'fixed', left:0, right:0, bottom:0, zIndex:501,
+      display:'flex', justifyContent:'center',
+      pointerEvents: caseKey ? 'all' : 'none',
     }}>
       <div style={{
-        width:'100%', maxWidth:1440,
-        display:'grid', gridTemplateColumns:'repeat(12,1fr)', columnGap:24,
+        width:'100%', maxWidth:1440, padding:'0 24px',
       }}>
         <div style={{
-          gridColumn:'1 / 13',
-          background: modalBg, borderRadius:24, overflow:'hidden',
-          boxShadow: isFunky ? '0 32px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.05)' : '0 32px 80px rgba(0,0,0,0.15),0 0 0 1px rgba(0,0,0,0.06)',
-          maxHeight:'calc(100vh - 48px)', display:'flex', flexDirection:'column',
-          transform: caseKey ? 'scale(1) translateY(0)' : 'scale(0.96) translateY(20px)',
-          opacity: caseKey ? 1 : 0,
-          transition:'transform 0.4s cubic-bezier(0.34,1.56,0.64,1),opacity 0.3s ease',
+          background: modalBg,
+          borderRadius:'24px 24px 0 0',
+          overflow:'hidden',
+          boxShadow: isFunky
+            ? '0 -24px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05)'
+            : '0 -24px 80px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.06)',
+          height:'92vh',
+          display:'flex', flexDirection:'column',
+          transform: caseKey ? 'translateY(0)' : 'translateY(100%)',
+          transition:'transform 0.45s cubic-bezier(0.32,0.72,0,1)',
         }}>
           {caseKey && <>
-            {/* Topbar */}
+            {/* Handle + Topbar */}
             <div style={{
-              flexShrink:0, display:'flex', alignItems:'center', justifyContent:'space-between',
-              padding:'0 48px', height:56,
-              background: isFunky ? 'rgba(28,25,23,0.96)' : 'rgba(255,255,255,0.96)',
+              flexShrink:0,
+              background: isFunky ? 'rgba(28,25,23,0.97)' : 'rgba(255,255,255,0.97)',
               backdropFilter:'blur(12px)',
               borderBottom:`1px solid ${divider}`,
             }}>
-              <span style={{ fontFamily:'var(--font-mono)', fontSize:10, textTransform:'uppercase' as const, letterSpacing:'0.12em', color:textLo }}>
-                Case Study
-              </span>
-              <button onClick={onClose} style={{
-                display:'flex', alignItems:'center', gap:6,
-                padding:'6px 16px', borderRadius:999,
-                border:`1px solid ${isFunky ? '#44403C' : '#E7E5E4'}`,
-                fontFamily:'var(--font-display)', fontSize:12, fontWeight:600,
-                color:textMid, background:'transparent', cursor:'pointer',
-                transition:'all 0.15s',
-              }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = accent; e.currentTarget.style.color = accent }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = isFunky ? '#44403C' : '#E7E5E4'; e.currentTarget.style.color = textMid }}>
-                ✕ Close
-              </button>
+              {/* Drag handle */}
+              <div style={{ display:'flex', justifyContent:'center', paddingTop:12, paddingBottom:8 }}>
+                <div style={{ width:40, height:4, borderRadius:999, background: isFunky ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.12)' }} />
+              </div>
+              {/* Topbar row */}
+              <div style={{
+                display:'flex', alignItems:'center', justifyContent:'space-between',
+                padding:'0 48px', height:48,
+              }}>
+                <span style={{ fontFamily:'var(--font-mono)', fontSize:10, textTransform:'uppercase' as const, letterSpacing:'0.12em', color:textLo }}>
+                  Case Study
+                </span>
+                <button onClick={onClose} style={{
+                  display:'flex', alignItems:'center', gap:6,
+                  padding:'6px 16px', borderRadius:999,
+                  border:`1px solid ${isFunky ? '#44403C' : '#E7E5E4'}`,
+                  fontFamily:'var(--font-display)', fontSize:12, fontWeight:600,
+                  color:textMid, background:'transparent', cursor:'pointer',
+                  transition:'all 0.15s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = accent; e.currentTarget.style.color = accent }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = isFunky ? '#44403C' : '#E7E5E4'; e.currentTarget.style.color = textMid }}>
+                  ✕ Close
+                </button>
+              </div>
             </div>
 
             {/* Scrollable content */}
-            <div style={{ flex:1, overflowY:'auto', padding:'0 48px 80px' }}>
+            <div className="modal-content" style={{ flex:1, overflowY:'auto', padding:'0 48px 80px' }}>
               {renderContent()}
             </div>
           </>}
@@ -528,10 +539,10 @@ function Hero({ c, accent, textHi, textMid, textLo, isFunky, divider }: { c:Hero
         {c.isMVP && <span style={{ padding:'3px 10px', borderRadius:999, background: isFunky ? 'rgba(232,255,107,0.12)' : 'rgba(8,145,178,0.08)', border:`1px solid ${isFunky ? 'rgba(232,255,107,0.35)' : 'rgba(8,145,178,0.25)'}`, fontFamily:'var(--font-mono)', fontSize:9, fontWeight:700, textTransform:'uppercase' as const, letterSpacing:'0.1em', color:accent }}>MVP</span>}
       </div>
 
-      <h2 style={{ fontFamily:'var(--font-display)', fontWeight:700, fontSize:40, lineHeight:1.05, letterSpacing:'-0.04em', color:textHi, marginBottom:12 }}>{c.title}</h2>
+      <h2 className="cs-hero-title" style={{ fontFamily:'var(--font-display)', fontWeight:700, fontSize:40, lineHeight:1.05, letterSpacing:'-0.04em', color:textHi, marginBottom:12 }}>{c.title}</h2>
       <p style={{ fontFamily:'var(--font-body)', fontSize:15, lineHeight:1.65, color:textMid, maxWidth:640, marginBottom:28 }}>{c.subtitle}</p>
 
-      <div style={{ display:'flex', flexWrap:'wrap', gap:28, marginBottom:24 }}>
+      <div className="cs-meta-row" style={{ display:'flex', flexWrap:'wrap', gap:28, marginBottom:24 }}>
         {Object.entries(c.meta).map(([k,v]) => (
           <div key={k}>
             <div style={{ fontFamily:'var(--font-mono)', fontSize:9, textTransform:'uppercase' as const, letterSpacing:'0.1em', color:textLo, marginBottom:3 }}>{k}</div>

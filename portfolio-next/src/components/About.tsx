@@ -28,12 +28,12 @@ export default function About() {
   )
 
   return (
-    <section id="about" style={{ padding:'96px 0', background:sectionBg, borderTop:`1px solid ${border}`, borderBottom:`1px solid ${border}` }}>
+    <section id="about" className="about-section" style={{ padding:'96px 0', background:sectionBg, borderTop:`1px solid ${border}`, borderBottom:`1px solid ${border}` }}>
       {/* 12-col grid */}
       <div style={{ width:'100%', maxWidth:1440, margin:'0 auto', padding:'0 48px', display:'grid', gridTemplateColumns:'repeat(12,1fr)', columnGap:24 }}>
 
         {/* Left — cols 1–6 */}
-        <div style={{ gridColumn:'1 / 7' }}>
+        <div className="about-left" style={{ gridColumn:'1 / 7' }}>
           <Label text="About" />
           <h2 style={{ fontFamily:'var(--font-display)', fontWeight:700, lineHeight:1.05, letterSpacing:'-0.04em', fontSize:'clamp(36px,4vw,56px)', color:textHi, marginBottom:16 }}>
             Designer who<br />speaks <span style={{ color:accent }}>both</span> sides.

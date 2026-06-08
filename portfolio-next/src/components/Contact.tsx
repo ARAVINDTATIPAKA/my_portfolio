@@ -18,7 +18,7 @@ export default function Contact() {
 
   return (
     <>
-      <div id="contact" style={{ position:'relative', padding:'96px 48px', overflow:'hidden', background:sectionBg, borderTop:`1px solid ${border}`, borderBottom:`1px solid ${border}` }}>
+      <div id="contact" className="contact-section" style={{ position:'relative', padding:'96px 48px', overflow:'hidden', background:sectionBg, borderTop:`1px solid ${border}`, borderBottom:`1px solid ${border}` }}>
         {/* Ghost text */}
         <div style={{
           position:'absolute', top:'50%', left:'50%',
@@ -44,7 +44,7 @@ export default function Contact() {
             Open for freelance UI/UX design, design systems, and web design work. Currently available for new projects.
           </p>
 
-          <div style={{ display:'flex', flexWrap:'wrap', gap:12, marginBottom:40 }}>
+          <div className="contact-buttons" style={{ display:'flex', flexWrap:'wrap', gap:12, marginBottom:40 }}>
             <a href="mailto:aravindtatipaka00@gmail.com" style={{
               display:'flex', alignItems:'center', gap:8, padding:'14px 28px', borderRadius:999,
               fontFamily:'var(--font-display)', fontWeight:700, fontSize:14, letterSpacing:'-0.01em',
