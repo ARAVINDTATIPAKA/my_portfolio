@@ -128,10 +128,13 @@ function DataTable({ headers, rows, isFunky }: { headers: string[]; rows: string
 }
 
 function PhoneFrame({ src, alt, caption, isFunky }: { src: string; alt: string; caption: string; isFunky: boolean }) {
+  const isProd = process.env.NODE_ENV === 'production';
+  const basePath = isProd ? '/my_portfolio' : '';
+  const finalSrc = src.startsWith('http') || src.startsWith('data:') ? src : `${basePath}${src}`;
   return (
     <div style={{ display: 'flex', justifyContent: 'center', margin: '28px 0 8px' }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, width: 220 }}>
-        <img src={src} alt={alt} loading="lazy" style={{ width: '100%', borderRadius: 28, border: `1px solid ${isFunky ? '#44403C' : '#E7E5E4'}`, boxShadow: isFunky ? '0 20px 48px rgba(0,0,0,0.4)' : '0 12px 32px rgba(0,0,0,0.12)', display: 'block' }} />
+        <img src={finalSrc} alt={alt} loading="lazy" style={{ width: '100%', borderRadius: 28, border: `1px solid ${isFunky ? '#44403C' : '#E7E5E4'}`, boxShadow: isFunky ? '0 20px 48px rgba(0,0,0,0.4)' : '0 12px 32px rgba(0,0,0,0.12)', display: 'block' }} />
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: isFunky ? '#57534E' : '#A8A29E', textAlign: 'center' }}>{caption}</div>
       </div>
     </div>
