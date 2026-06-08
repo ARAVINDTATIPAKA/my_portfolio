@@ -74,7 +74,7 @@ function Card({ num, title, desc, isFunky, accent }: { num: string; title: strin
   )
 }
 
-function Feature({ num, title, desc, isFunky }: { num: string; title: string; desc: string; isFunky: boolean }) {
+function Feature({ num, title, desc, isFunky }: { num: string; title: string; desc: React.ReactNode; isFunky: boolean }) {
   return (
     <div style={{
       display: 'flex', gap: 16, alignItems: 'flex-start',
@@ -368,16 +368,44 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
       </Section>
 
       <Section divider={divider}>
+        <SectionLabel text="Foundations" accent={accent} />
+        <SectionHeading text="The layer everything else is built on." textHi={textHi} />
+        <Feature num="01" title="Typography Scale" desc="Rationalized from 18 sizes down to a structured 8-step scale. Each step has a defined role — display, heading, body, label, caption. No more arbitrary sizes." isFunky={isFunky} />
+        <Feature num="02" title="Color System" desc="Primary, secondary, and full semantic layer — Success, Warning, Error, Info. All colors verified at WCAG AA. Semantic aliases mean the system can be themed without touching components." isFunky={isFunky} />
+        <Feature num="03" title="Spacing Scale" desc="4px base system: 4, 8, 12, 16, 24, 32, 48, 64. Every component and layout uses tokens from this scale. Arbitrary spacing values are a system violation." isFunky={isFunky} />
+        <Feature num="04" title="Design Tokens" desc={<>W3C DTCG format. Tokens like <code style={{ fontFamily:'var(--font-mono)', fontSize:11, color:accent }}>color.primary.500</code>, <code style={{ fontFamily:'var(--font-mono)', fontSize:11, color:accent }}>spacing.md</code>, <code style={{ fontFamily:'var(--font-mono)', fontSize:11, color:accent }}>radius.lg</code> allow decisions to scale across products and make future theming trivial.</>} isFunky={isFunky} />
+      </Section>
+
+      <Section divider={divider}>
         <SectionLabel text="Components" accent={accent} />
         <SectionHeading text="Built for states, not just screenshots." textHi={textHi} />
+        <BodyText textMid={textMid}>Components weren't designed in isolation — every one was built with its full state matrix: default, hover, focus, disabled, loading, error, and success where applicable.</BodyText>
         <DataTable headers={['Component', 'Why it matters for InterviewBuddy']} rows={[['Buttons', 'Primary, Secondary, Ghost, Danger — all states including loading for async interview booking'], ['Inputs', 'Default, focus, error, success states — used across scheduling, profile, and payment forms'], ['Tables', 'Interview history, candidate reports, admin operations — sortable, paginated, density-aware'], ['Status Badges', 'Scheduled, Completed, Missed, Rescheduled, Cancelled — product-specific states baked in'], ['Modals', 'Confirmation, destructive, information — consistent sizing and overlay behavior'], ['Tabs', 'Horizontal and vertical, used across portal navigation and content filtering']]} isFunky={isFunky} />
       </Section>
 
       <Section divider={divider}>
+        <SectionLabel text="Complex Patterns" accent={accent} />
+        <SectionHeading text="Where system thinking shows up most." textHi={textHi} />
+        <BodyText textMid={textMid}>Components are the vocabulary. Patterns are the grammar. These three patterns appear across multiple portals and encode the most important flows in the product.</BodyText>
+        <CardGrid>
+          <Card num="Pattern 01" title="Scheduling Flow" desc="Used across Mock Interviews, Resume Reviews, and Portfolio Reviews. Same slot-selection, confirmation, and rescheduling pattern — different portal, same components." isFunky={isFunky} accent={accent} />
+          <Card num="Pattern 02" title="Feedback Report" desc="Powers both AI Review and Expert Review outputs. Structured score display, category breakdowns, and recommendation sections — consistent regardless of feedback source." isFunky={isFunky} accent={accent} />
+          <Card num="Pattern 03" title="Payment Flow" desc="Candidate and Admin portal share the same payment pattern. Plan selection, order summary, confirmation — one pattern, two contexts." isFunky={isFunky} accent={accent} />
+        </CardGrid>
+      </Section>
+
+      <Section divider={divider}>
+        <SectionLabel text="Designer-Developer Collaboration" accent={accent} />
+        <SectionHeading text="The system only works if engineers can use it." textHi={textHi} />
+        <BodyText textMid={textMid}>The Figma file is structured into four layers: Foundations → Components → Patterns → Templates. Naming conventions mirror what engineers see in code. Token names are identical between Figma and implementation — no translation layer, no misalignment.</BodyText>
+        <Callout text="Accessibility wasn't treated as a final QA step. It was embedded into component creation from day one — contrast ratios verified, focus states designed, keyboard navigation documented alongside every component spec." accent={accent} isFunky={isFunky} />
+      </Section>
+
+      <Section divider={divider} last>
         <SectionLabel text="Impact" accent={accent} />
         <SectionHeading text="What changed after the system shipped." textHi={textHi} />
         <OutcomeGrid items={[{ val: '↓40%', label: 'Design time per new screen' }, { val: '↓70%', label: 'UI inconsistencies flagged in QA' }, { val: '2×', label: 'Faster new screen creation' }]} isFunky={isFunky} accent={accent} />
-        <Callout text="Building a design system taught me that consistency is not a visual problem — it is an organizational problem. The challenge was balancing flexibility for five different user roles while maintaining a unified product experience." accent={accent} isFunky={isFunky} />
+        <BodyText textMid={textMid}>Developer clarifications dropped significantly. New designers onboarded faster. And for the first time, a design decision made in one portal automatically applied to the others — because they were all reading from the same token layer.</BodyText>
       </Section>
     </>
 
