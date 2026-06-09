@@ -189,7 +189,7 @@ body {
   --cs-accent: #E8FF6B;
   --cs-text-hi: #F5F5F4;
   --cs-text-mid: #78716C;
-  --cs-text-lo: #888888;
+  --cs-text-lo: #aaaaaa;
   --cs-modal-bg: #1C1917;
   --cs-divider: rgba(255, 255, 255, 0.06);
   --cs-tag-bg: #292524;
@@ -677,7 +677,7 @@ button {
   font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--cs-text-lo);
+  color: var(--cs-text-mid);
   margin-bottom: 3px;
 }
 
