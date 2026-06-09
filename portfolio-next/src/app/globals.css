@@ -704,7 +704,7 @@ button {
   border-radius: 999px;
   border: 1px solid var(--cs-tag-border);
   background-color: var(--cs-tag-bg);
-  color: var(--cs-text-lo);
+  color: var(--cs-text-mid);
 }
 
 .cs-backdrop {
