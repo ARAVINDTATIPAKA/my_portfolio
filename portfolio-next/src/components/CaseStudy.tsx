@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, CSSProperties } from 'react'
+import { useEffect, useState } from 'react'
 import { useTheme } from '@/lib/ThemeContext'
 
 /* ── shared sub-components ── */
@@ -122,6 +122,14 @@ function FigmaEmbed({ url }: { url: string }) {
 
 /* ── Main component ── */
 export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null; onClose: () => void }) {
+  const [localCaseKey, setLocalCaseKey] = useState<string | null>(caseKey)
+
+  useEffect(() => {
+    if (caseKey) {
+      setLocalCaseKey(caseKey)
+    }
+  }, [caseKey])
+
   useEffect(() => {
     const fn = (e: KeyboardEvent) => e.key === 'Escape' && onClose()
     window.addEventListener('keydown', fn)
@@ -130,10 +138,10 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
   useEffect(() => { document.body.style.overflow = caseKey ? 'hidden' : ''; return () => { document.body.style.overflow = '' } }, [caseKey])
 
   const renderContent = () => {
-    if (!caseKey) return null
+    if (!localCaseKey) return null
 
     /* ──────────────── SENTINEL ──────────────── */
-    if (caseKey === 'sentinel') return <>
+    if (localCaseKey === 'sentinel') return <>
       <Hero c={{ title: 'SentinelOS', subtitle: 'AI-Assisted Surveillance Intelligence Platform for High-Security Facilities', eyebrow: 'Self-initiated · Enterprise UX · 2026', meta: { Role: 'Product Designer (Solo)', Timeline: '5 Weeks', Type: 'Concept / Self-initiated', Deliverable: 'High-fidelity product concept' }, tags: ['Enterprise UX', 'AI-Assisted Workflows', 'Dashboard Design', 'Systems Thinking', 'Design System', 'UX Research'] }} />
 
       <Section>
@@ -196,7 +204,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
     </>
 
     /* ──────────────── KEKA ──────────────── */
-    if (caseKey === 'keka') return <>
+    if (localCaseKey === 'keka') return <>
       <Hero c={{ title: 'Keka Sync Tool', subtitle: 'Enterprise Workforce Attendance Synchronization Platform — a Windows-based infrastructure layer between biometric hardware and attendance management systems.', eyebrow: 'Keka · Enterprise Product · 2026', meta: { Role: 'Product Designer', Timeline: '1 Week', Platform: 'Windows (Desktop App)', Constraint: 'Existing Keka component system' }, tags: ['Enterprise UX', 'Operational Dashboard', 'Device Management', 'Sync Monitoring', 'Windows App', 'Workflow Design'] }} />
 
       <Section>
@@ -275,7 +283,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
     </>
 
     /* ──────────────── IB DESIGN SYSTEM ──────────────── */
-    if (caseKey === 'ib') return <>
+    if (localCaseKey === 'ib') return <>
       <Hero c={{ title: 'InterviewBuddy Design System', subtitle: 'Building a scalable foundation for a multi-product interview preparation platform — one token architecture powering five portals.', eyebrow: 'InterviewBuddy · Design Infrastructure · 2024–Present', meta: { Role: 'Lead Product Designer', Team: 'Product, Engineering, QA', Tools: 'Figma, Tokens Studio', Portals: '5 products' }, tags: ['Design System', 'Design Tokens', 'Component Library', 'Multi-portal', 'Accessibility', 'Scalability'] }} />
 
       <Section>
@@ -365,7 +373,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
     </>
 
     /* ──────────────── IB AI ──────────────── */
-    if (caseKey === 'ibai') return <>
+    if (localCaseKey === 'ibai') return <>
       <Hero c={{ title: 'InterviewBuddy AI', subtitle: 'Designing a Conversational Commerce Experience for Career Growth — not a chatbot, but an AI-powered conversion engine that helps users discover the right career service and take action.', eyebrow: 'InterviewBuddy · AI Product · 2024–Present', meta: { Role: 'Product Designer', Platform: 'Mobile App (iOS + Android)', Type: '0→1 Product · MVP', Status: 'Under Development' }, tags: ['Conversational AI', 'Mobile UX', '0→1 Product', 'RAG Architecture', 'Conversion Design', 'AI Flows'], isMVP: true }} />
 
       <Section>
@@ -497,8 +505,15 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
     {/* Bottom-sheet modal */}
     <div className={`cs-modal-container ${caseKey ? 'is-active' : ''}`}>
       <div className="modal-wrap">
-        <div className={`cs-modal-sheet ${caseKey ? 'is-active' : ''}`}>
-          {caseKey && <>
+        <div
+          className={`cs-modal-sheet ${caseKey ? 'is-active' : ''}`}
+          onTransitionEnd={() => {
+            if (!caseKey) {
+              setLocalCaseKey(null)
+            }
+          }}
+        >
+          {localCaseKey && <>
             {/* Handle + Topbar */}
             <div className="cs-modal-header">
               {/* Drag handle */}

@@ -746,6 +746,7 @@ button {
 }
 
 .cs-modal-sheet {
+  width: 100%;
   background-color: var(--cs-modal-bg);
   border-radius: 24px 24px 0 0;
   overflow: hidden;
