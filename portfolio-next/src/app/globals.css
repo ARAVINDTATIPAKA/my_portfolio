@@ -1491,6 +1491,27 @@ button {
 /* ════════════════════════════════════════
    Work Grid
 ════════════════════════════════════════ */
+.work-section {
+  padding: 96px 0;
+}
+
+.work-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+}
+
+.work-grid {
+  grid-column: 1 / 13;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
 .work-header {
   grid-column: 1 / 13;
   display: flex;
