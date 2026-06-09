@@ -1185,7 +1185,20 @@ button {
   }
 
   .cs-stats-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .cs-stats-card {
+    padding: 14px 8px !important;
+  }
+
+  .cs-stats-val {
+    font-size: 22px !important;
+  }
+
+  .cs-stats-label {
+    font-size: 9px !important;
   }
 }
 
