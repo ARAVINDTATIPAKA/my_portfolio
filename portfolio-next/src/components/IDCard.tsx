@@ -31,7 +31,7 @@ export default function IDCard() {
         <div style={{
           display:'flex', flexDirection:'column', alignItems:'center',
           transformOrigin:'top center',
-          animation:'cardSwingIn 1.4s cubic-bezier(0.22,1,0.36,1) 1.5s forwards',
+          animation:'cardSwingIn 2s ease-in-out 1.5s',
         }}>
           {/* Lanyard */}
           <div style={{
@@ -80,7 +80,7 @@ export default function IDCard() {
                 border: `1.5px solid ${isFunky ? 'rgba(232,255,107,0.25)' : 'rgba(8,145,178,0.2)'}`,
               }}>AT</div>
               <div style={{ fontFamily:'var(--font-display)', fontWeight:700, fontSize:15, letterSpacing:'-0.03em', color:textHi, marginBottom:2 }}>Aravind Tatipaka</div>
-              <div style={{ fontFamily:'var(--font-body)', fontSize:10, color:'#78716C', marginBottom:14 }}>Product & UI/UX Designer · 5+ yrs</div>
+              <div style={{ fontFamily:'var(--font-body)', fontSize:10, color:'#78716C', marginBottom:14 }}>{'Product & UI/UX Designer · 5+ yrs'}</div>
               <div style={{ height:1, background:divider, marginBottom:12 }} />
               {[['Based','Visakhapatnam, India'],['Current','InterviewBuddy™'],['Prev','Keka HR'],['Focus','SaaS · AI · Design Systems']].map(([k,v]) => (
                 <div key={k} style={{ display:'flex', alignItems:'center', gap:8, marginBottom:6 }}>
