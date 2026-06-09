@@ -504,9 +504,9 @@ section {
 }
 
 .work-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 /* Project cards — asymmetric layout */
@@ -517,7 +517,8 @@ section {
   overflow: hidden;
   position: relative;
   transition: all var(--dur-slow) var(--ease-spring);
-  group: true;
+  display: grid;
+  grid-template-columns: 380px 1fr;
 }
 
 .project-card:hover {
@@ -562,7 +563,8 @@ section {
 
 .project-img {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: unset;
+  min-height: 260px;
   position: relative;
   overflow: hidden;
 }
@@ -609,7 +611,10 @@ section {
 }
 
 .project-body {
-  padding: 24px 28px 28px;
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .project-tags {
