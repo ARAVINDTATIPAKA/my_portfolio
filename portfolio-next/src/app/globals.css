@@ -126,15 +126,37 @@
 
     0%,
     100% {
+      transform: rotate(-1.2deg);
+    }
+
+    50% {
+      transform: rotate(1.2deg);
+    }
+  }
+
+  @keyframes cardSwingIn {
+    0% {
+      transform: rotate(-28deg);
+    }
+
+    40% {
+      transform: rotate(14deg);
+    }
+
+    65% {
+      transform: rotate(-8deg);
+    }
+
+    80% {
+      transform: rotate(4deg);
+    }
+
+    90% {
+      transform: rotate(-1.5deg);
+    }
+
+    100% {
       transform: rotate(0deg);
-    }
-
-    25% {
-      transform: rotate(0.7deg);
-    }
-
-    75% {
-      transform: rotate(-0.7deg);
     }
   }
 

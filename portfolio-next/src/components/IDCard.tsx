@@ -24,7 +24,7 @@ export default function IDCard() {
       <div style={{
         display:'flex', flexDirection:'column', alignItems:'center',
         transformOrigin:'top center',
-        animation:'dropBounce 1.5s cubic-bezier(0.22,1,0.36,1) forwards',
+        animation:'dropBounce 1.5s cubic-bezier(0.22,1,0.36,1) forwards, cardSwingIn 1.2s cubic-bezier(0.22,1,0.36,1) 1.5s forwards',
         pointerEvents:'all',
       }}>
         {/* Lanyard */}
@@ -45,7 +45,7 @@ export default function IDCard() {
           width:240, background:cardBg, borderRadius:16,
           border:`1px solid ${border}`, overflow:'hidden',
           boxShadow:shadow, flexShrink:0,
-          animation:'idSway 4s ease-in-out 1.5s infinite',
+          animation:'idSway 4s ease-in-out 2.7s infinite',
         }}>
           {/* Top bar */}
           <div style={{
