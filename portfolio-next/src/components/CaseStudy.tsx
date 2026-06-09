@@ -555,7 +555,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
       display: 'flex', justifyContent: 'center',
       pointerEvents: caseKey ? 'all' : 'none',
     }}>
-      <div style={{
+      <div className="modal-wrap" style={{
         width: '100%', maxWidth: 1440, padding: '0 24px',
       }}>
         <div style={{
@@ -583,7 +583,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
                 <div style={{ width: 40, height: 4, borderRadius: 999, background: isFunky ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.12)' }} />
               </div>
               {/* Topbar row */}
-              <div style={{
+              <div className="modal-topbar" style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                 padding: '0 48px', height: 48,
               }}>

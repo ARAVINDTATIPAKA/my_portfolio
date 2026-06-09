@@ -376,6 +376,10 @@ button {
   }
 
   /* Modal */
+  .modal-wrap {
+    padding: 0 !important;
+  }
+
   .modal-content {
     padding: 0 20px 60px !important;
   }
@@ -438,6 +442,10 @@ button {
 
   .work-inner {
     padding: 0 16px !important;
+  }
+
+  .modal-wrap {
+    padding: 0 !important;
   }
 
   .modal-content {
