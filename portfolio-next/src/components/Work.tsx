@@ -20,8 +20,8 @@ export default function Work({ onOpenCase }: WorkProps) {
   const [filter, setFilter] = useState('All')
   const accent = isFunky ? '#E8FF6B' : '#0891B2'
   const textHi = isFunky ? '#F5F5F4' : '#1C1917'
-  const textMid = isFunky ? '#78716C' : '#57534E'
-  const textLo = isFunky ? '#57534E' : '#A8A29E'
+  const textMid = isFunky ? 'var(--cs-text-mid)' : '#57534E'
+  const textLo = isFunky ? 'var(--cs-text-lo)' : '#A8A29E'
   const cardBg = isFunky ? '#292524' : '#FFFFFF'
   const cardBorder = isFunky ? '#44403C' : '#E7E5E4'
   const tagBg = isFunky ? '#1C1917' : '#F5F5F4'

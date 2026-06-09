@@ -188,7 +188,7 @@ body {
 :root {
   --cs-accent: #E8FF6B;
   --cs-text-hi: #F5F5F4;
-  --cs-text-mid: #acacac;
+  --cs-text-mid: #aaaaaa;
   --cs-text-lo: #cccccc;
   --cs-modal-bg: #1C1917;
   --cs-divider: rgba(255, 255, 255, 0.06);
@@ -704,7 +704,7 @@ button {
   border-radius: 999px;
   border: 1px solid var(--cs-tag-border);
   background-color: var(--cs-tag-bg);
-  color: var(--cs-text-mid);
+  color: var(--cs-text-lo);
 }
 
 .cs-backdrop {
