@@ -188,8 +188,8 @@ body {
 :root {
   --cs-accent: #E8FF6B;
   --cs-text-hi: #F5F5F4;
-  --cs-text-mid: #78716C;
-  --cs-text-lo: #aaaaaa;
+  --cs-text-mid: #aaaaaa;
+  --cs-text-lo: #cccccc;
   --cs-modal-bg: #1C1917;
   --cs-divider: rgba(255, 255, 255, 0.06);
   --cs-tag-bg: #292524;
@@ -468,7 +468,7 @@ button {
 .cs-outcome-label {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: var(--cs-text-lo);
+  color: var(--cs-text-hi);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   line-height: 1.4;
