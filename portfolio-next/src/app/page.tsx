@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
-import { Marquee, Stats } from '@/components/MarqueeStats'
+import { Marquee } from '@/components/MarqueeStats'
 import Work from '@/components/Work'
 import About from '@/components/About'
 import Contact from '@/components/Contact'
@@ -18,7 +18,6 @@ export default function Home() {
       <main>
         <Hero />
         <Marquee />
-        <Stats />
         <Work onOpenCase={setOpenCase} />
         <About />
         <Contact />
