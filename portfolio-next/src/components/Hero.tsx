@@ -29,14 +29,6 @@ export default function Hero() {
         animation: 'drift 8s ease-in-out infinite',
       }} />
 
-      {/* Ghost number */}
-      <div style={{
-        position: 'absolute', top: '50%', right: -20, transform: 'translateY(-50%)',
-        fontFamily: 'var(--font-display)', fontWeight: 700,
-        fontSize: 'clamp(200px,28vw,420px)', lineHeight: 1, letterSpacing: '-0.06em',
-        pointerEvents: 'none', userSelect: 'none', color: 'transparent',
-        WebkitTextStroke: `1px ${isFunky ? 'rgba(232,255,107,0.07)' : 'rgba(8,145,178,0.08)'}`,
-      }}>07</div>
 
       {/* 12-col grid */}
       <div style={{
