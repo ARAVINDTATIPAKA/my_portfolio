@@ -6,17 +6,6 @@ const FILTERS = ['All', 'UI Design', 'Systems', 'UX']
 
 const PROJECTS = [
   {
-    id: 'sentinel',
-    title: 'SentinelOS — Surveillance Intelligence Platform',
-    desc: 'AI-assisted surveillance intelligence for high-security facilities. Reduces monitoring fatigue, surfaces priority events, keeps humans in the loop.',
-    tags: ['Enterprise UX', 'AI-Assisted', 'Dashboard', 'Self-initiated'],
-    year: '2026 · 5 weeks',
-    bgStyle: 'linear-gradient(135deg,#1a2535 0%,#0f1a2e 100%)',
-    bgText: 'SO',
-    caseKey: 'sentinel',
-    mvp: false,
-  },
-  {
     id: 'keka',
     title: 'Keka Sync Tool — Attendance Synchronization Platform',
     desc: 'Windows-based enterprise tool for managing biometric devices and synchronizing attendance logs across distributed office environments.',
@@ -26,6 +15,7 @@ const PROJECTS = [
     bgText: 'KS',
     caseKey: 'keka',
     mvp: false,
+    nda: true,
   },
   {
     id: 'ib-ds',
@@ -37,6 +27,7 @@ const PROJECTS = [
     bgText: 'IB',
     caseKey: 'ib',
     mvp: false,
+    nda: true,
   },
   {
     id: 'ib-ai',
@@ -48,6 +39,19 @@ const PROJECTS = [
     bgText: 'AI',
     caseKey: 'ibai',
     mvp: true,
+    nda: true,
+  },
+  {
+    id: 'sentinel',
+    title: 'SentinelOS — Surveillance Intelligence Platform',
+    desc: 'AI-assisted surveillance intelligence for high-security facilities. Reduces monitoring fatigue, surfaces priority events, keeps humans in the loop.',
+    tags: ['Enterprise UX', 'AI-Assisted', 'Dashboard', 'Self-initiated'],
+    year: '2026 · 5 weeks',
+    bgStyle: 'linear-gradient(135deg,#1a2535 0%,#0f1a2e 100%)',
+    bgText: 'SO',
+    caseKey: 'sentinel',
+    mvp: false,
+    nda: false,
   },
 ]
 
@@ -94,6 +98,9 @@ export default function Work({ onOpenCase }: WorkProps) {
             >
               {/* MVP badge */}
               {p.mvp && <span className="work-mvp-badge">MVP</span>}
+
+              {/* NDA badge */}
+              {p.nda && <span className="work-nda-badge">UNDER NDA 🔒</span>}
 
               {/* Image */}
               <div className="work-card-image" style={{ background: p.bgStyle }}>

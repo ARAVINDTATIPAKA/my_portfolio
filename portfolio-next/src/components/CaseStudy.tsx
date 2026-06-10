@@ -207,11 +207,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
     if (localCaseKey === 'keka') return <>
       <Hero c={{ title: 'Keka Sync Tool', subtitle: 'Enterprise Workforce Attendance Synchronization Platform — a Windows-based infrastructure layer between biometric hardware and attendance management systems.', eyebrow: 'Keka · Enterprise Product · 2026', meta: { Role: 'Product Designer', Timeline: '1 Week', Platform: 'Windows (Desktop App)', Constraint: 'Existing Keka component system' }, tags: ['Enterprise UX', 'Operational Dashboard', 'Device Management', 'Sync Monitoring', 'Windows App', 'Workflow Design'] }} />
 
-      <Section>
-        <SectionLabel text="Live Design File" />
-        <SectionHeading text="Explore the Figma file." />
-        <FigmaEmbed url="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/cyvB5zpqHUe7MDlLDbzdcX/Keka?node-id=3-61175" />
-      </Section>
+
 
       <Section>
         <SectionLabel text="The Context" />
@@ -243,7 +239,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
         <SectionLabel text="User Context" />
         <SectionHeading text="Designing for operational and technical users." />
         <BodyText>Unlike consumer products, the Keka Sync Tool was designed specifically for internal operational teams responsible for configuring biometric devices, monitoring synchronization health, troubleshooting connectivity issues, and managing attendance infrastructure across multiple client locations.</BodyText>
-        <Callout text='"The challenge was not: \"How do we simplify everything?\" — It was: \"How do we preserve operational depth while improving clarity, speed, and efficiency?\""' />
+        <Callout text='"The challenge was not: "How do we simplify everything?" — It was: "How do we preserve operational depth while improving clarity, speed, and efficiency?"' />
         <BodyText>Working closely with the internal sync operations team, I learned how real-world attendance infrastructure behaves beyond UI requirements. Technical users don't want oversimplified systems — they want systems that help them operate faster with better visibility and fewer interruptions.</BodyText>
       </Section>
 
@@ -286,11 +282,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
     if (localCaseKey === 'ib') return <>
       <Hero c={{ title: 'InterviewBuddy Design System', subtitle: 'Building a scalable foundation for a multi-product interview preparation platform — one token architecture powering five portals.', eyebrow: 'InterviewBuddy · Design Infrastructure · 2024–Present', meta: { Role: 'Lead Product Designer', Team: 'Product, Engineering, QA', Tools: 'Figma, Tokens Studio', Portals: '5 products' }, tags: ['Design System', 'Design Tokens', 'Component Library', 'Multi-portal', 'Accessibility', 'Scalability'] }} />
 
-      <Section>
-        <SectionLabel text="Live Design File" />
-        <SectionHeading text="Explore the system." />
-        <FigmaEmbed url="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/rVeu6gRcP4H0zgxAiSNRl5/Design-System?node-id=56-2182" />
-      </Section>
+
 
       <Section>
         <SectionLabel text="The Scale" />
@@ -376,11 +368,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
     if (localCaseKey === 'ibai') return <>
       <Hero c={{ title: 'InterviewBuddy AI', subtitle: 'Designing a Conversational Commerce Experience for Career Growth — not a chatbot, but an AI-powered conversion engine that helps users discover the right career service and take action.', eyebrow: 'InterviewBuddy · AI Product · 2024–Present', meta: { Role: 'Product Designer', Platform: 'Mobile App (iOS + Android)', Type: '0→1 Product · MVP', Status: 'Under Development' }, tags: ['Conversational AI', 'Mobile UX', '0→1 Product', 'RAG Architecture', 'Conversion Design', 'AI Flows'], isMVP: true }} />
 
-      <Section>
-        <SectionLabel text="Live Design File" />
-        <SectionHeading text="Explore the designs." />
-        <FigmaEmbed url="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/2e2EaiNgDUcBwFFgqWjR6t/AI-Play?node-id=545-12530" />
-      </Section>
+
 
       <Section>
         <SectionLabel text="The Real Problem" />
