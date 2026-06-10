@@ -378,57 +378,63 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
       </Section>
 
       <Section>
-        <SectionLabel text="Decision 01" />
-        <div className="decision-grid">
-          <div>
-            <SectionHeading text="Why conversational AI instead of traditional navigation?" />
-            <BodyText>Traditional navigation assumes users know what they're looking for. Our users don't — they arrive with problems, not product names. A conversational AI approach translates user problems into relevant services by understanding intent, asking follow-up questions, and recommending the right service.</BodyText>
-            <Callout text="Outcome: Reduced cognitive load and simplified product discovery. Users no longer need to understand our product taxonomy — they just describe their situation." />
+        <SectionLabel text="Key Decisions" />
+        <SectionHeading text="Four critical design decisions that shaped the experience." />
+        <div className="decisions-multi-grid">
+          <div className="decision-card">
+            <SectionLabel text="Decision 01" />
+            <div className="decision-grid">
+              <div>
+                <SectionHeading text="Why conversational AI instead of traditional navigation?" />
+                <BodyText>Traditional navigation assumes users know what they're looking for. Our users don't — they arrive with problems, not product names. A conversational AI approach translates user problems into relevant services by understanding intent, asking follow-up questions, and recommending the right service.</BodyText>
+                <Callout text="Outcome: Reduced cognitive load and simplified product discovery. Users no longer need to understand our product taxonomy — they just describe their situation." />
+              </div>
+              <div className="decision-img">
+                <PhoneFrame src="/ib-ai-screen-1.webp" alt="Home screen — Discovery" caption="Home · Discovery" />
+              </div>
+            </div>
           </div>
-          <div className="decision-img">
-            <PhoneFrame src="/ib-ai-screen-1.webp" alt="Home screen — Discovery" caption="Home · Discovery" />
-          </div>
-        </div>
-      </Section>
 
-      <Section>
-        <SectionLabel text="Decision 02" />
-        <div className="decision-grid">
-          <div>
-            <SectionHeading text="We didn't go with a regular chat." />
-            <BodyText>Open-ended chat creates uncertainty. Users don't know what to ask, ask incomplete questions, and get lost in long conversations. We designed a guided conversational framework — the AI asks one question at a time while presenting relevant options and always allowing custom responses.</BodyText>
-            <Callout text="Design Principle: Freedom where it matters, structure where it helps. The experience feels conversational without becoming an unstructured chatbot." />
+          <div className="decision-card">
+            <SectionLabel text="Decision 02" />
+            <div className="decision-grid">
+              <div>
+                <SectionHeading text="We didn't go with a regular chat." />
+                <BodyText>Open-ended chat creates uncertainty. Users don't know what to ask, ask incomplete questions, and get lost in long conversations. We designed a guided conversational framework — the AI asks one question at a time while presenting relevant options and always allowing custom responses.</BodyText>
+                <Callout text="Design Principle: Freedom where it matters, structure where it helps. The experience feels conversational without becoming an unstructured chatbot." />
+              </div>
+              <div className="decision-img">
+                <PhoneFrame src="/ib-ai-screen-2.webp" alt="Intent capture" caption="Intent capture" />
+              </div>
+            </div>
           </div>
-          <div className="decision-img">
-            <PhoneFrame src="/ib-ai-screen-2.webp" alt="Intent capture" caption="Intent capture" />
-          </div>
-        </div>
-      </Section>
 
-      <Section>
-        <SectionLabel text="Decision 03" />
-        <div className="decision-grid">
-          <div>
-            <SectionHeading text="One question at a time — no chat history." />
-            <BodyText>Users weren't coming for ongoing conversations. They came to accomplish a task. Persistent chat history introduces cognitive overload, irrelevant context, and longer recovery times. We designed the experience around current intent rather than persistent threads.</BodyText>
-            <Callout text="Design Principle: Users care about progress, not conversation logs. Faster task completion, reduced interface complexity." />
+          <div className="decision-card">
+            <SectionLabel text="Decision 03" />
+            <div className="decision-grid">
+              <div>
+                <SectionHeading text="One question at a time — no chat history." />
+                <BodyText>Users weren't coming for ongoing conversations. They came to accomplish a task. Persistent chat history introduces cognitive overload, irrelevant context, and longer recovery times. We designed the experience around current intent rather than persistent threads.</BodyText>
+                <Callout text="Design Principle: Users care about progress, not conversation logs. Faster task completion, reduced interface complexity." />
+              </div>
+              <div className="decision-img">
+                <PhoneFrame src="/ib-ai-screen-3.webp" alt="Context qualification" caption="Context qualification" />
+              </div>
+            </div>
           </div>
-          <div className="decision-img">
-            <PhoneFrame src="/ib-ai-screen-3.webp" alt="Context qualification" caption="Context qualification" />
-          </div>
-        </div>
-      </Section>
 
-      <Section>
-        <SectionLabel text="Decision 04" />
-        <div className="decision-grid">
-          <div>
-            <SectionHeading text="Why add instant AI interviews inside the app?" />
-            <BodyText>A user is unlikely to install an app whose sole purpose is helping them decide what to purchase. We introduced Instant AI Interviews directly inside the app — giving users immediate value and creating a high-frequency utility.</BodyText>
-            <Callout text="Strategic shift: The app evolved from a sales channel to a career preparation companion. Higher downloads, session frequency, retention, and upsell opportunities." />
-          </div>
-          <div className="decision-img">
-            <PhoneFrame src="/ib-ai-screen-4.webp" alt="AI Interview in session" caption="AI Interview · In session" />
+          <div className="decision-card">
+            <SectionLabel text="Decision 04" />
+            <div className="decision-grid">
+              <div>
+                <SectionHeading text="Why add instant AI interviews inside the app?" />
+                <BodyText>A user is unlikely to install an app whose sole purpose is helping them decide what to purchase. We introduced Instant AI Interviews directly inside the app — giving users immediate value and creating a high-frequency utility.</BodyText>
+                <Callout text="Strategic shift: The app evolved from a sales channel to a career preparation companion. Higher downloads, session frequency, retention, and upsell opportunities." />
+              </div>
+              <div className="decision-img">
+                <PhoneFrame src="/ib-ai-screen-4.webp" alt="AI Interview in session" caption="AI Interview · In session" />
+              </div>
+            </div>
           </div>
         </div>
       </Section>
