@@ -42,6 +42,18 @@ const PROJECTS = [
     nda: true,
   },
   {
+    id: 'ib-pricing',
+    title: 'InterviewBuddy — Topic & Pricing System',
+    desc: 'From fragmented operations and rigid pricing to a scalable topic management system that improved operational efficiency and customer discovery.',
+    tags: ['B2C SaaS', 'Pricing System', 'Admin Portal', 'Topic Management'],
+    year: '2024 · Shipped',
+    bgStyle: 'linear-gradient(135deg,#1a0e2e 0%,#0d0d1e 100%)',
+    bgText: 'TP',
+    caseKey: 'ib-pricing',
+    mvp: false,
+    nda: true,
+  },
+  {
     id: 'sentinel',
     title: 'SentinelOS — Surveillance Intelligence Platform',
     desc: 'AI-assisted surveillance intelligence for high-security facilities. Reduces monitoring fatigue, surfaces priority events, keeps humans in the loop.',

@@ -486,7 +486,70 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
       </Section>
     </>
 
-    return null
+
+    /* ──────────────── IB TOPIC & PRICING SYSTEM ──────────────── */
+    if (localCaseKey === 'ib-pricing') return <>
+      <Hero c={{ title: 'Topic & Pricing System', subtitle: 'From fragmented operations and rigid pricing to a scalable topic management system that improved operational efficiency and customer discovery.', eyebrow: 'InterviewBuddy · B2C SaaS · 2024', meta: { Role: 'Product Designer', Platform: 'Web (Admin + Consumer)', Status: 'Shipped', Type: 'B2C SaaS' }, tags: ['B2C SaaS', 'Pricing System', 'Admin Portal', 'Topic Management', 'UX Design'] }} />
+
+      <Section>
+        <div className="cs-nda-callout">
+          <span className="cs-nda-icon">🔒</span>
+          <p><strong>This project is covered under NDA.</strong> What I've shared here reflects my thinking process across problem framing, research, and design decisions. Detailed designs, workflows, metrics, and implementation specifics are not included.</p>
+        </div>
+      </Section>
+
+      <Section>
+        <SectionLabel text="Overview" />
+        <SectionHeading text="A platform without pricing infrastructure." />
+        <BodyText>InterviewBuddy offers two primary offerings: <strong>Meet with Expert</strong> (live 1:1 sessions) and <strong>One Way</strong> (AI-evaluated or template-based asynchronous interviews). With 300+ topics spanning diverse domains, the platform had been operating without a coherent pricing or topic management infrastructure. Ops teams relied on Excel sheets and fragmented CRMs to manage everything manually.</BodyText>
+      </Section>
+
+      <Section>
+        <SectionLabel text="Problem" />
+        <SectionHeading text="A single price for everything was causing silent revenue loss." />
+        <BodyText>The platform used one flat price across all topics for each offering. This worked until high-value topics — particularly research-domain expert sessions — began generating orders at a price point far below what experts actually charged. The ops team had no mechanism to handle this. They were often forced to absorb higher expert costs or manually intervene in bookings, creating operational friction and unpredictable margins.</BodyText>
+        <CardGrid>
+          <Card num="📉" title="Revenue leakage" desc="Fixed pricing could not account for expert cost variation across domains." />
+          <Card num="⚙️" title="No admin tools" desc="Ops managed topics, pricing, and bookings via Excel and fragmented CRMs." />
+          <Card num="🔍" title="Poor discoverability" desc="Customers had to type full topic names to book, with no structured search experience." />
+          <Card num="🕐" title="Manual scheduling" desc="One Way interviews required ops involvement despite needing no human expert." />
+        </CardGrid>
+      </Section>
+
+      <Section>
+        <SectionLabel text="Research" />
+        <SectionHeading text="Working sessions over surveys." />
+        <BodyText>Working sessions were facilitated with stakeholders and the ops team to understand how they thought about topics and pricing. The goal was to surface existing mental models rather than impose new ones.</BodyText>
+        <Feature num="01" title="Individual pricing per topic was rejected early" desc="With 300+ topics and 3 offering types each, managing roughly 900 price entries was operationally infeasible. Any solution had to scale without constant manual updates." />
+        <Feature num="02" title="Stakeholders naturally grouped topics into two pricing tiers" desc="When asked how they would bucket topics, stakeholders consistently separated them into standard topics and higher-demand specialist domains. This existing mental model became the foundation for the Classic and Premium classification, grounding the system in how the business already thought about value." />
+        <Feature num="03" title="A small set of truly exclusive topics existed" desc="These were niche domains where experts commanded above-market rates. They did not fit even the Premium tier and needed a separate mechanism for flexibility." />
+        <Feature num="04" title="A/B testing revealed a counter-intuitive insight" desc="A minimal search-first hero outperformed visually richer versions with imagery and animation. Users who came with intent converted better when the search box was front and center." />
+      </Section>
+
+      <Section>
+        <SectionLabel text="Solution" />
+        <SectionHeading text="Four interconnected design decisions." />
+        <Feature num="01 · Classic and Premium" title="Topic Classification System" desc="Each topic is assigned a classification at the time of creation. This maps to a default price for each offering type: Meet with Expert, One Way (AI), and One Way (Template). Ops manages 6 price points instead of 900+. When a topic's classification changes, prices update automatically across the board." />
+        <Feature num="02 · Flexible pricing for specialist domains" title="Premium Hike for Exclusive Topics" desc="For top-tier specialist topics, a percentage-based hike can be applied on top of the Premium price. This gives ops flexibility for high-demand domains without creating an entirely new pricing tier. The hike is visible to customers before booking." />
+        <Feature num="03 · Backed by new topic taxonomy" title="Smart Topic Search as Homepage Hero" desc="A structured topic search replaced the previous static homepage. Customers can now discover sessions by domain, role, or keyword instead of typing exact topic names. Placed as the hero based on A/B test results showing higher intent-driven conversions." />
+        <Feature num="04 · Fully self-serve, zero ops steps" title="Automated One Way Scheduling" desc="One Way interviews no longer route through the ops team for scheduling. Since no human expert is involved, the flow was redesigned to be fully self-serve. Customers book, receive access, and complete their session without any manual ops involvement." />
+      </Section>
+
+      <Section last>
+        <SectionLabel text="Impact" />
+        <SectionHeading text="What the system delivered." />
+        <OutcomeGrid items={[
+          { val: '6', label: 'Pricing rules — down from 900+' },
+          { val: '0', label: 'Manual ops steps — One Way scheduling' },
+          { val: '300+', label: 'Structured topics — searchable and scalable' },
+          { val: '↑', label: 'Conversion rate — search-first hero' },
+        ]} />
+        <BodyText>The ops team now manages topics, classifications, and pricing from a single admin portal instead of spreadsheets and CRMs. The classification model reduced pricing complexity, addressed recurring margin challenges for specialist topics, and improved topic discovery through a search-first booking experience.</BodyText>
+        <Callout text="This module demonstrates how I approached product design beyond interfaces — balancing business constraints, operational workflows, pricing strategy, and customer experience within a growing 0→1 B2C platform." />
+      </Section>
+    </>
+
+        return null
   }
 
   return <>

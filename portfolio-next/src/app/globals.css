@@ -2664,3 +2664,17 @@ button {
   font-size: 13px;
   color: var(--work-accent);
 }
+/* ── NDA callout ── */
+.cs-nda-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(217, 119, 6, 0.08);
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  border-radius: 10px;
+  margin: 8px 0 0;
+}
+.cs-nda-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.cs-nda-callout p { font-family: var(--font-body); font-size: 13px; line-height: 1.7; color: #78716C; margin: 0; }
+.cs-nda-callout strong { color: #F59E0B; font-weight: 600; }
