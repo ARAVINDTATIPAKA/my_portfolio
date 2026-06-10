@@ -65,9 +65,9 @@ function Feature({ num, title, desc }: { num: string; title: string; desc: React
   )
 }
 
-function OutcomeGrid({ items }: { items: { val: string; label: string }[] }) {
+function OutcomeGrid({ items, className }: { items: { val: string; label: string }[]; className?: string }) {
   return (
-    <div className="cs-outcome-grid">
+    <div className={`cs-outcome-grid ${className || ''}`}>
       {items.map((o, i) => (
         <div key={i} className="cs-outcome-card">
           <div className="cs-outcome-val">{o.val}</div>
@@ -529,27 +529,71 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
       <Section>
         <SectionLabel text="Solution" />
         <SectionHeading text="Four interconnected design decisions." />
-        <Feature num="01 · Classic and Premium" title="Topic Classification System" desc="Each topic is assigned a classification at the time of creation. This maps to a default price for each offering type: Meet with Expert, One Way (AI), and One Way (Template). Ops manages 6 price points instead of 900+. When a topic's classification changes, prices update automatically across the board." />
-        <Feature num="02 · Flexible pricing for specialist domains" title="Premium Hike for Exclusive Topics" desc="For top-tier specialist topics, a percentage-based hike can be applied on top of the Premium price. This gives ops flexibility for high-demand domains without creating an entirely new pricing tier. The hike is visible to customers before booking." />
-        <Feature num="03 · Backed by new topic taxonomy" title="Smart Topic Search as Homepage Hero" desc="A structured topic search replaced the previous static homepage. Customers can now discover sessions by domain, role, or keyword instead of typing exact topic names. Placed as the hero based on A/B test results showing higher intent-driven conversions." />
-        <Feature num="04 · Fully self-serve, zero ops steps" title="Automated One Way Scheduling" desc="One Way interviews no longer route through the ops team for scheduling. Since no human expert is involved, the flow was redesigned to be fully self-serve. Customers book, receive access, and complete their session without any manual ops involvement." />
+        <Feature
+          num="01"
+          title="Topic Classification System"
+          desc={
+            <>
+              <span style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--cs-accent)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 6 }}>
+                Classic and Premium
+              </span>
+              Each topic is assigned a classification at the time of creation. This maps to a default price for each offering type: Meet with Expert, One Way (AI), and One Way (Template). Ops manages 6 price points instead of 900+. When a topic's classification changes, prices update automatically across the board.
+            </>
+          }
+        />
+        <Feature
+          num="02"
+          title="Premium Hike for Exclusive Topics"
+          desc={
+            <>
+              <span style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--cs-accent)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 6 }}>
+                Flexible pricing for specialist domains
+              </span>
+              For top-tier specialist topics, a percentage-based hike can be applied on top of the Premium price. This gives ops flexibility for high-demand domains without creating an entirely new pricing tier. The hike is visible to customers before booking.
+            </>
+          }
+        />
+        <Feature
+          num="03"
+          title="Smart Topic Search as Homepage Hero"
+          desc={
+            <>
+              <span style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--cs-accent)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 6 }}>
+                Backed by new topic taxonomy
+              </span>
+              A structured topic search replaced the previous static homepage. Customers can now discover sessions by domain, role, or keyword instead of typing exact topic names. Placed as the hero based on A/B test results showing higher intent-driven conversions.
+            </>
+          }
+        />
+        <Feature
+          num="04"
+          title="Automated One Way Scheduling"
+          desc={
+            <>
+              <span style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--cs-accent)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 6 }}>
+                Fully self-serve, zero ops steps
+              </span>
+              One Way interviews no longer route through the ops team for scheduling. Since no human expert is involved, the flow was redesigned to be fully self-serve. Customers book, receive access, and complete their session without any manual ops involvement.
+            </>
+          }
+        />
       </Section>
 
       <Section last>
         <SectionLabel text="Impact" />
         <SectionHeading text="What the system delivered." />
-        <OutcomeGrid items={[
+        <OutcomeGrid className="cs-outcome-grid-4" items={[
           { val: '6', label: 'Pricing rules — down from 900+' },
           { val: '0', label: 'Manual ops steps — One Way scheduling' },
           { val: '300+', label: 'Structured topics — searchable and scalable' },
           { val: '↑', label: 'Conversion rate — search-first hero' },
         ]} />
         <BodyText>The ops team now manages topics, classifications, and pricing from a single admin portal instead of spreadsheets and CRMs. The classification model reduced pricing complexity, addressed recurring margin challenges for specialist topics, and improved topic discovery through a search-first booking experience.</BodyText>
-        <Callout text="This module demonstrates how I approached product design beyond interfaces — balancing business constraints, operational workflows, pricing strategy, and customer experience within a growing 0→1 B2C platform." />
+        <Callout text="This module demonstrates how I approached product design beyond interfaces, balancing business constraints, operational workflows, pricing strategy, and customer experience within a growing 0→1 B2C platform." />
       </Section>
     </>
 
-        return null
+    return null
   }
 
   return <>
