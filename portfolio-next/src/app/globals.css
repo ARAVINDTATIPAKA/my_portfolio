@@ -2699,3 +2699,215 @@ button {
   color: #F59E0B;
   font-weight: 600;
 }
+
+/* ────────────────────────────────────────────────────────────────
+   TOPIC & PRICING CASE STUDY STYLES
+   ──────────────────────────────────────────────────────────────── */
+.cs-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cs-accent);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs-eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--cs-accent);
+  opacity: 0.6;
+}
+
+.cs-title {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: var(--cs-text-hi);
+  margin-bottom: 12px;
+}
+
+.cs-subtitle {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--cs-text-mid);
+  line-height: 1.65;
+  max-width: 560px;
+  margin-bottom: 28px;
+}
+
+.cs-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cs-meta-key {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cs-text-lo);
+}
+
+.cs-meta-val {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cs-text-hi);
+  letter-spacing: -0.02em;
+}
+
+.cs-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 24px;
+}
+
+.cs-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--cs-text-lo);
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--cs-tag-border);
+  background: var(--cs-tag-bg);
+}
+
+.cs-section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--cs-text-hi);
+  margin-bottom: 14px;
+}
+
+.ibp-insight-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: var(--cs-card-bg);
+  border: 1px solid var(--cs-card-border);
+  border-radius: 14px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.ibp-insight-card:hover {
+  border-color: var(--cs-card-hover-border);
+}
+
+.ibp-insight-num {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cs-accent);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.ibp-insight-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--cs-text-hi);
+  margin-bottom: 6px;
+}
+
+.ibp-insight-desc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--cs-text-mid);
+  line-height: 1.6;
+}
+
+.ibp-solution-card {
+  background-color: var(--cs-card-bg);
+  border: 1px solid var(--cs-card-border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.ibp-solution-card:hover {
+  border-color: var(--cs-card-hover-border);
+}
+
+.ibp-solution-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--cs-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ibp-solution-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--cs-text-lo);
+  opacity: 0.7;
+}
+
+.ibp-solution-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--cs-text-hi);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.ibp-solution-desc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--cs-text-mid);
+  line-height: 1.65;
+}
+
+.cs-outcomes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.cs-outcome {
+  background-color: var(--cs-card-bg);
+  border: 1px solid var(--cs-card-border);
+  border-radius: 14px;
+  padding: 16px 12px;
+  text-align: center;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cs-outcome:hover {
+  border-color: var(--cs-outcome-hover-border);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .cs-outcomes {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .cs-outcomes {
+    grid-template-columns: 1fr !important;
+  }
+}

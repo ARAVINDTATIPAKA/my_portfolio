@@ -489,108 +489,176 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
 
     /* ──────────────── IB TOPIC & PRICING SYSTEM ──────────────── */
     if (localCaseKey === 'ib-pricing') return <>
-      <Hero c={{ title: 'Topic & Pricing System', subtitle: 'From fragmented operations and rigid pricing to a scalable topic management system that improved operational efficiency and customer discovery.', eyebrow: 'InterviewBuddy · B2C SaaS · 2024', meta: { Role: 'Product Designer', Platform: 'Web (Admin + Consumer)', Status: 'Shipped', Type: 'B2C SaaS' }, tags: ['B2C SaaS', 'Pricing System', 'Admin Portal', 'Topic Management', 'UX Design'] }} />
-
-      <Section>
-        <div className="cs-nda-callout">
-          <span className="cs-nda-icon">🔒</span>
-          <p><strong>This project is covered under NDA.</strong> What I've shared here reflects my thinking process across problem framing, research, and design decisions. Detailed designs, workflows, metrics, and implementation specifics are not included.</p>
+      <div className="cs-hero">
+        <div className="cs-eyebrow">InterviewBuddy · B2C SaaS</div>
+        <h2 className="cs-title">Designing a Scalable Topic and Pricing System</h2>
+        <p className="cs-subtitle">From fragmented operations and rigid pricing to a scalable topic management system that improved operational efficiency and customer discovery.</p>
+        <div className="cs-meta-row">
+          <div className="cs-meta-item"><span className="cs-meta-key">Role</span><span className="cs-meta-val">Product Designer</span></div>
+          <div className="cs-meta-item"><span className="cs-meta-key">Platform</span><span className="cs-meta-val">Web (Admin + Consumer)</span></div>
+          <div className="cs-meta-item"><span className="cs-meta-key">Status</span><span className="cs-meta-val">Shipped</span></div>
         </div>
-      </Section>
+        <div className="cs-tags">
+          <span className="cs-tag">B2C SaaS</span>
+          <span className="cs-tag">Pricing System</span>
+          <span className="cs-tag">Admin Portal</span>
+          <span className="cs-tag">Topic Management</span>
+          <span className="cs-tag">UX Design</span>
+        </div>
+        {/* NDA callout */}
+        <div style={{ marginTop: '24px', padding: '16px 20px', background: 'rgba(234,179,8,0.06)', border: '1px solid rgba(234,179,8,0.2)', borderRadius: '12px', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+          <span style={{ fontSize: '14px', flexShrink: 0, marginTop: '1px' }}>⚠</span>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '13px', color: 'var(--cs-text-mid)', lineHeight: 1.65, margin: 0 }}>
+            <strong style={{ color: 'rgba(234,179,8,0.9)' }}>This project is covered under NDA.</strong> What I've shared here reflects my thinking process across problem framing, research, and design decisions. Detailed designs, workflows, metrics, and implementation specifics are not included.
+          </p>
+        </div>
+      </div>
 
-      <Section>
-        <SectionLabel text="Overview" />
-        <SectionHeading text="A platform without pricing infrastructure." />
-        <BodyText>InterviewBuddy offers two primary offerings: <strong>Meet with Expert</strong> (live 1:1 sessions) and <strong>One Way</strong> (AI-evaluated or template-based asynchronous interviews). With 300+ topics spanning diverse domains, the platform had been operating without a coherent pricing or topic management infrastructure. Ops teams relied on Excel sheets and fragmented CRMs to manage everything manually.</BodyText>
-      </Section>
+      <div className="cs-body">
+        {/* Overview */}
+        <div className="cs-section" style={{ borderTop: 'none', paddingTop: '36px' }}>
+          <div className="cs-section-label">Overview</div>
+          <p className="cs-body-text">InterviewBuddy offers two primary offerings: <strong style={{ color: 'var(--cs-text-hi)' }}>Meet with Expert</strong> (live 1:1 sessions) and <strong style={{ color: 'var(--cs-text-hi)' }}>One Way</strong> (AI-evaluated or template-based asynchronous interviews). With 300+ topics spanning diverse domains, the platform had been operating without a coherent pricing or topic management infrastructure. Ops teams relied on Excel sheets and fragmented CRMs to manage everything manually.</p>
+        </div>
 
-      <Section>
-        <SectionLabel text="Problem" />
-        <SectionHeading text="A single price for everything was causing silent revenue loss." />
-        <BodyText>The platform used one flat price across all topics for each offering. This worked until high-value topics — particularly research-domain expert sessions — began generating orders at a price point far below what experts actually charged. The ops team had no mechanism to handle this. They were often forced to absorb higher expert costs or manually intervene in bookings, creating operational friction and unpredictable margins.</BodyText>
-        <CardGrid>
-          <Card num="📉" title="Revenue leakage" desc="Fixed pricing could not account for expert cost variation across domains." />
-          <Card num="⚙️" title="No admin tools" desc="Ops managed topics, pricing, and bookings via Excel and fragmented CRMs." />
-          <Card num="🔍" title="Poor discoverability" desc="Customers had to type full topic names to book, with no structured search experience." />
-          <Card num="🕐" title="Manual scheduling" desc="One Way interviews required ops involvement despite needing no human expert." />
-        </CardGrid>
-      </Section>
+        {/* Problem */}
+        <div className="cs-section">
+          <div className="cs-section-label" style={{ color: '#EF4444' }}>Problem</div>
+          <h3 className="cs-section-title">A single price for everything was causing silent revenue loss.</h3>
+          <p className="cs-body-text" style={{ marginBottom: '24px' }}>The platform used one flat price across all topics for each offering. This worked until high-value topics — particularly research-domain expert sessions — began generating orders at a price point far below what experts actually charged. The ops team had no mechanism to handle this. They were often forced to absorb higher expert costs or manually intervene in bookings, creating operational friction and unpredictable margins.</p>
+          <div className="cs-card-grid">
+            <div className="cs-card">
+              <div className="cs-card-num" style={{ color: '#EF4444' }}>↘</div>
+              <div className="cs-card-title">Revenue leakage</div>
+              <div className="cs-card-desc">Fixed pricing could not account for expert cost variation across domains.</div>
+            </div>
+            <div className="cs-card">
+              <div className="cs-card-num" style={{ color: '#EF4444' }}>⊞</div>
+              <div className="cs-card-title">No admin tools</div>
+              <div className="cs-card-desc">Ops managed topics, pricing, and bookings via Excel and fragmented CRMs.</div>
+            </div>
+            <div className="cs-card">
+              <div className="cs-card-num" style={{ color: '#EF4444' }}>⊙</div>
+              <div className="cs-card-title">Poor discoverability</div>
+              <div className="cs-card-desc">Customers had to type full topic names to book, with no structured search experience.</div>
+            </div>
+            <div className="cs-card">
+              <div className="cs-card-num" style={{ color: '#EF4444' }}>⏱</div>
+              <div className="cs-card-title">Manual scheduling</div>
+              <div className="cs-card-desc">One Way interviews required ops involvement despite needing no human expert.</div>
+            </div>
+          </div>
+        </div>
 
-      <Section>
-        <SectionLabel text="Research" />
-        <SectionHeading text="Working sessions over surveys." />
-        <BodyText>Working sessions were facilitated with stakeholders and the ops team to understand how they thought about topics and pricing. The goal was to surface existing mental models rather than impose new ones.</BodyText>
-        <Feature num="01" title="Individual pricing per topic was rejected early" desc="With 300+ topics and 3 offering types each, managing roughly 900 price entries was operationally infeasible. Any solution had to scale without constant manual updates." />
-        <Feature num="02" title="Stakeholders naturally grouped topics into two pricing tiers" desc="When asked how they would bucket topics, stakeholders consistently separated them into standard topics and higher-demand specialist domains. This existing mental model became the foundation for the Classic and Premium classification, grounding the system in how the business already thought about value." />
-        <Feature num="03" title="A small set of truly exclusive topics existed" desc="These were niche domains where experts commanded above-market rates. They did not fit even the Premium tier and needed a separate mechanism for flexibility." />
-        <Feature num="04" title="A/B testing revealed a counter-intuitive insight" desc="A minimal search-first hero outperformed visually richer versions with imagery and animation. Users who came with intent converted better when the search box was front and center." />
-      </Section>
+        {/* Research */}
+        <div className="cs-section">
+          <div className="cs-section-label" style={{ color: 'var(--lime)' }}>Research</div>
+          <p className="cs-body-text" style={{ marginBottom: '28px' }}>Working sessions were facilitated with stakeholders and the ops team to understand how they thought about topics and pricing. The goal was to surface existing mental models rather than impose new ones.</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div className="ibp-insight-card">
+              <div className="ibp-insight-num">01</div>
+              <div>
+                <div className="ibp-insight-title">Individual pricing per topic was rejected early</div>
+                <div className="ibp-insight-desc">With 300+ topics and 3 offering types each, managing roughly 900 price entries was operationally infeasible. Any solution had to scale without constant manual updates.</div>
+              </div>
+            </div>
+            <div className="ibp-insight-card">
+              <div className="ibp-insight-num">02</div>
+              <div>
+                <div className="ibp-insight-title">Stakeholders naturally grouped topics into two pricing tiers</div>
+                <div className="ibp-insight-desc">When asked how they would bucket topics, stakeholders consistently separated them into standard topics and higher-demand specialist domains. This existing mental model became the foundation for the Classic and Premium classification, grounding the system in how the business already thought about value.</div>
+              </div>
+            </div>
+            <div className="ibp-insight-card">
+              <div className="ibp-insight-num">03</div>
+              <div>
+                <div className="ibp-insight-title">A small set of truly exclusive topics existed</div>
+                <div className="ibp-insight-desc">These were niche domains where experts commanded above-market rates. They did not fit even the Premium tier and needed a separate mechanism for flexibility.</div>
+              </div>
+            </div>
+            <div className="ibp-insight-card">
+              <div className="ibp-insight-num">04</div>
+              <div>
+                <div className="ibp-insight-title">A/B testing revealed a counter-intuitive insight</div>
+                <div className="ibp-insight-desc">A minimal search-first hero outperformed visually richer versions with imagery and animation. Users who came with intent converted better when the search box was front and center.</div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <Section>
-        <SectionLabel text="Solution" />
-        <SectionHeading text="Four interconnected design decisions." />
-        <Feature
-          num="01"
-          title="Topic Classification System"
-          desc={
-            <>
-              <span style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--cs-accent)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 6 }}>
-                Classic and Premium
-              </span>
-              Each topic is assigned a classification at the time of creation. This maps to a default price for each offering type: Meet with Expert, One Way (AI), and One Way (Template). Ops manages 6 price points instead of 900+. When a topic's classification changes, prices update automatically across the board.
-            </>
-          }
-        />
-        <Feature
-          num="02"
-          title="Premium Hike for Exclusive Topics"
-          desc={
-            <>
-              <span style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--cs-accent)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 6 }}>
-                Flexible pricing for specialist domains
-              </span>
-              For top-tier specialist topics, a percentage-based hike can be applied on top of the Premium price. This gives ops flexibility for high-demand domains without creating an entirely new pricing tier. The hike is visible to customers before booking.
-            </>
-          }
-        />
-        <Feature
-          num="03"
-          title="Smart Topic Search as Homepage Hero"
-          desc={
-            <>
-              <span style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--cs-accent)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 6 }}>
-                Backed by new topic taxonomy
-              </span>
-              A structured topic search replaced the previous static homepage. Customers can now discover sessions by domain, role, or keyword instead of typing exact topic names. Placed as the hero based on A/B test results showing higher intent-driven conversions.
-            </>
-          }
-        />
-        <Feature
-          num="04"
-          title="Automated One Way Scheduling"
-          desc={
-            <>
-              <span style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--cs-accent)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 6 }}>
-                Fully self-serve, zero ops steps
-              </span>
-              One Way interviews no longer route through the ops team for scheduling. Since no human expert is involved, the flow was redesigned to be fully self-serve. Customers book, receive access, and complete their session without any manual ops involvement.
-            </>
-          }
-        />
-      </Section>
+        {/* Solution */}
+        <div className="cs-section">
+          <div className="cs-section-label" style={{ color: '#22C55E' }}>Solution</div>
+          <h3 className="cs-section-title">Four interconnected design decisions.</h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '8px' }}>
+            <div className="ibp-solution-card">
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+                <span className="ibp-solution-tag">Classic and Premium</span>
+                <span className="ibp-solution-num">01</span>
+              </div>
+              <div className="ibp-solution-title">Topic Classification System</div>
+              <div className="ibp-solution-desc">Each topic is assigned a classification at the time of creation. This maps to a default price for each offering type: Meet with Expert, One Way (AI), and One Way (Template). Ops manages 6 price points instead of 900+. When a topic's classification changes, prices update automatically across the board.</div>
+            </div>
+            <div className="ibp-solution-card">
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+                <span className="ibp-solution-tag">Flexible pricing for specialist domains</span>
+                <span className="ibp-solution-num">02</span>
+              </div>
+              <div className="ibp-solution-title">Premium Hike for Exclusive Topics</div>
+              <div className="ibp-solution-desc">For top-tier specialist topics, a percentage-based hike can be applied on top of the Premium price. This gives ops flexibility for high-demand domains without creating an entirely new pricing tier. The hike is visible to customers before booking.</div>
+            </div>
+            <div className="ibp-solution-card">
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+                <span className="ibp-solution-tag">Backed by new topic taxonomy</span>
+                <span className="ibp-solution-num">03</span>
+              </div>
+              <div className="ibp-solution-title">Smart Topic Search as Homepage Hero</div>
+              <div className="ibp-solution-desc">A structured topic search replaced the previous static homepage. Customers can now discover sessions by domain, role, or keyword instead of typing exact topic names. Placed as the hero based on A/B test results showing higher intent-driven conversions.</div>
+            </div>
+            <div className="ibp-solution-card">
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+                <span className="ibp-solution-tag">Fully self-serve, zero ops steps</span>
+                <span className="ibp-solution-num">04</span>
+              </div>
+              <div className="ibp-solution-title">Automated One Way Scheduling</div>
+              <div className="ibp-solution-desc">One Way interviews no longer route through the ops team for scheduling. Since no human expert is involved, the flow was redesigned to be fully self-serve. Customers book, receive access, and complete their session without any manual ops involvement.</div>
+            </div>
+          </div>
+        </div>
 
-      <Section last>
-        <SectionLabel text="Impact" />
-        <SectionHeading text="What the system delivered." />
-        <OutcomeGrid className="cs-outcome-grid-4" items={[
-          { val: '6', label: 'Pricing rules — down from 900+' },
-          { val: '0', label: 'Manual ops steps — One Way scheduling' },
-          { val: '300+', label: 'Structured topics — searchable and scalable' },
-          { val: '↑', label: 'Conversion rate — search-first hero' },
-        ]} />
-        <BodyText>The ops team now manages topics, classifications, and pricing from a single admin portal instead of spreadsheets and CRMs. The classification model reduced pricing complexity, addressed recurring margin challenges for specialist topics, and improved topic discovery through a search-first booking experience.</BodyText>
-        <Callout text="This module demonstrates how I approached product design beyond interfaces, balancing business constraints, operational workflows, pricing strategy, and customer experience within a growing 0→1 B2C platform." />
-      </Section>
+        {/* Impact */}
+        <div className="cs-section">
+          <div className="cs-section-label">Impact</div>
+          <div className="cs-outcomes" style={{ marginBottom: '24px' }}>
+            <div className="cs-outcome">
+              <div className="cs-outcome-val">6</div>
+              <div className="cs-outcome-label">Pricing rules</div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--cs-text-lo)', marginTop: '2px' }}>Down from 900+</div>
+            </div>
+            <div className="cs-outcome">
+              <div className="cs-outcome-val">0</div>
+              <div className="cs-outcome-label">Manual ops steps</div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--cs-text-lo)', marginTop: '2px' }}>One Way scheduling</div>
+            </div>
+            <div className="cs-outcome">
+              <div className="cs-outcome-val">300+</div>
+              <div className="cs-outcome-label">Structured topics</div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--cs-text-lo)', marginTop: '2px' }}>Searchable and scalable</div>
+            </div>
+            <div className="cs-outcome">
+              <div className="cs-outcome-val">↑</div>
+              <div className="cs-outcome-label">Conversion rate</div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--cs-text-lo)', marginTop: '2px' }}>Search-first hero</div>
+            </div>
+          </div>
+          <div className="cs-callout">The ops team now manages topics, classifications, and pricing from a single admin portal instead of spreadsheets and CRMs. The classification model reduced pricing complexity, addressed recurring margin challenges for specialist topics, and improved topic discovery through a search-first booking experience.</div>
+        </div>
+
+        {/* Closing quote */}
+        <div className="cs-section" style={{ borderBottom: 'none', paddingBottom: '60px' }}>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '14px', color: 'var(--cs-text-lo)', lineHeight: 1.8, fontStyle: 'italic' }}>"This module demonstrates how I approached product design beyond interfaces by balancing business constraints, operational workflows, pricing strategy, and customer experience within a growing 0→1 B2C platform. It was one of several systems I designed as part of InterviewBuddy's broader product ecosystem."</p>
+        </div>
+      </div>
     </>
 
     return null
