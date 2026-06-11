@@ -1095,13 +1095,12 @@ button {
   line-height: 1.4;
 }
 
-/* ================================================================
-   CAREER TIMELINE
-   ================================================================ */
 .tl-scroll-wrapper {
   overflow-x: auto;
   overflow-y: visible;
-  padding: 48px 48px 40px;
+  padding: 48px 0 40px;
+  padding-left: max(48px, calc((100vw - 1440px) / 2 + 48px));
+  padding-right: max(48px, calc((100vw - 1440px) / 2 + 48px));
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
   cursor: grab;

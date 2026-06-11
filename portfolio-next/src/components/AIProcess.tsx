@@ -72,7 +72,7 @@ export default function AIProcess() {
         paddingTop: 96,
       }}
     >
-      <div style={{ padding: '0 48px' }}>
+      <div style={{ width: '100%', maxWidth: 1440, margin: '0 auto', padding: '0 48px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em', color: accent }}>
           <span style={{ display: 'block', width: 24, height: 1, background: accent, opacity: 0.5 }} />
           AI × Design
@@ -85,7 +85,7 @@ export default function AIProcess() {
         </p>
       </div>
 
-      <div className="ai-process-track">
+      <div className="ai-process-track" style={{ width: '100%', maxWidth: 1440, margin: '24px auto 0', padding: '0 48px' }}>
         {/* Horizontal rule in the middle */}
         <div className="ai-process-line"></div>
 

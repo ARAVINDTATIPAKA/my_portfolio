@@ -137,7 +137,7 @@ export default function Timeline() {
 
   return (
     <section id="timeline" style={{ paddingLeft: 0, paddingRight: 0, overflow: 'hidden' }}>
-      <div style={{ padding: '96px 48px 0' }}>
+      <div style={{ width: '100%', maxWidth: 1440, margin: '0 auto', padding: '96px 48px 0' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em', color: accent }}>
           <span style={{ display: 'block', width: 24, height: 1, background: accent, opacity: 0.5 }} />
           Career
@@ -224,7 +224,7 @@ export default function Timeline() {
       </div>
 
       {/* Scroll hint */}
-      <div style={{ padding: '24px 48px 0', display: 'flex', alignItems: 'center', gap: 8 }}>
+      <div style={{ width: '100%', maxWidth: 1440, margin: '0 auto', padding: '24px 48px 0', display: 'flex', alignItems: 'center', gap: 8 }}>
         <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: textLo, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
           Drag to scroll
         </span>
