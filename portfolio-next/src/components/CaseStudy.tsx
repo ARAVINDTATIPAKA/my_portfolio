@@ -229,10 +229,9 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
 
       <Section>
         <SectionLabel text="Research Insights" />
-        <SectionHeading text="Three findings that shaped the UX direction." />
-        <Feature num="01" title="Admins needed visibility, not more control" desc="Existing tools exposed raw logs and server-level information. But admins primarily wanted simple answers: Which device is offline? Is syncing working? Which location has delayed records? This shifted focus from technical density to operational clarity." />
-        <Feature num="02" title="High traffic created synchronization anxiety" desc="During peak hours, thousands of records could arrive within minutes. Admins couldn't distinguish a processing queue from an actual failure. Communicating sync health vs. sync failure became a critical UX problem." />
-        <Feature num="03" title="Device mapping was more complex than expected" desc="Different organizations had different office structures, device setups, and attendance workflows. Admins needed flexibility to map devices to locations and assign clock-in/out behavior — without requiring deep technical expertise." />
+        <SectionHeading text="Findings that shaped the UX direction." />
+        <Feature num="01" title="High traffic created synchronization anxiety" desc="During peak hours, thousands of records could arrive within minutes. Admins couldn't distinguish a processing queue from an actual failure. Communicating sync health vs. sync failure became a critical UX problem." />
+        <Feature num="02" title="Device mapping was more complex than expected" desc="Different organizations had different office structures, device setups, and attendance workflows. Admins needed flexibility to map devices to locations and assign clock-in/out behavior — without requiring deep technical expertise." />
       </Section>
 
       <Section>
@@ -254,15 +253,6 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
         ]} />
       </Section>
 
-      <Section>
-        <SectionLabel text="Critical UX Decision" />
-        <SectionHeading text="Reducing panic during delays." />
-        <BodyText>Early concepts surfaced aggressive warnings and constant alerts during peak sync traffic — making temporary queue buildup look like system failure.</BodyText>
-        <CardGrid>
-          <Card num="Before" title="Alert-heavy, error-first" desc="Every queue delay triggered visible warnings. Admins couldn't distinguish temporary sync latency from actual infrastructure failure. Panic was routine." />
-          <Card num="After" title="Progressive, contextual clarity" desc="Differentiated temporary delay vs. actual failure. Queue progress shown visually. System recovery status communicated clearly. Unnecessary escalation eliminated." />
-        </CardGrid>
-      </Section>
 
       <Section>
         <SectionLabel text="Constraints & Execution" />
