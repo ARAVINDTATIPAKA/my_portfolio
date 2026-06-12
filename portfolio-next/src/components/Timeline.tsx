@@ -26,7 +26,7 @@ const EVENTS: TimelineEvent[] = [
     type: 'work',
     tag: 'Keka · Work',
     role: 'Leave Management UX',
-    desc: 'Mapped and redesigned the leave application flow. Reduced form steps from 7 to 3 while maintaining compliance with policy configurations.',
+    desc: 'Mapped and redesigned the leave policy configuration flow. Reduced 7 steps to 3 improving efficiency and usability.',
   },
   {
     date: 'Aug 2021',
