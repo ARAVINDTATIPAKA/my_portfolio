@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useTheme } from '@/lib/ThemeContext'
 
 export default function Nav() {
-  const { theme, setTheme } = useTheme()
+  const { theme } = useTheme()
   const isFunky = theme === 'funky'
   const [scrolled, setScrolled] = useState(false)
 
@@ -59,29 +59,6 @@ export default function Nav() {
 
       {/* Right */}
       <div style={{ display:'flex', alignItems:'center', gap:12 }}>
-        {/* Toggle */}
-        <div style={{
-          display:'flex', alignItems:'center',
-          background: isFunky ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.04)',
-          border: `1px solid ${isFunky ? '#44403C' : '#E7E5E4'}`,
-          borderRadius:999, padding:4,
-        }} className="hidden-mobile">
-          {(['funky','serious'] as const).map(t => (
-            <button key={t} onClick={() => setTheme(t)} style={{
-              padding:'5px 14px', borderRadius:999, border:'none',
-              fontFamily:'var(--font-mono)', fontSize:10, fontWeight:500,
-              letterSpacing:'0.08em', textTransform:'uppercase', cursor:'pointer',
-              transition:'all 0.2s',
-              background: theme === t
-                ? isFunky ? '#E8FF6B' : '#0891B2'
-                : 'transparent',
-              color: theme === t
-                ? isFunky ? '#1C1917' : '#fff'
-                : isFunky ? '#78716C' : '#A8A29E',
-            }}>{t}</button>
-          ))}
-        </div>
-
         {/* CTA */}
         <a href="#contact" style={{
           display:'flex', alignItems:'center', gap:6,

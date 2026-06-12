@@ -28,6 +28,7 @@ const PROJECTS = [
     caseKey: 'ib',
     mvp: false,
     nda: true,
+    hidden: true,
   },
   {
     id: 'ib-ai',
@@ -64,6 +65,7 @@ const PROJECTS = [
     caseKey: 'sentinel',
     mvp: false,
     nda: false,
+    hidden: true,
   },
 ]
 
@@ -102,7 +104,7 @@ export default function Work({ onOpenCase }: WorkProps) {
 
         {/* Grid */}
         <div className="work-grid">
-          {PROJECTS.map(p => (
+          {PROJECTS.filter(p => !p.hidden).map(p => (
             <div
               key={p.id}
               onClick={() => onOpenCase(p.caseKey)}
