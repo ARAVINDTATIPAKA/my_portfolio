@@ -35,6 +35,17 @@ function Callout({ text }: { text: string }) {
   )
 }
 
+function NDACallout() {
+  return (
+    <div style={{ marginTop: '24px', padding: '16px 20px', background: 'rgba(234,179,8,0.06)', border: '1px solid rgba(234,179,8,0.2)', borderRadius: '12px', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+      <span style={{ fontSize: '14px', flexShrink: 0, marginTop: '1px' }}>⚠</span>
+      <p style={{ fontFamily: 'var(--font-body)', fontSize: '13px', color: 'var(--cs-text-mid)', lineHeight: 1.65, margin: 0 }}>
+        <strong style={{ color: 'rgba(234,179,8,0.9)' }}>This project is covered under NDA.</strong> What I've shared here reflects my thinking process across problem framing, research, and design decisions. Detailed designs, workflows, metrics, and implementation specifics are not included.
+      </p>
+    </div>
+  )
+}
+
 function CardGrid({ children }: { children: React.ReactNode }) {
   return (
     <div className="cs-card-grid">
@@ -144,6 +155,8 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
     if (localCaseKey === 'sentinel') return <>
       <Hero c={{ title: 'SentinelOS', subtitle: 'AI-Assisted Surveillance Intelligence Platform for High-Security Facilities', eyebrow: 'Self-initiated · Enterprise UX · 2026', meta: { Role: 'Product Designer (Solo)', Timeline: '5 Weeks', Type: 'Concept / Self-initiated', Deliverable: 'High-fidelity product concept' }, tags: ['Enterprise UX', 'AI-Assisted Workflows', 'Dashboard Design', 'Systems Thinking', 'Design System', 'UX Research'] }} />
 
+      <NDACallout />
+
       <Section>
         <SectionLabel text="The Problem" />
         <SectionHeading text="Sustained human attention is unreliable at scale." />
@@ -207,7 +220,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
     if (localCaseKey === 'keka') return <>
       <Hero c={{ title: 'Keka Sync Tool', subtitle: 'Enterprise Workforce Attendance Synchronization Platform — a Windows-based infrastructure layer between biometric hardware and attendance management systems.', eyebrow: 'Keka · Enterprise Product · 2026', meta: { Role: 'Product Designer', Timeline: '1 Week', Platform: 'Windows (Desktop App)', Constraint: 'Existing Keka component system' }, tags: ['Enterprise UX', 'Operational Dashboard', 'Device Management', 'Sync Monitoring', 'Windows App', 'Workflow Design'] }} />
 
-
+      <NDACallout />
 
       <Section>
         <SectionLabel text="The Context" />
@@ -272,7 +285,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
     if (localCaseKey === 'ib') return <>
       <Hero c={{ title: 'InterviewBuddy Design System', subtitle: 'Building a scalable foundation for a multi-product interview preparation platform — one token architecture powering five portals.', eyebrow: 'InterviewBuddy · Design Infrastructure · 2024–Present', meta: { Role: 'Lead Product Designer', Team: 'Product, Engineering, QA', Tools: 'Figma, Tokens Studio', Portals: '5 products' }, tags: ['Design System', 'Design Tokens', 'Component Library', 'Multi-portal', 'Accessibility', 'Scalability'] }} />
 
-
+      <NDACallout />
 
       <Section>
         <SectionLabel text="The Scale" />
@@ -358,7 +371,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
     if (localCaseKey === 'ibai') return <>
       <Hero c={{ title: 'InterviewBuddy AI', subtitle: 'Designing a Conversational Commerce Experience for Career Growth — not a chatbot, but an AI-powered conversion engine that helps users discover the right career service and take action.', eyebrow: 'InterviewBuddy · AI Product · 2024–Present', meta: { Role: 'Product Designer', Platform: 'Mobile App (iOS + Android)', Type: '0→1 Product · MVP', Status: 'Under Development' }, tags: ['Conversational AI', 'Mobile UX', '0→1 Product', 'RAG Architecture', 'Conversion Design', 'AI Flows'], isMVP: true }} />
 
-
+      <NDACallout />
 
       <Section>
         <SectionLabel text="The Real Problem" />
@@ -662,12 +675,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
         tags: ['Platform Architecture', 'B2B Admin UX', 'Pricing System', 'B2C SaaS', 'Information Architecture', 'Service Design'],
       }} />
 
-      <Section>
-        <div className="cs-nda-callout">
-          <span className="cs-nda-icon">🔒</span>
-          <p><strong>This project is covered under NDA.</strong> What I've shared here reflects my thinking process across problem framing, research, and design decisions. Detailed designs, workflows, metrics, and implementation specifics are not included.</p>
-        </div>
-      </Section>
+      <NDACallout />
 
       <Section>
         <SectionLabel text="TL;DR" />
