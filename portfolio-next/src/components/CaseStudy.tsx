@@ -520,13 +520,13 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
       <div className="cs-body">
         {/* Overview */}
         <div className="cs-section" style={{ borderTop: 'none', paddingTop: '36px' }}>
-          <div className="cs-section-label">Overview</div>
+          <SectionLabel text="Overview" />
           <p className="cs-body-text">InterviewBuddy offers two primary offerings: <strong style={{ color: 'var(--cs-text-hi)' }}>Meet with Expert</strong> (live 1:1 sessions) and <strong style={{ color: 'var(--cs-text-hi)' }}>One Way</strong> (AI-evaluated or template-based asynchronous interviews). With 300+ topics spanning diverse domains, the platform had been operating without a coherent pricing or topic management infrastructure. Ops teams relied on Excel sheets and fragmented CRMs to manage everything manually.</p>
         </div>
 
         {/* Problem */}
         <div className="cs-section">
-          <div className="cs-section-label" style={{ color: '#EF4444' }}>Problem</div>
+          <SectionLabel text="Problem" />
           <h3 className="cs-section-title">A single price for everything was causing silent revenue loss.</h3>
           <p className="cs-body-text" style={{ marginBottom: '24px' }}>The platform used one flat price across all topics for each offering. This worked until high-value topics — particularly research-domain expert sessions — began generating orders at a price point far below what experts actually charged. The ops team had no mechanism to handle this. They were often forced to absorb higher expert costs or manually intervene in bookings, creating operational friction and unpredictable margins.</p>
           <div className="cs-card-grid">
@@ -555,7 +555,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
 
         {/* Research */}
         <div className="cs-section">
-          <div className="cs-section-label" style={{ color: 'var(--lime)' }}>Research</div>
+          <SectionLabel text="Research" />
           <p className="cs-body-text" style={{ marginBottom: '28px' }}>Working sessions were facilitated with stakeholders and the ops team to understand how they thought about topics and pricing. The goal was to surface existing mental models rather than impose new ones.</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <div className="ibp-insight-card">
@@ -591,7 +591,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
 
         {/* Solution */}
         <div className="cs-section">
-          <div className="cs-section-label" style={{ color: '#22C55E' }}>Solution</div>
+          <SectionLabel text="Solution" />
           <h3 className="cs-section-title">Four interconnected design decisions.</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '8px' }}>
             <div className="ibp-solution-card">
@@ -631,7 +631,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
 
         {/* Impact */}
         <div className="cs-section">
-          <div className="cs-section-label">Impact</div>
+          <SectionLabel text="Impact" />
           <div className="cs-outcomes" style={{ marginBottom: '24px' }}>
             <div className="cs-outcome">
               <div className="cs-outcome-val">6</div>
