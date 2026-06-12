@@ -651,6 +651,123 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
       </div>
     </>
 
+
+    /* ──────────────── MCSF ──────────────── */
+    if (localCaseKey === 'mcsf') return <>
+      <Hero c={{
+        title: 'From Monoliths to Modules: MCSF',
+        subtitle: 'A capability-based service framework that turned rigid interview-prep offerings into composable products — enabling same-day B2B configuration and collapsing 900 pricing entries to 6.',
+        eyebrow: 'InterviewBuddy · Platform Architecture · B2B + B2C',
+        meta: { Role: 'Senior Product Designer', Scope: 'Platform · B2B Admin · B2C Storefront', Team: 'Product, Engineering', Timeline: '3 Months' },
+        tags: ['Platform Architecture', 'B2B Admin UX', 'Pricing System', 'B2C SaaS', 'Information Architecture', 'Service Design'],
+      }} />
+
+      <Section>
+        <div className="cs-nda-callout">
+          <span className="cs-nda-icon">🔒</span>
+          <p><strong>This project is covered under NDA.</strong> What I've shared here reflects my thinking process across problem framing, research, and design decisions. Detailed designs, workflows, metrics, and implementation specifics are not included.</p>
+        </div>
+      </Section>
+
+      <Section>
+        <SectionLabel text="TL;DR" />
+        <SectionHeading text="Five monoliths became 11 atoms." />
+        <BodyText>Our platform sold five interview-preparation services, each built as a rigid, standalone unit. When B2B clients began demanding custom bundles and B2C candidates asked for packs, the architecture couldn't deliver either.</BodyText>
+        <BodyText>I led the design of MCSF (Modular Capabilities-based Services Framework): we decomposed all five services into 11 atomic capabilities and rebuilt the service layer as compositions of those atoms.</BodyText>
+        <OutcomeGrid items={[
+          { val: 'Same-day', label: 'Custom B2B service launch — was weeks of engineering' },
+          { val: '6', label: 'Global price points — down from 900+ manual entries' },
+          { val: '0', label: 'Ops intervention on configured-topic bookings' },
+          { val: '11', label: 'Atomic capabilities powering every service' },
+        ]} />
+      </Section>
+
+      <Section>
+        <SectionLabel text="Context" />
+        <SectionHeading text="Five services. All monoliths." />
+        <BodyText>The platform offered five services to job candidates and B2B organizations: one-on-one interviews with experts, one-way template-based interviews, one-way AI interviews, resume reviews, and LinkedIn profile reviews. Each service was a monolith — designed, built, priced, and sold as a single indivisible unit.</BodyText>
+        <BodyText>This worked while customers bought services individually. Then two pressures arrived almost simultaneously.</BodyText>
+        <CardGrid>
+          <Card num="Pressure 01" title="B2B wanted bundles and customization" desc='"We want a branded mock interview, followed by expert feedback, plus an assessment — packaged as one program." Every custom deal became an engineering project. Sales could only sell what was already built.' />
+          <Card num="Pressure 02" title="B2C candidates wanted packs" desc="Individual users asked for bundled journeys — but the same architectural rigidity blocked us there too. The same root cause sat underneath both: services couldn't be opened up." />
+        </CardGrid>
+      </Section>
+
+      <Section>
+        <SectionLabel text="The Insight" />
+        <SectionHeading text="Services are compositions." />
+        <BodyText>The breakthrough came from a mapping exercise. Instead of asking "how do we combine services?", we asked "what are services actually made of?"</BodyText>
+        <DataTable
+          headers={['Existing Service', 'What it decomposed into']}
+          rows={[
+            ['One-on-one interview', 'Meeting + Expert feedback + Candidate feedback'],
+            ['One-way interview', 'One-way recording + Candidate feedback + AI feedback report'],
+            ['Resume review', 'Data input + Meet with expert'],
+            ['LinkedIn review', 'Data input + Meet with expert'],
+          ]}
+        />
+        <BodyText>Every service was a recipe — a logical grouping of smaller, reusable capabilities. Once mapped, we added net-new capabilities the monoliths could never have supported: Code with AI, Assessments (MCQ and comprehensive tests), Overall expert feedback, and Chat.</BodyText>
+        <Callout text="Decompose once, recombine infinitely. Capabilities are the atoms; every service — existing, custom, or future — is a configuration, not a build." />
+        <BodyText>This was fundamentally an information-architecture redesign. The screens changed later; the object model changed first.</BodyText>
+      </Section>
+
+      <Section>
+        <SectionLabel text="B2B Experience" />
+        <SectionHeading text="Service templates: composition for enterprise clients." />
+        <BodyText>B2B was the forcing function, so we designed for it first. The composition flow: Service Template → Sets → Capabilities (each configured) → Publish → Service Group. An admin creates a service template for an org. Inside it, capabilities are organized into sets — logical groupings named in the org's own language.</BodyText>
+        <Feature num="01" title="Attempt availability — encoding domain logic into the system" desc="Every capability needs a rule for when a candidate can attempt it: Fixed (scheduled slot), Time-range (attempt within a window), or Until service expiry. One deliberate constraint: one-on-one meetings are always Fixed. Rather than documenting this as a guideline, the system enforces it. Admins can't create logically broken states. Constraints in the system, not in training material." />
+        <Feature num="02" title="Dependencies — sequencing without a Gantt chart" desc="Real services have order: an expert can't give feedback on a meeting that hasn't happened. Capabilities support dependencies — e.g., Expert Feedback opens when the Meeting completes, and expires X days after its start. Admins can also choose fixed start dates. The design challenge: making 'this thing's window is relative to that thing's completion' legible without exposing scheduling-engine internals." />
+        <Feature num="03" title="Display names — separating system language from candidate language" desc='Internally, a capability is "Meeting." To a candidate in a B2B program, it should read "TCS Mock Interview." Every capability gets an admin-chosen display name — letting B2B orgs fully brand their programs while keeping our internal taxonomy from leaking into candidate-facing surfaces.' />
+        <Feature num="04" title="Expert payment — configuration that ripples downstream" desc="While adding a capability, admins flag whether an expert is paid for it. If yes, a payment-rate option surfaces later during expert assignment. A single checkbox at template-creation time reshapes the ops workflow weeks later." />
+      </Section>
+
+      <Section>
+        <SectionLabel text="B2C Experience" />
+        <SectionHeading text="Offerings, topics, and a pricing system that finally scales." />
+        <BodyText>For B2C we kept the same foundation but named services "offerings" to avoid internal conflict with the B2B vocabulary. All five original services — plus assessments — were rebuilt as offerings composed from the same 11 capabilities.</BodyText>
+        <BodyText>One new concept emerged: when creating an offering, we designate a main service versus customization capabilities. Customizations surface on the website as add-ons — e.g., expert feedback as an add-on to a one-way AI interview, with feedback parameters importable from that interview.</BodyText>
+      </Section>
+
+      <Section>
+        <SectionLabel text="The Pricing Problem" />
+        <SectionHeading text="900 entries nobody could maintain → 6 price points." />
+        <BodyText>The platform had 300+ topics, each potentially offered through 3 offering types. That's roughly 900 price entries to create and maintain manually. Any topic launch or price revision was an ops bottleneck. The solution had to scale without constant manual updates.</BodyText>
+        <BodyText>Research grounded the answer: when I asked stakeholders how they bucketed topics, a consistent mental model emerged — standard topics versus higher-demand specialist domains. Rather than inventing a pricing taxonomy, I built the system on the model the business already used.</BodyText>
+        <CardGrid>
+          <Card num="Tier 01" title="Classic / Premium classification" desc="Assigned at topic creation. Each classification maps to a default price per offering type — ops manages 6 global price points instead of 900+. Reclassify a topic, prices update everywhere automatically." />
+          <Card num="Tier 02" title="Percentage-based hike for specialist topics" desc="For top-tier domains exceeding even Premium economics. Applied on top of the Premium price, visible to customers before booking — flexibility for outlier domains without inventing a third tier." />
+        </CardGrid>
+      </Section>
+
+      <Section>
+        <SectionLabel text="Topics as Infrastructure" />
+        <SectionHeading text="Configure once, automate forever." />
+        <BodyText>A topic (say, Product Design) is created, classified (pricing auto-pulled from global classifications), and offerings are configured inside it. For a one-way AI interview: number of questions, duration per question, attempts per question, AI interview prompt — configured per experience range (0–2, 2–5, 5–10 … 35+ years).</BodyText>
+        <BodyText>The payoff: after a topic is set up, every future booking on that topic schedules itself — zero ops intervention. Ops only steps in where a human expert must be matched and payment rates assigned.</BodyText>
+      </Section>
+
+      <Section>
+        <SectionLabel text="Baskets" />
+        <SectionHeading text="Bundles for B2C — on the same foundation as B2B." />
+        <BodyText>Baskets are the B2C mirror of service templates: bundles organized by experience range, where each experience range is a basket. Each basket offers three predefined bundles plus an à-la-carte builder, with pricing keyed to the chosen basket. The bundles B2C candidates had been asking for finally shipped — on the same composable foundation as B2B, not as a parallel system.</BodyText>
+      </Section>
+
+      <Section>
+        <SectionLabel text="Trade-offs" />
+        <SectionHeading text="Complexity didn't disappear — it moved." />
+        <CardGrid>
+          <Card num="Trade-off 01" title="Complexity shifted to configuration" desc="MCSF transferred complexity from engineering into configuration. The admin now carries significant conceptual load: capabilities, sets, dependencies, attempt types, payment flags, per-experience-range settings." />
+          <Card num="Trade-off 02" title="Vocabulary debt" desc='Running "services" (B2B) and "offerings" (B2C) on one foundation avoided internal conflict but created a translation tax in cross-team conversations. With hindsight, I would push harder for one shared vocabulary earlier.' />
+        </CardGrid>
+      </Section>
+
+      <Section last>
+        <SectionLabel text="Why This Matters" />
+        <SectionHeading text="Design the object model before the interface." />
+        <Callout text="MCSF is a case for designing the object model before the interface. The highest-leverage design decision wasn't a screen — it was redefining the platform's atomic unit from 'service' to 'capability.' Everything customers eventually saw — bundles, add-ons, branded programs, transparent specialist pricing — became possible because of that one structural choice, and cheap because configuration replaced construction." />
+      </Section>
+    </>
+
     return null
   }
 
