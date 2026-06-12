@@ -85,7 +85,7 @@ const EVENTS: TimelineEvent[] = [
     date: 'May 2025',
     type: 'work',
     tag: 'InterviewBuddy · Work',
-    role: 'MCSF — Modular Services Framework'
+    role: 'MCSF — Modular Services Framework',
     desc: 'Designed a capability-based service architecture — turning five rigid offerings into composable building blocks that power custom programs for B2B orgs and bundles for candidates.',
   },
 
