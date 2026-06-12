@@ -1,9 +1,5 @@
 'use client'
 
-import { useState } from 'react'
-
-const FILTERS = ['All', 'UI Design', 'Systems', 'UX']
-
 const PROJECTS = [
   {
     id: 'keka',
@@ -74,7 +70,6 @@ interface WorkProps {
 }
 
 export default function Work({ onOpenCase }: WorkProps) {
-  const [filter, setFilter] = useState('All')
 
   return (
     <section id="work" className="work-section">
@@ -89,17 +84,7 @@ export default function Work({ onOpenCase }: WorkProps) {
             </div>
             <h2 className="work-title">The portfolio.</h2>
           </div>
-          <div className="work-filters">
-            {FILTERS.map(f => (
-              <button
-                key={f}
-                onClick={() => setFilter(f)}
-                className={`work-filter-btn${filter === f ? ' work-filter-btn--active' : ''}`}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
+
         </div>
 
         {/* Grid */}
