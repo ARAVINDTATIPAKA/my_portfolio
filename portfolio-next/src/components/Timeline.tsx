@@ -193,22 +193,6 @@ export default function Timeline() {
                 <div className={dotClass}></div>
                 <div className="tl-date">{event.date}</div>
                 <div className={cardClass}>
-                  {event.tag && (
-                    <div
-                      className="tl-work-tag"
-                      style={
-                        isMilestoneOrNow
-                          ? {
-                              background: accentLightBg,
-                              borderColor: accentLightBorder,
-                              color: accent,
-                            }
-                          : undefined
-                      }
-                    >
-                      {event.tag}
-                    </div>
-                  )}
                   {event.company && <div className="tl-card-company">{event.company}</div>}
                   <div className="tl-card-role">{event.role}</div>
                   {event.period && <div className="tl-card-period">{event.period}</div>}

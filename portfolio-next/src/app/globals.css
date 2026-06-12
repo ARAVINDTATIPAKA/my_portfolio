@@ -1728,13 +1728,13 @@ button {
 }
 
 .ai-step-above .ai-step-desc {
-  top: 100%;
-  transform: translate(-50%, 8px);
+  bottom: 100%;
+  transform: translate(-50%, -8px);
 }
 
 .ai-step-below .ai-step-desc {
-  bottom: 100%;
-  transform: translate(-50%, -8px);
+  top: 100%;
+  transform: translate(-50%, 8px);
 }
 
 .ai-step:hover .ai-step-desc {
@@ -1743,11 +1743,11 @@ button {
 }
 
 .ai-step-above:hover .ai-step-desc {
-  transform: translate(-50%, 14px);
+  transform: translate(-50%, -14px);
 }
 
 .ai-step-below:hover .ai-step-desc {
-  transform: translate(-50%, -14px);
+  transform: translate(-50%, 14px);
 }
 
 .ai-step-tools {
