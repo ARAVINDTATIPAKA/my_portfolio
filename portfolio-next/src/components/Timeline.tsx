@@ -72,20 +72,23 @@ const EVENTS: TimelineEvent[] = [
     role: 'IB Design System',
     desc: 'Built the Foundation — One of my first initiatives at InterviewBuddy was designing the design system from scratch — establishing a cohesive token library, component set, and usage guidelines that gave the product team a shared visual language to build from.',
   },
+
   {
-    date: 'Jun 2024',
+    date: 'Aug 2024',
     type: 'work',
     tag: 'InterviewBuddy · Work',
-    role: 'Candidate Dashboard Redesign',
-    desc: 'Revamped the candidate-facing dashboard — surfacing upcoming interviews, feedback, and preparation resources in a single, scannable view.',
+    role: 'New Meeting UI',
+    desc: 'Redesigned the entire interview surface — the live room for expert and AI conversations, and the one-way recording flow — into one calm, consistent design language across formats',
   },
+
   {
-    date: 'Jan 2025',
+    date: 'May 2025',
     type: 'work',
     tag: 'InterviewBuddy · Work',
-    role: 'AI Interview Feedback UI',
-    desc: 'Designed the AI-generated feedback experience — making automated interview analysis readable, trustworthy, and actionable for candidates and hiring teams.',
+    role: 'MCSF — Modular Services Framework'
+    desc: 'Designed a capability-based service architecture — turning five rigid offerings into composable building blocks that power custom programs for B2B orgs and bundles for candidates.',
   },
+
   {
     date: 'Now',
     type: 'now',
