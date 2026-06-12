@@ -1249,7 +1249,7 @@ button {
   width: 14px;
   height: 14px;
   top: -47px;
-  animation: pulseDot 2.5s ease-in-out infinite;
+  animation: tlPulseDot 2.5s ease-in-out infinite;
   box-shadow: 0 0 0 4px rgba(232, 255, 107, 0.15);
 }
 
@@ -1445,14 +1445,14 @@ button {
   left: 0;
   right: 0;
   height: 1px;
-  background: var(--color-stone-800);
+  background: var(--color-stone-700);
   top: 200px;
   z-index: 0;
   pointer-events: none;
 }
 
 [data-theme=serious] .ai-process-line {
-  background: var(--color-stone-200);
+  background: var(--color-stone-300);
 }
 
 .ai-step {
@@ -1698,26 +1698,56 @@ button {
   background: #DB2777;
 }
 
-/* Description Drawer Slide Effect */
+/* Floating description tooltip */
 .ai-step-desc {
+  position: absolute;
+  left: 50%;
+  width: 220px;
+  background: rgba(41, 37, 36, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 12px 14px;
   font-size: 11px;
-  color: var(--color-stone-400);
-  line-height: 1.6;
+  color: var(--color-stone-300);
+  line-height: 1.5;
   text-align: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
   opacity: 0;
-  max-height: 0;
-  transition: opacity 0.35s ease, max-height 0.35s ease, margin-top 0.35s ease;
-  overflow: hidden;
+  pointer-events: none;
+  z-index: 20;
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-theme=serious] .ai-step-desc {
-  color: var(--color-stone-600);
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: var(--color-stone-700);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.ai-step-above .ai-step-desc {
+  top: 100%;
+  transform: translate(-50%, 8px);
+}
+
+.ai-step-below .ai-step-desc {
+  bottom: 100%;
+  transform: translate(-50%, -8px);
 }
 
 .ai-step:hover .ai-step-desc {
   opacity: 1;
-  max-height: 90px;
-  margin-top: 6px;
+  pointer-events: auto;
+}
+
+.ai-step-above:hover .ai-step-desc {
+  transform: translate(-50%, 14px);
+}
+
+.ai-step-below:hover .ai-step-desc {
+  transform: translate(-50%, -14px);
 }
 
 .ai-step-tools {
@@ -2149,10 +2179,19 @@ button {
   }
 
   .ai-step-desc {
+    position: static !important;
     opacity: 0.85 !important;
     max-height: none !important;
     text-align: left !important;
     margin-top: 6px !important;
+    width: auto !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    transform: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 
   .ai-step-title {
@@ -2909,4 +2948,77 @@ button {
   .cs-outcomes {
     grid-template-columns: 1fr !important;
   }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   Timeline Dot Animation (Preserves Alignment)
+   ──────────────────────────────────────────────────────────────── */
+@keyframes tlPulseDot {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.4);
+    opacity: 0.7;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   WIP (In Progress) Step Card Styles
+   ──────────────────────────────────────────────────────────────── */
+.ai-wip-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(234, 179, 8, 0.1);
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  color: #F59E0B;
+  margin-bottom: 8px;
+  align-self: center;
+}
+
+[data-theme=serious] .ai-wip-badge {
+  background: rgba(217, 119, 6, 0.08);
+  border-color: rgba(217, 119, 6, 0.25);
+  color: #D97706;
+}
+
+/* WIP card look: dashed border, lower opacity */
+.ai-step-wip .ai-step-content {
+  border-style: dashed !important;
+  opacity: 0.65;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.ai-step-wip:hover .ai-step-content {
+  opacity: 1;
+  border-color: rgba(234, 179, 8, 0.4) !important;
+}
+
+[data-theme=serious] .ai-step-wip:hover .ai-step-content {
+  border-color: rgba(217, 119, 6, 0.4) !important;
+}
+
+.ai-step-wip .ai-step-dot {
+  background: var(--color-stone-700) !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.ai-step-wip:hover .ai-step-dot {
+  background: #F59E0B !important;
+  border-color: var(--idcard-bg, #1C1917) !important;
+  box-shadow: 0 0 0 5px rgba(234, 179, 8, 0.2) !important;
+}
+
+[data-theme=serious] .ai-step-wip:hover .ai-step-dot {
+  background: #D97706 !important;
+  box-shadow: 0 0 0 5px rgba(217, 119, 6, 0.2) !important;
 }

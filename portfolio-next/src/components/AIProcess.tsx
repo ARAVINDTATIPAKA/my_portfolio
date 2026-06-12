@@ -8,6 +8,7 @@ interface AIStep {
   tools: string[]
   isAbove: boolean
   isLast?: boolean
+  isWIP?: boolean
 }
 
 const STEPS: AIStep[] = [
@@ -34,12 +35,14 @@ const STEPS: AIStep[] = [
     desc: 'Prototype in code with AI help — real interactions, real data, real states. Hand off cleaner specs with fewer gaps.',
     tools: ['Claude', 'Antigravity'],
     isAbove: false,
+    isWIP: true,
   },
   {
     title: 'Generate documentation',
     desc: 'AI drafts token specs, decision logs, and component docs from structured input — so I focus on decisions, not write-ups.',
     tools: ['Claude', 'ChatGPT'],
     isAbove: true,
+    isWIP: true,
   },
   {
     title: "What AI still can't replace",
@@ -90,7 +93,10 @@ export default function AIProcess() {
         <div className="ai-process-line"></div>
 
         {STEPS.map((step, idx) => {
-          const stepClass = step.isAbove ? 'ai-step ai-step-above' : 'ai-step ai-step-below'
+          let stepClass = step.isAbove ? 'ai-step ai-step-above' : 'ai-step ai-step-below'
+          if (step.isWIP) {
+            stepClass += ' ai-step-wip'
+          }
           const dotClass = step.isLast ? 'ai-step-dot ai-step-dot-last' : 'ai-step-dot'
 
           return (
@@ -98,6 +104,7 @@ export default function AIProcess() {
               {step.isAbove ? (
                 <>
                   <div className="ai-step-content">
+                    {step.isWIP && <span className="ai-wip-badge">In Progress</span>}
                     <div className="ai-step-title">{step.title}</div>
                     <div className="ai-step-desc">{step.desc}</div>
                     <div className="ai-step-tools">
@@ -116,6 +123,7 @@ export default function AIProcess() {
                 <>
                   <div className={dotClass}></div>
                   <div className="ai-step-content">
+                    {step.isWIP && <span className="ai-wip-badge">In Progress</span>}
                     <div className="ai-step-title">{step.title}</div>
                     <div className="ai-step-desc">{step.desc}</div>
                     <div className="ai-step-tools">
