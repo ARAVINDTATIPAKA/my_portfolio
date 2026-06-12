@@ -60,7 +60,6 @@ export default function AIProcess() {
   const accent = isFunky ? '#E8FF6B' : '#0891B2'
   const textHi = isFunky ? '#F5F5F4' : '#1C1917'
   const textMid = isFunky ? '#78716C' : '#57534E'
-  const textLo = isFunky ? '#57534E' : '#A8A29E'
   const border = isFunky ? '#44403C' : '#E7E5E4'
   const sectionBg = isFunky ? '#292524' : '#F5F5F4'
 
@@ -99,6 +98,18 @@ export default function AIProcess() {
           }
           const dotClass = step.isLast ? 'ai-step-dot ai-step-dot-last' : 'ai-step-dot'
 
+          const toolsMarkup = (
+            <div className="ai-step-tools">
+              {step.tools.map((t, tIdx) => (
+                <span key={tIdx} style={{ display: 'inline-flex', alignItems: 'center' }}>
+                  {tIdx > 0 && <span className="ai-tool-icon" style={{ marginLeft: 6, marginRight: 4 }}>✦</span>}
+                  {tIdx === 0 && <span className="ai-tool-icon" style={{ marginRight: 4 }}>✦</span>}
+                  <span className="ai-tool-name">{t}</span>
+                </span>
+              ))}
+            </div>
+          )
+
           return (
             <div key={idx} className={stepClass}>
               {step.isAbove ? (
@@ -106,16 +117,9 @@ export default function AIProcess() {
                   <div className="ai-step-content">
                     {step.isWIP && <span className="ai-wip-badge">In Progress</span>}
                     <div className="ai-step-title">{step.title}</div>
+                    {toolsMarkup}
+                    {/* Tooltip: sits above the card via CSS bottom: calc(100% + 4px) */}
                     <div className="ai-step-desc">{step.desc}</div>
-                    <div className="ai-step-tools">
-                      {step.tools.map((t, tIdx) => (
-                        <span key={tIdx} style={{ display: 'inline-flex', alignItems: 'center' }}>
-                          {tIdx > 0 && <span className="ai-tool-icon" style={{ marginLeft: 6, marginRight: 4 }}>✦</span>}
-                          {tIdx === 0 && <span className="ai-tool-icon" style={{ marginRight: 4 }}>✦</span>}
-                          <span className="ai-tool-name">{t}</span>
-                        </span>
-                      ))}
-                    </div>
                   </div>
                   <div className={dotClass}></div>
                 </>
@@ -125,16 +129,9 @@ export default function AIProcess() {
                   <div className="ai-step-content">
                     {step.isWIP && <span className="ai-wip-badge">In Progress</span>}
                     <div className="ai-step-title">{step.title}</div>
+                    {toolsMarkup}
+                    {/* Tooltip: sits below the card via CSS top: calc(100% + 4px) */}
                     <div className="ai-step-desc">{step.desc}</div>
-                    <div className="ai-step-tools">
-                      {step.tools.map((t, tIdx) => (
-                        <span key={tIdx} style={{ display: 'inline-flex', alignItems: 'center' }}>
-                          {tIdx > 0 && <span className="ai-tool-icon" style={{ marginLeft: 6, marginRight: 4 }}>✦</span>}
-                          {tIdx === 0 && <span className="ai-tool-icon" style={{ marginRight: 4 }}>✦</span>}
-                          <span className="ai-tool-name">{t}</span>
-                        </span>
-                      ))}
-                    </div>
                   </div>
                 </>
               )}

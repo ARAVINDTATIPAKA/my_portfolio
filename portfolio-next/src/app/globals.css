@@ -1727,14 +1727,21 @@ button {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
+/*
+  .ai-step-desc is inside .ai-step-content (position: absolute).
+  bottom: calc(100% + 4px) → 4px above the card top edge  (above-line cards)
+  top:    calc(100% + 4px) → 4px below the card bottom edge (below-line cards)
+*/
 .ai-step-above .ai-step-desc {
-  bottom: 100%;
-  transform: translate(-50%, -8px);
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .ai-step-below .ai-step-desc {
-  top: 100%;
-  transform: translate(-50%, 8px);
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .ai-step:hover .ai-step-desc {
@@ -1742,12 +1749,13 @@ button {
   pointer-events: auto;
 }
 
+/* Nudge very slightly further on hover for a subtle lift feel */
 .ai-step-above:hover .ai-step-desc {
-  transform: translate(-50%, -14px);
+  transform: translateX(-50%) translateY(-4px);
 }
 
 .ai-step-below:hover .ai-step-desc {
-  transform: translate(-50%, 14px);
+  transform: translateX(-50%) translateY(4px);
 }
 
 .ai-step-tools {
@@ -2980,7 +2988,7 @@ button {
   border-radius: 4px;
   background: rgba(234, 179, 8, 0.1);
   border: 1px solid rgba(234, 179, 8, 0.3);
-  color: #F59E0B;
+  color: #FDE68A;
   margin-bottom: 8px;
   align-self: center;
 }
@@ -2988,7 +2996,7 @@ button {
 [data-theme=serious] .ai-wip-badge {
   background: rgba(217, 119, 6, 0.08);
   border-color: rgba(217, 119, 6, 0.25);
-  color: #D97706;
+  color: #FCD34D;
 }
 
 /* WIP card look: dashed border, lower opacity */

@@ -210,13 +210,7 @@ export default function Timeline() {
         </div>
       </div>
 
-      {/* Scroll hint */}
-      <div style={{ width: '100%', maxWidth: 1440, margin: '0 auto', padding: '24px 48px 0', display: 'flex', alignItems: 'center', gap: 8 }}>
-        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: textLo, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-          Drag to scroll
-        </span>
-        <span style={{ fontSize: 12, color: textLo }}>→</span>
-      </div>
+
     </section>
   )
 }
