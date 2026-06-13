@@ -3051,3 +3051,22 @@ button {
   background: #D97706 !important;
   box-shadow: 0 0 0 5px rgba(217, 119, 6, 0.2) !important;
 }
+
+/* ────────────────────────────────────────────────────────────────
+   Hero Image (Floating)
+   ──────────────────────────────────────────────────────────────── */
+.hero-image-container {
+  position: absolute;
+  top: 18%;
+  right: 64px;
+  width: 42%;
+  max-width: 540px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (max-width: 1024px) {
+  .hero-image-container {
+    display: none;
+  }
+}

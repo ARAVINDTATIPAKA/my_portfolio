@@ -36,7 +36,7 @@ export default function Nav() {
           fontFamily: 'var(--font-display)', fontWeight:700, fontSize:15,
           letterSpacing:'-0.03em',
           color: isFunky ? '#F5F5F4' : '#1C1917',
-        }}>Aravind</span>
+        }}>Aravind Tatipaka</span>
       </a>
 
       {/* Links */}

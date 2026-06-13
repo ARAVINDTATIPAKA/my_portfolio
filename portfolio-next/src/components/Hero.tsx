@@ -1,7 +1,6 @@
 'use client'
 
 import { useTheme } from '@/lib/ThemeContext'
-import IDCard from './IDCard'
 import { motion } from 'framer-motion'
 
 export default function Hero() {
@@ -18,7 +17,26 @@ export default function Hero() {
       position: 'relative', minHeight: '100vh', overflow: 'hidden',
       display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
     }}>
-      <IDCard />
+      <div className="hero-image-container">
+        <motion.img
+          src="/meditating_me2.png"
+          alt="Aravind Tatipaka"
+          style={{ width: '100%', height: 'auto', borderRadius: 24 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{
+            opacity: 1,
+            y: [0, -16, 0],
+          }}
+          transition={{
+            opacity: { duration: 0.8, delay: 0.25 },
+            y: {
+              duration: 5,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }
+          }}
+        />
+      </div>
 
       {/* Glow blob */}
       <div style={{
