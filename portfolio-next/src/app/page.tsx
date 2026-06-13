@@ -10,6 +10,7 @@ import Timeline from '@/components/Timeline'
 // import AIProcess from '@/components/AIProcess'
 import Contact from '@/components/Contact'
 import CaseStudy from '@/components/CaseStudy'
+import Testimonials from '@/components/Testimonials'
 
 export default function Home() {
   const [openCase, setOpenCase] = useState<string | null>(null)
@@ -24,6 +25,7 @@ export default function Home() {
         <About />
         <Timeline />
         {/* <AIProcess /> */}
+        <Testimonials />
         <Contact />
       </main>
       <CaseStudy caseKey={openCase} onClose={() => setOpenCase(null)} />

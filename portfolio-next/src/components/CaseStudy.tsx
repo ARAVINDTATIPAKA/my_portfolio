@@ -532,22 +532,22 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
           <p className="cs-body-text" style={{ marginBottom: '24px' }}>The platform used one flat price across all topics for each offering. This worked until high-value topics — particularly research-domain expert sessions — began generating orders at a price point far below what experts actually charged. The ops team had no mechanism to handle this. They were often forced to absorb higher expert costs or manually intervene in bookings, creating operational friction and unpredictable margins.</p>
           <div className="cs-card-grid">
             <div className="cs-card">
-              <div className="cs-card-num" style={{ color: '#EF4444' }}><TrendingDown size={22} /></div>
+              <div className="cs-card-num" style={{ color: 'rgb(255, 141, 141)' }}><TrendingDown size={22} /></div>
               <div className="cs-card-title">Revenue leakage</div>
               <div className="cs-card-desc">Fixed pricing could not account for expert cost variation across domains.</div>
             </div>
             <div className="cs-card">
-              <div className="cs-card-num" style={{ color: '#EF4444' }}><LayoutGrid size={22} /></div>
+              <div className="cs-card-num" style={{ color: 'rgb(255, 141, 141)' }}><LayoutGrid size={22} /></div>
               <div className="cs-card-title">No admin tools</div>
               <div className="cs-card-desc">Ops managed topics, pricing, and bookings via Excel and fragmented CRMs.</div>
             </div>
             <div className="cs-card">
-              <div className="cs-card-num" style={{ color: '#EF4444' }}><SearchX size={22} /></div>
+              <div className="cs-card-num" style={{ color: 'rgb(255, 141, 141)' }}><SearchX size={22} /></div>
               <div className="cs-card-title">Poor discoverability</div>
               <div className="cs-card-desc">Customers had to type full topic names to book, with no structured search experience.</div>
             </div>
             <div className="cs-card">
-              <div className="cs-card-num" style={{ color: '#EF4444' }}><Clock size={22} /></div>
+              <div className="cs-card-num" style={{ color: 'rgb(255, 141, 141)' }}><Clock size={22} /></div>
               <div className="cs-card-title">Manual scheduling</div>
               <div className="cs-card-desc">One Way interviews required ops involvement despite needing no human expert.</div>
             </div>
