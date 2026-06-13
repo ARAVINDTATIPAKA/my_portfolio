@@ -1,6 +1,7 @@
 'use client'
 
 import { useTheme } from '@/lib/ThemeContext'
+import { Reveal } from '@/components/Reveal'
 
 const TESTIMONIALS = [
   {
@@ -43,153 +44,135 @@ export default function Testimonials() {
       <div style={{ width: '100%', maxWidth: 1440, margin: '0 auto', padding: '0 48px' }}>
 
         {/* Header */}
-        <div style={{ marginBottom: 56, maxWidth: 720 }}>
-          <div style={{
-            display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16,
-            fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase',
-            letterSpacing: '0.15em', color: accent,
-          }}>
-            <span style={{ display: 'block', width: 24, height: 1, background: accent, opacity: 0.5 }} />
-            Testimonials
+        <Reveal>
+          <div style={{ marginBottom: 56, maxWidth: 720 }}>
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16,
+              fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase',
+              letterSpacing: '0.15em', color: accent,
+            }}>
+              <span style={{ display: 'block', width: 24, height: 1, background: accent, opacity: 0.5 }} />
+              Testimonials
+            </div>
+            <h2 style={{
+              fontFamily: 'var(--font-display)', fontWeight: 700,
+              lineHeight: 1.05, letterSpacing: '-0.04em',
+              fontSize: 'clamp(32px,3.5vw,52px)', color: textHi, margin: 0,
+            }}>
+              What people<br />say about working with me.
+            </h2>
           </div>
-          <h2 style={{
-            fontFamily: 'var(--font-display)', fontWeight: 700,
-            lineHeight: 1.05, letterSpacing: '-0.04em',
-            fontSize: 'clamp(32px,3.5vw,52px)', color: textHi, margin: 0,
-          }}>
-            What people<br />say about working with me.
-          </h2>
-        </div>
+        </Reveal>
 
         {/* Cards */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(540px, 100%), 1fr))', gap: 24 }}>
           {TESTIMONIALS.map((t, i) => (
-            <div
-              key={i}
-              style={{
-                background: cardBg,
-                border: `1px solid ${cardBorder}`,
-                borderRadius: 20,
-                padding: '36px 40px',
-                display: 'flex', flexDirection: 'column', gap: 28,
-                position: 'relative', overflow: 'hidden',
-                transition: 'border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease',
-              }}
-              onMouseEnter={e => {
-                const el = e.currentTarget as HTMLDivElement
-                el.style.borderColor = accentBorder
-                el.style.transform = 'translateY(-3px)'
-                el.style.boxShadow = isFunky
-                  ? '0 20px 60px rgba(0,0,0,0.35)'
-                  : '0 12px 40px rgba(0,0,0,0.08)'
-              }}
-              onMouseLeave={e => {
-                const el = e.currentTarget as HTMLDivElement
-                el.style.borderColor = cardBorder
-                el.style.transform = ''
-                el.style.boxShadow = ''
-              }}
-            >
-              {/* Decorative quote glyph */}
-              <span style={{
-                position: 'absolute', top: 20, right: 28,
-                fontFamily: 'var(--font-display)', fontWeight: 700,
-                fontSize: 120, lineHeight: 1,
-                color: 'transparent',
-                WebkitTextStroke: `1px ${accentMuted.replace('0.08', '0.18')}`,
-                pointerEvents: 'none', userSelect: 'none',
-              }}>
-                "
-              </span>
-
-              {/* Opening quote mark */}
-              <div style={{
-                fontFamily: 'var(--font-display)', fontWeight: 700,
-                fontSize: 40, lineHeight: 1, color: accent, marginBottom: -8,
-              }}>
-                "
-              </div>
-
-              {/* Quote text */}
-              <div style={{ flex: 1 }}>
-                {t.quote.split('\n\n').map((para, j) => (
-                  <p key={j} style={{
-                    fontFamily: 'var(--font-body)', fontSize: 15,
-                    lineHeight: 1.85, color: textMid,
-                    margin: j > 0 ? '16px 0 0' : 0,
-                  }}>
-                    {para}
-                  </p>
-                ))}
-              </div>
-
-              {/* Divider */}
-              <div style={{ height: 1, background: divider }} />
-
-              {/* Author row */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                {/* Avatar */}
-                <div style={{
-                  width: 44, height: 44, borderRadius: '50%',
-                  background: accentMuted,
-                  border: `1px solid ${accentBorder}`,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontFamily: 'var(--font-display)', fontWeight: 700,
-                  fontSize: 13, color: accent, flexShrink: 0,
-                }}>
-                  {t.initials}
+            <Reveal key={i} delay={0.15 * (i + 1)}>
+              <div
+                style={{
+                  background: cardBg,
+                  border: `1px solid ${cardBorder}`,
+                  borderRadius: 20,
+                  padding: '36px 40px',
+                  display: 'flex', flexDirection: 'column', gap: 28,
+                  transition: 'border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease',
+                }}
+                onMouseEnter={e => {
+                  const el = e.currentTarget as HTMLDivElement
+                  el.style.borderColor = accentBorder
+                  el.style.transform = 'translateY(-3px)'
+                  el.style.boxShadow = isFunky
+                    ? '0 20px 60px rgba(0,0,0,0.35)'
+                    : '0 12px 40px rgba(0,0,0,0.08)'
+                }}
+                onMouseLeave={e => {
+                  const el = e.currentTarget as HTMLDivElement
+                  el.style.borderColor = cardBorder
+                  el.style.transform = ''
+                  el.style.boxShadow = ''
+                }}
+              >
+                {/* Quote text */}
+                <div style={{ flex: 1 }}>
+                  {t.quote.split('\n\n').map((para, j) => (
+                    <p key={j} style={{
+                      fontFamily: 'var(--font-body)', fontSize: 15,
+                      lineHeight: 1.85, color: textMid,
+                      margin: j > 0 ? '16px 0 0' : 0,
+                    }}>
+                      {para}
+                    </p>
+                  ))}
                 </div>
 
-                {/* Name + details */}
-                <div style={{ flex: 1, minWidth: 0 }}>
+                {/* Divider */}
+                <div style={{ height: 1, background: divider }} />
+
+                {/* Author row */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                  {/* Avatar */}
                   <div style={{
-                    display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap',
-                    marginBottom: 3,
+                    width: 44, height: 44, borderRadius: '50%',
+                    background: accentMuted,
+                    border: `1px solid ${accentBorder}`,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontFamily: 'var(--font-display)', fontWeight: 700,
+                    fontSize: 13, color: accent, flexShrink: 0,
                   }}>
-                    <span style={{
-                      fontFamily: 'var(--font-display)', fontWeight: 700,
-                      fontSize: 14, letterSpacing: '-0.02em', color: textHi,
+                    {t.initials}
+                  </div>
+
+                  {/* Name + details */}
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{
+                      display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap',
+                      marginBottom: 3,
                     }}>
-                      {t.name}
-                    </span>
-                    {/* 1st badge */}
-                    <span style={{
-                      padding: '2px 7px', borderRadius: 999,
-                      background: accentMuted, border: `1px solid ${accentBorder}`,
+                      <span style={{
+                        fontFamily: 'var(--font-display)', fontWeight: 700,
+                        fontSize: 14, letterSpacing: '-0.02em', color: textHi,
+                      }}>
+                        {t.name}
+                      </span>
+                      {/* 1st badge */}
+                      <span style={{
+                        padding: '2px 7px', borderRadius: 999,
+                        background: accentMuted, border: `1px solid ${accentBorder}`,
+                        fontFamily: 'var(--font-mono)', fontSize: 9,
+                        letterSpacing: '0.06em', color: accent,
+                        textTransform: 'uppercase',
+                      }}>
+                        1st
+                      </span>
+                    </div>
+                    <div style={{
+                      fontFamily: 'var(--font-body)', fontSize: 12,
+                      color: textLo, lineHeight: 1.4,
+                      whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+                    }}>
+                      {t.title}
+                    </div>
+                  </div>
+
+                  {/* Date + relationship */}
+                  <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                    <div style={{
+                      fontFamily: 'var(--font-mono)', fontSize: 10,
+                      color: textLo, letterSpacing: '0.04em',
+                    }}>
+                      {t.date}
+                    </div>
+                    <div style={{
                       fontFamily: 'var(--font-mono)', fontSize: 9,
-                      letterSpacing: '0.06em', color: accent,
-                      textTransform: 'uppercase',
+                      color: textLo, letterSpacing: '0.04em',
+                      marginTop: 2, opacity: 0.7,
                     }}>
-                      1st
-                    </span>
-                  </div>
-                  <div style={{
-                    fontFamily: 'var(--font-body)', fontSize: 12,
-                    color: textLo, lineHeight: 1.4,
-                    whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
-                  }}>
-                    {t.title}
-                  </div>
-                </div>
-
-                {/* Date + relationship */}
-                <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                  <div style={{
-                    fontFamily: 'var(--font-mono)', fontSize: 10,
-                    color: textLo, letterSpacing: '0.04em',
-                  }}>
-                    {t.date}
-                  </div>
-                  <div style={{
-                    fontFamily: 'var(--font-mono)', fontSize: 9,
-                    color: textLo, letterSpacing: '0.04em',
-                    marginTop: 2, opacity: 0.7,
-                  }}>
-                    {t.relationship}
+                      {t.relationship}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 

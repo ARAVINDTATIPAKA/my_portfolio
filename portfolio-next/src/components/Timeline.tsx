@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react'
 import { useTheme } from '@/lib/ThemeContext'
+import { Reveal } from '@/components/Reveal'
 
 interface TimelineEvent {
   date: string
@@ -141,34 +142,37 @@ export default function Timeline() {
   return (
     <section id="timeline" style={{ paddingLeft: 0, paddingRight: 0, overflow: 'hidden' }}>
       <div style={{ width: '100%', maxWidth: 1440, margin: '0 auto', padding: '96px 48px 0' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em', color: accent }}>
-          <span style={{ display: 'block', width: 24, height: 1, background: accent, opacity: 0.5 }} />
-          Career
-        </div>
-        <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, lineHeight: 1.05, letterSpacing: '-0.04em', fontSize: 'clamp(36px,4vw,56px)', color: textHi, margin: '0 0 12px 0' }}>
-          The journey so far.
-        </h2>
-        <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: textLo, margin: 0, fontStyle: 'italic' }}>
-          A few of my favourite works throughout my career.
-        </p>
+        <Reveal>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em', color: accent }}>
+            <span style={{ display: 'block', width: 24, height: 1, background: accent, opacity: 0.5 }} />
+            Career
+          </div>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, lineHeight: 1.05, letterSpacing: '-0.04em', fontSize: 'clamp(36px,4vw,56px)', color: textHi, margin: '0 0 12px 0' }}>
+            The journey so far.
+          </h2>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: textLo, margin: 0, fontStyle: 'italic' }}>
+            A few of my favourite works throughout my career.
+          </p>
+        </Reveal>
       </div>
 
       {/* Horizontal scroll track */}
-      <div
-        className="tl-scroll-wrapper"
-        id="tlWrapper"
-        ref={trackRef}
-        onMouseDown={handleMouseDown}
-        onMouseLeave={handleMouseLeave}
-        onMouseUp={handleMouseUp}
-        onMouseMove={handleMouseMove}
-        style={{
-          userSelect: isDragging ? 'none' : 'auto',
-        }}
-      >
-        <div className="tl-track" id="tlTrack">
-          {/* Continuous line through all nodes */}
-          <div className="tl-line"></div>
+      <Reveal delay={0.15}>
+        <div
+          className="tl-scroll-wrapper"
+          id="tlWrapper"
+          ref={trackRef}
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeave}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          style={{
+            userSelect: isDragging ? 'none' : 'auto',
+          }}
+        >
+          <div className="tl-track" id="tlTrack">
+            {/* Continuous line through all nodes */}
+            <div className="tl-line"></div>
 
           {EVENTS.map((event, idx) => {
             let nodeClass = 'tl-node'
@@ -209,8 +213,7 @@ export default function Timeline() {
           <div style={{ minWidth: 80, flexShrink: 0 }}></div>
         </div>
       </div>
-
-
+      </Reveal>
     </section>
   )
 }

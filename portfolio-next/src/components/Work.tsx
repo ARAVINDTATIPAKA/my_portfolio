@@ -1,5 +1,8 @@
 'use client'
 
+import { motion } from 'framer-motion'
+import { Reveal, containerVariants, itemVariants } from '@/components/Reveal'
+
 const PROJECTS = [
   {
     id: 'mcsf',
@@ -88,22 +91,31 @@ export default function Work({ onOpenCase }: WorkProps) {
       <div className="work-inner">
 
         {/* Header */}
-        <div className="work-header">
-          <div>
-            <div className="work-label">
-              <span className="work-label-line" />
-              Selected work
+        <Reveal>
+          <div className="work-header">
+            <div>
+              <div className="work-label">
+                <span className="work-label-line" />
+                Selected work
+              </div>
+              <h2 className="work-title">The portfolio.</h2>
             </div>
-            <h2 className="work-title">The portfolio.</h2>
-          </div>
 
-        </div>
+          </div>
+        </Reveal>
 
         {/* Grid */}
-        <div className="work-grid">
+        <motion.div
+          className="work-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+        >
           {PROJECTS.filter(p => !p.hidden).map(p => (
-            <div
+            <motion.div
               key={p.id}
+              variants={itemVariants}
               onClick={() => onOpenCase(p.caseKey)}
               className="work-card"
             >
@@ -134,9 +146,9 @@ export default function Work({ onOpenCase }: WorkProps) {
                   <span className="work-card-cta">Read case study ↗</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>
