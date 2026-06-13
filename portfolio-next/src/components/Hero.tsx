@@ -12,6 +12,9 @@ export default function Hero() {
   const textMid   = isFunky ? '#78716C' : '#57534E'
   const btnBorder = isFunky ? '#44403C' : '#D6D3D1'
 
+  const isProd = process.env.NODE_ENV === 'production'
+  const basePath = isProd ? '/my_portfolio' : ''
+
   return (
     <section style={{
       position: 'relative', minHeight: '100vh', overflow: 'hidden',
@@ -19,7 +22,7 @@ export default function Hero() {
     }}>
       <div className="hero-image-container">
         <motion.img
-          src="/meditating_me2.png"
+          src={`${basePath}/meditating_me2.png`}
           alt="Aravind Tatipaka"
           style={{ width: '100%', height: 'auto', borderRadius: 24 }}
           initial={{ opacity: 0, y: 20 }}
