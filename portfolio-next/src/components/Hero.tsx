@@ -2,6 +2,7 @@
 
 import { useTheme } from '@/lib/ThemeContext'
 import IDCard from './IDCard'
+import { motion } from 'framer-motion'
 
 export default function Hero() {
   const { theme } = useTheme()
@@ -37,7 +38,12 @@ export default function Hero() {
         display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', columnGap: 24,
       }}>
         {/* Content — cols 1–7 */}
-        <div style={{ gridColumn: '1 / 8' }}>
+        <motion.div
+          style={{ gridColumn: '1 / 8' }}
+          initial={{ opacity: 0, y: 36 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.15 }}
+        >
           {/* Eyebrow */}
           <div style={{
             display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24,
@@ -95,7 +101,7 @@ export default function Hero() {
               Get in touch
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
