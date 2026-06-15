@@ -6,10 +6,10 @@ import { motion } from 'framer-motion'
 export default function Hero() {
   const { theme } = useTheme()
   const isFunky = theme === 'funky'
-  const accent    = isFunky ? '#E8FF6B' : '#0891B2'
+  const accent = isFunky ? '#E8FF6B' : '#0891B2'
   const accentDark = isFunky ? '#D4F000' : '#0E7490'
-  const textHi    = isFunky ? '#F5F5F4' : '#1C1917'
-  const textMid   = isFunky ? '#78716C' : '#57534E'
+  const textHi = isFunky ? '#F5F5F4' : '#1C1917'
+  const textMid = isFunky ? '#78716C' : '#57534E'
   const btnBorder = isFunky ? '#44403C' : '#D6D3D1'
 
   const isProd = process.env.NODE_ENV === 'production'
@@ -93,7 +93,7 @@ export default function Hero() {
           }}>
             I craft <strong style={{ color: textHi, fontWeight: 500 }}>interfaces that reduce friction</strong> and
             build trust — for SaaS products, design systems, and everything in between.
-            Currently open for freelance work.
+            Currently open for work.
           </p>
 
           <div style={{ display: 'flex', gap: 12 }}>
@@ -105,8 +105,8 @@ export default function Hero() {
               background: accent, color: isFunky ? '#1C1917' : '#fff',
               transition: 'all 0.2s',
             }}
-            onMouseEnter={e => { e.currentTarget.style.background = accentDark; e.currentTarget.style.transform = 'scale(1.06)' }}
-            onMouseLeave={e => { e.currentTarget.style.background = accent; e.currentTarget.style.transform = '' }}>
+              onMouseEnter={e => { e.currentTarget.style.background = accentDark; e.currentTarget.style.transform = 'scale(1.06)' }}
+              onMouseLeave={e => { e.currentTarget.style.background = accent; e.currentTarget.style.transform = '' }}>
               See the work →
             </a>
             <a href="#contact" style={{
@@ -117,8 +117,8 @@ export default function Hero() {
               background: 'transparent', color: textMid,
               border: `1px solid ${btnBorder}`, transition: 'all 0.2s',
             }}
-            onMouseEnter={e => { e.currentTarget.style.color = textHi; e.currentTarget.style.borderColor = isFunky ? '#78716C' : '#A8A29E'; e.currentTarget.style.transform = 'scale(1.04)' }}
-            onMouseLeave={e => { e.currentTarget.style.color = textMid; e.currentTarget.style.borderColor = btnBorder; e.currentTarget.style.transform = '' }}>
+              onMouseEnter={e => { e.currentTarget.style.color = textHi; e.currentTarget.style.borderColor = isFunky ? '#78716C' : '#A8A29E'; e.currentTarget.style.transform = 'scale(1.04)' }}
+              onMouseLeave={e => { e.currentTarget.style.color = textMid; e.currentTarget.style.borderColor = btnBorder; e.currentTarget.style.transform = '' }}>
               Get in touch
             </a>
           </div>
