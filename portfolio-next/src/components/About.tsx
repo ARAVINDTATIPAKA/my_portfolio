@@ -5,10 +5,10 @@ import { Reveal } from '@/components/Reveal'
 
 const SKILLS = ['Figma', 'Design Systems', 'Framer', 'UX Research', 'Prototyping', 'HTML / CSS']
 const PROCESS = [
-  { num: '01', title: 'Understand first', desc: 'Every project starts with research — user interviews, heuristic audits, or competitive benchmarking. I don\'t open Figma until I know the problem.' },
-  { num: '02', title: 'Structure the logic', desc: 'Information architecture, user flows, content hierarchy. The invisible work that makes the visible work feel obvious.' },
-  { num: '03', title: 'Design with intent', desc: 'High-fidelity UI built on a proper token foundation. Every decision is defensible — nothing is decorative without reason.' },
-  { num: '04', title: 'Ship and iterate', desc: 'I write handoff-ready specs and can prototype in code. I stay engaged through implementation — not just until delivery.' },
+  { num: '01', title: 'Start with people, not screens', desc: 'Every project begins with understanding the problem. Through user interviews, stakeholder discussions, data analysis, and competitive research, I uncover the insights that shape meaningful product decisions.' },
+  { num: '02', title: 'Turn complexity into clarity', desc: 'I map user journeys, define information architecture, and simplify workflows. The goal is to make complex systems feel intuitive, predictable, and easy to navigate.' },
+  { num: '03', title: 'Design with purpose', desc: 'From wireframes to polished interfaces, every element should serve a purpose. I focus on usability, accessibility, and consistency to create experiences that feel effortless.' },
+  { num: '04', title: 'Collaborate, test, improve', desc: 'Great products are built through collaboration. I work closely with product teams and developers, leverage AI tools to prototype and iterate faster, and continuously refine solutions based on feedback and learning.' },
 ]
 
 export default function About() {
@@ -31,10 +31,10 @@ export default function About() {
   return (
     <section id="about" className="about-section" style={{ padding: '96px 0', background: sectionBg, borderTop: `1px solid ${border}`, borderBottom: `1px solid ${border}` }}>
       {/* 12-col grid */}
-      <div style={{ width: '100%', maxWidth: 1440, margin: '0 auto', padding: '0 48px', display: 'grid', gridTemplateColumns: 'repeat(12,1fr)', columnGap: 24 }}>
+      <div className="about-grid">
 
         {/* Left — cols 1–6 */}
-        <div className="about-left" style={{ gridColumn: '1 / 7' }}>
+        <div className="about-left">
           <Reveal>
             <Label text="About" />
             <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, lineHeight: 1.05, letterSpacing: '-0.04em', fontSize: 'clamp(36px,4vw,56px)', color: textHi, marginBottom: 16 }}>
@@ -67,7 +67,7 @@ export default function About() {
         </div>
 
         {/* Right — cols 7–12 */}
-        <div id="process" style={{ gridColumn: '7 / 13' }}>
+        <div id="process" className="about-process">
           <Reveal delay={0.15}>
             <Label text="Process" />
             <div style={{ display: 'flex', flexDirection: 'column' }}>

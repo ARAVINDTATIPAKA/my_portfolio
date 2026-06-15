@@ -1894,10 +1894,43 @@ button {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
+  .work-card-image {
+    aspect-ratio: 16/10 !important;
+  }
+
+  /* Hero */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    padding: 0 24px 56px !important;
+  }
+
+  .hero-content {
+    grid-column: 1 / -1 !important;
+  }
+
   /* About */
   .about-grid {
     grid-template-columns: 1fr !important;
     gap: 48px !important;
+    padding: 0 24px !important;
+  }
+
+  .about-left {
+    grid-column: 1 / -1 !important;
+  }
+
+  .about-process {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* Contact */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    padding: 0 24px !important;
+  }
+
+  .contact-content {
+    grid-column: 1 / -1 !important;
   }
 
   /* ID card */
@@ -2020,13 +2053,32 @@ button {
   }
 
   /* Card images — shorter on mobile */
-  .project-img {
-    aspect-ratio: 4/3 !important;
+  .work-card-image {
+    aspect-ratio: 2.2/1 !important;
+  }
+
+  .work-card-body {
+    padding: 20px 16px !important;
+  }
+
+  /* Hero */
+  .hero-grid {
+    padding: 0 20px 48px !important;
   }
 
   /* About */
   .about-section {
     padding: 64px 20px !important;
+  }
+
+  .about-grid {
+    padding: 0 !important;
+    gap: 32px !important;
+  }
+
+  /* Contact */
+  .contact-grid {
+    padding: 0 !important;
   }
 
   /* Contact */
@@ -3053,13 +3105,11 @@ button {
 }
 
 /* ────────────────────────────────────────────────────────────────
-   Hero Image (Floating)
+   Hero Image (Grid Aligned)
    ──────────────────────────────────────────────────────────────── */
 .hero-image-container {
-  position: absolute;
-  top: 18%;
-  right: 64px;
-  width: 42%;
+  grid-column: 8 / 13;
+  align-self: center;
   max-width: 540px;
   pointer-events: none;
   z-index: 1;
@@ -3069,4 +3119,59 @@ button {
   .hero-image-container {
     display: none;
   }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   About Section Grid Layout
+   ──────────────────────────────────────────────────────────────── */
+.about-grid {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+}
+
+.about-left {
+  grid-column: 1 / 7;
+}
+
+.about-process {
+  grid-column: 7 / 13;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   Hero Grid Layout
+   ──────────────────────────────────────────────────────────────── */
+.hero-grid {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px 80px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+}
+
+.hero-content {
+  grid-column: 1 / 8;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   Contact Grid Layout
+   ──────────────────────────────────────────────────────────────── */
+.contact-grid {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+}
+
+.contact-content {
+  position: relative;
+  grid-column: 1 / 8;
 }

@@ -20,27 +20,6 @@ export default function Hero() {
       position: 'relative', minHeight: '100vh', overflow: 'hidden',
       display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
     }}>
-      <div className="hero-image-container">
-        <motion.img
-          src={`${basePath}/meditating_me2.png`}
-          alt="Aravind Tatipaka"
-          style={{ width: '100%', height: 'auto', borderRadius: 24 }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{
-            opacity: 1,
-            y: [0, -16, 0],
-          }}
-          transition={{
-            opacity: { duration: 0.8, delay: 0.25 },
-            y: {
-              duration: 5,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }
-          }}
-        />
-      </div>
-
       {/* Glow blob */}
       <div style={{
         position: 'absolute', top: '15%', left: '55%',
@@ -53,14 +32,10 @@ export default function Hero() {
 
 
       {/* 12-col grid */}
-      <div style={{
-        width: '100%', maxWidth: 1440, margin: '0 auto',
-        padding: '0 48px 80px',
-        display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', columnGap: 24,
-      }}>
+      <div className="hero-grid">
         {/* Content — cols 1–7 */}
         <motion.div
-          style={{ gridColumn: '1 / 8' }}
+          className="hero-content"
           initial={{ opacity: 0, y: 36 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.15 }}
@@ -123,6 +98,28 @@ export default function Hero() {
             </a>
           </div>
         </motion.div>
+
+        {/* Hero image — cols 8-12 */}
+        <div className="hero-image-container">
+          <motion.img
+            src={`${basePath}/meditating_me2.png`}
+            alt="Aravind Tatipaka"
+            style={{ width: '100%', height: 'auto', borderRadius: 24 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{
+              opacity: 1,
+              y: [0, -16, 0],
+            }}
+            transition={{
+              opacity: { duration: 0.8, delay: 0.25 },
+              y: {
+                duration: 5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }
+            }}
+          />
+        </div>
       </div>
     </section>
   )
