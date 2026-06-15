@@ -817,7 +817,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
             </div>
 
             {/* Scrollable content */}
-            <div className="modal-content">
+            <div className="modal-content" data-lenis-prevent>
               {renderContent()}
             </div>
           </>}
