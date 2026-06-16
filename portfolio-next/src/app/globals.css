@@ -1459,6 +1459,9 @@ button {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
 }
 
 .ai-process-track {
@@ -3225,6 +3228,14 @@ button {
 .contact-content {
   position: relative;
   grid-column: 1 / 8;
+}
+
+.contact-ghost-wrap {
+  padding: 48px 48px 0;
+}
+
+.contact-footer-bar {
+  padding: 24px 48px;
 }
 
 /* ────────────────────────────────────────────────────────────────

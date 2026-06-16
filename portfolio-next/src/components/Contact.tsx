@@ -171,7 +171,7 @@ export default function Contact() {
         style={{ borderTop: `1px solid ${isFunky ? '#44403C' : '#E7E5E4'}`, overflow: 'hidden' }}
       >
         {/* Ghost name — centered, cursor-glow stroke */}
-        <div style={{ position: 'relative', padding: '48px 48px 0', textAlign: 'center', overflow: 'hidden' }}>
+        <div className="contact-ghost-wrap" style={{ position: 'relative', textAlign: 'center', overflow: 'hidden' }}>
           {/* Layer 1 — static faint stroke */}
           <div style={{
             ...ghostBase,
@@ -198,7 +198,7 @@ export default function Contact() {
         </div>
 
         {/* Bottom bar */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '24px 48px' }}>
+        <div className="contact-footer-bar" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.08em', color: textHi }}>
             © 2026 · Built with Next.js + Tailwind · v2.0
           </div>
