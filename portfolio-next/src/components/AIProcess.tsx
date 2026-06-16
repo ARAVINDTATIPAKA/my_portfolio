@@ -75,6 +75,7 @@ export default function AIProcess() {
       }}
     >
       <div className="ai-process-header-inner">
+        <div style={{ gridColumn: '1 / 13' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em', color: accent }}>
           <span style={{ display: 'block', width: 24, height: 1, background: accent, opacity: 0.5 }} />
           AI × Design
@@ -85,6 +86,7 @@ export default function AIProcess() {
         <p style={{ fontFamily: 'var(--font-body)', fontSize: 16, color: textMid, margin: '0 0 32px 0', maxWidth: 640, lineHeight: 1.7 }}>
           AI hasn't replaced my design thinking — it's removed the friction between thinking and doing. Here's exactly where it sits in my workflow.
         </p>
+        </div>
       </div>
 
       <div className="ai-process-track">
