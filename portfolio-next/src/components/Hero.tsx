@@ -136,7 +136,7 @@ export default function Hero() {
           <motion.img
             src={`${basePath}/meditating_me2.png`}
             alt="Aravind Tatipaka"
-            style={{ width:'100%', height:'auto', borderRadius:24 }}
+            style={{ display:'block' }}
             initial={{ opacity: 0, scale: 0.88, y: 32 }}
             animate={{ opacity: 1, scale: 1, y: [0, -16, 0] }}
             transition={{

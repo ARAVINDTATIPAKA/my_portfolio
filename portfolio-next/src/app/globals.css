@@ -3148,10 +3148,24 @@ button {
    ──────────────────────────────────────────────────────────────── */
 .hero-image-container {
   grid-column: 8 / 13;
-  align-self: center;
+  align-self: flex-end;
   width: 100%;
+  max-height: 80vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   pointer-events: none;
   z-index: 1;
+  overflow: hidden;
+}
+
+.hero-image-container img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
 }
 
 @media (max-width: 1024px) {
