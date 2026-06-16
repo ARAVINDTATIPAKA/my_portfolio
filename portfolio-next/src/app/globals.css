@@ -3,7 +3,8 @@
 @import "tailwindcss";
 
 /* Lenis Smooth Scrolling Styles */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -2012,6 +2013,20 @@ button {
   .ai-step-title {
     font-size: 11px !important;
   }
+
+  /* Tablet section overrides to match 12-column grid alignment */
+  .about-section {
+    padding: 64px 0 !important;
+  }
+  .work-section {
+    padding: 64px 0 !important;
+  }
+  .work-inner {
+    padding: 0 24px !important;
+  }
+  .contact-section {
+    padding: 64px 0 !important;
+  }
 }
 
 /* ── Mobile ≤768px ── */
@@ -2351,6 +2366,10 @@ button {
     max-width: 160px !important;
     padding: 0 12px !important;
   }
+
+  .tl-scroll-wrapper {
+    padding: 32px 20px 32px !important;
+  }
 }
 
 .cs-callout-bold {
@@ -2571,7 +2590,7 @@ button {
 .work-grid {
   grid-column: 1 / 13;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
@@ -3035,6 +3054,7 @@ button {
    Timeline Dot Animation (Preserves Alignment)
    ──────────────────────────────────────────────────────────────── */
 @keyframes tlPulseDot {
+
   0%,
   100% {
     transform: translateX(-50%) scale(1);
@@ -3110,7 +3130,7 @@ button {
 .hero-image-container {
   grid-column: 8 / 13;
   align-self: center;
-  max-width: 540px;
+  width: 100%;
   pointer-events: none;
   z-index: 1;
 }
@@ -3162,10 +3182,15 @@ button {
 /* ────────────────────────────────────────────────────────────────
    Contact Grid Layout
    ──────────────────────────────────────────────────────────────── */
+.contact-section {
+  padding: 96px 0;
+}
+
 .contact-grid {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
+  padding: 0 48px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: 24px;
@@ -3174,4 +3199,174 @@ button {
 .contact-content {
   position: relative;
   grid-column: 1 / 8;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   Timeline & Testimonials Responsiveness & Grid Alignment
+   ──────────────────────────────────────────────────────────────── */
+.timeline-section {
+  padding: 96px 0 0;
+  overflow: hidden;
+}
+
+.timeline-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+}
+
+.timeline-header {
+  grid-column: 1 / 13;
+}
+
+.testimonials-section {
+  padding: 96px 0;
+}
+
+.testimonials-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+}
+
+.testimonials-header {
+  grid-column: 1 / 13;
+  margin-bottom: 56px;
+  max-width: 720px;
+}
+
+.testimonials-grid {
+  grid-column: 1 / 13;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(540px, 100%), 1fr));
+  gap: 24px;
+}
+
+.testimonial-card {
+  border-radius: 20px;
+  padding: 36px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+@media (max-width: 1024px) {
+  .timeline-section {
+    padding: 64px 0 0 !important;
+  }
+  .timeline-inner {
+    padding: 0 24px !important;
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .timeline-header {
+    grid-column: 1 / -1 !important;
+  }
+  .testimonials-section {
+    padding: 64px 0 !important;
+  }
+  .testimonials-inner {
+    padding: 0 24px !important;
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .testimonials-header {
+    grid-column: 1 / -1 !important;
+    margin-bottom: 32px !important;
+  }
+  .testimonials-grid {
+    grid-column: 1 / -1 !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .testimonial-card {
+    padding: 28px 24px !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-section {
+    padding: 48px 0 0 !important;
+  }
+  .timeline-inner {
+    padding: 0 20px !important;
+  }
+  .testimonials-section {
+    padding: 48px 0 !important;
+  }
+  .testimonials-inner {
+    padding: 0 20px !important;
+  }
+  .testimonials-header {
+    margin-bottom: 24px !important;
+  }
+  .testimonial-card {
+    padding: 24px 20px !important;
+    gap: 16px !important;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   Testimonial Author Row Responsiveness
+   ──────────────────────────────────────────────────────────────── */
+.testimonial-author-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+
+.testimonial-author-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.testimonial-author-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.testimonial-author-meta {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.testimonial-author-title {
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .testimonial-author-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .testimonial-author-meta {
+    text-align: left;
+    width: 100%;
+    padding-left: 58px; /* 44px avatar + 14px gap alignment */
+  }
+  .testimonial-author-title {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
 }

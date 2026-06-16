@@ -91,18 +91,19 @@ export default function Work({ onOpenCase }: WorkProps) {
       <div className="work-inner">
 
         {/* Header */}
-        <Reveal>
-          <div className="work-header">
-            <div>
+        <div className="work-header">
+          <div>
+            <Reveal variant="fade-up">
               <div className="work-label">
                 <span className="work-label-line" />
                 Selected work
               </div>
+            </Reveal>
+            <Reveal variant="clip-up" delay={0.08}>
               <h2 className="work-title">The portfolio.</h2>
-            </div>
-
+            </Reveal>
           </div>
-        </Reveal>
+        </div>
 
         {/* Grid */}
         <motion.div

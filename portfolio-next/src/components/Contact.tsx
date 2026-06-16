@@ -1,5 +1,7 @@
 'use client'
 
+import { useReveal } from '@/hooks/useReveal'
+
 import { useTheme } from '@/lib/ThemeContext'
 import { Reveal } from '@/components/Reveal'
 import { useEffect, useRef, useCallback } from 'react'
@@ -8,6 +10,7 @@ const RESUME_URL = 'https://docs.google.com/document/d/1xVu9uGzToSqJUluDJ5yW6uvI
 
 export default function Contact() {
   const { theme } = useTheme()
+  const revealRef = useReveal()
   const isFunky = theme === 'funky'
   const accent = isFunky ? '#E8FF6B' : '#0891B2'
   const accentDark = isFunky ? '#D4F000' : '#0E7490'
@@ -95,7 +98,6 @@ export default function Contact() {
         className="contact-section"
         style={{
           position: 'relative',
-          padding: '96px 48px',
           overflow: 'hidden',
           background: sectionBg,
           borderTop: `1px solid ${border}`,
@@ -104,19 +106,25 @@ export default function Contact() {
       >
         <div className="contact-grid" style={{ position: 'relative', zIndex: 3 }}>
           <div className="contact-content">
-            <Reveal>
+            <Reveal variant="fade-up">
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em', color: accent }}>
                 <span style={{ display: 'block', width: 24, height: 1, background: accent, opacity: 0.5 }} />
                 Contact
               </div>
+            </Reveal>
+            <Reveal variant="clip-up" delay={0.08}>
               <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, lineHeight: 1.05, letterSpacing: '-0.04em', fontSize: 'clamp(36px,5vw,64px)', color: textHi, marginBottom: 20 }}>
                 Got a project?<br />
                 Let&apos;s <span style={{ color: accent }}>make it.</span>
               </h2>
+            </Reveal>
+            <Reveal variant="blur-in" delay={0.16}>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: 16, lineHeight: 1.7, color: textMid, marginBottom: 40 }}>
                 Open for freelance UI/UX design, design systems, and web design work. Currently available for new projects.
               </p>
+            </Reveal>
 
+            <Reveal variant="rotate-in" delay={0.24}>
               <div className="contact-buttons" style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 40 }}>
                 <a href="mailto:aravindtatipaka00@gmail.com" style={{
                   display: 'flex', alignItems: 'center', gap: 8, padding: '14px 28px', borderRadius: 999,
@@ -138,7 +146,9 @@ export default function Contact() {
                   Download Resume
                 </a>
               </div>
+            </Reveal>
 
+            <Reveal variant="rise" delay={0.32}>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24, marginBottom: 0 }}>
                 <a href="https://linkedin.com/in/aravindtatipaka" target="_blank" rel="noopener" style={{
                   display: 'flex', alignItems: 'center', gap: 6,

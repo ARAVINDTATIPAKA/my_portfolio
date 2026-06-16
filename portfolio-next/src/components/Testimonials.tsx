@@ -1,7 +1,8 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { useTheme } from '@/lib/ThemeContext'
-import { Reveal } from '@/components/Reveal'
+import { Reveal, testimonialsContainerVariants, testimonialsItemVariants } from '@/components/Reveal'
 
 const TESTIMONIALS = [
   {
@@ -22,7 +23,6 @@ export default function Testimonials() {
   const accent        = isFunky ? '#E8FF6B' : '#0891B2'
   const accentMuted   = isFunky ? 'rgba(232,255,107,0.08)' : 'rgba(8,145,178,0.08)'
   const accentBorder  = isFunky ? 'rgba(232,255,107,0.18)' : 'rgba(8,145,178,0.18)'
-  const accentHover   = isFunky ? 'rgba(232,255,107,0.14)' : 'rgba(8,145,178,0.14)'
   const textHi        = isFunky ? '#F5F5F4' : '#1C1917'
   const textMid       = isFunky ? '#A8A29E' : '#57534E'
   const textLo        = isFunky ? '#78716C' : '#A8A29E'
@@ -34,18 +34,18 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
+      className="testimonials-section"
       style={{
-        padding: '96px 0',
         background: sectionBg,
         borderTop: `1px solid ${divider}`,
         borderBottom: `1px solid ${divider}`,
       }}
     >
-      <div style={{ width: '100%', maxWidth: 1440, margin: '0 auto', padding: '0 48px' }}>
+      <div className="testimonials-inner">
 
         {/* Header */}
-        <Reveal>
-          <div style={{ marginBottom: 56, maxWidth: 720 }}>
+        <div className="testimonials-header">
+          <Reveal variant="fade-up">
             <div style={{
               display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16,
               fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase',
@@ -54,6 +54,8 @@ export default function Testimonials() {
               <span style={{ display: 'block', width: 24, height: 1, background: accent, opacity: 0.5 }} />
               Testimonials
             </div>
+          </Reveal>
+          <Reveal variant="clip-up" delay={0.08}>
             <h2 style={{
               fontFamily: 'var(--font-display)', fontWeight: 700,
               lineHeight: 1.05, letterSpacing: '-0.04em',
@@ -61,55 +63,62 @@ export default function Testimonials() {
             }}>
               What people<br />say about working with me.
             </h2>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
         {/* Cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(540px, 100%), 1fr))', gap: 24 }}>
+        <motion.div
+          variants={testimonialsContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px 0px' }}
+          className="testimonials-grid"
+        >
           {TESTIMONIALS.map((t, i) => (
-            <Reveal key={i} delay={0.15 * (i + 1)}>
-              <div
-                style={{
-                  background: cardBg,
-                  border: `1px solid ${cardBorder}`,
-                  borderRadius: 20,
-                  padding: '36px 40px',
-                  display: 'flex', flexDirection: 'column', gap: 28,
-                  transition: 'border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease',
-                }}
-                onMouseEnter={e => {
-                  const el = e.currentTarget as HTMLDivElement
-                  el.style.borderColor = accentBorder
-                  el.style.transform = 'translateY(-3px)'
-                  el.style.boxShadow = isFunky
-                    ? '0 20px 60px rgba(0,0,0,0.35)'
-                    : '0 12px 40px rgba(0,0,0,0.08)'
-                }}
-                onMouseLeave={e => {
-                  const el = e.currentTarget as HTMLDivElement
-                  el.style.borderColor = cardBorder
-                  el.style.transform = ''
-                  el.style.boxShadow = ''
-                }}
-              >
-                {/* Quote text */}
-                <div style={{ flex: 1 }}>
-                  {t.quote.split('\n\n').map((para, j) => (
-                    <p key={j} style={{
-                      fontFamily: 'var(--font-body)', fontSize: 15,
-                      lineHeight: 1.85, color: textMid,
-                      margin: j > 0 ? '16px 0 0' : 0,
-                    }}>
-                      {para}
-                    </p>
-                  ))}
-                </div>
+            <motion.div
+              key={i}
+              variants={testimonialsItemVariants}
+              className="testimonial-card"
+              style={{
+                background: cardBg,
+                border: `1px solid ${cardBorder}`,
+                transition: 'border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease',
+              }}
+              onMouseEnter={e => {
+                const el = e.currentTarget as HTMLDivElement
+                el.style.borderColor = accentBorder
+                el.style.transform = 'translateY(-3px)'
+                el.style.boxShadow = isFunky
+                  ? '0 20px 60px rgba(0,0,0,0.35)'
+                  : '0 12px 40px rgba(0,0,0,0.08)'
+              }}
+              onMouseLeave={e => {
+                const el = e.currentTarget as HTMLDivElement
+                el.style.borderColor = cardBorder
+                el.style.transform = ''
+                el.style.boxShadow = ''
+              }}
+            >
+              {/* Quote text */}
+              <div style={{ flex: 1 }}>
+                {t.quote.split('\n\n').map((para, j) => (
+                  <p key={j} style={{
+                    fontFamily: 'var(--font-body)', fontSize: 15,
+                    lineHeight: 1.85, color: textMid,
+                    margin: j > 0 ? '16px 0 0' : 0,
+                  }}>
+                    {para}
+                  </p>
+                ))}
+              </div>
 
-                {/* Divider */}
-                <div style={{ height: 1, background: divider }} />
+              {/* Divider */}
+              <div style={{ height: 1, background: divider }} />
 
-                {/* Author row */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+              {/* Author row */}
+              <div className="testimonial-author-row">
+                {/* Left: Avatar + Info */}
+                <div className="testimonial-author-left">
                   {/* Avatar */}
                   <div style={{
                     width: 44, height: 44, borderRadius: '50%',
@@ -123,7 +132,7 @@ export default function Testimonials() {
                   </div>
 
                   {/* Name + details */}
-                  <div style={{ flex: 1, minWidth: 0 }}>
+                  <div className="testimonial-author-info">
                     <div style={{
                       display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap',
                       marginBottom: 3,
@@ -145,36 +154,32 @@ export default function Testimonials() {
                         1st
                       </span>
                     </div>
-                    <div style={{
-                      fontFamily: 'var(--font-body)', fontSize: 12,
-                      color: textLo, lineHeight: 1.4,
-                      whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
-                    }}>
+                    <div className="testimonial-author-title" style={{ color: textLo }}>
                       {t.title}
                     </div>
                   </div>
+                </div>
 
-                  {/* Date + relationship */}
-                  <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                    <div style={{
-                      fontFamily: 'var(--font-mono)', fontSize: 10,
-                      color: textLo, letterSpacing: '0.04em',
-                    }}>
-                      {t.date}
-                    </div>
-                    <div style={{
-                      fontFamily: 'var(--font-mono)', fontSize: 9,
-                      color: textLo, letterSpacing: '0.04em',
-                      marginTop: 2, opacity: 0.7,
-                    }}>
-                      {t.relationship}
-                    </div>
+                {/* Date + relationship */}
+                <div className="testimonial-author-meta">
+                  <div style={{
+                    fontFamily: 'var(--font-mono)', fontSize: 10,
+                    color: textLo, letterSpacing: '0.04em',
+                  }}>
+                    {t.date}
+                  </div>
+                  <div style={{
+                    fontFamily: 'var(--font-mono)', fontSize: 9,
+                    color: textLo, letterSpacing: '0.04em',
+                    marginTop: 2, opacity: 0.7,
+                  }}>
+                    {t.relationship}
                   </div>
                 </div>
               </div>
-            </Reveal>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>
