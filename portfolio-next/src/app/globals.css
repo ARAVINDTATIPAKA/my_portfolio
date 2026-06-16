@@ -1118,11 +1118,13 @@ button {
 }
 
 .tl-scroll-wrapper {
+  grid-column: 1 / 13;
+  width: auto;
+  margin-left: -48px;
+  margin-right: -48px;
+  padding: 48px 48px 40px;
   overflow-x: auto;
   overflow-y: visible;
-  padding: 48px 0 40px;
-  padding-left: max(48px, calc((100vw - 1440px) / 2 + 48px));
-  padding-right: max(48px, calc((100vw - 1440px) / 2 + 48px));
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
   cursor: grab;
@@ -1955,6 +1957,9 @@ button {
 
   /* Timeline */
   .tl-scroll-wrapper {
+    grid-column: 1 / -1 !important;
+    margin-left: -24px !important;
+    margin-right: -24px !important;
     padding: 48px 24px 40px !important;
   }
 
@@ -3237,25 +3242,33 @@ button {
   column-gap: 24px;
 }
 
+/* Header: label + h2 sit in cols 1–8 */
 .testimonials-header {
-  grid-column: 1 / 13;
+  grid-column: 1 / 9;
   margin-bottom: 56px;
-  max-width: 720px;
 }
 
+/* Card grid: full 12 cols */
 .testimonials-grid {
   grid-column: 1 / 13;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(540px, 100%), 1fr));
+  grid-template-columns: repeat(12, 1fr);
   gap: 24px;
 }
 
+/* Single card: cols 1–8 (left-aligned, readable width) */
 .testimonial-card {
+  grid-column: 1 / 9;
   border-radius: 20px;
   padding: 36px 40px;
   display: flex;
   flex-direction: column;
   gap: 28px;
+}
+
+/* When there are multiple cards, each takes half */
+.testimonials-grid:has(.testimonial-card:nth-child(2)) .testimonial-card {
+  grid-column: span 6;
 }
 
 @media (max-width: 1024px) {
@@ -3282,12 +3295,16 @@ button {
     grid-column: 1 / -1 !important;
     margin-bottom: 32px !important;
   }
+  .testimonial-card {
+    grid-column: 1 / -1 !important;
+  }
   .testimonials-grid {
     grid-column: 1 / -1 !important;
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(12, 1fr) !important;
     gap: 20px !important;
   }
   .testimonial-card {
+    grid-column: span 12 !important;
     padding: 28px 24px !important;
     gap: 20px !important;
   }
@@ -3299,6 +3316,12 @@ button {
   }
   .timeline-inner {
     padding: 0 20px !important;
+  }
+  .tl-scroll-wrapper {
+    margin-left: -20px !important;
+    margin-right: -20px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
   .testimonials-section {
     padding: 48px 0 !important;
