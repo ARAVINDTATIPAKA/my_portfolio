@@ -158,7 +158,6 @@ export default function Timeline() {
             </p>
           </Reveal>
         </div>
-      </div>
 
       {/* Horizontal scroll track */}
       <div
@@ -224,6 +223,7 @@ export default function Timeline() {
           {/* End spacer */}
           <div style={{ minWidth: 80, flexShrink: 0 }}></div>
         </motion.div>
+      </div>
       </div>
     </section>
   )
