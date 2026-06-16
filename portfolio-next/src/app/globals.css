@@ -1454,14 +1454,25 @@ button {
 /* ================================================================
    AI IN MY PROCESS — Alternating above/below timeline
    ================================================================ */
+.ai-process-header-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
 .ai-process-track {
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: stretch;
   height: 400px;
-  margin-top: 24px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 24px auto 0;
+  padding: 0 48px;
   min-width: 0;
+  box-sizing: border-box;
 }
 
 .ai-process-line {
@@ -3149,6 +3160,16 @@ button {
 /* ────────────────────────────────────────────────────────────────
    About Section Grid Layout
    ──────────────────────────────────────────────────────────────── */
+.about-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+}
+
 .about-grid {
   width: 100%;
   max-width: 1440px;
