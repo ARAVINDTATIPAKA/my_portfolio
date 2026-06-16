@@ -1,5 +1,7 @@
 'use client'
 
+import { useReveal } from '@/hooks/useReveal'
+
 import { useTheme } from '@/lib/ThemeContext'
 
 const SKILLS = ['UI Design','UX Research','Design Systems','Figma','Prototyping',

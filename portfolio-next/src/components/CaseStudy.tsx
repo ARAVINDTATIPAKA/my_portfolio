@@ -738,17 +738,6 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
       </Section>
 
       <Section>
-        <SectionLabel text="The Pricing Problem" />
-        <SectionHeading text="900 entries nobody could maintain → 6 price points." />
-        <BodyText>The platform had 300+ topics, each potentially offered through 3 offering types. That's roughly 900 price entries to create and maintain manually. Any topic launch or price revision was an ops bottleneck. The solution had to scale without constant manual updates.</BodyText>
-        <BodyText>Research grounded the answer: when I asked stakeholders how they bucketed topics, a consistent mental model emerged — standard topics versus higher-demand specialist domains. Rather than inventing a pricing taxonomy, I built the system on the model the business already used.</BodyText>
-        <CardGrid>
-          <Card num="Tier 01" title="Classic / Premium classification" desc="Assigned at topic creation. Each classification maps to a default price per offering type — ops manages 6 global price points instead of 900+. Reclassify a topic, prices update everywhere automatically." />
-          <Card num="Tier 02" title="Percentage-based hike for specialist topics" desc="For top-tier domains exceeding even Premium economics. Applied on top of the Premium price, visible to customers before booking — flexibility for outlier domains without inventing a third tier." />
-        </CardGrid>
-      </Section>
-
-      <Section>
         <SectionLabel text="Topics as Infrastructure" />
         <SectionHeading text="Configure once, automate forever." />
         <BodyText>A topic (say, Product Design) is created, classified (pricing auto-pulled from global classifications), and offerings are configured inside it. For a one-way AI interview: number of questions, duration per question, attempts per question, AI interview prompt — configured per experience range (0–2, 2–5, 5–10 … 35+ years).</BodyText>
@@ -817,7 +806,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
             </div>
 
             {/* Scrollable content */}
-            <div className="modal-content">
+            <div className="modal-content" data-lenis-prevent>
               {renderContent()}
             </div>
           </>}

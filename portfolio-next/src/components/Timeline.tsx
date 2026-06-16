@@ -1,8 +1,9 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 import { useTheme } from '@/lib/ThemeContext'
-import { Reveal } from '@/components/Reveal'
+import { Reveal, timelineContainerVariants, timelineItemVariants } from '@/components/Reveal'
 
 interface TimelineEvent {
   date: string
@@ -104,11 +105,8 @@ export default function Timeline() {
   const isFunky = theme === 'funky'
 
   const accent = isFunky ? '#E8FF6B' : '#0891B2'
-  const accentLightBg = isFunky ? 'rgba(232,255,107,0.15)' : 'rgba(8,145,178,0.15)'
-  const accentLightBorder = isFunky ? 'rgba(232,255,107,0.4)' : 'rgba(8,145,178,0.4)'
   const textHi = isFunky ? '#F5F5F4' : '#1C1917'
-  const textMid = isFunky ? '#aaaaaa' : '#57534E'
-  const textLo = isFunky ? '#cccccc' : '#A8A29E'
+  const textLo = isFunky ? '#aaaaaa' : '#57534E'
 
   // Drag-to-scroll implementation
   const trackRef = useRef<HTMLDivElement>(null)
@@ -140,39 +138,51 @@ export default function Timeline() {
   }
 
   return (
-    <section id="timeline" style={{ paddingLeft: 0, paddingRight: 0, overflow: 'hidden' }}>
-      <div style={{ width: '100%', maxWidth: 1440, margin: '0 auto', padding: '96px 48px 0' }}>
-        <Reveal>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em', color: accent }}>
-            <span style={{ display: 'block', width: 24, height: 1, background: accent, opacity: 0.5 }} />
-            Career
-          </div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, lineHeight: 1.05, letterSpacing: '-0.04em', fontSize: 'clamp(36px,4vw,56px)', color: textHi, margin: '0 0 12px 0' }}>
-            The journey so far.
-          </h2>
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: textLo, margin: 0, fontStyle: 'italic' }}>
-            A few of my favourite works throughout my career.
-          </p>
-        </Reveal>
+    <section id="timeline" className="timeline-section">
+      <div className="timeline-inner">
+        <div className="timeline-header">
+          <Reveal variant="fade-up">
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em', color: accent }}>
+              <span style={{ display: 'block', width: 24, height: 1, background: accent, opacity: 0.5 }} />
+              Career
+            </div>
+          </Reveal>
+          <Reveal variant="clip-up" delay={0.08}>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, lineHeight: 1.05, letterSpacing: '-0.04em', fontSize: 'clamp(36px,4vw,56px)', color: textHi, margin: '0 0 12px 0' }}>
+              The journey so far.
+            </h2>
+          </Reveal>
+          <Reveal variant="blur-in" delay={0.16}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: textLo, margin: 0, fontStyle: 'italic' }}>
+              A few of my favourite works throughout my career.
+            </p>
+          </Reveal>
+        </div>
       </div>
 
       {/* Horizontal scroll track */}
-      <Reveal delay={0.15}>
-        <div
-          className="tl-scroll-wrapper"
-          id="tlWrapper"
-          ref={trackRef}
-          onMouseDown={handleMouseDown}
-          onMouseLeave={handleMouseLeave}
-          onMouseUp={handleMouseUp}
-          onMouseMove={handleMouseMove}
-          style={{
-            userSelect: isDragging ? 'none' : 'auto',
-          }}
+      <div
+        className="tl-scroll-wrapper"
+        id="tlWrapper"
+        ref={trackRef}
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+        style={{
+          userSelect: isDragging ? 'none' : 'auto',
+        }}
+      >
+        <motion.div
+          className="tl-track"
+          id="tlTrack"
+          variants={timelineContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px 0px' }}
         >
-          <div className="tl-track" id="tlTrack">
-            {/* Continuous line through all nodes */}
-            <div className="tl-line"></div>
+          {/* Continuous line through all nodes */}
+          <div className="tl-line"></div>
 
           {EVENTS.map((event, idx) => {
             let nodeClass = 'tl-node'
@@ -193,10 +203,12 @@ export default function Timeline() {
               cardClass = 'tl-card' // same as normal card in layout
             }
 
-            const isMilestoneOrNow = event.type === 'milestone' || event.type === 'now'
-
             return (
-              <div key={idx} className={nodeClass}>
+              <motion.div
+                key={idx}
+                className={nodeClass}
+                variants={timelineItemVariants}
+              >
                 <div className={dotClass}></div>
                 <div className="tl-date">{event.date}</div>
                 <div className={cardClass}>
@@ -205,15 +217,14 @@ export default function Timeline() {
                   {event.period && <div className="tl-card-period">{event.period}</div>}
                   <div className="tl-card-desc">{event.desc}</div>
                 </div>
-              </div>
+              </motion.div>
             )
           })}
 
           {/* End spacer */}
           <div style={{ minWidth: 80, flexShrink: 0 }}></div>
-        </div>
+        </motion.div>
       </div>
-      </Reveal>
     </section>
   )
 }

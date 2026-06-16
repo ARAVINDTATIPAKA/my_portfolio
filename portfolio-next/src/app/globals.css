@@ -3,7 +3,8 @@
 @import "tailwindcss";
 
 /* Lenis Smooth Scrolling Styles */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -1117,11 +1118,13 @@ button {
 }
 
 .tl-scroll-wrapper {
+  grid-column: 1 / 13;
+  width: auto;
+  margin-left: -48px;
+  margin-right: -48px;
+  padding: 48px 48px 40px;
   overflow-x: auto;
   overflow-y: visible;
-  padding: 48px 0 40px;
-  padding-left: max(48px, calc((100vw - 1440px) / 2 + 48px));
-  padding-right: max(48px, calc((100vw - 1440px) / 2 + 48px));
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
   cursor: grab;
@@ -1894,10 +1897,43 @@ button {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
+  .work-card-image {
+    aspect-ratio: 16/10 !important;
+  }
+
+  /* Hero */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    padding: 0 24px 56px !important;
+  }
+
+  .hero-content {
+    grid-column: 1 / -1 !important;
+  }
+
   /* About */
   .about-grid {
     grid-template-columns: 1fr !important;
     gap: 48px !important;
+    padding: 0 24px !important;
+  }
+
+  .about-left {
+    grid-column: 1 / -1 !important;
+  }
+
+  .about-process {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* Contact */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    padding: 0 24px !important;
+  }
+
+  .contact-content {
+    grid-column: 1 / -1 !important;
   }
 
   /* ID card */
@@ -1921,6 +1957,9 @@ button {
 
   /* Timeline */
   .tl-scroll-wrapper {
+    grid-column: 1 / -1 !important;
+    margin-left: -24px !important;
+    margin-right: -24px !important;
     padding: 48px 24px 40px !important;
   }
 
@@ -1979,6 +2018,20 @@ button {
   .ai-step-title {
     font-size: 11px !important;
   }
+
+  /* Tablet section overrides to match 12-column grid alignment */
+  .about-section {
+    padding: 64px 0 !important;
+  }
+  .work-section {
+    padding: 64px 0 !important;
+  }
+  .work-inner {
+    padding: 0 24px !important;
+  }
+  .contact-section {
+    padding: 64px 0 !important;
+  }
 }
 
 /* ── Mobile ≤768px ── */
@@ -2020,13 +2073,32 @@ button {
   }
 
   /* Card images — shorter on mobile */
-  .project-img {
-    aspect-ratio: 4/3 !important;
+  .work-card-image {
+    aspect-ratio: 2.2/1 !important;
+  }
+
+  .work-card-body {
+    padding: 20px 16px !important;
+  }
+
+  /* Hero */
+  .hero-grid {
+    padding: 0 20px 48px !important;
   }
 
   /* About */
   .about-section {
     padding: 64px 20px !important;
+  }
+
+  .about-grid {
+    padding: 0 !important;
+    gap: 32px !important;
+  }
+
+  /* Contact */
+  .contact-grid {
+    padding: 0 !important;
   }
 
   /* Contact */
@@ -2299,6 +2371,10 @@ button {
     max-width: 160px !important;
     padding: 0 12px !important;
   }
+
+  .tl-scroll-wrapper {
+    padding: 32px 20px 32px !important;
+  }
 }
 
 .cs-callout-bold {
@@ -2519,7 +2595,7 @@ button {
 .work-grid {
   grid-column: 1 / 13;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
@@ -2983,6 +3059,7 @@ button {
    Timeline Dot Animation (Preserves Alignment)
    ──────────────────────────────────────────────────────────────── */
 @keyframes tlPulseDot {
+
   0%,
   100% {
     transform: translateX(-50%) scale(1);
@@ -3053,14 +3130,12 @@ button {
 }
 
 /* ────────────────────────────────────────────────────────────────
-   Hero Image (Floating)
+   Hero Image (Grid Aligned)
    ──────────────────────────────────────────────────────────────── */
 .hero-image-container {
-  position: absolute;
-  top: 18%;
-  right: 64px;
-  width: 42%;
-  max-width: 540px;
+  grid-column: 8 / 13;
+  align-self: center;
+  width: 100%;
   pointer-events: none;
   z-index: 1;
 }
@@ -3068,5 +3143,253 @@ button {
 @media (max-width: 1024px) {
   .hero-image-container {
     display: none;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   About Section Grid Layout
+   ──────────────────────────────────────────────────────────────── */
+.about-grid {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+}
+
+.about-left {
+  grid-column: 1 / 7;
+}
+
+.about-process {
+  grid-column: 7 / 13;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   Hero Grid Layout
+   ──────────────────────────────────────────────────────────────── */
+.hero-grid {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px 80px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+}
+
+.hero-content {
+  grid-column: 1 / 8;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   Contact Grid Layout
+   ──────────────────────────────────────────────────────────────── */
+.contact-section {
+  padding: 96px 0;
+}
+
+.contact-grid {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+}
+
+.contact-content {
+  position: relative;
+  grid-column: 1 / 8;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   Timeline & Testimonials Responsiveness & Grid Alignment
+   ──────────────────────────────────────────────────────────────── */
+.timeline-section {
+  padding: 96px 0 0;
+  overflow: hidden;
+}
+
+.timeline-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+}
+
+.timeline-header {
+  grid-column: 1 / 13;
+}
+
+.testimonials-section {
+  padding: 96px 0;
+}
+
+.testimonials-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+}
+
+/* Header: label + h2 sit in cols 1–8 */
+.testimonials-header {
+  grid-column: 1 / 9;
+  margin-bottom: 56px;
+}
+
+/* Card grid: full 12 cols */
+.testimonials-grid {
+  grid-column: 1 / 13;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+
+/* Single card: cols 1–8 (left-aligned, readable width) */
+.testimonial-card {
+  grid-column: 1 / 9;
+  border-radius: 20px;
+  padding: 36px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* When there are multiple cards, each takes half */
+.testimonials-grid:has(.testimonial-card:nth-child(2)) .testimonial-card {
+  grid-column: span 6;
+}
+
+@media (max-width: 1024px) {
+  .timeline-section {
+    padding: 64px 0 0 !important;
+  }
+  .timeline-inner {
+    padding: 0 24px !important;
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .timeline-header {
+    grid-column: 1 / -1 !important;
+  }
+  .testimonials-section {
+    padding: 64px 0 !important;
+  }
+  .testimonials-inner {
+    padding: 0 24px !important;
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .testimonials-header {
+    grid-column: 1 / -1 !important;
+    margin-bottom: 32px !important;
+  }
+  .testimonial-card {
+    grid-column: 1 / -1 !important;
+  }
+  .testimonials-grid {
+    grid-column: 1 / -1 !important;
+    grid-template-columns: repeat(12, 1fr) !important;
+    gap: 20px !important;
+  }
+  .testimonial-card {
+    grid-column: span 12 !important;
+    padding: 28px 24px !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-section {
+    padding: 48px 0 0 !important;
+  }
+  .timeline-inner {
+    padding: 0 20px !important;
+  }
+  .tl-scroll-wrapper {
+    margin-left: -20px !important;
+    margin-right: -20px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .testimonials-section {
+    padding: 48px 0 !important;
+  }
+  .testimonials-inner {
+    padding: 0 20px !important;
+  }
+  .testimonials-header {
+    margin-bottom: 24px !important;
+  }
+  .testimonial-card {
+    padding: 24px 20px !important;
+    gap: 16px !important;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   Testimonial Author Row Responsiveness
+   ──────────────────────────────────────────────────────────────── */
+.testimonial-author-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+
+.testimonial-author-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.testimonial-author-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.testimonial-author-meta {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.testimonial-author-title {
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .testimonial-author-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .testimonial-author-meta {
+    text-align: left;
+    width: 100%;
+    padding-left: 58px; /* 44px avatar + 14px gap alignment */
+  }
+  .testimonial-author-title {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
   }
 }

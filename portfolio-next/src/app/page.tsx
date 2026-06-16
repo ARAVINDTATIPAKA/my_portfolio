@@ -21,8 +21,8 @@ export default function Home() {
       <main>
         <Hero />
         <Marquee />
-        <Work onOpenCase={setOpenCase} />
         <About />
+        <Work onOpenCase={setOpenCase} />
         <Timeline />
         {/* <AIProcess /> */}
         <Testimonials />
