@@ -42,7 +42,7 @@ export default function Nav() {
       {/* Links */}
       <ul style={{ display:'flex', alignItems:'center', gap:32, listStyle:'none', margin:0, padding:0 }}
         className="hidden-mobile">
-        {['Work','About','Process','Contact'].map(l => (
+        {['Work','About','Process','Writing','Contact'].map(l => (
           <li key={l}>
             <a href={`#${l.toLowerCase()}`} style={{
               fontFamily:'var(--font-body)', fontSize:13, textDecoration:'none',
