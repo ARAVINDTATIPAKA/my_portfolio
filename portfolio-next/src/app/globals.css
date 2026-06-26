@@ -3317,6 +3317,31 @@ button {
   grid-column: span 6;
 }
 
+/* ── Writing section ── */
+.writing-section {
+  padding: 96px 0;
+}
+
+.writing-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+}
+
+.writing-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.writing-card {
+  grid-column: 1 / 13;
+}
+
 @media (max-width: 1024px) {
   .timeline-section {
     padding: 64px 0 0 !important;
@@ -3354,6 +3379,16 @@ button {
     padding: 28px 24px !important;
     gap: 20px !important;
   }
+  .writing-section {
+    padding: 64px 0 !important;
+  }
+  .writing-inner {
+    padding: 0 24px !important;
+  }
+  .writing-header {
+    grid-column: 1 / -1 !important;
+    margin-bottom: 32px !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -3381,6 +3416,18 @@ button {
   .testimonial-card {
     padding: 24px 20px !important;
     gap: 16px !important;
+  }
+  .writing-section {
+    padding: 48px 0 !important;
+  }
+  .writing-inner {
+    padding: 0 20px !important;
+  }
+  .writing-header {
+    margin-bottom: 24px !important;
+  }
+  .writing-card > div {
+    padding: 20px !important;
   }
 }
 
