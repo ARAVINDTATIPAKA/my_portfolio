@@ -70,7 +70,7 @@ export default function Hero() {
             }}
             style={{
               fontFamily:'var(--font-display)', fontWeight:700,
-              fontSize:'clamp(52px,8vw,112px)', lineHeight:0.95,
+              fontSize:'clamp(48px,6vw,96px)', lineHeight:0.95,
               letterSpacing:'-0.04em', color:textHi, marginBottom:40,
             }}
           >

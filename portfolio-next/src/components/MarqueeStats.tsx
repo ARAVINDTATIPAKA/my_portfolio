@@ -22,7 +22,7 @@ export function Marquee() {
         display:'flex', gap:48, whiteSpace:'nowrap',
         animation:'marquee 18s linear infinite',
       }}>
-        {[...SKILLS, ...SKILLS].map((s, i) => (
+        {Array(6).fill(SKILLS).flat().map((s, i) => (
           <span key={i} style={{
             display:'flex', alignItems:'center', gap:16, flexShrink:0,
             fontFamily:'var(--font-display)', fontSize:12, fontWeight:500,
