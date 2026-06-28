@@ -68,134 +68,108 @@ html.lenis body {
   --animate-id-sway: idSway 4s ease-in-out 1.5s infinite;
   --animate-dot-blink: dotBlink 2s ease-in-out infinite;
 
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
+}
 
-    to {
-      transform: translateX(-50%);
-    }
+@keyframes marquee {
+  from {
+    transform: translateX(0);
   }
-
-  @keyframes pulseDot {
-
-    0%,
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-
-    50% {
-      transform: scale(1.4);
-      opacity: 0.7;
-    }
+  to {
+    transform: translateX(-50%);
   }
+}
 
-  @keyframes drift {
-
-    0%,
-    100% {
-      transform: translate(0, 0);
-    }
-
-    33% {
-      transform: translate(30px, -20px);
-    }
-
-    66% {
-      transform: translate(-20px, 30px);
-    }
+@keyframes pulseDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
   }
-
-  @keyframes dropBounce {
-    0% {
-      transform: translateY(-480px) rotate(-3deg);
-      opacity: 0;
-    }
-
-    50% {
-      opacity: 1;
-    }
-
-    60% {
-      transform: translateY(28px) rotate(2deg);
-    }
-
-    72% {
-      transform: translateY(-14px) rotate(-1.2deg);
-    }
-
-    83% {
-      transform: translateY(8px) rotate(0.6deg);
-    }
-
-    91% {
-      transform: translateY(-4px) rotate(-0.2deg);
-    }
-
-    96% {
-      transform: translateY(2px) rotate(0.1deg);
-    }
-
-    100% {
-      transform: translateY(0) rotate(0deg);
-      opacity: 1;
-    }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.7;
   }
+}
 
-  @keyframes idSway {
-
-    0%,
-    100% {
-      transform: rotate(-1.2deg);
-    }
-
-    50% {
-      transform: rotate(1.2deg);
-    }
+@keyframes drift {
+  0%, 100% {
+    transform: translate(0, 0);
   }
-
-  @keyframes cardSwingIn {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    20% {
-      transform: rotate(-6deg);
-    }
-
-    50% {
-      transform: rotate(3.5deg);
-    }
-
-    70% {
-      transform: rotate(-1.8deg);
-    }
-
-    85% {
-      transform: rotate(0.8deg);
-    }
-
-    95% {
-      transform: rotate(-0.3deg);
-    }
-
-    100% {
-      transform: rotate(0deg);
-    }
+  33% {
+    transform: translate(30px, -20px);
   }
+  66% {
+    transform: translate(-20px, 30px);
+  }
+}
 
-  @keyframes dotBlink {
+@keyframes dropBounce {
+  0% {
+    transform: translateY(-480px) rotate(-3deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(28px) rotate(2deg);
+  }
+  72% {
+    transform: translateY(-14px) rotate(-1.2deg);
+  }
+  83% {
+    transform: translateY(8px) rotate(0.6deg);
+  }
+  91% {
+    transform: translateY(-4px) rotate(-0.2deg);
+  }
+  96% {
+    transform: translateY(2px) rotate(0.1deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
 
-    0%,
-    100% {
-      opacity: 1;
-    }
+@keyframes idSway {
+  0%, 100% {
+    transform: rotate(-1.2deg);
+  }
+  50% {
+    transform: rotate(1.2deg);
+  }
+}
 
-    50% {
-      opacity: 0.25;
-    }
+@keyframes cardSwingIn {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(3.5deg);
+  }
+  70% {
+    transform: rotate(-1.8deg);
+  }
+  85% {
+    transform: rotate(0.8deg);
+  }
+  95% {
+    transform: rotate(-0.3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes dotBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
   }
 }
 
@@ -3153,7 +3127,7 @@ button {
   max-height: 80vh;
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-end;
   pointer-events: none;
   z-index: 1;
   overflow: hidden;
