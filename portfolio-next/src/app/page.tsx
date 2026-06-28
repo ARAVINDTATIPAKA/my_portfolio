@@ -27,9 +27,9 @@ export default function Home() {
         <Work onOpenCase={setOpenCase} />
         <Timeline />
         {/* <AIProcess /> */}
-        <BeyondWork />
         <Testimonials />
         <Writing />
+        <BeyondWork />
         <Contact />
       </main>
       <CaseStudy caseKey={openCase} onClose={() => setOpenCase(null)} />
