@@ -7,6 +7,7 @@ import { Marquee } from '@/components/MarqueeStats'
 import Work from '@/components/Work'
 import About from '@/components/About'
 import Timeline from '@/components/Timeline'
+import BeyondWork from '@/components/BeyondWork'
 // import AIProcess from '@/components/AIProcess'
 import Contact from '@/components/Contact'
 import CaseStudy from '@/components/CaseStudy'
@@ -26,6 +27,7 @@ export default function Home() {
         <Work onOpenCase={setOpenCase} />
         <Timeline />
         {/* <AIProcess /> */}
+        <BeyondWork />
         <Testimonials />
         <Writing />
         <Contact />
