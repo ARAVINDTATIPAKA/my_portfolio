@@ -112,7 +112,9 @@ export default function BeyondWork() {
                   transformOrigin: 'top center',
                   background: polaroidBg,
                   borderRadius: 4,
-                  padding: '14px 14px 22px',
+                  padding: '10px 10px 16px',
+                  maxWidth: 160,
+                  margin: '0 auto',
                   boxShadow: '0 10px 24px rgba(0,0,0,0.35), 0 2px 6px rgba(0,0,0,0.2)',
                   cursor: 'default',
                 }}
@@ -122,12 +124,12 @@ export default function BeyondWork() {
                   aria-hidden
                   style={{
                     position: 'absolute',
-                    top: -14,
+                    top: -11,
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    width: 16,
-                    height: 24,
-                    borderRadius: 4,
+                    width: 12,
+                    height: 18,
+                    borderRadius: 3,
                     background: clipColor,
                     boxShadow: '0 2px 4px rgba(0,0,0,0.3)',
                     zIndex: 2,
@@ -138,8 +140,8 @@ export default function BeyondWork() {
                     top: '50%',
                     left: '50%',
                     transform: 'translate(-50%,-50%)',
-                    width: 6,
-                    height: 6,
+                    width: 5,
+                    height: 5,
                     borderRadius: '50%',
                     background: 'rgba(0,0,0,0.25)',
                   }} />
@@ -161,8 +163,8 @@ export default function BeyondWork() {
                     <div style={{
                       width: '100%', height: '100%',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontFamily: 'var(--font-mono)', fontSize: 11,
-                      color: '#A8A29E', textAlign: 'center', padding: 8,
+                      fontFamily: 'var(--font-mono)', fontSize: 9,
+                      color: '#A8A29E', textAlign: 'center', padding: 6,
                     }}>
                       {p.caption}
                     </div>
@@ -171,10 +173,10 @@ export default function BeyondWork() {
 
                 {/* Handwritten-feel caption */}
                 <div style={{
-                  marginTop: 12,
+                  marginTop: 8,
                   fontFamily: 'var(--font-mono)',
-                  fontSize: 10.5,
-                  lineHeight: 1.4,
+                  fontSize: 8.5,
+                  lineHeight: 1.35,
                   color: polaroidCaption,
                   textAlign: 'center',
                   letterSpacing: '0.01em',
