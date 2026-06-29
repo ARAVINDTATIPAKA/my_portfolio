@@ -3309,7 +3309,11 @@ button {
 .beyond-work-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 24px;
+}
+
+.beyond-work-line-wrap {
+  padding-top: 4px;
 }
 
 .writing-section {
@@ -3395,7 +3399,7 @@ button {
   }
   .beyond-work-grid {
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: 12px !important;
+    gap: 24px !important;
   }
 }
 
@@ -3439,7 +3443,7 @@ button {
   }
   .beyond-work-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
+    gap: 32px 16px !important;
   }
   .writing-inner {
     padding: 0 20px !important;
