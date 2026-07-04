@@ -7,7 +7,7 @@ const PROJECTS = [
   {
     id: 'mcsf',
     title: 'MCSF — Modular Capabilities-based Services Framework',
-    desc: 'Decomposed five rigid interview-prep services into 11 atomic capabilities, enabling same-day B2B program configuration and collapsing 900 pricing entries to 6.',
+    desc: 'Five rigid services could not bundle, customize, or scale — every custom B2B deal was an engineering project. I redesigned the platform&apos;s object model into 11 composable capabilities. Custom launches went from weeks to same-day.',
     tags: ['Platform Architecture', 'B2B Admin UX', 'Pricing System', 'InterviewBuddy'],
     year: '2025 · 3 months',
     bgStyle: 'linear-gradient(135deg,#1a0e0e 0%,#2e1010 100%)',
