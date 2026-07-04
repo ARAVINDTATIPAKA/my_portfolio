@@ -688,7 +688,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
           { val: '5→∞', label: 'Fixed services became unlimited compositions' },
           { val: '0', label: 'Engineering effort to launch a new service' },
           { val: '11', label: 'Atomic capabilities powering every service' },
-        ]} />
+        ]} className="cs-outcome-grid-2x2" />
       </Section>
 
       <Section>
