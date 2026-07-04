@@ -670,7 +670,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
     if (localCaseKey === 'mcsf') return <>
       <Hero c={{
         title: 'From Monoliths to Modules: MCSF',
-        subtitle: 'A capability-based service framework that turned rigid interview-prep offerings into composable products — enabling same-day B2B configuration and collapsing 900 pricing entries to 6.',
+        subtitle: 'A capability-based service framework that turned rigid interview-prep offerings into composable products — enabling same-day B2B configuration.',
         eyebrow: 'InterviewBuddy · Platform Architecture · B2B + B2C',
         meta: { Role: 'Senior Product Designer', Scope: 'Platform · B2B Admin · B2C Storefront', Team: 'Product, Engineering', Timeline: '3 Months' },
         tags: ['Platform Architecture', 'B2B Admin UX', 'Pricing System', 'B2C SaaS', 'Information Architecture', 'Service Design'],
@@ -684,9 +684,9 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
         <BodyText>Our platform sold five interview-preparation services, each built as a rigid, standalone unit. When B2B clients began demanding custom bundles and B2C candidates asked for packs, the architecture couldn't deliver either.</BodyText>
         <BodyText>I led the design of MCSF (Modular Capabilities-based Services Framework): we decomposed all five services into 11 atomic capabilities and rebuilt the service layer as compositions of those atoms.</BodyText>
         <OutcomeGrid items={[
-          { val: 'Same-day', label: 'Custom B2B service launch — was weeks of engineering' },
-          { val: '6', label: 'Global price points — down from 900+ manual entries' },
-          { val: '0', label: 'Ops intervention on configured-topic bookings' },
+          { val: 'Sprint → session', label: 'Launching a new service went from an engineering sprint to a config session' },
+          { val: '5→∞', label: 'Fixed services became unlimited compositions' },
+          { val: '0', label: 'Engineering effort to launch a new service' },
           { val: '11', label: 'Atomic capabilities powering every service' },
         ]} />
       </Section>
