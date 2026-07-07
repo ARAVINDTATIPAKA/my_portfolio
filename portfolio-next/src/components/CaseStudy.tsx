@@ -463,15 +463,15 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
         <div className="cs-outcome-clean">
           <div>
             <div className="cs-outcome-clean-val">0→1</div>
-            <div className="cs-outcome-clean-label">Full product designed from scratch</div>
+            <div className="cs-outcome-clean-label">MVP — currently in development</div>
           </div>
           <div>
             <div className="cs-outcome-clean-val">5</div>
-            <div className="cs-outcome-clean-label">Conversation states designed as a system</div>
+            <div className="cs-outcome-clean-label">5-state system — every state has a defined transition and business outcome</div>
           </div>
           <div>
             <div className="cs-outcome-clean-val">↑</div>
-            <div className="cs-outcome-clean-label">Engagement, retention & upsell opportunities</div>
+            <div className="cs-outcome-clean-label">Instant AI Interviews added as in-app utility — the bet that converts a one-time sales tool into a repeat-use habit</div>
           </div>
         </div>
       </Section>
