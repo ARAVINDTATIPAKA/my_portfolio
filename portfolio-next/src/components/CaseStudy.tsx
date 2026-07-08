@@ -219,66 +219,79 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
 
     /* ──────────────── KEKA ──────────────── */
     if (localCaseKey === 'keka') return <>
-      <Hero c={{ title: 'Keka Sync Tool', subtitle: 'Enterprise Workforce Attendance Synchronization Platform — a Windows-based infrastructure layer between biometric hardware and attendance management systems.', eyebrow: 'Keka · Enterprise Product · 2026', meta: { Role: 'Product Designer', Timeline: '1 Week', Platform: 'Windows (Desktop App)', Constraint: 'Existing Keka component system' }, tags: ['Enterprise UX', 'Operational Dashboard', 'Device Management', 'Sync Monitoring', 'Windows App', 'Workflow Design'] }} />
+      <Hero c={{ title: 'Keka Sync Tool', subtitle: 'A Windows desktop application that sits as the infrastructure layer between biometric hardware and Keka’s attendance management ecosystem.', eyebrow: 'Keka · Enterprise Product · Internal Tool', meta: { Role: 'Product Designer', Timeline: '1 Week', Platform: 'Windows (Desktop App)', Constraint: 'Existing Keka component system' }, tags: ['Enterprise UX', 'Operational Dashboard', 'Device Management', 'Sync Monitoring', 'Windows App', 'Workflow Design'] }} />
 
       <NDACallout />
 
       <Section>
         <SectionLabel text="The Context" />
         <SectionHeading text="When scale breaks attendance infrastructure." />
-        <BodyText>Large organizations operating across multiple offices, campuses, and floors rely on biometric devices to capture attendance. But at scale — thousands of employees, multiple locations, peak traffic — the challenge shifts from capturing attendance to maintaining reliable synchronization.</BodyText>
-        <BodyText>Logs arrive with delays. Records become inconsistent. Devices go offline. Admins struggle to identify failures quickly. The Keka Sync Tool was designed as the infrastructure layer between biometric hardware and the attendance management ecosystem.</BodyText>
-        <Callout text='"How might we help enterprise admins manage and synchronize biometric attendance systems reliably across multiple locations and high-traffic environments — while reducing operational complexity?"' />
+        <BodyText>Large organizations operating across multiple offices, campuses, and floors rely on biometric devices to capture attendance. But at scale — thousands of employees, multiple locations, peak traffic — the challenge shifts from <em>capturing</em> attendance to <em>maintaining reliable synchronization</em>.</BodyText>
+        <BodyText>Logs arrive with delays. Records become inconsistent. Devices go offline. Different clients connect their hardware in fundamentally different ways. The Keka Sync Tool runs on-site, connects to a client’s biometric devices, and keeps their attendance records flowing reliably into Keka.</BodyText>
+        <BodyText>But it isn’t a tool the client operates themselves. It’s an internal instrument, used only by <strong>Keka’s Customer Support and Hardware teams</strong> — and only when something goes wrong. When a customer notices a discrepancy in their attendance data, they reach out to support. A CS agent logs in, opens the dashboard, and diagnoses what broke. The tool’s job is to make that diagnosis fast and trustworthy for people walking into a problem cold.</BodyText>
+        <Callout text='"How might we help Keka’s support and hardware teams quickly diagnose and resolve biometric sync discrepancies — across many different client setups — when a customer escalates a problem?"' />
       </Section>
 
       <Section>
         <SectionLabel text="Core Realization" />
-        <SectionHeading text="Not a hardware problem. An operational workflow problem." />
-        <BodyText>One of the most important early discoveries: organizations had wildly different attendance setups based on office layout, employee volume, and hardware constraints.</BodyText>
-        <CardGrid>
-          <Card num="Setup A" title="Single Device" desc="One biometric device handles both clock-in and clock-out using punch sequence and timing logic. Simpler but creates congestion at scale." />
-          <Card num="Setup B" title="Dual Device" desc="Dedicated devices for clock-in and clock-out. Reduces congestion but introduces mapping complexity, synchronization dependency, and device-role management challenges." />
-        </CardGrid>
+        <SectionHeading text="Not one problem — three layers of variability." />
+        <BodyText>Early on, the most important discovery was how much the setup differed from client to client. The tool couldn’t assume a single “happy path.” It had to absorb variability across three layers.</BodyText>
+        <Feature num="Layer 01" title="How devices connect — SQL vs SDK" desc="Some client environments integrate through a SQL connection (reading attendance from a device or vendor database), while others integrate through the device manufacturer’s SDK (connecting to devices directly, with live connection testing). These are two genuinely different configuration and troubleshooting paths — not a cosmetic difference — and the tool had to support both without splitting into two disjointed products." />
+        <Feature num="Layer 02" title="How attendance is captured — single vs dual device" desc="Setup A: one biometric device handles both clock-in and clock-out using punch sequence and timing logic — simpler, but creates congestion at scale. Setup B: dedicated devices for clock-in and clock-out — reduces congestion but introduces device-role mapping, synchronization dependency, and management complexity. Device role is assigned per device during configuration, so the same interface had to gracefully express both models." />
+        <Feature num="Layer 03" title="How the workspace is structured — locations & access areas" desc="Organizations map their physical footprint differently. Devices roll up into access areas, which roll up into locations and location groups — a hierarchy the hardware team sets up and adjusts to match each client’s real office structure." />
+        <Callout text="The underlying theme: this was never a hardware problem. It was an operational workflow problem — designing one coherent system flexible enough to hold every client’s reality." />
       </Section>
 
       <Section>
         <SectionLabel text="Research Insights" />
         <SectionHeading text="Findings that shaped the UX direction." />
-        <Feature num="01" title="High traffic created synchronization anxiety" desc="During peak hours, thousands of records could arrive within minutes. Admins couldn't distinguish a processing queue from an actual failure. Communicating sync health vs. sync failure became a critical UX problem." />
-        <Feature num="02" title="Device mapping was more complex than expected" desc="Different organizations had different office structures, device setups, and attendance workflows. Admins needed flexibility to map devices to locations and assign clock-in/out behavior — without requiring deep technical expertise." />
+        <Feature num="01" title="A healthy queue and a real failure look the same." desc="During peak hours, thousands of records arrive in minutes, so a big backlog is normal — it’s just the system working under load. But a broken sync looks exactly the same: records that haven’t reached Keka yet. If the design flags both as errors, a support agent chasing every alert wastes time and stops trusting them. If it flags neither, real failures stay hidden until payroll breaks. So the problem was never ‘show the sync status.’ It was helping a support agent tell working apart from failing when both look identical — and doing it calmly, so they trust what they see while a frustrated customer waits." />
+        <Feature num="02" title="Configuration had a lot of moving parts." desc="Resolving an issue could mean touching SQL vs SDK integration, single vs dual device roles, or the location and access-area hierarchy. The teams needed to make these changes quickly and confidently — with bulk actions for repetitive fixes — without re-learning the technical details every time they opened a client’s setup." />
+        <Feature num="03" title="Setup and recovery are part of the product." desc="The tool is installed on-site, so getting it running matters. Installing, reinstalling, and activating come up again and again when the hardware team stands up or restores a client’s setup — so they were designed as proper flows, not afterthoughts." />
       </Section>
 
       <Section>
         <SectionLabel text="User Context" />
-        <SectionHeading text="Designing for operational and technical users." />
-        <BodyText>Unlike consumer products, the Keka Sync Tool was designed specifically for internal operational teams responsible for configuring biometric devices, monitoring synchronization health, troubleshooting connectivity issues, and managing attendance infrastructure across multiple client locations.</BodyText>
-        <Callout text='"The challenge was not: "How do we simplify everything?" — It was: "How do we preserve operational depth while improving clarity, speed, and efficiency?"' />
-        <BodyText>Working closely with the internal sync operations team, I learned how real-world attendance infrastructure behaves beyond UI requirements. Technical users don't want oversimplified systems — they want systems that help them operate faster with better visibility and fewer interruptions.</BodyText>
+        <SectionHeading text="Two internal teams, one reactive workflow." />
+        <BodyText>The Sync Tool isn’t customer-facing. Its only users are inside Keka, and they split into two roles:</BodyText>
+        <CardGrid>
+          <Card num="CS Team" title="Customer Support — first responders" desc="When a customer reports that their attendance data looks wrong, a CS agent logs in, opens the dashboard, reads the sync status, and troubleshoots to find what failed." />
+          <Card num="HW Team" title="Hardware team — the fixers" desc="When the problem needs a physical or structural change — a new device, a re-mapping, a role reassignment — the hardware team acts on it." />
+        </CardGrid>
+        <BodyText>This is a reactive tool. Nobody sits in it all day; someone opens it because a customer escalated a problem. That single fact shaped the design more than anything else.</BodyText>
+        <Callout text='"The challenge wasn’t ‘How do we simplify everything?’ — it was ‘How do we help someone who just walked into a problem understand it fast?’"' />
       </Section>
 
       <Section>
         <SectionLabel text="Core Experience Areas" />
         <SectionHeading text="Four areas, one coherent system." />
         <DataTable headers={['Area', 'What it solved']} rows={[
-          ['Centralized Device Management', 'Register devices, map to offices, configure clock-in/out behavior — single and dual device models supported'],
-          ['Synchronization Monitoring', 'Structured status indicators, readable alerts, operational summaries — not raw technical logs'],
-          ['Log Ordering & Record Integrity', 'Maintained proper attendance sequence during high traffic, simultaneous punches, and network instability'],
-          ['Location & Office Mapping', 'Office-level device distribution, infrastructure health by location, scalable hierarchy management']
+          ['Setup & Activation', 'Install, reinstall, and activate the tool on-site — turning a technical deployment into a guided, recoverable flow.'],
+          ['Device Configuration (SQL & SDK)', 'Register and configure devices under either integration mode, assign clock-in / clock-out roles, and test connectivity — supporting both single- and dual-device models.'],
+          ['Location & Access-Area Mapping', 'Distribute devices across a location-group → location → access-area hierarchy, with bulk updates for managing infrastructure at scale.'],
+          ['Sync Monitoring & Troubleshooting', 'Structured status indicators, readable alerts, and operational summaries — surfacing sync health vs. failure instead of raw technical logs.'],
         ]} />
+        <BodyText>A principle that ran underneath all four: <strong>record integrity</strong>. Maintaining correct attendance sequence during high traffic, simultaneous punches, and network instability wasn’t a single screen — it was a reliability requirement the monitoring, troubleshooting, and device-role logic were all designed to protect.</BodyText>
       </Section>
-
 
       <Section>
         <SectionLabel text="Constraints & Execution" />
-        <SectionHeading text="One week. Existing components. Smarter decisions." />
-        <BodyText>The project was designed and delivered within one week, using Keka's existing design components — maintaining consistency with the broader Keka ecosystem and accelerating implementation speed.</BodyText>
-        <Callout text="Good enterprise design is not always about introducing new UI patterns — sometimes it is about making smarter decisions within operational and technical constraints." />
+        <SectionHeading text="One week. No PM. Existing components. Smarter decisions." />
+        <BodyText>This project ran without a dedicated product manager. With the PM on leave, I built the problem definition myself — working directly with the head of hardware to frame the scope, the edge cases, and the operational workflows before designing a single screen. So the week didn’t just cover the UI; it covered the problem framing that usually comes before it.</BodyText>
+        <BodyText>The project was then designed and delivered within that one week using Keka’s existing design components — maintaining consistency with the broader Keka ecosystem and accelerating implementation speed.</BodyText>
+        <Callout text="Good enterprise design isn’t always about introducing new UI patterns — sometimes it’s about making smarter decisions within operational and technical constraints." />
       </Section>
 
       <Section last>
         <SectionLabel text="Outcomes" />
         <SectionHeading text="What the project delivered." />
-        <OutcomeGrid items={[{ val: '4', label: 'Core experience areas designed' }, { val: '1wk', label: 'Full delivery timeline' }, { val: '2×', label: 'Device setups supported' }]} />
+        <BodyText>The outcome that wasn’t a count: reframed sync status from a binary pass/fail into health-vs-failure states the support team could actually trust — turning a signal that used to trigger false alarms into one they could act on. Everything below is scope; this is the judgment.</BodyText>
+        <OutcomeGrid items={[
+          { val: '2', label: 'Integration modes supported (SQL & SDK)' },
+          { val: '2×', label: 'Device-capture models supported (single & dual)' },
+          { val: '1', label: 'Coherent install → configure → monitor lifecycle' },
+          { val: '1 wk', label: 'Full delivery — problem definition included' },
+        ]} className="cs-outcome-grid-2x2" />
       </Section>
     </>
 
@@ -463,15 +476,15 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
         <div className="cs-outcome-clean">
           <div>
             <div className="cs-outcome-clean-val">0→1</div>
-            <div className="cs-outcome-clean-label">Full product designed from scratch</div>
+            <div className="cs-outcome-clean-label">MVP — currently in development</div>
           </div>
           <div>
             <div className="cs-outcome-clean-val">5</div>
-            <div className="cs-outcome-clean-label">Conversation states designed as a system</div>
+            <div className="cs-outcome-clean-label">5-state system — every state has a defined transition and business outcome</div>
           </div>
           <div>
             <div className="cs-outcome-clean-val">↑</div>
-            <div className="cs-outcome-clean-label">Engagement, retention & upsell opportunities</div>
+            <div className="cs-outcome-clean-label">Instant AI Interviews added as in-app utility — the bet that converts a one-time sales tool into a repeat-use habit</div>
           </div>
         </div>
       </Section>
