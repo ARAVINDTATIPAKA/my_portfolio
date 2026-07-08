@@ -2073,6 +2073,19 @@ button {
     padding: 20px 16px !important;
   }
 
+  .work-impact-strip {
+    padding: 10px 16px !important;
+    gap: 0 !important;
+  }
+
+  .work-impact-val {
+    font-size: 14px !important;
+  }
+
+  .work-impact-label {
+    font-size: 8px !important;
+  }
+
   /* Hero */
   .hero-grid {
     padding: 0 20px 48px !important;
@@ -2802,6 +2815,70 @@ button {
   font-weight: 600;
   font-size: 13px;
   color: var(--work-accent);
+}
+
+/* ── Work card outer wrapper (card + impact strip) ── */
+.work-card-outer {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Impact strip — sits below the card ── */
+.work-impact-strip {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 12px 20px;
+  border: 1px solid var(--work-border);
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  background: var(--work-card-bg);
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.work-card-outer:hover .work-impact-strip {
+  opacity: 1;
+}
+
+.work-impact-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 8px;
+  border-right: 1px solid var(--work-border);
+}
+
+.work-impact-item:last-child {
+  border-right: none;
+}
+
+.work-impact-val {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.03em;
+  color: var(--work-accent);
+  line-height: 1;
+}
+
+.work-impact-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--work-text-lo);
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* Adjust card border-radius when impact strip is present */
+.work-card-outer .work-card {
+  border-radius: 20px 20px 0 0;
+  border-bottom: none;
 }
 
 /* ── NDA callout ── */
