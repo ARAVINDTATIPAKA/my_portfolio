@@ -7,7 +7,7 @@ const PROJECTS = [
   {
     id: 'mcsf',
     title: 'MCSF — Modular Capabilities-based Services Framework',
-    desc: 'Five rigid services could not bundle, customize, or scale — every custom B2B deal was an engineering project. I redesigned the platform&apos;s object model into 11 composable capabilities. Custom launches went from weeks to same-day.',
+    desc: 'Five rigid services could not bundle, customize, or scale — every custom B2B deal was an engineering project. I redesigned the platform\'s object model into 11 composable capabilities. Custom launches went from weeks to same-day.',
     tags: ['Platform Architecture', 'B2B Admin UX', 'Pricing System', 'InterviewBuddy'],
     year: '2025 · 3 months',
     bgStyle: 'linear-gradient(135deg,#1a0e0e 0%,#2e1010 100%)',
@@ -15,6 +15,11 @@ const PROJECTS = [
     caseKey: 'mcsf',
     mvp: false,
     nda: true,
+    impacts: [
+      { val: 'Same-day', label: 'B2B service launch' },
+      { val: '5 → ∞', label: 'Service compositions' },
+      { val: '0', label: 'Eng. effort to launch' },
+    ],
   },
   {
     id: 'ib-pricing',
@@ -27,18 +32,27 @@ const PROJECTS = [
     caseKey: 'ib-pricing',
     mvp: false,
     nda: true,
+    impacts: [
+      { val: '6', label: 'Pricing rules — from 900+' },
+      { val: '0', label: 'Manual ops steps' },
+      { val: '↑', label: 'Conversion rate' },
+    ],
   },
   {
     id: 'ib-ai',
     title: 'InterviewBuddy AI — Mobile App',
     desc: 'A conversational AI career coach that understands user goals, reduces decision fatigue, and drives service discovery through natural dialogue.',
     tags: ['AI · Mobile', 'Conv. AI', '0→1', 'InterviewBuddy'],
-    year: '2024 – Present',
+    year: '2024 – Present · MVP',
     bgStyle: 'linear-gradient(135deg,#0a0e1a 0%,#0d1530 100%)',
     bgText: 'AI',
     caseKey: 'ibai',
     mvp: true,
     nda: true,
+    impacts: [
+      { val: '4', label: 'Key design decisions' },
+      { val: '0→1', label: 'Product · under dev' },
+    ],
   },
   {
     id: 'keka',
@@ -51,6 +65,11 @@ const PROJECTS = [
     caseKey: 'keka',
     mvp: false,
     nda: true,
+    impacts: [
+      { val: '2', label: 'Integration modes' },
+      { val: '2×', label: 'Device models' },
+      { val: '1 wk', label: 'Full delivery' },
+    ],
   },
   {
     id: 'ib-ds',
@@ -64,6 +83,11 @@ const PROJECTS = [
     mvp: false,
     nda: true,
     hidden: true,
+    impacts: [
+      { val: '↓40%', label: 'Design time per screen' },
+      { val: '↓70%', label: 'QA inconsistencies' },
+      { val: '2×', label: 'Screen creation speed' },
+    ],
   },
   {
     id: 'sentinel',
@@ -77,6 +101,10 @@ const PROJECTS = [
     mvp: false,
     nda: false,
     hidden: true,
+    impacts: [
+      { val: '5', label: 'Core modules' },
+      { val: '4', label: 'Design principles' },
+    ],
   },
 ]
 
@@ -114,40 +142,53 @@ export default function Work({ onOpenCase }: WorkProps) {
           viewport={{ once: true, margin: '-80px' }}
         >
           {PROJECTS.filter(p => !p.hidden).map(p => (
-            <motion.div
-              key={p.id}
-              variants={itemVariants}
-              onClick={() => onOpenCase(p.caseKey)}
-              className="work-card"
-            >
-              {/* MVP badge */}
-              {p.mvp && <span className="work-mvp-badge">MVP</span>}
+            <div key={p.id} className="work-card-outer">
+              <motion.div
+                variants={itemVariants}
+                onClick={() => onOpenCase(p.caseKey)}
+                className="work-card"
+              >
+                {/* MVP badge */}
+                {p.mvp && <span className="work-mvp-badge">MVP</span>}
 
-              {/* NDA badge */}
-              {p.nda && <span className="work-nda-badge">UNDER NDA 🔒</span>}
+                {/* NDA badge */}
+                {p.nda && <span className="work-nda-badge">UNDER NDA 🔒</span>}
 
-              {/* Image */}
-              <div className="work-card-image" style={{ background: p.bgStyle }}>
-                <div className="work-card-dots" />
-                <div className="work-card-bg-text">{p.bgText}</div>
-                <div className="work-card-overlay" />
-              </div>
+                {/* Image */}
+                <div className="work-card-image" style={{ background: p.bgStyle }}>
+                  <div className="work-card-dots" />
+                  <div className="work-card-bg-text">{p.bgText}</div>
+                  <div className="work-card-overlay" />
+                </div>
 
-              {/* Body */}
-              <div className="work-card-body">
-                <div className="work-tags">
-                  {p.tags.map(t => (
-                    <span key={t} className="work-tag">{t}</span>
+                {/* Body */}
+                <div className="work-card-body">
+                  <div className="work-tags">
+                    {p.tags.map(t => (
+                      <span key={t} className="work-tag">{t}</span>
+                    ))}
+                  </div>
+                  <h3 className="work-card-title">{p.title}</h3>
+                  <p className="work-card-desc">{p.desc}</p>
+                  <div className="work-card-footer">
+                    <span className="work-card-year">{p.year}</span>
+                    <span className="work-card-cta">Read case study ↗</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Impact strip — outside the card */}
+              {p.impacts && p.impacts.length > 0 && (
+                <div className="work-impact-strip">
+                  {p.impacts.map((imp, i) => (
+                    <div key={i} className="work-impact-item">
+                      <span className="work-impact-val">{imp.val}</span>
+                      <span className="work-impact-label">{imp.label}</span>
+                    </div>
                   ))}
                 </div>
-                <h3 className="work-card-title">{p.title}</h3>
-                <p className="work-card-desc">{p.desc}</p>
-                <div className="work-card-footer">
-                  <span className="work-card-year">{p.year}</span>
-                  <span className="work-card-cta">Read case study ↗</span>
-                </div>
-              </div>
-            </motion.div>
+              )}
+            </div>
           ))}
         </motion.div>
 
