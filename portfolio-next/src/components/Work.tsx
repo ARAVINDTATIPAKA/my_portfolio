@@ -43,7 +43,7 @@ const PROJECTS = [
     title: 'InterviewBuddy AI — Mobile App',
     desc: 'A conversational AI career coach that understands user goals, reduces decision fatigue, and drives service discovery through natural dialogue.',
     tags: ['AI · Mobile', 'Conv. AI', '0→1', 'InterviewBuddy'],
-    year: '2024 – Present · MVP',
+    year: '2026 · 2 weeks · MVP',
     bgStyle: 'linear-gradient(135deg,#0a0e1a 0%,#0d1530 100%)',
     bgText: 'AI',
     caseKey: 'ibai',
