@@ -8,7 +8,7 @@ import Work from '@/components/Work'
 import About from '@/components/About'
 import Timeline from '@/components/Timeline'
 import BeyondWork from '@/components/BeyondWork'
-// import AIProcess from '@/components/AIProcess'
+import AIProcess from '@/components/AIProcess'
 import Contact from '@/components/Contact'
 import CaseStudy from '@/components/CaseStudy'
 import Testimonials from '@/components/Testimonials'
@@ -26,7 +26,7 @@ export default function Home() {
         <About />
         <Work onOpenCase={setOpenCase} />
         <Timeline />
-        {/* <AIProcess /> */}
+        <AIProcess />
         <Testimonials />
         <Writing />
         <BeyondWork />
