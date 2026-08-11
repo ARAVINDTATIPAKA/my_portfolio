@@ -1,8 +1,7 @@
 'use client'
 
-import { useRef, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Reveal, containerVariants, itemVariants } from '@/components/Reveal'
+import { Reveal } from '@/components/Reveal'
 
 const PROJECTS = [
   {
@@ -113,58 +112,7 @@ interface WorkProps {
 }
 
 export default function Work({ onOpenCase }: WorkProps) {
-  const trackRef = useRef<HTMLDivElement>(null)
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [canScrollPrev, setCanScrollPrev] = useState(false)
-  const [canScrollNext, setCanScrollNext] = useState(true)
-
   const visibleProjects = PROJECTS.filter(p => !p.hidden)
-
-  const updateScrollState = () => {
-    const el = trackRef.current
-    if (!el) return
-    setCanScrollPrev(el.scrollLeft > 8)
-    setCanScrollNext(el.scrollLeft < el.scrollWidth - el.clientWidth - 8)
-
-    const cards = Array.from(el.children) as HTMLElement[]
-    const center = el.scrollLeft + el.clientWidth / 2
-    let closest = 0
-    let closestDist = Infinity
-    cards.forEach((card, i) => {
-      const cardCenter = card.offsetLeft + card.offsetWidth / 2
-      const dist = Math.abs(cardCenter - center)
-      if (dist < closestDist) { closestDist = dist; closest = i }
-    })
-    setActiveIndex(closest)
-  }
-
-  useEffect(() => {
-    const el = trackRef.current
-    if (!el) return
-    updateScrollState()
-    el.addEventListener('scroll', updateScrollState, { passive: true })
-    window.addEventListener('resize', updateScrollState)
-    return () => {
-      el.removeEventListener('scroll', updateScrollState)
-      window.removeEventListener('resize', updateScrollState)
-    }
-  }, [])
-
-  const scrollByCard = (dir: 1 | -1) => {
-    const el = trackRef.current
-    if (!el) return
-    const card = el.children[0] as HTMLElement
-    const cardWidth = card ? card.offsetWidth + 20 : 400
-    el.scrollBy({ left: dir * cardWidth, behavior: 'smooth' })
-  }
-
-  const scrollToIndex = (i: number) => {
-    const el = trackRef.current
-    if (!el) return
-    const card = el.children[i] as HTMLElement
-    if (!card) return
-    el.scrollTo({ left: card.offsetLeft, behavior: 'smooth' })
-  }
 
   return (
     <section id="work" className="work-section">
@@ -183,95 +131,65 @@ export default function Work({ onOpenCase }: WorkProps) {
               <h2 className="work-title">The portfolio.</h2>
             </Reveal>
           </div>
-          <div className="work-scroll-nav">
-            <button
-              className="work-scroll-arrow"
-              onClick={() => scrollByCard(-1)}
-              disabled={!canScrollPrev}
-              aria-label="Previous project"
-            >
-              ←
-            </button>
-            <button
-              className="work-scroll-arrow"
-              onClick={() => scrollByCard(1)}
-              disabled={!canScrollNext}
-              aria-label="Next project"
-            >
-              →
-            </button>
-          </div>
         </div>
 
-        {/* Scroll track */}
-        <motion.div
-          ref={trackRef}
-          className="work-grid"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-        >
-          {visibleProjects.map(p => (
-            <div key={p.id} className="work-card-outer">
+        {/* Stacking track */}
+        <div className="work-grid">
+          {visibleProjects.map((p, i) => (
+            <div key={p.id} className="work-stack-item">
               <motion.div
-                variants={itemVariants}
-                onClick={() => onOpenCase(p.caseKey)}
-                className="work-card"
+                initial={{ opacity: 0, y: 60, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: '-120px' }}
+                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                style={{ '--stack-i': i } as React.CSSProperties}
+                className="work-stack-card"
               >
-                {/* MVP badge */}
-                {p.mvp && <span className="work-mvp-badge">MVP</span>}
+                <div className="work-card-outer">
+                  <div onClick={() => onOpenCase(p.caseKey)} className="work-card">
+                    {/* MVP badge */}
+                    {p.mvp && <span className="work-mvp-badge">MVP</span>}
 
-                {/* NDA badge */}
-                {p.nda && <span className="work-nda-badge">UNDER NDA 🔒</span>}
+                    {/* NDA badge */}
+                    {p.nda && <span className="work-nda-badge">UNDER NDA 🔒</span>}
 
-                {/* Image */}
-                <div className="work-card-image" style={{ background: p.bgStyle }}>
-                  <div className="work-card-dots" />
-                  <div className="work-card-bg-text">{p.bgText}</div>
-                  <div className="work-card-overlay" />
-                </div>
+                    {/* Image */}
+                    <div className="work-card-image" style={{ background: p.bgStyle }}>
+                      <div className="work-card-dots" />
+                      <div className="work-card-bg-text">{p.bgText}</div>
+                      <div className="work-card-overlay" />
+                    </div>
 
-                {/* Body */}
-                <div className="work-card-body">
-                  <div className="work-tags">
-                    {p.tags.map(t => (
-                      <span key={t} className="work-tag">{t}</span>
-                    ))}
+                    {/* Body */}
+                    <div className="work-card-body">
+                      <div className="work-tags">
+                        {p.tags.map(t => (
+                          <span key={t} className="work-tag">{t}</span>
+                        ))}
+                      </div>
+                      <h3 className="work-card-title">{p.title}</h3>
+                      <p className="work-card-desc">{p.desc}</p>
+                      <div className="work-card-footer">
+                        <span className="work-card-year">{p.year}</span>
+                        <span className="work-card-cta">Read case study ↗</span>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="work-card-title">{p.title}</h3>
-                  <p className="work-card-desc">{p.desc}</p>
-                  <div className="work-card-footer">
-                    <span className="work-card-year">{p.year}</span>
-                    <span className="work-card-cta">Read case study ↗</span>
-                  </div>
+
+                  {/* Impact strip — outside the card */}
+                  {p.impacts && p.impacts.length > 0 && (
+                    <div className="work-impact-strip">
+                      {p.impacts.map((imp, j) => (
+                        <div key={j} className="work-impact-item">
+                          <span className="work-impact-val">{imp.val}</span>
+                          <span className="work-impact-label">{imp.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </motion.div>
-
-              {/* Impact strip — outside the card */}
-              {p.impacts && p.impacts.length > 0 && (
-                <div className="work-impact-strip">
-                  {p.impacts.map((imp, i) => (
-                    <div key={i} className="work-impact-item">
-                      <span className="work-impact-val">{imp.val}</span>
-                      <span className="work-impact-label">{imp.label}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
-          ))}
-        </motion.div>
-
-        {/* Progress dots */}
-        <div className="work-scroll-dots">
-          {visibleProjects.map((p, i) => (
-            <button
-              key={p.id}
-              className={`work-scroll-dot ${i === activeIndex ? 'work-scroll-dot--active' : ''}`}
-              onClick={() => scrollToIndex(i)}
-              aria-label={`Go to ${p.title}`}
-            />
           ))}
         </div>
 
