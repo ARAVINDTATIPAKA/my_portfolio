@@ -2026,7 +2026,7 @@ button {
   }
 
   .work-stack-item {
-    height: 78vh !important;
+    height: 130vh !important;
   }
 
   .work-card {
@@ -2223,7 +2223,7 @@ button {
   }
 
   .work-stack-item {
-    height: 72vh !important;
+    height: 120vh !important;
   }
 
   /* Card images — shorter on mobile */
@@ -2772,7 +2772,7 @@ button {
 
 .work-stack-item {
   position: relative;
-  height: 85vh;
+  height: 160vh;
 }
 
 .work-stack-card {
