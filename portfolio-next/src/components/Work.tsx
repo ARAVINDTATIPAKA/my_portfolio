@@ -82,7 +82,6 @@ const PROJECTS = [
     caseKey: 'ib',
     mvp: false,
     nda: true,
-    hidden: true,
     impacts: [
       { val: '↓40%', label: 'Design time per screen' },
       { val: '↓70%', label: 'QA inconsistencies' },

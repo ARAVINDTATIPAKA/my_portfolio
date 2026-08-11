@@ -698,6 +698,29 @@ button {
   text-align: center;
 }
 
+/* ── Case study spacing refinements ── */
+.cs-body-text + .cs-body-text { margin-top: 14px; }
+
+.cs-body-text + .cs-card-grid,
+.cs-body-text + .cs-outcome-grid,
+.cs-body-text + .decisions-multi-grid { margin-top: 20px; }
+
+.cs-outcome-grid + .cs-body-text,
+.cs-card-grid + .cs-body-text,
+.decisions-multi-grid + .cs-body-text { margin-top: 20px; }
+
+.cs-feature:last-child { border-bottom: none; padding-bottom: 0; }
+.cs-body-text + .cs-feature { padding-top: 20px; }
+
+.cs-section > *:last-child,
+.cs-section-last > *:last-child { margin-bottom: 0; }
+.cs-section > *:first-child,
+.cs-section-last > *:first-child { margin-top: 0; }
+
+.decisions-multi-grid .cs-phone-frame-container { margin: 0; }
+.decisions-multi-grid .decision-img { min-width: 0; }
+.decisions-multi-grid .cs-phone-frame-wrap { width: 200px; }
+
 .cs-figma-container {
   border-radius: 16px;
   overflow: hidden;
