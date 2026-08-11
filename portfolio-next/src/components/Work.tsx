@@ -137,15 +137,17 @@ export default function Work({ onOpenCase }: WorkProps) {
         <div className="work-grid">
           {visibleProjects.map((p, i) => (
             <div key={p.id} className="work-stack-item">
-              <motion.div
-                initial={{ opacity: 0, y: 60, scale: 0.96 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: '-120px' }}
-                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              <div
                 style={{ '--stack-i': i } as React.CSSProperties}
                 className="work-stack-card"
               >
-                <div className="work-card-outer">
+                <motion.div
+                  initial={{ opacity: 0, y: 60, scale: 0.96 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: '-120px' }}
+                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  className="work-card-outer"
+                >
                   <div onClick={() => onOpenCase(p.caseKey)} className="work-card">
                     {/* MVP badge */}
                     {p.mvp && <span className="work-mvp-badge">MVP</span>}
@@ -187,8 +189,8 @@ export default function Work({ onOpenCase }: WorkProps) {
                       ))}
                     </div>
                   )}
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
             </div>
           ))}
         </div>
