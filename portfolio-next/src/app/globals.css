@@ -2021,12 +2021,9 @@ button {
 
   /* Work grid */
   .work-grid {
-    --stack-top-base: 100px !important;
-    --stack-gap: 22px !important;
-  }
-
-  .work-stack-item {
-    height: 130vh !important;
+    --stack-top-base: 92px !important;
+    --stack-gap: 20px !important;
+    --stack-spacing: 70px !important;
   }
 
   .work-card {
@@ -2218,12 +2215,9 @@ button {
   }
 
   .work-grid {
-    --stack-top-base: 80px !important;
-    --stack-gap: 16px !important;
-  }
-
-  .work-stack-item {
-    height: 120vh !important;
+    --stack-top-base: 76px !important;
+    --stack-gap: 14px !important;
+    --stack-spacing: 52px !important;
   }
 
   /* Card images — shorter on mobile */
@@ -2766,18 +2760,24 @@ button {
 .work-grid {
   grid-column: 1 / 13;
   position: relative;
-  --stack-top-base: 120px;
-  --stack-gap: 32px;
+  display: block;
+  --stack-top-base: 110px;
+  --stack-gap: 28px;
+  --stack-spacing: 90px;
+  padding-bottom: 20vh;
 }
 
-.work-stack-item {
-  position: relative;
-  height: 160vh;
-}
-
+/* Each card is a sticky sibling in ONE shared parent, so they accumulate.
+   Later cards get a larger top offset + higher z-index, so they land on top. */
 .work-stack-card {
   position: sticky;
   top: calc(var(--stack-top-base) + var(--stack-i, 0) * var(--stack-gap));
+  z-index: calc(var(--stack-i, 0) + 1);
+  margin-bottom: var(--stack-spacing);
+}
+
+.work-stack-card:last-child {
+  margin-bottom: 0;
 }
 
 .work-header {
