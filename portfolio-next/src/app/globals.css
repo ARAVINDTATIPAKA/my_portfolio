@@ -2020,8 +2020,8 @@ button {
   }
 
   /* Work grid */
-  .work-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+  .work-card-outer {
+    width: min(380px, 80vw) !important;
   }
 
   .work-card-image {
@@ -2195,8 +2195,15 @@ button {
   }
 
   .work-grid {
-    grid-template-columns: 1fr !important;
     gap: 14px !important;
+  }
+
+  .work-card-outer {
+    width: 86vw !important;
+  }
+
+  .work-scroll-nav {
+    display: none !important;
   }
 
   /* Card images — shorter on mobile */
@@ -2734,15 +2741,24 @@ button {
 
 .work-grid {
   grid-column: 1 / 13;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 4px 4px 12px;
+  margin: -4px -4px 0;
+}
+
+.work-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .work-header {
   grid-column: 1 / 13;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 48px;
 }
@@ -2775,6 +2791,66 @@ button {
   font-size: clamp(36px, 4vw, 56px);
   color: var(--work-text-hi);
   margin: 0;
+}
+
+.work-scroll-nav {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.work-scroll-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--work-card-border);
+  background: var(--work-card-bg);
+  color: var(--work-text-hi);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.work-scroll-arrow:hover:not(:disabled) {
+  border-color: var(--work-accent);
+  color: var(--work-accent);
+  transform: translateY(-2px);
+}
+
+.work-scroll-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.work-scroll-dots {
+  grid-column: 1 / 13;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.work-scroll-dot {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: var(--work-card-border);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.work-scroll-dot:hover {
+  background: var(--work-text-lo);
+}
+
+.work-scroll-dot--active {
+  width: 22px;
+  background: var(--work-accent);
 }
 
 .work-filters {
@@ -2957,6 +3033,9 @@ button {
   display: flex;
   flex-direction: column;
   gap: 0;
+  flex: 0 0 auto;
+  width: min(420px, 78vw);
+  scroll-snap-align: start;
 }
 
 /* ── Impact strip — sits below the card ── */
