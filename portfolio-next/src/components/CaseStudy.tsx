@@ -297,7 +297,7 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
 
     /* ──────────────── IB DESIGN SYSTEM ──────────────── */
     if (localCaseKey === 'ib') return <>
-      <Hero c={{ title: 'InterviewBuddy Design System', subtitle: 'Building a scalable foundation for a multi-product interview preparation platform — one token architecture powering five portals.', eyebrow: 'InterviewBuddy · Design Infrastructure · 2024–Present', meta: { Role: 'Lead Product Designer', Team: 'Product, Engineering, QA', Tools: 'Figma, Tokens Studio', Portals: '5 products' }, tags: ['Design System', 'Design Tokens', 'Component Library', 'Multi-portal', 'Accessibility', 'Scalability'] }} />
+      <Hero c={{ title: 'InterviewBuddy Design System', subtitle: 'One token architecture powering five portals across two brands and light/dark.', eyebrow: 'InterviewBuddy · Design Infrastructure · 2024–Present', meta: { Role: 'Lead Product Designer', Team: 'Product, Engineering, QA', Tools: 'Figma, Tokens Studio', Portals: '5 products' }, tags: ['Design System', 'Design Tokens', 'Multi-brand theming', 'Component Library', 'Multi-portal', 'Accessibility', 'Scalability'] }} />
 
       <NDACallout />
 
@@ -318,14 +318,18 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
       <Section>
         <SectionLabel text="The Problem" />
         <SectionHeading text="Consistency is an organizational problem, not a visual one." />
-        <div className="cs-stats-grid">
-          {[['14', 'Button styles'], ['9', 'Input variations'], ['18', 'Font sizes in use'], ['40+', 'Color shades'], ['5', 'Different portals'], ['0', 'Shared token layer']].map(([val, label]) => (
-            <div key={label} className="cs-stats-card">
-              <div className="cs-stats-val">{val}</div>
-              <div className="cs-stats-label">{label}</div>
-            </div>
-          ))}
-        </div>
+        <BodyText>Before the system, every portal had quietly grown its own version of the same components. An audit made the drift concrete — and gave a target for what "one system" actually had to resolve down to.</BodyText>
+        <DataTable
+          headers={['Metric', 'Before', 'After']}
+          rows={[
+            ['Button styles', '14', '1 component, variant-driven'],
+            ['Input variations', '9', '1 component with a full state matrix'],
+            ['Font sizes in use', '18', '8-step type scale'],
+            ['Color shades', '40+', 'One semantic palette (Brand · Success · Warning · Error · Info · Neutral)'],
+            ['Portals', '5, siloed', '5, from one system'],
+            ['Shared token layer', '0', '1'],
+          ]}
+        />
       </Section>
 
       <Section>
@@ -349,6 +353,57 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
       </Section>
 
       <Section>
+        <SectionLabel text="The Token Architecture" />
+        <SectionHeading text="Four tiers, so one change re-themes everything." />
+        <BodyText>The system isn't a palette — it's a resolution chain. Every value flows through four tiers, and components may only touch the top of it.</BodyText>
+        <Feature num="01" title="Primitive — the raw material" desc="Full color ramps (Purple, Gray, Green, Red, Orange, Blue...), the numeric scale, the typeface. Real hex values live here and nowhere else — never referenced by a screen." />
+        <Feature num="02" title="Alias — the brand layer" desc="Component-facing roles (Brand, Success, Warning, Error, Info, Neutral) plus structural tokens (radius, border width). Two modes: InterviewBuddy (Brand → Purple) and AI Job Prep (Brand → Electric Lime). Switch the mode and 'Brand' repoints across the whole product." />
+        <Feature num="03" title="Mapped — the semantic layer components consume" desc="Surface / Text / Border / Icons, per palette, per state (default, hover, active, focus, on-color). Carries Light and Dark modes." />
+        <Feature num="04" title="Responsive — breakpoint-bound values" desc="Type scale and spacing bound to breakpoints (Desktop / Mobile), so sizing scales without hardcoded pixels." />
+
+        <Callout text="Binding priority: Responsive › Mapped › Alias › Primitive. A component may never reach below Mapped. A button's fill isn't #6834FF — it's Surface/Brand/Default, which resolves through Alias Brand/500 down to a primitive." />
+
+        <div className="cs-token-diagram">
+          <div className="cs-token-diagram-flow">
+            <div className="cs-token-tier-box">
+              <span className="cs-token-tier-label">Tier 1</span>
+              <span className="cs-token-tier-name">Primitive</span>
+              <span className="cs-token-tier-example">Purple/500 → #6834FF</span>
+            </div>
+            <span className="cs-token-arrow">→</span>
+            <div className="cs-token-tier-box">
+              <span className="cs-token-tier-label">Tier 2</span>
+              <span className="cs-token-tier-name">Alias</span>
+              <span className="cs-token-tier-example">Brand/500</span>
+              <div className="cs-token-mode-row">
+                <span className="cs-token-mode-chip">IB · Purple</span>
+                <span className="cs-token-mode-chip cs-token-mode-chip-lime">AI Job Prep · Electric Lime</span>
+              </div>
+            </div>
+            <span className="cs-token-arrow">→</span>
+            <div className="cs-token-tier-box">
+              <span className="cs-token-tier-label">Tier 3</span>
+              <span className="cs-token-tier-name">Mapped</span>
+              <span className="cs-token-tier-example">Surface/Brand/Default</span>
+              <div className="cs-token-mode-row">
+                <span className="cs-token-mode-chip">Light</span>
+                <span className="cs-token-mode-chip cs-token-mode-chip-dark">Dark</span>
+              </div>
+            </div>
+            <span className="cs-token-arrow">→</span>
+            <div className="cs-token-tier-box">
+              <span className="cs-token-tier-label">Tier 4</span>
+              <span className="cs-token-tier-name">Responsive</span>
+              <span className="cs-token-tier-example">Desktop / Mobile</span>
+            </div>
+          </div>
+          <div className="cs-token-diagram-caption">Binding priority: Responsive › Mapped › Alias › Primitive. Components bind to Mapped only.</div>
+        </div>
+
+        <Callout text="Because nothing is hardcoded, re-theming is a mode switch, not a redesign. Change brand → flip the Alias mode. Change light/dark → flip the Mapped mode. One button definition renders correctly across 2 brands × 2 themes — four combinations — with zero component edits. Across the full library and five portals, one token change propagates everywhere at once — which is why a decision made in one portal shows up in the others for free." />
+      </Section>
+
+      <Section>
         <SectionLabel text="Components" />
         <SectionHeading text="Built for states, not just screenshots." />
         <BodyText>Components weren't designed in isolation — every one was built with its full state matrix: default, hover, focus, disabled, loading, error, and success where applicable.</BodyText>
@@ -369,15 +424,34 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
       <Section>
         <SectionLabel text="Designer-Developer Collaboration" />
         <SectionHeading text="The system only works if engineers can use it." />
-        <BodyText>The Figma file is structured into four layers: Foundations → Components → Patterns → Templates. Naming conventions mirror what engineers see in code. Token names are identical between Figma and implementation — no translation layer, no misalignment.</BodyText>
-        <Callout text="Accessibility wasn't treated as a final QA step. It was embedded into component creation from day one — contrast ratios verified, focus states designed, keyboard navigation documented alongside every component spec." />
+        <BodyText>The Figma file is structured into four layers: Foundations → Components → Patterns → Templates. Naming conventions mirror what engineers see in code. Token names are identical between Figma and implementation — no translation layer, no misalignment. Accessibility is specified at the component level (Design Principle 04) — contrast ratios, focus states, and keyboard behavior are documented alongside every component spec, not audited afterward.</BodyText>
+      </Section>
+
+      <Section>
+        <SectionLabel text="Impact" />
+        <SectionHeading text="What changed after the system shipped." />
+        <Callout text="For the first time, a design decision made in one portal automatically applied to the others — because they all read from the same token layer." />
+        <div className="cs-outcome-clean">
+          <div>
+            <div className="cs-outcome-clean-val">~40%</div>
+            <div className="cs-outcome-clean-label">Less design time per new screen (estimated)</div>
+          </div>
+          <div>
+            <div className="cs-outcome-clean-val">Fewer</div>
+            <div className="cs-outcome-clean-label">UI inconsistencies caught in QA</div>
+          </div>
+          <div>
+            <div className="cs-outcome-clean-val">Faster</div>
+            <div className="cs-outcome-clean-label">Designer onboarding, fewer developer clarifications</div>
+          </div>
+        </div>
       </Section>
 
       <Section last>
-        <SectionLabel text="Impact" />
-        <SectionHeading text="What changed after the system shipped." />
-        <OutcomeGrid items={[{ val: '↓40%', label: 'Design time per new screen' }, { val: '↓70%', label: 'UI inconsistencies flagged in QA' }, { val: '2×', label: 'Faster new screen creation' }]} />
-        <BodyText>Developer clarifications dropped significantly. New designers onboarded faster. And for the first time, a design decision made in one portal automatically applied to the others — because they were all reading from the same token layer.</BodyText>
+        <SectionLabel text="Trade-offs & Reflection" />
+        <SectionHeading text="The indirection has to be owned." />
+        <BodyText>The four-tier structure adds a learning curve and governance overhead — someone has to own the token layer, review additions, and stop teams from reaching past Mapped into raw primitives. The payoff — multi-brand, multi-theme, cross-portal consistency from one source — only holds if that discipline is maintained.</BodyText>
+        <Callout text="On a smaller product, four tiers is probably overkill. At five portals across two brands, it's what keeps the system from fracturing back into fourteen button styles." />
       </Section>
     </>
 
@@ -511,357 +585,6 @@ export default function CaseStudy({ caseKey, onClose }: { caseKey: string | null
         <SectionLabel text="Reflection" />
         <SectionHeading text="Design at the level of the funnel, not the screen." />
         <Callout text="The most important decisions in this project were not visual. They were structural — what to give away free, what to ask and when, what the AI is allowed to recommend, and what happens when a user doesn’t buy. The result is a framework where design, AI, and business strategy meet: a system that guides users from uncertainty to action — and makes sure that even the ones who don’t convert leave us better off than before." />
-      </Section>
-    </>
-
-
-    if (localCaseKey === 'sentinel') return <>
-      <Hero c={{ title: 'SentinelOS', subtitle: 'AI-Assisted Surveillance Intelligence Platform for High-Security Facilities', eyebrow: 'Self-initiated · Enterprise UX · 2026', meta: { Role: 'Product Designer (Solo)', Timeline: '5 Weeks', Type: 'Concept / Self-initiated', Deliverable: 'High-fidelity product concept' }, tags: ['Enterprise UX', 'AI-Assisted Workflows', 'Dashboard Design', 'Systems Thinking', 'Design System', 'UX Research'] }} />
-
-      <NDACallout />
-
-      <Section>
-        <SectionLabel text="The Problem" />
-        <SectionHeading text="Sustained human attention is unreliable at scale." />
-        <BodyText>Traditional surveillance systems are largely passive. Operators continuously scan dozens of feeds, incidents are manually traced, and alerts are reactive. The result: monitoring fatigue, missed incidents, and slow response times — not from lack of infrastructure, but from cognitive overload.</BodyText>
-        <Callout text='"How might we help surveillance teams in high-security environments improve situational awareness and reduce monitoring fatigue — without replacing human operators?"' />
-      </Section>
-
-      <Section>
-        <SectionLabel text="Research Insights" />
-        <SectionHeading text="Four findings that shaped the product." />
-        <CardGrid>
-          <Card num="01" title="Fatigue is the real failure mode" desc="Operators monitoring multiple feeds continuously experience reduced attention, slower detection, and alert desensitization — not equipment failure." />
-          <Card num="02" title="Systems prioritize recording, not intelligence" desc="Most platforms are designed for storing footage and reviewing incidents after the fact. Almost none actively help operators prioritize attention in real time." />
-          <Card num="03" title="Alert volume destroys trust" desc="When every alert appears critical, operators learn to ignore them. Signal-to-noise ratio becomes the core UX problem — not information availability." />
-          <Card num="04" title="AI works best as an assistant" desc="Operators in high-security environments trust systems more when they remain in control of final decisions. Human-in-the-loop is not a limitation — it's a design requirement." />
-        </CardGrid>
-      </Section>
-
-      <Section>
-        <SectionLabel text="The Strategic Shift" />
-        <SectionHeading text="Not automation. Augmentation." />
-        <BodyText>Most AI surveillance conversations default to automation. But high-security environments rarely trust fully autonomous systems — human verification remains critical.</BodyText>
-        <Callout text='Instead of designing "an AI that replaces surveillance personnel" — I designed "an assistive intelligence layer that helps operators make faster and more informed decisions."' />
-      </Section>
-
-      <Section>
-        <SectionLabel text="Design Principles" />
-        <SectionHeading text="Four principles, every decision." />
-        <DataTable headers={['Principle', 'Purpose']} rows={[['Assistive Intelligence', 'Support humans, never replace them'], ['Attention Prioritization', 'Surface only operationally important events'], ['Operational Clarity', 'Reduce monitoring complexity, not just visual density'], ['Transparent AI', 'Expose confidence levels and reasoning to improve trust']]} />
-      </Section>
-
-      <Section>
-        <SectionLabel text="Information Architecture" />
-        <SectionHeading text="Five modules, separated by intent." />
-        <DataTable headers={['Module', 'Purpose']} rows={[['Live Monitoring', 'Real-time surveillance overview with AI priority surfacing'], ['Incident Intelligence', 'AI-assisted anomaly tracking and cross-camera investigation'], ['Restricted Access', 'Zone-level access visibility and unauthorized movement detection'], ['Operational Analytics', 'Occupancy trends, movement density, restricted-zone heatmaps'], ['Security Administration', 'Permissions management and escalation workflows']]} />
-      </Section>
-
-      <Section>
-        <SectionLabel text="Key Features" />
-        <SectionHeading text="What the system actually does." />
-        <Feature num="01" title="AI-Assisted Event Prioritization" desc="Instead of forcing operators to monitor every feed equally, the system identifies unusual movement patterns, unauthorized zone access, prolonged restricted-area presence, and suspicious activity clusters — helping operators focus where it matters most." />
-        <Feature num="02" title="Smart Incident Timeline" desc="AI-generated movement timelines, cross-camera subject tracking, and chronological incident summaries replace the historically manual process of tracing events across multiple feeds." />
-        <Feature num="03" title="Multi-Level Restricted Access Monitoring" desc="The platform monitors access attempts, unauthorized movement, and unusual zone transitions with clear contextual signals across restricted labs, server rooms, and authorization-based movement areas." />
-        <Feature num="04" title="Transparent AI Reasoning" desc='Confidence indicators, alert reasoning, and detection sources are intentionally exposed. Example: "Unusual activity detected due to prolonged stationary presence in Restricted Zone B."' />
-      </Section>
-
-      <Section>
-        <SectionLabel text="Outcomes" />
-        <SectionHeading text="What this project proved." />
-        <OutcomeGrid items={[{ val: '5', label: 'Core modules designed end-to-end' }, { val: '4', label: 'Design principles held across every screen' }, { val: '1', label: 'Modular enterprise design system created' }]} />
-      </Section>
-
-      <Section last>
-        <SectionLabel text="Key Learnings" />
-        <SectionHeading text="What this reinforced." />
-        <Callout text="AI works best when it augments human capability rather than replacing it. Enterprise systems should optimize attention, not just information density. Trust in AI increases significantly when uncertainty and reasoning are made visible. Good surveillance UX is less about monitoring everything — and more about helping users identify what actually matters." />
-      </Section>
-    </>
-
-    /* ──────────────── KEKA ──────────────── */
-    if (localCaseKey === 'keka') return <>
-      <Hero c={{ title: 'Keka Sync Tool', subtitle: 'A Windows desktop application that sits as the infrastructure layer between biometric hardware and Keka’s attendance management ecosystem.', eyebrow: 'Keka · Enterprise Product · Internal Tool', meta: { Role: 'Product Designer', Timeline: '1 Week', Platform: 'Windows (Desktop App)', Constraint: 'Existing Keka component system' }, tags: ['Enterprise UX', 'Operational Dashboard', 'Device Management', 'Sync Monitoring', 'Windows App', 'Workflow Design'] }} />
-
-      <NDACallout />
-
-      <Section>
-        <SectionLabel text="The Context" />
-        <SectionHeading text="When scale breaks attendance infrastructure." />
-        <BodyText>Large organizations operating across multiple offices, campuses, and floors rely on biometric devices to capture attendance. But at scale — thousands of employees, multiple locations, peak traffic — the challenge shifts from <em>capturing</em> attendance to <em>maintaining reliable synchronization</em>.</BodyText>
-        <BodyText>Logs arrive with delays. Records become inconsistent. Devices go offline. Different clients connect their hardware in fundamentally different ways. The Keka Sync Tool runs on-site, connects to a client’s biometric devices, and keeps their attendance records flowing reliably into Keka.</BodyText>
-        <BodyText>But it isn’t a tool the client operates themselves. It’s an internal instrument, used only by <strong>Keka’s Customer Support and Hardware teams</strong> — and only when something goes wrong. When a customer notices a discrepancy in their attendance data, they reach out to support. A CS agent logs in, opens the dashboard, and diagnoses what broke. The tool’s job is to make that diagnosis fast and trustworthy for people walking into a problem cold.</BodyText>
-        <Callout text='"How might we help Keka’s support and hardware teams quickly diagnose and resolve biometric sync discrepancies — across many different client setups — when a customer escalates a problem?"' />
-      </Section>
-
-      <Section>
-        <SectionLabel text="Core Realization" />
-        <SectionHeading text="Not one problem — three layers of variability." />
-        <BodyText>Early on, the most important discovery was how much the setup differed from client to client. The tool couldn’t assume a single “happy path.” It had to absorb variability across three layers.</BodyText>
-        <Feature num="Layer 01" title="How devices connect — SQL vs SDK" desc="Some client environments integrate through a SQL connection (reading attendance from a device or vendor database), while others integrate through the device manufacturer’s SDK (connecting to devices directly, with live connection testing). These are two genuinely different configuration and troubleshooting paths — not a cosmetic difference — and the tool had to support both without splitting into two disjointed products." />
-        <Feature num="Layer 02" title="How attendance is captured — single vs dual device" desc="Setup A: one biometric device handles both clock-in and clock-out using punch sequence and timing logic — simpler, but creates congestion at scale. Setup B: dedicated devices for clock-in and clock-out — reduces congestion but introduces device-role mapping, synchronization dependency, and management complexity. Device role is assigned per device during configuration, so the same interface had to gracefully express both models." />
-        <Feature num="Layer 03" title="How the workspace is structured — locations & access areas" desc="Organizations map their physical footprint differently. Devices roll up into access areas, which roll up into locations and location groups — a hierarchy the hardware team sets up and adjusts to match each client’s real office structure." />
-        <Callout text="The underlying theme: this was never a hardware problem. It was an operational workflow problem — designing one coherent system flexible enough to hold every client’s reality." />
-      </Section>
-
-      <Section>
-        <SectionLabel text="Research Insights" />
-        <SectionHeading text="Findings that shaped the UX direction." />
-        <Feature num="01" title="A healthy queue and a real failure look the same." desc="During peak hours, thousands of records arrive in minutes, so a big backlog is normal — it’s just the system working under load. But a broken sync looks exactly the same: records that haven’t reached Keka yet. If the design flags both as errors, a support agent chasing every alert wastes time and stops trusting them. If it flags neither, real failures stay hidden until payroll breaks. So the problem was never ‘show the sync status.’ It was helping a support agent tell working apart from failing when both look identical — and doing it calmly, so they trust what they see while a frustrated customer waits." />
-        <Feature num="02" title="Configuration had a lot of moving parts." desc="Resolving an issue could mean touching SQL vs SDK integration, single vs dual device roles, or the location and access-area hierarchy. The teams needed to make these changes quickly and confidently — with bulk actions for repetitive fixes — without re-learning the technical details every time they opened a client’s setup." />
-        <Feature num="03" title="Setup and recovery are part of the product." desc="The tool is installed on-site, so getting it running matters. Installing, reinstalling, and activating come up again and again when the hardware team stands up or restores a client’s setup — so they were designed as proper flows, not afterthoughts." />
-      </Section>
-
-      <Section>
-        <SectionLabel text="User Context" />
-        <SectionHeading text="Two internal teams, one reactive workflow." />
-        <BodyText>The Sync Tool isn’t customer-facing. Its only users are inside Keka, and they split into two roles:</BodyText>
-        <CardGrid>
-          <Card num="CS Team" title="Customer Support — first responders" desc="When a customer reports that their attendance data looks wrong, a CS agent logs in, opens the dashboard, reads the sync status, and troubleshoots to find what failed." />
-          <Card num="HW Team" title="Hardware team — the fixers" desc="When the problem needs a physical or structural change — a new device, a re-mapping, a role reassignment — the hardware team acts on it." />
-        </CardGrid>
-        <BodyText>This is a reactive tool. Nobody sits in it all day; someone opens it because a customer escalated a problem. That single fact shaped the design more than anything else.</BodyText>
-        <Callout text='"The challenge wasn’t ‘How do we simplify everything?’ — it was ‘How do we help someone who just walked into a problem understand it fast?’"' />
-      </Section>
-
-      <Section>
-        <SectionLabel text="Core Experience Areas" />
-        <SectionHeading text="Four areas, one coherent system." />
-        <DataTable headers={['Area', 'What it solved']} rows={[
-          ['Setup & Activation', 'Install, reinstall, and activate the tool on-site — turning a technical deployment into a guided, recoverable flow.'],
-          ['Device Configuration (SQL & SDK)', 'Register and configure devices under either integration mode, assign clock-in / clock-out roles, and test connectivity — supporting both single- and dual-device models.'],
-          ['Location & Access-Area Mapping', 'Distribute devices across a location-group → location → access-area hierarchy, with bulk updates for managing infrastructure at scale.'],
-          ['Sync Monitoring & Troubleshooting', 'Structured status indicators, readable alerts, and operational summaries — surfacing sync health vs. failure instead of raw technical logs.'],
-        ]} />
-        <BodyText>A principle that ran underneath all four: <strong>record integrity</strong>. Maintaining correct attendance sequence during high traffic, simultaneous punches, and network instability wasn’t a single screen — it was a reliability requirement the monitoring, troubleshooting, and device-role logic were all designed to protect.</BodyText>
-      </Section>
-
-      <Section>
-        <SectionLabel text="Constraints & Execution" />
-        <SectionHeading text="One week. No PM. Existing components. Smarter decisions." />
-        <BodyText>This project ran without a dedicated product manager. With the PM on leave, I built the problem definition myself — working directly with the head of hardware to frame the scope, the edge cases, and the operational workflows before designing a single screen. So the week didn’t just cover the UI; it covered the problem framing that usually comes before it.</BodyText>
-        <BodyText>The project was then designed and delivered within that one week using Keka’s existing design components — maintaining consistency with the broader Keka ecosystem and accelerating implementation speed.</BodyText>
-        <Callout text="Good enterprise design isn’t always about introducing new UI patterns — sometimes it’s about making smarter decisions within operational and technical constraints." />
-      </Section>
-
-      <Section last>
-        <SectionLabel text="Outcomes" />
-        <SectionHeading text="What the project delivered." />
-        <BodyText>The outcome that wasn’t a count: reframed sync status from a binary pass/fail into health-vs-failure states the support team could actually trust — turning a signal that used to trigger false alarms into one they could act on. Everything below is scope; this is the judgment.</BodyText>
-        <OutcomeGrid items={[
-          { val: '2', label: 'Integration modes supported (SQL & SDK)' },
-          { val: '2×', label: 'Device-capture models supported (single & dual)' },
-          { val: '1', label: 'Coherent install → configure → monitor lifecycle' },
-          { val: '1 wk', label: 'Full delivery — problem definition included' },
-        ]} className="cs-outcome-grid-2x2" />
-      </Section>
-    </>
-
-    /* ──────────────── IB DESIGN SYSTEM ──────────────── */
-    if (localCaseKey === 'ib') return <>
-      <Hero c={{ title: 'InterviewBuddy Design System', subtitle: 'Building a scalable foundation for a multi-product interview preparation platform — one token architecture powering five portals.', eyebrow: 'InterviewBuddy · Design Infrastructure · 2024–Present', meta: { Role: 'Lead Product Designer', Team: 'Product, Engineering, QA', Tools: 'Figma, Tokens Studio', Portals: '5 products' }, tags: ['Design System', 'Design Tokens', 'Component Library', 'Multi-portal', 'Accessibility', 'Scalability'] }} />
-
-      <NDACallout />
-
-      <Section>
-        <SectionLabel text="The Scale" />
-        <SectionHeading text="One system. Five portals." />
-        <BodyText>InterviewBuddy has five distinct portals with different users, different workflows, and different expectations. A single design system had to power all of them without collapsing into rigidity or fragmenting into chaos.</BodyText>
-        <div className="cs-ds-map-wrap">
-          <div className="cs-ds-map-root">Design System</div>
-          <div className="cs-ds-map-portals">
-            {['B2C Candidate', 'B2B Candidate', 'B2C Expert', 'B2B Expert', 'Admin Portal'].map(p2 => (
-              <div key={p2} className="cs-ds-map-portal">{p2}</div>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      <Section>
-        <SectionLabel text="The Problem" />
-        <SectionHeading text="Consistency is an organizational problem, not a visual one." />
-        <div className="cs-stats-grid">
-          {[['14', 'Button styles'], ['9', 'Input variations'], ['18', 'Font sizes in use'], ['40+', 'Color shades'], ['5', 'Different portals'], ['0', 'Shared token layer']].map(([val, label]) => (
-            <div key={label} className="cs-stats-card">
-              <div className="cs-stats-val">{val}</div>
-              <div className="cs-stats-label">{label}</div>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section>
-        <SectionLabel text="Design Principles" />
-        <SectionHeading text="Four rules the system never breaks." />
-        <CardGrid>
-          <Card num="01" title="Clarity First" desc="Interfaces should be easy to scan during interview preparation. Cognitive load during high-stakes moments must be minimized by design." />
-          <Card num="02" title="Efficiency Over Decoration" desc="Users come to practice interviews, not admire interfaces. Every visual decision earns its place by helping users get to their goal faster." />
-          <Card num="03" title="Consistency Across Portals" desc="Regardless of user role — candidate, expert, or admin — patterns should remain familiar. Switching portals shouldn't mean relearning the product." />
-          <Card num="04" title="Accessibility by Default" desc="Accessibility wasn't a final QA step — it was embedded into component creation from day one. Contrast, focus states, and keyboard navigation baked in." />
-        </CardGrid>
-      </Section>
-
-      <Section>
-        <SectionLabel text="Foundations" />
-        <SectionHeading text="The layer everything else is built on." />
-        <Feature num="01" title="Typography Scale" desc="Rationalized from 18 sizes down to a structured 8-step scale. Each step has a defined role — display, heading, body, label, caption. No more arbitrary sizes." />
-        <Feature num="02" title="Color System" desc="Primary, secondary, and full semantic layer — Success, Warning, Error, Info. All colors verified at WCAG AA. Semantic aliases mean the system can be themed without touching components." />
-        <Feature num="03" title="Spacing Scale" desc="4px base system: 4, 8, 12, 16, 24, 32, 48, 64. Every component and layout uses tokens from this scale. Arbitrary spacing values are a system violation." />
-        <Feature num="04" title="Design Tokens" desc={<>W3C DTCG format. Tokens like <code className="cs-code-token">color.primary.500</code>, <code className="cs-code-token">spacing.md</code>, <code className="cs-code-token">radius.lg</code> allow decisions to scale across products and make future theming trivial.</>} />
-      </Section>
-
-      <Section>
-        <SectionLabel text="Components" />
-        <SectionHeading text="Built for states, not just screenshots." />
-        <BodyText>Components weren't designed in isolation — every one was built with its full state matrix: default, hover, focus, disabled, loading, error, and success where applicable.</BodyText>
-        <DataTable headers={['Component', 'Why it matters for InterviewBuddy']} rows={[['Buttons', 'Primary, Secondary, Ghost, Danger — all states including loading for async interview booking'], ['Inputs', 'Default, focus, error, success states — used across scheduling, profile, and payment forms'], ['Tables', 'Interview history, candidate reports, admin operations — sortable, paginated, density-aware'], ['Status Badges', 'Scheduled, Completed, Missed, Rescheduled, Cancelled — product-specific states baked in'], ['Modals', 'Confirmation, destructive, information — consistent sizing and overlay behavior'], ['Tabs', 'Horizontal and vertical, used across portal navigation and content filtering']]} />
-      </Section>
-
-      <Section>
-        <SectionLabel text="Complex Patterns" />
-        <SectionHeading text="Where system thinking shows up most." />
-        <BodyText>Components are the vocabulary. Patterns are the grammar. These three patterns appear across multiple portals and encode the most important flows in the product.</BodyText>
-        <CardGrid>
-          <Card num="Pattern 01" title="Scheduling Flow" desc="Used across Mock Interviews, Resume Reviews, and Portfolio Reviews. Same slot-selection, confirmation, and rescheduling pattern — different portal, same components." />
-          <Card num="Pattern 02" title="Feedback Report" desc="Powers both AI Review and Expert Review outputs. Structured score display, category breakdowns, and recommendation sections — consistent regardless of feedback source." />
-          <Card num="Pattern 03" title="Payment Flow" desc="Candidate and Admin portal share the same payment pattern. Plan selection, order summary, confirmation — one pattern, two contexts." />
-        </CardGrid>
-      </Section>
-
-      <Section>
-        <SectionLabel text="Designer-Developer Collaboration" />
-        <SectionHeading text="The system only works if engineers can use it." />
-        <BodyText>The Figma file is structured into four layers: Foundations → Components → Patterns → Templates. Naming conventions mirror what engineers see in code. Token names are identical between Figma and implementation — no translation layer, no misalignment.</BodyText>
-        <Callout text="Accessibility wasn't treated as a final QA step. It was embedded into component creation from day one — contrast ratios verified, focus states designed, keyboard navigation documented alongside every component spec." />
-      </Section>
-
-      <Section last>
-        <SectionLabel text="Impact" />
-        <SectionHeading text="What changed after the system shipped." />
-        <OutcomeGrid items={[{ val: '↓40%', label: 'Design time per new screen' }, { val: '↓70%', label: 'UI inconsistencies flagged in QA' }, { val: '2×', label: 'Faster new screen creation' }]} />
-        <BodyText>Developer clarifications dropped significantly. New designers onboarded faster. And for the first time, a design decision made in one portal automatically applied to the others — because they were all reading from the same token layer.</BodyText>
-      </Section>
-    </>
-
-    /* ──────────────── IB AI ──────────────── */
-    if (localCaseKey === 'ibai') return <>
-      <Hero c={{ title: 'InterviewBuddy AI', subtitle: 'Designing a Conversational Commerce Experience for Career Growth — not a chatbot, but an AI-powered conversion engine that helps users discover the right career service and take action.', eyebrow: 'InterviewBuddy · AI Product · 2024–Present', meta: { Role: 'Product Designer', Platform: 'Mobile App (iOS + Android)', Type: '0→1 Product · MVP', Status: 'Under Development' }, tags: ['Conversational AI', 'Mobile UX', '0→1 Product', 'RAG Architecture', 'Conversion Design', 'AI Flows'], isMVP: true }} />
-
-      <NDACallout />
-
-      <Section>
-        <SectionLabel text="The Real Problem" />
-        <SectionHeading text="Users think in problems, not products." />
-        <BodyText>InterviewBuddy offers AI Mock Interviews, Expert Mock Interviews, Resume Reviews, Skill Assessments, and Portfolio Reviews. But users arriving at the platform often couldn't answer one simple question: what should I do next? The result: decision paralysis, lower conversion, and users leaving without taking action.</BodyText>
-        <Callout text={"\"I have an interview next week.\" · \"Can someone check my resume?\" · \"I don't know if I'm ready.\" — Users think in problems. Traditional navigation assumes they know what they want."} />
-      </Section>
-
-      <Section>
-        <SectionLabel text="Key Decisions" />
-        <SectionHeading text="Four critical design decisions that shaped the experience." />
-        <div className="decisions-multi-grid">
-          <div className="decision-card">
-            <SectionLabel text="Decision 01" />
-            <div className="decision-grid">
-              <div>
-                <SectionHeading text="Why conversational AI instead of traditional navigation?" />
-                <BodyText>Traditional navigation assumes users know what they're looking for. Our users don't — they arrive with problems, not product names. A conversational AI approach translates user problems into relevant services by understanding intent, asking follow-up questions, and recommending the right service.</BodyText>
-                <Callout text="Outcome: Reduced cognitive load and simplified product discovery. Users no longer need to understand our product taxonomy — they just describe their situation." />
-              </div>
-              <div className="decision-img">
-                <PhoneFrame src="/ib-ai-screen-1.webp" alt="Home screen — Discovery" caption="Home · Discovery" />
-              </div>
-            </div>
-          </div>
-
-          <div className="decision-card">
-            <SectionLabel text="Decision 02" />
-            <div className="decision-grid">
-              <div>
-                <SectionHeading text="We didn't go with a regular chat." />
-                <BodyText>Open-ended chat creates uncertainty. Users don't know what to ask, ask incomplete questions, and get lost in long conversations. We designed a guided conversational framework — the AI asks one question at a time while presenting relevant options and always allowing custom responses.</BodyText>
-                <Callout text="Design Principle: Freedom where it matters, structure where it helps. The experience feels conversational without becoming an unstructured chatbot." />
-              </div>
-              <div className="decision-img">
-                <PhoneFrame src="/ib-ai-screen-2.webp" alt="Intent capture" caption="Intent capture" />
-              </div>
-            </div>
-          </div>
-
-          <div className="decision-card">
-            <SectionLabel text="Decision 03" />
-            <div className="decision-grid">
-              <div>
-                <SectionHeading text="One question at a time — no chat history." />
-                <BodyText>Users weren't coming for ongoing conversations. They came to accomplish a task. Persistent chat history introduces cognitive overload, irrelevant context, and longer recovery times. We designed the experience around current intent rather than persistent threads.</BodyText>
-                <Callout text="Design Principle: Users care about progress, not conversation logs. Faster task completion, reduced interface complexity." />
-              </div>
-              <div className="decision-img">
-                <PhoneFrame src="/ib-ai-screen-3.webp" alt="Context qualification" caption="Context qualification" />
-              </div>
-            </div>
-          </div>
-
-          <div className="decision-card">
-            <SectionLabel text="Decision 04" />
-            <div className="decision-grid">
-              <div>
-                <SectionHeading text="Why add instant AI interviews inside the app?" />
-                <BodyText>A user is unlikely to install an app whose sole purpose is helping them decide what to purchase. We introduced Instant AI Interviews directly inside the app — giving users immediate value and creating a high-frequency utility.</BodyText>
-                <Callout text="Strategic shift: The app evolved from a sales channel to a career preparation companion. Higher downloads, session frequency, retention, and upsell opportunities." />
-              </div>
-              <div className="decision-img">
-                <PhoneFrame src="/ib-ai-screen-4.webp" alt="AI Interview in session" caption="AI Interview · In session" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      <Section>
-        <SectionLabel text="State Machine" />
-        <SectionHeading text="Designed as a state machine, not random prompts." />
-        <BodyText>The conversation was designed with deliberate states — each one with a defined purpose, transition condition, and business outcome. This is what separates a product-grade AI experience from a demo.</BodyText>
-        <CardGrid>
-          <Card num="State 01" title="Idle / Discovery" desc="Entry point. AI surfaces a warm prompt based on user profile or time of day. Goal: initiate intent capture without pressure." />
-          <Card num="State 02" title="Intent Capture" desc="One-question-at-a-time qualification. AI identifies the user's core goal — interview prep, skill gap, resume review, or general readiness." />
-          <Card num="State 03" title="Context Qualification" desc="Gathers timeline, role, experience level. Each answer refines the recommendation. RAG-based prompt orchestration ensures personalization." />
-          <Card num="State 04" title="Value Framing" desc="AI presents the recommended service with a clear value proposition tied to the user's specific situation — not a generic product description." />
-          <Card num="State 05" title="Payment Prompt" desc="Seamless handoff to purchase. Friction minimized. Context from the conversation carries into the booking flow." />
-          <Card num="Support" title="Upsell / Recovery" desc="Supporting states for upsell opportunities, payment recovery, and re-engagement — each designed to feel helpful, not pushy." />
-        </CardGrid>
-      </Section>
-
-      <Section>
-        <SectionLabel text="Outcomes" />
-        <SectionHeading text="What this unlocks for the business." />
-        <div className="cs-outcome-clean">
-          <div>
-            <div className="cs-outcome-clean-val">0→1</div>
-            <div className="cs-outcome-clean-label">MVP — currently in development</div>
-          </div>
-          <div>
-            <div className="cs-outcome-clean-val">5</div>
-            <div className="cs-outcome-clean-label">5-state system — every state has a defined transition and business outcome</div>
-          </div>
-          <div>
-            <div className="cs-outcome-clean-val">↑</div>
-            <div className="cs-outcome-clean-label">Instant AI Interviews added as in-app utility — the bet that converts a one-time sales tool into a repeat-use habit</div>
-          </div>
-        </div>
-      </Section>
-
-      <Section last>
-        <SectionLabel text="Reflection" />
-        <SectionHeading text="Beyond screen design." />
-        <div className="cs-callout">
-          <p className="cs-callout-bold">
-            This project challenged me to think beyond screen design and design an AI-driven decision-making system.
-          </p>
-          <p className="cs-callout-text-mid">
-            Rather than creating another chatbot, I designed a conversational commerce experience that balances user goals, business objectives, and AI capabilities. The result was a scalable framework capable of guiding users from uncertainty to action — while creating meaningful opportunities for engagement, retention, and revenue growth.
-          </p>
-        </div>
       </Section>
     </>
 
