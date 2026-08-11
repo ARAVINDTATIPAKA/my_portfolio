@@ -1118,6 +1118,118 @@ button {
   line-height: 1.4;
 }
 
+/* ── Token architecture diagram (IB Design System case study) ── */
+.cs-token-diagram {
+  margin: 24px 0;
+  padding: 28px 24px 22px;
+  background: #FBFAFF;
+  border: 1px solid rgba(104, 52, 255, 0.18);
+  border-radius: 16px;
+}
+
+.cs-token-diagram-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cs-token-tier-box {
+  flex: 1;
+  min-width: 148px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid rgba(104, 52, 255, 0.22);
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.cs-token-tier-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8B5CF6;
+}
+
+.cs-token-tier-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: #1C1917;
+}
+
+.cs-token-tier-example {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #6B6070;
+}
+
+.cs-token-arrow {
+  display: flex;
+  align-items: center;
+  color: rgba(104, 52, 255, 0.45);
+  font-size: 16px;
+  padding: 0 2px;
+  flex-shrink: 0;
+}
+
+.cs-token-mode-row {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.cs-token-mode-chip {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.04em;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: rgba(104, 52, 255, 0.1);
+  border: 1px solid rgba(104, 52, 255, 0.25);
+  color: #6834FF;
+  white-space: nowrap;
+}
+
+.cs-token-mode-chip-lime {
+  background: rgba(190, 255, 64, 0.22);
+  border-color: rgba(150, 210, 20, 0.45);
+  color: #4C6B00;
+}
+
+.cs-token-mode-chip-dark {
+  background: rgba(28, 25, 23, 0.08);
+  border-color: rgba(28, 25, 23, 0.25);
+  color: #1C1917;
+}
+
+.cs-token-diagram-caption {
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.03em;
+  color: #6B6070;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .cs-token-diagram-flow {
+    flex-direction: column;
+  }
+  .cs-token-arrow {
+    transform: rotate(90deg);
+    align-self: center;
+  }
+}
+
 .tl-scroll-wrapper {
   grid-column: 1 / 13;
   width: auto;
