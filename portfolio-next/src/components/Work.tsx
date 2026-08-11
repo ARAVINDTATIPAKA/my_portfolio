@@ -136,12 +136,12 @@ export default function Work({ onOpenCase }: WorkProps) {
         {/* Stacking track */}
         <div className="work-grid">
           {visibleProjects.map((p, i) => (
-            <div key={p.id} className="work-stack-item">
-              <div
-                style={{ '--stack-i': i } as React.CSSProperties}
-                className="work-stack-card"
-              >
-                <motion.div
+            <div
+              key={p.id}
+              style={{ '--stack-i': i } as React.CSSProperties}
+              className="work-stack-card"
+            >
+              <motion.div
                   initial={{ opacity: 0, y: 60, scale: 0.96 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, margin: '-120px' }}
@@ -189,8 +189,7 @@ export default function Work({ onOpenCase }: WorkProps) {
                       ))}
                     </div>
                   )}
-                </motion.div>
-              </div>
+              </motion.div>
             </div>
           ))}
         </div>
