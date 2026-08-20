@@ -3407,6 +3407,37 @@ button {
   display: block;
 }
 
+/* ── Hero particle image ── */
+.hero-image-float {
+  width: 100%;
+}
+
+/* .hero-image-container sets pointer-events:none, so re-enable it here
+   for the cursor-driven reveal to receive events. */
+.hero-particle-wrap {
+  position: relative;
+  width: 100%;
+  pointer-events: auto;
+}
+
+.hero-particle-img {
+  width: 100%;
+  height: auto;
+  max-height: calc(85vh - 144px);
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  transition: opacity 0.5s ease;
+}
+
+.hero-particle-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
 @media (max-width: 1024px) {
   .hero-image-container {
     display: none;
