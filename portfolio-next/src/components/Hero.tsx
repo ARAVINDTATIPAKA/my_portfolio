@@ -2,6 +2,7 @@
 
 import { useTheme } from '@/lib/ThemeContext'
 import { motion } from 'framer-motion'
+import ParticleImage from '@/components/ParticleImage'
 
 const EASE_OUT = [0.22, 1, 0.36, 1] as const
 const EASE_SPRING = [0.34, 1.56, 0.64, 1] as const
@@ -140,12 +141,10 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Hero image — scale + float */}
+        {/* Hero image — particle silhouette, reveals photo on hover */}
         <div className="hero-image-container">
-          <motion.img
-            src={`${basePath}/meditating_me2.png`}
-            alt="Aravind Tatipaka"
-            style={{ display: 'block' }}
+          <motion.div
+            className="hero-image-float"
             initial={{ opacity: 0, scale: 0.88, y: 32 }}
             animate={{ opacity: 1, scale: 1, y: [0, -16, 0] }}
             transition={{
@@ -153,7 +152,13 @@ export default function Hero() {
               scale: { duration: 0.9, delay: 0.2, ease: EASE_SPRING },
               y: { duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 },
             }}
-          />
+          >
+            <ParticleImage
+              src={`${basePath}/meditating_me2.png`}
+              alt="Aravind Tatipaka"
+              accent={accent}
+            />
+          </motion.div>
         </div>
       </div>
     </section>
