@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useTheme } from '@/lib/ThemeContext'
 
 export default function Nav() {
-  const { theme } = useTheme()
+  const { theme, setTheme } = useTheme()
   const isFunky = theme === 'funky'
   const [scrolled, setScrolled] = useState(false)
 
@@ -59,6 +59,70 @@ export default function Nav() {
 
       {/* Right */}
       <div style={{ display:'flex', alignItems:'center', gap:12 }}>
+        {/* Theme toggle */}
+        <div
+          role="group"
+          aria-label="Colour theme"
+          style={{
+            position:'relative', display:'flex', alignItems:'center',
+            padding:3, borderRadius:999,
+            background: isFunky ? 'rgba(255,255,255,0.05)' : '#F5F2FC',
+            border:`1px solid ${isFunky ? 'rgba(68,64,60,0.9)' : '#E8E3F4'}`,
+          }}
+        >
+          {/* Sliding thumb */}
+          <span
+            aria-hidden="true"
+            style={{
+              position:'absolute', top:3, left: isFunky ? 31 : 3,
+              width:28, height:28, borderRadius:'50%',
+              background: isFunky ? '#E8FF6B' : '#5B5BD6',
+              transition:'left 0.28s cubic-bezier(0.34,1.56,0.64,1)',
+            }}
+          />
+
+          {/* Aurora (light) */}
+          <button
+            onClick={() => setTheme('serious')}
+            aria-label="Aurora theme"
+            aria-pressed={!isFunky}
+            style={{
+              position:'relative', zIndex:1,
+              width:28, height:28, display:'flex',
+              alignItems:'center', justifyContent:'center',
+              border:'none', background:'transparent', cursor:'pointer', padding:0,
+              color: isFunky ? '#78716C' : '#fff',
+              transition:'color 0.2s',
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <circle cx="12" cy="12" r="4.5" />
+              <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4" />
+            </svg>
+          </button>
+
+          {/* Dark */}
+          <button
+            onClick={() => setTheme('funky')}
+            aria-label="Dark theme"
+            aria-pressed={isFunky}
+            style={{
+              position:'relative', zIndex:1,
+              width:28, height:28, display:'flex',
+              alignItems:'center', justifyContent:'center',
+              border:'none', background:'transparent', cursor:'pointer', padding:0,
+              color: isFunky ? '#1C1917' : '#7B75A0',
+              transition:'color 0.2s',
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" />
+            </svg>
+          </button>
+        </div>
+
         {/* CTA */}
         <a href="#contact" style={{
           display:'flex', alignItems:'center', gap:6,
