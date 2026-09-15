@@ -156,7 +156,6 @@ export default function Hero() {
             <ParticleImage
               src={`${basePath}/meditating_me2.png`}
               alt="Aravind Tatipaka"
-              accent={accent}
             />
           </motion.div>
         </div>
