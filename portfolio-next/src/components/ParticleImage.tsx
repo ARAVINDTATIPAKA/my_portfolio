@@ -8,7 +8,7 @@ interface ParticleImageProps {
 }
 
 /** Radius of the cursor area that dissolves into particles, in CSS px. */
-const RADIUS = 130
+const RADIUS = 160
 
 export default function ParticleImage({ src, alt }: ParticleImageProps) {
   const wrapRef = useRef<HTMLDivElement>(null)
@@ -87,7 +87,7 @@ export default function ParticleImage({ src, alt }: ParticleImageProps) {
         return // tainted canvas — bail and keep the plain image
       }
 
-      const step = Math.max(1, Math.round(5 * ss))
+      const step = Math.max(1, Math.round(6 * ss))
       const max = Math.ceil(sc.width / step) * Math.ceil(sc.height / step)
       const hx = new Float32Array(max)
       const hy = new Float32Array(max)
@@ -182,9 +182,9 @@ export default function ParticleImage({ src, alt }: ParticleImageProps) {
         const f = 1 - d / R // 1 at the cursor, 0 at the edge
 
         // Scatter outward, strongest at the centre.
-        const push = f * f * 24 * m.amt
-        const jx = Math.sin(time * 2 + ph[i]) * 2.4 * f
-        const jy = Math.cos(time * 1.7 + ph[i]) * 2.4 * f
+        const push = f * f * 46 * m.amt
+        const jx = Math.sin(time * 2 + ph[i]) * 4 * f
+        const jy = Math.cos(time * 1.7 + ph[i]) * 4 * f
         const px = hx[i] + (dx / d) * push + jx
         const py = hy[i] + (dy / d) * push + jy
 
@@ -193,7 +193,7 @@ export default function ParticleImage({ src, alt }: ParticleImageProps) {
 
         const ci = i * 3
         ctx.fillStyle = `rgba(${col[ci]},${col[ci + 1]},${col[ci + 2]},${a})`
-        ctx.fillRect(px, py, 2.4, 2.4)
+        ctx.fillRect(px, py, 3.2, 3.2)
       }
     }
 
@@ -201,6 +201,14 @@ export default function ParticleImage({ src, alt }: ParticleImageProps) {
       const rect = wrap.getBoundingClientRect()
       const mx = e.clientX - rect.left
       const my = e.clientY - rect.top
+      const inside =
+        mx >= 0 && mx <= rect.width && my >= 0 && my <= rect.height
+
+      if (!inside) {
+        mouse.current.target = 0
+        return
+      }
+
       mouse.current.tx = mx
       mouse.current.ty = my
       // Avoid a long lerp from the off-screen start position on first entry.
@@ -221,16 +229,16 @@ export default function ParticleImage({ src, alt }: ParticleImageProps) {
     if (img.complete) build()
     else img.addEventListener('load', build)
 
-    wrap.addEventListener('pointermove', onMove)
-    wrap.addEventListener('pointerleave', onLeave)
+    window.addEventListener('pointermove', onMove, { passive: true })
+    window.addEventListener('pointerleave', onLeave)
     rafRef.current = requestAnimationFrame(draw)
 
     return () => {
       alive = false
       cancelAnimationFrame(rafRef.current)
       ro.disconnect()
-      wrap.removeEventListener('pointermove', onMove)
-      wrap.removeEventListener('pointerleave', onLeave)
+      window.removeEventListener('pointermove', onMove)
+      window.removeEventListener('pointerleave', onLeave)
       img.removeEventListener('load', build)
     }
   }, [src])
