@@ -17,12 +17,12 @@ export default function About() {
   const { theme } = useTheme()
   const revealRef = useReveal()
   const isFunky = theme === 'funky'
-  const accent = isFunky ? '#E8FF6B' : '#0891B2'
-  const textHi = isFunky ? '#F5F5F4' : '#1C1917'
-  const textMid = isFunky ? '#78716C' : '#57534E'
-  const border = isFunky ? '#44403C' : '#E7E5E4'
-  const sectionBg = isFunky ? '#292524' : '#F5F5F4'
-  const hoverBg = isFunky ? 'rgba(232,255,107,0.04)' : 'rgba(8,145,178,0.03)'
+  const accent = isFunky ? '#E8FF6B' : '#5B5BD6'
+  const textHi = isFunky ? '#F5F5F4' : '#1A1830'
+  const textMid = isFunky ? '#78716C' : '#565273'
+  const border = isFunky ? '#44403C' : '#E8E3F4'
+  const sectionBg = isFunky ? '#292524' : '#F5F2FC'
+  const hoverBg = isFunky ? 'rgba(232,255,107,0.04)' : 'rgba(91,91,214,0.03)'
  
   const Label = ({ text }: { text: string }) => (
     <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase' as const, letterSpacing: '0.15em', color: accent }}>
@@ -77,7 +77,7 @@ export default function About() {
                   transition: 'all 0.2s cubic-bezier(0.34,1.56,0.64,1)',
                   display: 'inline-block',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = accent; e.currentTarget.style.color = accent; e.currentTarget.style.background = isFunky ? 'rgba(232,255,107,0.08)' : 'rgba(8,145,178,0.06)'; e.currentTarget.style.transform = 'scale(1.06)' }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = accent; e.currentTarget.style.color = accent; e.currentTarget.style.background = isFunky ? 'rgba(232,255,107,0.08)' : 'rgba(91,91,214,0.06)'; e.currentTarget.style.transform = 'scale(1.06)' }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = border; e.currentTarget.style.color = textMid; e.currentTarget.style.background = ''; e.currentTarget.style.transform = '' }}
               >
                 {s}

@@ -57,11 +57,11 @@ export default function AIProcess() {
   const { theme } = useTheme()
   const isFunky = theme === 'funky'
 
-  const accent = isFunky ? '#E8FF6B' : '#0891B2'
-  const textHi = isFunky ? '#F5F5F4' : '#1C1917'
-  const textMid = isFunky ? '#78716C' : '#57534E'
-  const border = isFunky ? '#44403C' : '#E7E5E4'
-  const sectionBg = isFunky ? '#292524' : '#F5F5F4'
+  const accent = isFunky ? '#E8FF6B' : '#5B5BD6'
+  const textHi = isFunky ? '#F5F5F4' : '#1A1830'
+  const textMid = isFunky ? '#78716C' : '#565273'
+  const border = isFunky ? '#44403C' : '#E8E3F4'
+  const sectionBg = isFunky ? '#292524' : '#F5F2FC'
 
   return (
     <section

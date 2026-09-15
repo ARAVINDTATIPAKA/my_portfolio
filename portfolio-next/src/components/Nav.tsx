@@ -20,22 +20,22 @@ export default function Nav() {
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       padding: '0 48px', height: 64,
       backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)',
-      background: isFunky ? 'rgba(28,25,23,0.88)' : 'rgba(250,250,249,0.92)',
+      background: isFunky ? 'rgba(28,25,23,0.88)' : 'rgba(251,250,254,0.92)',
       borderBottom: `1px solid ${scrolled
-        ? isFunky ? 'rgba(68,64,60,0.6)' : '#E7E5E4'
+        ? isFunky ? 'rgba(68,64,60,0.6)' : '#E8E3F4'
         : 'transparent'}`,
     }}>
       {/* Logo */}
       <a href="#" style={{ display:'flex', alignItems:'center', gap:8, textDecoration:'none' }}>
         <span style={{
           width:8, height:8, borderRadius:'50%',
-          background: isFunky ? '#E8FF6B' : '#0891B2',
+          background: isFunky ? '#E8FF6B' : '#5B5BD6',
           animation: 'pulseDot 2.5s ease-in-out infinite',
         }} />
         <span style={{
           fontFamily: 'var(--font-display)', fontWeight:700, fontSize:15,
           letterSpacing:'-0.03em',
-          color: isFunky ? '#F5F5F4' : '#1C1917',
+          color: isFunky ? '#F5F5F4' : '#1A1830',
         }}>Aravind Tatipaka</span>
       </a>
 
@@ -46,11 +46,11 @@ export default function Nav() {
           <li key={l}>
             <a href={`#${l.toLowerCase()}`} style={{
               fontFamily:'var(--font-body)', fontSize:13, textDecoration:'none',
-              color: isFunky ? '#78716C' : '#57534E',
+              color: isFunky ? '#78716C' : '#565273',
               transition:'color 0.15s',
             }}
-            onMouseEnter={e => (e.currentTarget.style.color = isFunky ? '#F5F5F4' : '#1C1917')}
-            onMouseLeave={e => (e.currentTarget.style.color = isFunky ? '#78716C' : '#57534E')}>
+            onMouseEnter={e => (e.currentTarget.style.color = isFunky ? '#F5F5F4' : '#1A1830')}
+            onMouseLeave={e => (e.currentTarget.style.color = isFunky ? '#78716C' : '#565273')}>
               {l}
             </a>
           </li>
@@ -65,7 +65,7 @@ export default function Nav() {
           padding:'9px 20px', borderRadius:999,
           fontFamily:'var(--font-display)', fontWeight:700, fontSize:13,
           letterSpacing:'-0.01em', textDecoration:'none',
-          background: isFunky ? '#E8FF6B' : '#0891B2',
+          background: isFunky ? '#E8FF6B' : '#5B5BD6',
           color: isFunky ? '#1C1917' : '#fff',
           transition:'all 0.2s',
         }}>Hire me →</a>

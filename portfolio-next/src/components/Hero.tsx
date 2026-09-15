@@ -10,11 +10,11 @@ const EASE_SPRING = [0.34, 1.56, 0.64, 1] as const
 export default function Hero() {
   const { theme } = useTheme()
   const isFunky = theme === 'funky'
-  const accent = isFunky ? '#E8FF6B' : '#0891B2'
-  const accentDark = isFunky ? '#D4F000' : '#0E7490'
-  const textHi = isFunky ? '#F5F5F4' : '#1C1917'
-  const textMid = isFunky ? '#78716C' : '#57534E'
-  const btnBorder = isFunky ? '#44403C' : '#D6D3D1'
+  const accent = isFunky ? '#E8FF6B' : '#5B5BD6'
+  const accentDark = isFunky ? '#D4F000' : '#4A47C4'
+  const textHi = isFunky ? '#F5F5F4' : '#1A1830'
+  const textMid = isFunky ? '#78716C' : '#565273'
+  const btnBorder = isFunky ? '#44403C' : '#D4CDE9'
 
   const isProd = process.env.NODE_ENV === 'production'
   const basePath = isProd ? '/my_portfolio' : ''
@@ -31,7 +31,7 @@ export default function Hero() {
         width: 600, height: 600, borderRadius: '50%', pointerEvents: 'none',
         background: isFunky
           ? 'radial-gradient(circle,rgba(232,255,107,0.05) 0%,transparent 65%)'
-          : 'radial-gradient(circle,rgba(8,145,178,0.06) 0%,transparent 65%)',
+          : 'radial-gradient(circle at 34% 38%,rgba(232,93,159,0.13) 0%,transparent 60%),radial-gradient(circle at 68% 64%,rgba(91,140,240,0.13) 0%,transparent 62%)',
         animation: 'drift 8s ease-in-out infinite',
       }} />
 
@@ -134,7 +134,7 @@ export default function Hero() {
               background: 'transparent', color: textMid,
               border: `1px solid ${btnBorder}`, transition: 'all 0.2s',
             }}
-              onMouseEnter={e => { e.currentTarget.style.color = textHi; e.currentTarget.style.borderColor = isFunky ? '#78716C' : '#A8A29E'; e.currentTarget.style.transform = 'scale(1.04)' }}
+              onMouseEnter={e => { e.currentTarget.style.color = textHi; e.currentTarget.style.borderColor = isFunky ? '#78716C' : '#7B75A0'; e.currentTarget.style.transform = 'scale(1.04)' }}
               onMouseLeave={e => { e.currentTarget.style.color = textMid; e.currentTarget.style.borderColor = btnBorder; e.currentTarget.style.transform = '' }}>
               Get in touch
             </a>

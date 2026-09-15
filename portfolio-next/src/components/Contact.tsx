@@ -12,14 +12,14 @@ export default function Contact() {
   const { theme } = useTheme()
   const revealRef = useReveal()
   const isFunky = theme === 'funky'
-  const accent = isFunky ? '#E8FF6B' : '#0891B2'
-  const accentDark = isFunky ? '#D4F000' : '#0E7490'
-  const textHi = isFunky ? '#F5F5F4' : '#1C1917'
-  const textMid = isFunky ? '#78716C' : '#57534E'
-  const textLo = isFunky ? '#57534E' : '#A8A29E'
-  const sectionBg = isFunky ? '#292524' : '#F5F5F4'
-  const border = isFunky ? '#44403C' : '#E7E5E4'
-  const ghostBorder = isFunky ? '#44403C' : '#D6D3D1'
+  const accent = isFunky ? '#E8FF6B' : '#5B5BD6'
+  const accentDark = isFunky ? '#D4F000' : '#4A47C4'
+  const textHi = isFunky ? '#F5F5F4' : '#1A1830'
+  const textMid = isFunky ? '#78716C' : '#565273'
+  const textLo = isFunky ? '#57534E' : '#7B75A0'
+  const sectionBg = isFunky ? '#292524' : '#F5F2FC'
+  const border = isFunky ? '#44403C' : '#E8E3F4'
+  const ghostBorder = isFunky ? '#44403C' : '#D4CDE9'
 
   const footerRef = useRef<HTMLElement>(null)
   // Layer 2 — bright stroke, revealed only near cursor via CSS mask
@@ -141,7 +141,7 @@ export default function Contact() {
                   textDecoration: 'none', background: 'transparent', color: textMid,
                   border: `1px solid ${ghostBorder}`, transition: 'all 0.2s',
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.color = textHi; e.currentTarget.style.borderColor = isFunky ? '#78716C' : '#A8A29E'; e.currentTarget.style.transform = 'scale(1.04)' }}
+                  onMouseEnter={e => { e.currentTarget.style.color = textHi; e.currentTarget.style.borderColor = isFunky ? '#78716C' : '#7B75A0'; e.currentTarget.style.transform = 'scale(1.04)' }}
                   onMouseLeave={e => { e.currentTarget.style.color = textMid; e.currentTarget.style.borderColor = ghostBorder; e.currentTarget.style.transform = '' }}>
                   Download Resume
                 </a>
@@ -168,7 +168,7 @@ export default function Contact() {
       {/* Footer */}
       <footer
         ref={footerRef}
-        style={{ borderTop: `1px solid ${isFunky ? '#44403C' : '#E7E5E4'}`, overflow: 'hidden' }}
+        style={{ borderTop: `1px solid ${isFunky ? '#44403C' : '#E8E3F4'}`, overflow: 'hidden' }}
       >
         {/* Ghost name — centered, cursor-glow stroke */}
         <div className="contact-ghost-wrap" style={{ position: 'relative', textAlign: 'center', overflow: 'hidden' }}>
@@ -177,7 +177,7 @@ export default function Contact() {
             ...ghostBase,
             WebkitTextStroke: isFunky
               ? '1px rgba(232,255,107,0.07)'
-              : '1px rgba(8,145,178,0.06)',
+              : '1px rgba(91,91,214,0.06)',
           }}>
             ARAVIND TATIPAKA
           </div>
