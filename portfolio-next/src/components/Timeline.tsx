@@ -104,9 +104,9 @@ export default function Timeline() {
   const { theme } = useTheme()
   const isFunky = theme === 'funky'
 
-  const accent = isFunky ? '#E8FF6B' : '#0891B2'
-  const textHi = isFunky ? '#F5F5F4' : '#1C1917'
-  const textLo = isFunky ? '#aaaaaa' : '#57534E'
+  const accent = isFunky ? '#E8FF6B' : '#5B5BD6'
+  const textHi = isFunky ? '#F5F5F4' : '#1A1830'
+  const textLo = isFunky ? '#aaaaaa' : '#565273'
 
   // Drag-to-scroll implementation
   const trackRef = useRef<HTMLDivElement>(null)

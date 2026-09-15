@@ -9,12 +9,12 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  theme: 'funky',
+  theme: 'serious',
   setTheme: () => {},
 })
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('funky')
+  const [theme, setThemeState] = useState<Theme>('serious')
 
   useEffect(() => {
     const saved = localStorage.getItem('portfolio-theme') as Theme

@@ -14,9 +14,9 @@ export function Marquee() {
   return (
     <div style={{
       overflow:'hidden', padding:'16px 0',
-      borderTop: `1px solid ${isFunky ? '#44403C' : '#E7E5E4'}`,
-      borderBottom: `1px solid ${isFunky ? '#44403C' : '#E7E5E4'}`,
-      background: isFunky ? '#292524' : '#F5F5F4',
+      borderTop: `1px solid ${isFunky ? '#44403C' : '#E8E3F4'}`,
+      borderBottom: `1px solid ${isFunky ? '#44403C' : '#E8E3F4'}`,
+      background: isFunky ? '#292524' : '#F5F2FC',
     }}>
       <div style={{
         display:'flex', gap:48, whiteSpace:'nowrap',
@@ -27,10 +27,10 @@ export function Marquee() {
             display:'flex', alignItems:'center', gap:16, flexShrink:0,
             fontFamily:'var(--font-display)', fontSize:12, fontWeight:500,
             letterSpacing:'-0.01em',
-            color: isFunky ? '#57534E' : '#A8A29E',
+            color: isFunky ? '#57534E' : '#7B75A0',
           }}>
             {s}
-            <span style={{ color: isFunky ? '#E8FF6B' : '#0891B2', fontWeight:700 }}>✦</span>
+            <span style={{ color: isFunky ? '#E8FF6B' : '#5B5BD6', fontWeight:700 }}>✦</span>
           </span>
         ))}
       </div>

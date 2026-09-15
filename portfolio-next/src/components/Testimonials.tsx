@@ -20,16 +20,16 @@ export default function Testimonials() {
   const { theme } = useTheme()
   const isFunky = theme === 'funky'
 
-  const accent        = isFunky ? '#E8FF6B' : '#0891B2'
-  const accentMuted   = isFunky ? 'rgba(232,255,107,0.08)' : 'rgba(8,145,178,0.08)'
-  const accentBorder  = isFunky ? 'rgba(232,255,107,0.18)' : 'rgba(8,145,178,0.18)'
-  const textHi        = isFunky ? '#F5F5F4' : '#1C1917'
-  const textMid       = isFunky ? '#A8A29E' : '#57534E'
-  const textLo        = isFunky ? '#78716C' : '#A8A29E'
-  const sectionBg     = isFunky ? '#1C1917' : '#FAFAF9'
+  const accent        = isFunky ? '#E8FF6B' : '#5B5BD6'
+  const accentMuted   = isFunky ? 'rgba(232,255,107,0.08)' : 'rgba(91,91,214,0.08)'
+  const accentBorder  = isFunky ? 'rgba(232,255,107,0.18)' : 'rgba(91,91,214,0.18)'
+  const textHi        = isFunky ? '#F5F5F4' : '#1A1830'
+  const textMid       = isFunky ? '#A8A29E' : '#565273'
+  const textLo        = isFunky ? '#78716C' : '#7B75A0'
+  const sectionBg     = isFunky ? '#1C1917' : '#FBFAFE'
   const cardBg        = isFunky ? '#292524' : '#FFFFFF'
-  const cardBorder    = isFunky ? '#44403C' : '#E7E5E4'
-  const divider       = isFunky ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)'
+  const cardBorder    = isFunky ? '#44403C' : '#E8E3F4'
+  const divider       = isFunky ? 'rgba(255,255,255,0.06)' : 'rgba(26,24,48,0.08)'
 
   return (
     <section
@@ -90,7 +90,7 @@ export default function Testimonials() {
                 el.style.transform = 'translateY(-3px)'
                 el.style.boxShadow = isFunky
                   ? '0 20px 60px rgba(0,0,0,0.35)'
-                  : '0 12px 40px rgba(0,0,0,0.08)'
+                  : '0 12px 40px rgba(91,91,214,0.12)'
               }}
               onMouseLeave={e => {
                 const el = e.currentTarget as HTMLDivElement
